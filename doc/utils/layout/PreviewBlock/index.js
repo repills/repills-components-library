@@ -1,10 +1,14 @@
 import React from 'react';
-import { XS, query } from '../../../../../../Downloads/repills-components-library-master/lib/config/breakpoints';
+import { XS, query } from '../../../../lib/config/breakpoints';
+import styled from 'styled-components';
+import { base } from './style';
 
-// @TODO: style
 // @TODO: optional parameter
 // @TODO: add set height panel (with scroll)
 // @TODO: proptypes
+// @TODO: dark / ligth background switch
+
+const BaseStyle = styled.div`${base}`;
 
 class PreviewBlock extends React.Component {
 
@@ -24,7 +28,7 @@ class PreviewBlock extends React.Component {
     const { currentBreakpoint } = this.state;
 
     return (
-      <div style={{ textAlign: 'center' }}>
+      <BaseStyle style={{ textAlign: 'center' }}>
         <div>
           <select
             onChange={this.handleChangeBreakpoint}
@@ -51,7 +55,7 @@ class PreviewBlock extends React.Component {
             {children}
           </div>
         </div>
-      </div>
+      </BaseStyle>
     );
   }
 }
