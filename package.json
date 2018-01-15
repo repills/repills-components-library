@@ -1,0 +1,44 @@
+{
+  "name": "components-library",
+  "version": "0.0.0",
+  "author": "Andrea Mangano <andreaman87@gmail.com>",
+  "repository": "https://github.com/repills/components-library.git",
+  "main": "lib/components/index.js",
+  "scripts": {
+    "svgs": "svg-sprite --symbol=true --symbol-dest='static/images' --symbol-sprite='sprite.svg' 'lib/icons/*.svg'",
+    "start": "yarn run svgs && start-storybook -s ./static -p 8000",
+    "build": "babel src -d lib",
+    "build-doc": "build-storybook -c .storybook -o .doc-build"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "faker": "^4.1.0",
+    "moment": "^2.20.1",
+    "path": "^0.12.7",
+    "polished": "^1.9.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-container-query": "^0.10.0",
+    "react-dom": "^16.2.0",
+    "react-element-to-jsx-string": "^13.1.0",
+    "repills-config": "git+https://github.com/repills/repills-config.git#1.1.0",
+    "styled-components": "^2.4.0",
+    "styled-components-grid": "^1.0.0-preview.15"
+  },
+  "devDependencies": {
+    "@storybook/addon-knobs": "^3.3.8",
+    "@storybook/addon-options": "^3.3.9",
+    "@storybook/react": "^3.3.8",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.15.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
+    "eslint-watch": "^3.1.3",
+    "svg-sprite": "^1.3.7"
+  }
+}
