@@ -24,7 +24,7 @@ export default (sectionTitle, sectionDescription) => () => {
         color={selectedType.color}
         component={TypePreview}
         count={number('Count', 10)}
-        icon={type}
+        icon={type.charAt(0).toUpperCase() + type.slice(1)}
         label={selectedType.label}
       />
     </SectionPage>

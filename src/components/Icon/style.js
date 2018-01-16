@@ -3,9 +3,9 @@ import { css } from 'styled-components';
 export const base = css`
   display: block;
   line-height: 0;
+  font-size: ${props => props.size}px;
   
   & > svg {
-    fill: currentColor;
     height: 1em;
     width: 1em;
   }

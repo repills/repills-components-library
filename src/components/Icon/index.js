@@ -1,23 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { string } from 'prop-types';
 import { base } from './style';
 
 const BaseStyle = styled.div`${base}`;
 
-function Icon({ name }) {
+const Icon = ({
+  children,
+  color,
+  size
+}) => {
   return (
-    <BaseStyle>
-      <svg viewBox='0 0 100 100'>
-        <use xlinkHref={`images/sprite.svg#icons_${name}`} />
+    <BaseStyle
+      color={color}
+      size={size}
+    >
+      <svg
+        version="1.1"
+        viewBox="0 0 100 100"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+      >
+        {children}
       </svg>
     </BaseStyle>
   );
-}
+};
 
 Icon.propTypes = {
-  name: string.isRequired
+  children: PropTypes.node,
+  color: PropTypes.string,
+  size: PropTypes.number
 };
 
 export default Icon;
-

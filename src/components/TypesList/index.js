@@ -29,7 +29,7 @@ function TypesList({ types }) {
                       <TypePreview
                         color={type.color}
                         count={type.resources.length}
-                        icon={typeId}
+                        icon={typeId.charAt(0).toUpperCase() + typeId.slice(1)}
                         label={type.label}
                       />
                     </ItemStyle>

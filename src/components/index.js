@@ -1,4 +1,4 @@
-export { default as Icon } from './Icon';
+export * from './Icon/icons/types';
 export { default as Button } from './Button';
 export { default as TypePreview } from './TypePreview';
 export { default as TypesList } from './TypesList';

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { PillIcon } from '../Icon/icons/basic';
 import { string } from 'prop-types';
 import { base, frame, counter, total, totalLabel, bottom, title, composition } from './style';
 import { getResourcesStats } from '../../utils/index';
@@ -31,12 +32,10 @@ function TopicPreview({ title, resources }) {
         <BottomStyle>
           <CompositionStyle>
             { stats.map(stat => (
-              <span
+              <PillIcon
+                color={stat.color}
                 key={stat.type}
-                style={{ color: stat.color }}
-              >
-                <Icon name="pill" />
-              </span>
+              />
             ))}
           </CompositionStyle>
           <TitleStyle>{title}</TitleStyle>
