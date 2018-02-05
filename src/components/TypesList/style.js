@@ -1,31 +1,45 @@
 import { css } from 'styled-components';
-import { grid } from 'styled-components-grid';
-import { SM, MD, LG, XL } from '../../config/breakpoints';
+import { rem, rgba } from 'polished';
+import { SM, LG, XL } from '../../config/breakpoints';
+import theme from '../../config/theme';
+
+const { basic } = theme.palettes;
 
 export const base = css`
   box-sizing: border-box;
+  position: relative;
+  
+  &::after {
+    content: '';
+    width: ${rem('35px')};
+    background-color: red;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background: linear-gradient(to right, ${rgba(basic.primaryHighest, 0)}, ${rgba(basic.primaryHighest, .8)});
+  }
+`;
+
+export const itemsWrapper = css`
+  overflow-y: scroll;
 `;
 
 export const items = css`
-  ${grid()}
+  display: flex;
+  flex-wrap: nowrap;
 `;
 
 export const item = css`
-  ${grid.unit({ width: 1/2 })}
+  flex: 1 0 94px;
   
   &.${SM} {
-    ${grid.unit({ width: 1/3 })}
-  }
-  
-  &.${MD} {
-    ${grid.unit({ width: 1/4 })}
+    flex-basis: 120px;
   }
   
   &.${LG} {
-    ${grid.unit({ width: 1/6 })}
   }
   
   &.${XL} {
-    ${grid.unit({ width: 1/8 })}
   }
 `;

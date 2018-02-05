@@ -1,42 +1,47 @@
 import React from 'react';
 import TypePreview from '../TypePreview';
 import cx from 'classnames';
-import { object } from 'prop-types';
+import { object, func } from 'prop-types';
 import styled from 'styled-components';
 import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
-import { base, items, item } from './style';
+import { base, items, item, itemsWrapper } from './style';
 
 const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
+const ItemsWrapperStyle = styled.div`${itemsWrapper}`;
 const ItemStyle = styled.div`${item}`;
 
-function TypesList({ types }) {
+function TypesList({ types, navigateTo }) {
   return (
     <ContainerQuery query={query}>
       {
         params => (
-          <BaseStyle>
-            <ItemsStyle>
-              {
-                Object.keys(types).map(typeId => {
-                  const type = types[typeId];
-                  return (
-                    <ItemStyle
-                      className={cx(params)}
-                      key={typeId}
-                    >
-                      <TypePreview
-                        color={type.color}
-                        count={type.resources.length}
-                        icon={typeId.charAt(0).toUpperCase() + typeId.slice(1)}
-                        label={type.label}
-                      />
-                    </ItemStyle>
-                  );
-                })
-              }
-            </ItemsStyle>
+          <BaseStyle className={cx(params)}>
+            <ItemsWrapperStyle>
+              <ItemsStyle>
+                {
+                  Object.keys(types).map(typeId => {
+                    const type = types[typeId];
+                    return (
+                      <ItemStyle
+                        className={cx(params)}
+                        key={typeId}
+                      >
+                        <TypePreview
+                          color={type.color}
+                          count={type.resources.length}
+                          icon={typeId.charAt(0).toUpperCase() + typeId.slice(1)}
+                          id={type.id}
+                          label={type.label}
+                          navigateTo={navigateTo}
+                        />
+                      </ItemStyle>
+                    );
+                  })
+                }
+              </ItemsStyle>
+            </ItemsWrapperStyle>
           </BaseStyle>
         )}
     </ContainerQuery>
@@ -45,6 +50,7 @@ function TypesList({ types }) {
 
 
 TypesList.propTypes = {
+  navigateTo: func,
   types: object
 };
 
