@@ -1,7 +1,8 @@
 import { css } from 'styled-components';
-import { darken } from 'polished';
+import { darken, rem } from 'polished';
 import theme from '../../config/theme';
 import { H4Style } from '../../shared/styles/typography';
+import { XS } from '../../config/breakpoints';
 
 const { basic, neutral } = theme.palettes;
 
@@ -24,11 +25,15 @@ export const base = css`
 `;
 
 export const icon = css`
-  font-size: 62px;
+  font-size: ${rem('50px')};
   margin: 0 auto;
   line-height: 0;
   color: ${basic.primaryHighest}; 
   opacity: .75;
+  
+  &.${XS} {
+    font-size: ${rem('62px')};
+  }
 `;
 
 export const text = css`
