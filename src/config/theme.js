@@ -1,19 +1,17 @@
-import { darken } from 'polished';
+import palettes from './palettes';
+
+const _palettes = Object.keys(palettes).reduce((acc, key) =>{
+  acc[key] = palettes[key].colors.reduce((colors, color) => {
+    colors[color.id] = color.value;
+    return colors;
+  }, {});
+  return acc;
+}, {});
+
 import { query } from './breakpoints';
-const primary = '#7a08fa';
 
 export default {
-  palettes: {
-    basic: {
-      primary,
-      primaryHighest: darken(0.4, primary),
-      secondary: '#ffdc2e'
-    },
-    neutral: {
-      lowest: '#fff',
-      highest: '#000'
-    },
-    mood: {}
-  },
-  breakpoints: query
+  palettes: _palettes,
+  breakpoints: query,
+  remBase: 16
 };

@@ -3,8 +3,9 @@ import { setOptions } from '@storybook/addon-options';
 
 // Option defaults:
 setOptions({
-  name: 'DAB Components',
+  name: 'Repills Components',
   addonPanelInRight: true,
+  sortStoriesByKind: true
 });
 
 function loadStories() {
