@@ -1,10 +1,10 @@
 import React from 'react';
-import { createSection } from '../../utils/stories';
+import { createSection } from '../../utils/index';
 import { text, boolean, select } from '@storybook/addon-knobs/react';
-import { SectionPage, InteractiveExample } from '../../utils/layout';
+import { SectionPage, InteractiveExample } from '../../components';
 import { Button } from '../../../src/components';
 
-const sectionTitle = 'Buttons';
+const sectionTitle = '4. Buttons';
 const sectionDescription = 'Description will be here.';
 const section = createSection({ title: sectionTitle });
 

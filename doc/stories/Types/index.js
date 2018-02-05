@@ -1,8 +1,8 @@
-import { createSection } from '../../utils/stories/index';
+import { createSection } from '../../utils/index';
 import previewPage from './preview';
 import listPage from './list';
 
-const sectionTitle = 'Types';
+const sectionTitle = '5. Types';
 const sectionDescription = 'Description will be here.';
 const section = createSection({ title: sectionTitle });
 

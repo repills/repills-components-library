@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionPage, InteractiveExample } from '../../utils/layout';
+import { SectionPage, InteractiveExample } from '../../components';
 import { TypesList } from '../../../src/components';
 import { types } from 'repills-config';
 
@@ -12,6 +12,9 @@ const data = filteredTypes.reduce((acc, key) => {
 }, {});
 
 export default (sectionTitle, sectionDescription) => () => {
+
+  const navigateTo = path => alert(`Navigate to ${path}`);
+
   return (
     <SectionPage
       description={sectionDescription}
@@ -19,9 +22,9 @@ export default (sectionTitle, sectionDescription) => () => {
     >
       <InteractiveExample
         component={TypesList}
+        navigateTo={navigateTo}
         types={data}
       />
     </SectionPage>
   );
 };
-

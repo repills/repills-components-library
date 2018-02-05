@@ -1,8 +1,8 @@
 import React from 'react';
 import { text, number } from '@storybook/addon-knobs/react';
-import { SectionPage, InteractiveExample } from '../../utils/layout';
+import { SectionPage, InteractiveExample } from '../../components';
 import { TopicPreview } from '../../../src/components';
-import { getRandomTopic } from '../../utils/stories/fixtures';
+import { getRandomTopic } from '../../utils/fixtures';
 
 export default (sectionTitle, sectionDescription) => () => {
 

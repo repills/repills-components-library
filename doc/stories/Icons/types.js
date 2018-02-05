@@ -1,41 +1,58 @@
 import React from 'react';
-import { number, color } from '@storybook/addon-knobs/react';
-import { SectionPage } from '../../utils/layout/index';
-import * as c from '../../../src/components/index';
+import { number, select } from '@storybook/addon-knobs/react';
+import { SectionPage, IconList, InteractiveExample } from '../../components';
 import icons from '../../../src/config/icons';
+import * as Icons from '../../../src/components';
+import palettes from '../../../src/config/palettes';
+import theme from '../../../src/config/theme';
+
+const iconsOptions = icons.types.reduce((options, config) => {
+  options[config.id] = config.name;
+  return options;
+}, {});
+
+const palettesKeys = Object.keys(palettes);
+const colorsOptions = palettesKeys.reduce((options, key) => {
+  const palette = palettes[key].colors.reduce((colors, color) => {
+    colors[color.value] = color.name;
+    return colors;
+  }, {});
+  return Object.assign(options, palette);
+}, {});
 
 export default (sectionTitle, sectionDescription) => () => {
+
+  const selectedIcon = select('Icona', iconsOptions, icons.types[0].id);
+  const selectedColor = select('Colore Icona', colorsOptions, theme.palettes.neutral['lowest']);
 
   return (
     <SectionPage
       sectionDescription={sectionDescription}
+      subSectionTitle="Basic"
       title={sectionTitle}
     >
-      <div>
-        {
-          icons.types.map(config => {
-            const name = config.name;
-            const id = config.id;
-            const Component = c[`${id}Icon`];
-            return (
-              <div key={id}>
-                <h4>{name}</h4>
-                <div style={{ backgroundColor: color('Background Color', '#fff'), padding: '10px' }}>
-                  <Component
-                    color={color('Icon Color', '#000')}
-                    size={number('Font Size', 60, {
-                      range: true,
-                      min: 60,
-                      max: 120,
-                      step: 1,
-                    })}
-                  />
-                </div>
-              </div>
-            );
-          })
+      <InteractiveExample
+        color={selectedColor}
+        component={Icons[`${selectedIcon}Icon`]}
+        showBreakpoints={false}
+        size={number('Font Size', 60, {
+          range: true,
+          min: 32,
+          max: 70,
+          step: 1,
+        })}
+      />
+
+      <h2>Icone</h2>
+      <IconList
+        icons={icons.types}
+        settings={
+          {
+            color: '#000',
+            size: 50
+          }
         }
-      </div>
+      />
     </SectionPage>
   );
 };
