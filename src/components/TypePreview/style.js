@@ -1,43 +1,35 @@
 import { css } from 'styled-components';
-import { darken, rem } from 'polished';
+import { ellipsis } from 'polished';
 import theme from '../../config/theme';
-import { H4Style } from '../../shared/styles/typography';
-import { XS } from '../../config/breakpoints';
+import { extRem } from '../../utils';
+import typography from '../../shared/styles/typography';
 
 const { basic, neutral } = theme.palettes;
 
 export const base = css`
-  ${H4Style}
+  ${typography.body}
   text-decoration: none;
-  padding: 20px 10px;
+  padding: ${extRem(20, 10, 18)};
   display: block;
   align-items: center;
   line-height: 1;
   text-align: center;
-  background: ${darken(0.05, basic.primary)};
+  background: ${neutral.lowest};
   border-top: 5px solid ${props => props.color};
-  outline: 1px solid ${neutral.highest};
   cursor: pointer;
-  
-  &:hover {
-    background: ${basic.primary};
-  }
 `;
 
 export const icon = css`
-  font-size: ${rem('50px')};
+  font-size: ${extRem(50)};
   margin: 0 auto;
   line-height: 0;
   color: ${basic.primaryHighest}; 
   opacity: .75;
-  
-  &.${XS} {
-    font-size: ${rem('62px')};
-  }
 `;
 
 export const text = css`
-  margin-top: 15px;
+  ${ellipsis()}
+  margin-top: ${extRem(15)};
   line-height: 1;
   color: ${basic.primaryHighest}; 
 `;
