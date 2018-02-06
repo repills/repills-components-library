@@ -1,3 +1,4 @@
+export const LXS = 'LXS';
 export const XS = 'XS';
 export const SM = 'SM';
 export const MD = 'MD';
@@ -8,5 +9,6 @@ export const query = {
   [SM]: { minWidth: 576 },
   [MD]: { minWidth: 768 },
   [LG]: { minWidth: 992 },
-  [XL]: { minWidth: 1200 }
+  [XL]: { minWidth: 1200 },
+  [LXS]: { minWidth: 200 }
 };
