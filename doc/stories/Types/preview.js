@@ -14,7 +14,7 @@ const typeOptions = filteredTypes.reduce((options, key) => {
 export default (sectionTitle, sectionDescription) => () => {
   const type = select('Type', typeOptions, filteredTypes[0]);
   const selectedType = types[type];
-  const navigateTo = path => alert(`Navigate to ${path}`);
+  const navigateTo = id => alert(`Navigate to ${id}`);
 
   return (
     <SectionPage
