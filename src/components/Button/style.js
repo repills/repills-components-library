@@ -1,22 +1,23 @@
-import { rem, stripUnit } from 'polished';
+import { stripUnit } from 'polished';
 import { css } from 'styled-components';
+import { extRem } from '../../utils';
 import theme from '../../config/theme';
-import { H4Style } from '../../shared/styles/typography';
+import typography from '../../shared/styles/typography';
 
 const { basic, neutral } = theme.palettes;
 
 const height = {
-  M: rem('40px'),
-  L: rem('60px')
+  M: extRem(40),
+  L: extRem(60)
 };
 
 const minWidth = {
-  M: rem('150px'),
-  L: rem('220px')
+  M: extRem(150),
+  L: extRem(220)
 };
 
 export const base = css`
-  ${H4Style};
+  ${typography.body};
   align-items: center;
   background: none;
   border-radius: ${props => stripUnit(height[props.size]) / 2}rem;
@@ -29,7 +30,7 @@ export const base = css`
   justify-content: center;
   min-width: ${props => minWidth[props.size]};
   outline: none;
-  padding: 0 ${rem('30px')};
+  padding: 0 ${extRem(30)};
   width: ${props => props.expanded ? '100%' : 'auto'};
   
   ${ props => !props.disabled && `
