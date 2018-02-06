@@ -1,5 +1,5 @@
 import React from 'react';
-import { XS, query } from '../../../lib/config/breakpoints';
+import { XS, query } from '../../../src/config/breakpoints';
 import styled from 'styled-components';
 import { base } from './style';
 
@@ -51,7 +51,7 @@ class PreviewBlock extends React.Component {
           </select>
         </div>
         <div style={{ overflowY: 'scroll' }}>
-          <div style={{ backgroundColor: '#1a0135', padding: '20px', display: 'inline-block' }}>
+          <div style={{ backgroundColor: '#e0e0e0', padding: '20px', display: 'inline-block' }}>
             <div style={{ width: `${query[currentBreakpoint].minWidth}px` }}>
               {children}
             </div>

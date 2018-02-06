@@ -1,34 +1,27 @@
 import React from 'react';
 import PreviewBlock from '../PreviewBlock';
-import { func, object, bool, oneOfType } from 'prop-types';
+import CodeBlock from '../CodeBlock';
+import {
+  func,
+  object,
+  string,
+  bool,
+  oneOfType
+} from 'prop-types';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import styled from 'styled-components';
-import { dark } from 'react-syntax-highlighter/styles/prism';
-
-import SyntaxHighlighter, { registerLanguage } from "react-syntax-highlighter/prism-light";
-import jsx from 'react-syntax-highlighter/languages/prism/jsx';
-registerLanguage('jsx', jsx);
-
-import { base, highlighter, preview } from './style';
+import { base, preview, highlighter } from './style';
 import { getComponentDisplayName } from '../../utils';
-
 
 const BaseStyle = styled.div`${base}`;
 const PreviewStyle = styled.div`${preview}`;
 const HighlighterStyle = styled.div`${highlighter}`;
 
-const overrideHighlighterStyle = {
-  border: '0px',
-  boxShadow: 'none',
-  backgroundColor: '#222',
-  borderRadius: '0px',
-  fontSize: '12px'
-};
-
 class InteractiveExample extends React.Component {
 
   static propTypes = {
     component: oneOfType([func, object]).isRequired,
+    previewMinHeight: string,
     showBreakpoints: bool
   };
 
@@ -37,39 +30,36 @@ class InteractiveExample extends React.Component {
   };
 
   getComponent = () => {
-    const { component: Component, showBreakpoints, ...config } = this.props;
+    const { component: Component, showBreakpoints, previewMinHeight, ...config } = this.props;
     return <Component {...config} />;
   };
 
   render() {
-    const { showBreakpoints, component } = this.props;
+    const {
+      showBreakpoints,
+      component,
+      previewMinHeight
+    } = this.props;
 
     return (
       <BaseStyle>
         <PreviewStyle>
           <PreviewBlock
+            minHeight={previewMinHeight}
             showBreakpoints={showBreakpoints}
           >
             {this.getComponent()}
           </PreviewBlock>
         </PreviewStyle>
         <HighlighterStyle>
-          <SyntaxHighlighter
-            customStyle={overrideHighlighterStyle}
-            language='javascript'
-            style={dark}
-          >
-            {`import { ${getComponentDisplayName(component)} } from 'repills-react-components'`}
-          </SyntaxHighlighter>
-        </HighlighterStyle>
-        <HighlighterStyle>
-          <SyntaxHighlighter
-            customStyle={overrideHighlighterStyle}
-            language='javascript'
-            style={dark}
-          >
+          <h4>Component Import</h4>
+          <CodeBlock>
+            {`import { ${getComponentDisplayName(component)} } from 'dab-component-lib';`}
+          </CodeBlock>
+          <h4>Component Usage</h4>
+          <CodeBlock>
             {reactElementToJSXString(this.getComponent())}
-          </SyntaxHighlighter>
+          </CodeBlock>
         </HighlighterStyle>
       </BaseStyle>
     );
