@@ -1,7 +1,16 @@
 import { css } from 'styled-components';
+import { rem } from 'polished';
+import typography from '../../config/typography';
 
-// @TODO: create dynamically
-export const H4Style = css`
-  font-size: 16px; // @TODO: rem
-`;
+function getTypographyCss(config) {
+  return css`
+    font-size: ${rem(config.size)};
+    font-weight: ${config.weight || 400};
+    font-family: ${config.family};
+  `;
+}
 
+export default typography.reduce((styles, config) => {
+  styles[config.id] = getTypographyCss(config);
+  return styles;
+}, {});
