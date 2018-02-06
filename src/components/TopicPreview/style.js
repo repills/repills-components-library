@@ -1,17 +1,20 @@
 import { css } from 'styled-components';
-import { lighten, rgba, rem } from 'polished';
+import { lighten, rgba } from 'polished';
+import { grid } from 'styled-components-grid';
 import theme from '../../config/theme';
-import { H4Style } from '../../shared/styles/typography';
+import { XS, SM } from '../../config/breakpoints';
+import { extRem } from '../../utils';
+import typography from '../../shared/styles/typography';
 
 const { basic, neutral } = theme.palettes;
+const mainColor = lighten(0.2, basic.primaryHighest);
 
 export const base = css`
   box-sizing: border-box;
   overflow: hidden;
-  border-radius: 3px;
   position: relative;
-  text-align: center;
-  background: linear-gradient(to bottom, ${lighten(0.05, basic.primaryHighest)}, ${lighten(0.2, basic.primaryHighest)});
+  cursor: pointer;
+  background-color: ${mainColor};
   color: ${neutral.lowest};
   
   &:hover {
@@ -20,48 +23,92 @@ export const base = css`
 `;
 
 export const frame = css`
+  ${grid()}
+  box-sizing: border-box;
   position: relative;
   z-index: 2;
-  display: block;
   text-decoration: none;
   text-shadow: ${rgba(neutral.highest, 0.4)} 0 1px 2px;
   opacity: .9;
-  border: 2px solid ${rgba(basic.primary, 0.2)};
 `;
 
 export const counter = css`
-  padding: ${rem('40px')} 0;
+  ${grid.unit({ size: 1 })}
+  box-sizing: border-box;
+  padding: ${extRem(35, 0)};
   text-transform: uppercase;
   opacity: .9;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
+  &.${XS} {
+    ${grid.unit({ size: 2/7 })}
+    order: 2;
+    border: 1px solid ${rgba(neutral.highest, 0.4)}
+  }
 `;
 
 export const total = css`
-  font-size: ${rem('45px')};
+  ${typography.header3}
+  font-weight: 400;
+  line-height: 1;
 `;
 
 export const totalLabel = css`
-  font-size: ${rem('10px')};
-  margin-top: ${rem('7px')};
-  letter-spacing: .2em;
+  ${typography.mini}
+  margin-top: ${extRem(7)};
 `;
 
-export const bottom = css`
-  height: ${rem('120px')};
+export const info = css`
+  ${grid.unit({ size: 1 })}
+  height: ${extRem(120)};
+  box-sizing: border-box;
   position: relative;
+  
+  &.${XS} {
+    ${grid.unit({ size: 5/7 })}
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    padding-bottom: ${extRem(20)};
+    height: auto;
+  }
 `;
 
 export const title = css`
-  ${H4Style}
-  padding: 0 ${rem('10px')} ${rem('25px')};
+  ${typography.body}
+  margin: ${extRem(0,12,25)};
   position: absolute;
+  box-sizing: border-box;
   bottom: 0;
   left: 0;
   right: 0;
-  margin: 0;
+  height: ${extRem(65)};
+  overflow: hidden;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: ${extRem(20)};
+    background: linear-gradient(to bottom, ${rgba(mainColor, 0)}, ${mainColor});
+  }
+    
+  &.${XS} {
+    order: -1;
+    position: relative;
+    margin: ${extRem(20, 10, 20)};
+  }
 `;
 
 export const composition = css`
-  font-size: ${rem('16px')};
+  padding: ${extRem(0,12)};
+  font-size: ${extRem(16)};
   display: flex;
   align-items: center;
   justify-content: center;
