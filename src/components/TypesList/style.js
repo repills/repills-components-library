@@ -18,12 +18,13 @@ export const base = css`
     right: 0;
     bottom: 0;
     position: absolute;
-    background: linear-gradient(to right, ${rgba(neutral.medium, 0)}, ${rgba(neutral.medium, .8)});
+    background: linear-gradient(to right, ${rgba(neutral.medium, 0)}, ${neutral.medium});
   }
 `;
 
 export const itemsWrapper = css`
   overflow-y: scroll;
+  box-shadow: 0 1px 2px 2px ${rgba(neutral.highest, 0.02)};
 `;
 
 export const items = css`

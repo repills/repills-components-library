@@ -2,20 +2,22 @@ import { css } from 'styled-components';
 import { lighten, rgba } from 'polished';
 import { grid } from 'styled-components-grid';
 import theme from '../../config/theme';
-import { XS, SM } from '../../config/breakpoints';
+import { XS } from '../../config/breakpoints';
 import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
 const { basic, neutral } = theme.palettes;
-const mainColor = lighten(0.2, basic.primaryHighest);
+const mainColor = lighten(0.2, neutral.lowest);
 
 export const base = css`
   box-sizing: border-box;
+  text-align: center;
   overflow: hidden;
   position: relative;
   cursor: pointer;
   background-color: ${mainColor};
-  color: ${neutral.lowest};
+  color: ${basic.primaryHighest};
+  box-shadow: 0 1px 2px 2px ${rgba(neutral.highest, 0.02)};
   
   &:hover {
     
@@ -28,7 +30,7 @@ export const frame = css`
   position: relative;
   z-index: 2;
   text-decoration: none;
-  text-shadow: ${rgba(neutral.highest, 0.4)} 0 1px 2px;
+  // text-shadow: ${rgba(neutral.highest, 0.4)} 0 1px 2px;
   opacity: .9;
 `;
 
@@ -45,13 +47,12 @@ export const counter = css`
   &.${XS} {
     ${grid.unit({ size: 2/7 })}
     order: 2;
-    border: 1px solid ${rgba(neutral.highest, 0.4)}
+    border-left: 1px solid ${rgba(basic.primaryHighest, 0.1)}
   }
 `;
 
 export const total = css`
   ${typography.header3}
-  font-weight: 400;
   line-height: 1;
 `;
 
@@ -62,7 +63,7 @@ export const totalLabel = css`
 
 export const info = css`
   ${grid.unit({ size: 1 })}
-  height: ${extRem(120)};
+  height: ${extRem(130)};
   box-sizing: border-box;
   position: relative;
   
@@ -83,6 +84,7 @@ export const title = css`
   margin: ${extRem(0,12,25)};
   position: absolute;
   box-sizing: border-box;
+  font-weight: 600;
   bottom: 0;
   left: 0;
   right: 0;

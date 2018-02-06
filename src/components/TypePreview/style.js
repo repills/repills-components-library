@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { ellipsis } from 'polished';
+import { ellipsis, rgba } from 'polished';
 import theme from '../../config/theme';
 import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
@@ -11,6 +11,7 @@ export const base = css`
   text-decoration: none;
   padding: ${extRem(20, 10, 18)};
   display: block;
+
   align-items: center;
   line-height: 1;
   text-align: center;
