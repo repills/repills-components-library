@@ -42,6 +42,11 @@ export default {
         value: '#fff'
       },
       {
+        id: 'medium',
+        name: 'Medium',
+        value: '#e0e0e0'
+      },
+      {
         id: 'highest',
         name: 'Highest',
         value: '#000'
