@@ -119,7 +119,6 @@ export const title = css`
 
 export const composition = css`
   padding: ${extRem(0,12)};
-  font-size: ${extRem(14)};
   display: flex;
   align-items: center;
   justify-content: center;

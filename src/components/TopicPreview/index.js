@@ -42,6 +42,7 @@ function TopicPreview({ title, resources }) {
                     <PillIcon
                       color={stat.color}
                       key={stat.type}
+                      size={14}
                     />
                   ))}
                 </CompositionStyle>
