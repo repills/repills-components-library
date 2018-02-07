@@ -24,7 +24,9 @@ function TopicPreview({ title, resources }) {
     <ContainerQuery query={query}>
       {
         params => (
-          <BaseStyle>
+          <BaseStyle
+            disabled={totalCount === 0}
+          >
             <FrameStyle>
               <CounterStyle className={cx(params)}>
                 <TotalStyle>

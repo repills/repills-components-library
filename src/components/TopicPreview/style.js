@@ -14,11 +14,17 @@ export const base = css`
   text-align: center;
   border-top: 3px solid ${basic.primary};
   overflow: hidden;
+  border-radius: 3px;
   position: relative;
   cursor: pointer;
   background-color: ${mainColor};
   color: ${basic.primaryHighest};
   box-shadow: 0 1px 2px 2px ${rgba(neutral.highest, 0.02)};
+  
+  ${props => props.disabled && `
+    opacity: .6;
+    cursor: default;
+  `}
   
   &:hover {
     
@@ -48,7 +54,8 @@ export const counter = css`
   
   &.${XS} {
     ${grid.unit({ size: 2/7 })}
-      ${typography.header3}
+    padding: ${extRem(15, 0)};
+    ${typography.header3}
     order: 2;
     border-left: 1px solid ${rgba(basic.primaryHighest, 0.1)}
   }
@@ -65,7 +72,7 @@ export const totalLabel = css`
 
 export const info = css`
   ${grid.unit({ size: 1 })}
-  height: ${extRem(130)};
+  height: ${extRem(120)};
   box-sizing: border-box;
   position: relative;
   
@@ -76,7 +83,7 @@ export const info = css`
     align-items: flex-start;
     justify-content: flex-start;
     text-align: left;
-    padding-bottom: ${extRem(20)};
+    padding-bottom: ${extRem(15)};
     height: auto;
   }
 `;
@@ -90,7 +97,7 @@ export const title = css`
   bottom: 0;
   left: 0;
   right: 0;
-  height: ${extRem(65)};
+  height: ${extRem(45)};
   overflow: hidden;
   
   &::after {
@@ -106,13 +113,13 @@ export const title = css`
   &.${XS} {
     order: -1;
     position: relative;
-    margin: ${extRem(20, 10, 20)};
+    margin: ${extRem(15, 10)};
   }
 `;
 
 export const composition = css`
   padding: ${extRem(0,12)};
-  font-size: ${extRem(16)};
+  font-size: ${extRem(14)};
   display: flex;
   align-items: center;
   justify-content: center;
