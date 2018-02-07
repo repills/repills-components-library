@@ -24,7 +24,6 @@ export const base = css`
 
 export const itemsWrapper = css`
   overflow-y: scroll;
-  box-shadow: 0 1px 2px 2px ${rgba(neutral.highest, 0.02)};
 `;
 
 export const items = css`

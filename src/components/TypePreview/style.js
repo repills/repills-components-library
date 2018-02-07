@@ -16,7 +16,7 @@ export const base = css`
   line-height: 1;
   text-align: center;
   background: ${neutral.lowest};
-  border-top: 5px solid ${props => props.color};
+  border-top: 3px solid ${props => props.color};
   cursor: pointer;
 `;
 

@@ -23,7 +23,7 @@ const colorsOptions = palettesKeys.reduce((options, key) => {
 export default (sectionTitle, sectionDescription) => () => {
 
   const selectedIcon = select('Icona', iconsOptions, icons.types[0].id);
-  const selectedColor = select('Colore Icona', colorsOptions, theme.palettes.neutral['lowest']);
+  const selectedColor = select('Colore Icona', colorsOptions, theme.palettes.neutral['highest']);
 
   return (
     <SectionPage

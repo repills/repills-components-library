@@ -12,6 +12,7 @@ const mainColor = lighten(0.2, neutral.lowest);
 export const base = css`
   box-sizing: border-box;
   text-align: center;
+  border-top: 3px solid ${basic.primary};
   overflow: hidden;
   position: relative;
   cursor: pointer;
@@ -43,16 +44,17 @@ export const counter = css`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  ${typography.header2}
   
   &.${XS} {
     ${grid.unit({ size: 2/7 })}
+      ${typography.header3}
     order: 2;
     border-left: 1px solid ${rgba(basic.primaryHighest, 0.1)}
   }
 `;
 
 export const total = css`
-  ${typography.header3}
   line-height: 1;
 `;
 
@@ -81,7 +83,7 @@ export const info = css`
 
 export const title = css`
   ${typography.body}
-  margin: ${extRem(0,12,25)};
+  margin: ${extRem(0,12,15)};
   position: absolute;
   box-sizing: border-box;
   font-weight: 600;

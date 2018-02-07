@@ -54,7 +54,7 @@ class InteractiveExample extends React.Component {
         <HighlighterStyle>
           <h4>Component Import</h4>
           <CodeBlock>
-            {`import { ${getComponentDisplayName(component)} } from 'dab-component-lib';`}
+            {`import { ${getComponentDisplayName(component)} } from 'repills-react-components';`}
           </CodeBlock>
           <h4>Component Usage</h4>
           <CodeBlock>
