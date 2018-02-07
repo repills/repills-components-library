@@ -14,7 +14,7 @@ export default (sectionTitle, sectionDescription) => () => {
     >
       <h4>Usage</h4>
       <CodeBlock>
-        {`import { typography } from 'dab-component-lib';
+        {`import { typography } from 'repills-react-components';
 import styled from 'styled-components';
 
 const MyStyledComponent = styled.YOUR_HTML_TAG\`\${typography.TYPOGRAPHY_ID}\``}
