@@ -1,4 +1,10 @@
 export default {
+  basic: [
+    {
+      id: 'Pill',
+      name: 'Pill'
+    }
+  ],
   types: [
     {
       id: 'Book',

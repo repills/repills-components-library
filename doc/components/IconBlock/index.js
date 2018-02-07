@@ -1,7 +1,7 @@
 import React from 'react';
 import { object } from 'prop-types';
 import styled from 'styled-components';
-import * as Icons from '../../../lib/components/index';
+import * as Icons from '../../../src/components';
 import { base, preview, name, identifier, info } from './style';
 
 const BaseStyle = styled.div`${base}`;

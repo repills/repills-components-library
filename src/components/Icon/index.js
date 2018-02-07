@@ -1,5 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {
+  node,
+  number,
+  oneOf
+} from 'prop-types';
 import styled from 'styled-components';
 import { base } from './style';
 
@@ -7,15 +11,23 @@ const BaseStyle = styled.div`${base}`;
 
 const Icon = ({
   children,
-  color,
-  size
+  size,
+  orientation
 }) => {
+
+  const orientations = {
+    top: 0,
+    right: 90,
+    bottom: 180,
+    left: -90
+  };
+
   return (
     <BaseStyle
-      color={color}
-      size={size}
+      size={size || 20}
     >
       <svg
+        transform={`rotate(${orientations[orientation]})`}
         version="1.1"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
@@ -28,9 +40,13 @@ const Icon = ({
 };
 
 Icon.propTypes = {
-  children: PropTypes.node,
-  color: PropTypes.string,
-  size: PropTypes.number
+  children: node,
+  orientation: oneOf(['top', 'left', 'bottom', 'right']),
+  size: number
+};
+
+Icon.defaultProps = {
+  orientation: 'top'
 };
 
 export default Icon;
