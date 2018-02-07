@@ -43,7 +43,7 @@ export function getRandomResource({ title, date, author, link, color, typeLabel,
 }
 
 export function getResourceList(length) {
-  return [...new Array(length)].map(_ => getRandomResource({}) );
+  return Array.from({ length }, () => getRandomResource({}) );
 }
 
 export function getRandomResourceList(min = 0, max = 20) {
@@ -63,5 +63,5 @@ export function getRandomTopic({ title, resourcesLength }) {
 }
 
 export function getRandomTopicList(length) {
-  return [...new Array(length)].map(_ => getRandomTopic({}) );
+  return Array.from({ length }, () => getRandomTopic({}) );
 }
