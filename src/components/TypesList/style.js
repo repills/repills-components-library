@@ -2,24 +2,26 @@ import { css } from 'styled-components';
 import { rgba } from 'polished';
 import { extRem } from '../../utils';
 import { SM, MD, LG } from '../../config/breakpoints';
-import theme from '../../config/theme';
+// import theme from '../../config/theme';
 import { grid } from 'styled-components-grid';
 
-const { neutral } = theme.palettes;
+// const { neutral } = theme.palettes;
 
 export const base = css`
   box-sizing: border-box;
   position: relative;
-  
-  &::after {
-    content: '';
-    width: ${extRem(35)};
-    top: 0;
-    right: 0;
-    bottom: 0;
-    position: absolute;
-    background: linear-gradient(to right, ${rgba(neutral.medium, 0)}, ${neutral.medium});
-  }
+   
+  ${props => props.shadeColor && `
+    &::after {
+      content: '';
+      width: ${extRem(35)};
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to right, ${rgba(props.shadeColor, 0)}, ${props.shadeColor});
+      position: absolute;
+    }
+  `}
 `;
 
 export const itemsWrapper = css`

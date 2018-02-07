@@ -1,7 +1,11 @@
 import React from 'react';
 import TypePreview from '../TypePreview';
 import cx from 'classnames';
-import { object, func } from 'prop-types';
+import {
+  object,
+  func,
+  string
+} from 'prop-types';
 import styled from 'styled-components';
 import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
@@ -12,12 +16,15 @@ const ItemsStyle = styled.div`${items}`;
 const ItemsWrapperStyle = styled.div`${itemsWrapper}`;
 const ItemStyle = styled.div`${item}`;
 
-function TypesList({ types, navigateTo }) {
+function TypesList({ types, navigateTo, shadeColor }) {
   return (
     <ContainerQuery query={query}>
       {
         params => (
-          <BaseStyle className={cx(params)}>
+          <BaseStyle
+            className={cx(params)}
+            shadeColor={shadeColor}
+          >
             <ItemsWrapperStyle>
               <ItemsStyle>
                 {
@@ -51,6 +58,7 @@ function TypesList({ types, navigateTo }) {
 
 TypesList.propTypes = {
   navigateTo: func,
+  shadeColor: string,
   types: object
 };
 
