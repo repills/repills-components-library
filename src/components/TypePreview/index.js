@@ -1,6 +1,11 @@
 import React from 'react';
 import * as Icons from '../Icon/icons/types';
-import { string, number, func } from 'prop-types';
+import {
+  string,
+  number,
+  shape,
+  func
+} from 'prop-types';
 import styled from 'styled-components';
 import { base, icon, text } from './style';
 
@@ -39,7 +44,10 @@ TypePreview.propTypes = {
   count: number.isRequired,
   icon: string.isRequired,
   id: string,
-  label: string.isRequired,
+  label: shape({
+    singular: string.isRequired,
+    plural: string.isRequired
+  }),
   navigateTo: func
 };
 
