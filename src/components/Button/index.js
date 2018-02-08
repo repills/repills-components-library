@@ -47,11 +47,8 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  disabled: false,
   size: 'M',
-  type: 'primary',
-  outline: false,
-  expanded: false
+  type: 'primary'
 };
 
 export default Button;
