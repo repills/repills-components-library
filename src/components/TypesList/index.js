@@ -9,10 +9,15 @@ import {
 import styled from 'styled-components';
 import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
-import { base, items, item, itemsWrapper } from './style';
+import {
+  base,
+  // items,
+  item,
+  itemsWrapper
+} from './style';
 
 const BaseStyle = styled.div`${base}`;
-const ItemsStyle = styled.div`${items}`;
+// const ItemsStyle = styled.div`${items}`;
 const ItemsWrapperStyle = styled.div`${itemsWrapper}`;
 const ItemStyle = styled.div`${item}`;
 
@@ -22,32 +27,29 @@ function TypesList({ types, navigateTo, shadeColor }) {
       {
         params => (
           <BaseStyle
-            className={cx(params)}
             shadeColor={shadeColor}
           >
             <ItemsWrapperStyle>
-              <ItemsStyle>
-                {
-                  Object.keys(types).map(typeId => {
-                    const type = types[typeId];
-                    return (
-                      <ItemStyle
-                        className={cx(params)}
-                        key={typeId}
-                      >
-                        <TypePreview
-                          color={type.color}
-                          count={type.resources.length}
-                          icon={typeId.charAt(0).toUpperCase() + typeId.slice(1)}
-                          id={type.id}
-                          label={type.label}
-                          navigateTo={navigateTo}
-                        />
-                      </ItemStyle>
-                    );
-                  })
-                }
-              </ItemsStyle>
+              {
+                Object.keys(types).map(typeId => {
+                  const type = types[typeId];
+                  return (
+                    <ItemStyle
+                      className={cx(params)}
+                      key={typeId}
+                    >
+                      <TypePreview
+                        color={type.color}
+                        count={type.resources.length}
+                        icon={typeId.charAt(0).toUpperCase() + typeId.slice(1)}
+                        id={type.id}
+                        label={type.label}
+                        navigateTo={navigateTo}
+                      />
+                    </ItemStyle>
+                  );
+                })
+              }
             </ItemsWrapperStyle>
           </BaseStyle>
         )}

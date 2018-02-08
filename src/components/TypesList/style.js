@@ -16,7 +16,7 @@ export const base = css`
       content: '';
       width: ${extRem(35)};
       top: 0;
-      right: 0;
+      right: -1px;
       bottom: 0;
       background: linear-gradient(to right, ${rgba(props.shadeColor, 0)}, ${props.shadeColor});
       position: absolute;
@@ -25,19 +25,28 @@ export const base = css`
 `;
 
 export const itemsWrapper = css`
-  overflow-y: scroll;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin: 0 -1px;
+  
+  &::-webkit-scrollbar {
+    display: none; 
+  }
 `;
 
+/*
 export const items = css`
   ${grid()}
   display: flex;
   flex-wrap: nowrap;
   margin: 0 -1px;
 `;
+*/
 
 export const item = css`
   box-sizing: border-box;
-  flex: 1 0 auto;
+  flex: 0 0 auto;
   padding: 1px;
   
   ${grid.unit({ size: 3/10 })}
