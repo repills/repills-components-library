@@ -14,18 +14,42 @@ class PreviewBlock extends React.Component {
 
   constructor(props) {
     super(props);
+    const {
+      breakpoint,
+      background
+    } = this.props;
+
+    this.backgrounds = [
+      {
+        name: 'Primary Highest',
+        value: '#190135'
+      },
+      {
+        name: 'Neutral Medium',
+        value: '#e0e0e0'
+      }
+    ];
+
     this.state = {
-      currentBreakpoint: XS
+      currentBreakpoint: breakpoint || XS,
+      currentBackground: background || '#e0e0e0'
     };
   }
 
   handleChangeBreakpoint = event => {
-    this.setState({currentBreakpoint: event.target.value});
+    this.setState({ currentBreakpoint: event.target.value });
+  };
+
+  handleChangeBackground = event => {
+    this.setState({ currentBackground: event.target.value });
   };
 
   render() {
     const { children } = this.props;
-    const { currentBreakpoint } = this.state;
+    const {
+      currentBreakpoint,
+      currentBackground
+    } = this.state;
 
     return (
       <BaseStyle style={{ textAlign: 'center' }}>
@@ -49,9 +73,27 @@ class PreviewBlock extends React.Component {
               })
             }
           </select>
+          <select
+            onChange={this.handleChangeBackground}
+            style={{ marginBottom: '30px' }}
+            value={currentBackground}
+          >
+            {
+              this.backgrounds.map(background => {
+                return (
+                  <option
+                    key={background.name}
+                    value={background.value}
+                  >
+                    {background.name}
+                  </option>
+                );
+              })
+            }
+          </select>
         </div>
         <div style={{ overflowY: 'scroll' }}>
-          <div style={{ backgroundColor: '#e0e0e0', padding: '20px', display: 'inline-block' }}>
+          <div style={{ backgroundColor: currentBackground, padding: '20px', display: 'inline-block' }}>
             <div style={{ width: `${query[currentBreakpoint].minWidth}px` }}>
               {children}
             </div>
