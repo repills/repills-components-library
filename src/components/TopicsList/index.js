@@ -1,7 +1,11 @@
 import React from 'react';
 import TopicPreview from '../TopicPreview';
 import cx from 'classnames';
-import { object } from 'prop-types';
+import {
+  func,
+  arrayOf,
+  shape
+} from 'prop-types';
 import styled from 'styled-components';
 import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
@@ -11,8 +15,10 @@ const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
 const ItemStyle = styled.div`${item}`;
 
-function TopicsList({ topics, componentLink }) {
-  const ComponentLink = componentLink || 'a';
+function TopicsList({ 
+  topics,
+  navigateTo
+}) {
   return (
     <ContainerQuery query={query}>
       {
@@ -27,12 +33,10 @@ function TopicsList({ topics, componentLink }) {
                       className={cx(params)}
                       key={topicNameId}
                     >
-                      <ComponentLink
-                        style={{ textDecoration: 'none' }}
-                        to={topic.path}
-                      >
-                        <TopicPreview {...topic} />
-                      </ComponentLink>
+                      <TopicPreview
+                        navigateTo={navigateTo}
+                        {...topic}
+                      />
                     </ItemStyle>
                   );
                 })
@@ -45,8 +49,8 @@ function TopicsList({ topics, componentLink }) {
 }
 
 TopicsList.propTypes = {
-  topics: object.isRequired,
-  // componentLink: @TODO
+  navigateTo: func,
+  topics: arrayOf(shape(TopicPreview.propTypes)).isRequired
 };
 
 export default TopicsList;
