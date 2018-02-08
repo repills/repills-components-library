@@ -7,3 +7,4 @@ export TopicPreview from './TopicPreview';
 export TopicsList from './TopicsList';
 export typography from '../shared/styles/typography';
 export theme from '../config/theme';
+export { extRem } from '../utils';

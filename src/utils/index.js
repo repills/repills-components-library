@@ -1,5 +1,5 @@
-export { default as getBaseUrl } from './getBaseUrl';
-export { default as isOlderThan } from './isOlderThan';
-export { default as isWithinCurrentYear } from './isWithinCurrentYear';
-export { default as extRem } from './extRem';
-export { default as getResourcesStats } from './getResourcesStats';
+export getBaseUrl from './getBaseUrl';
+export isOlderThan from './isOlderThan';
+export isWithinCurrentYear from './isWithinCurrentYear';
+export extRem from './extRem';
+export getResourcesStats from './getResourcesStats';
