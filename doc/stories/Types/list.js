@@ -23,7 +23,7 @@ export default (sectionTitle, sectionDescription) => () => {
       <InteractiveExample
         component={TypesList}
         navigateTo={navigateTo}
-        shadeColor="#e0e0e0"
+        // shadeColor="#190135"
         types={data}
       />
     </SectionPage>
