@@ -4,7 +4,9 @@ import { PillIcon } from '../Icon/icons/basic';
 import {
   string,
   arrayOf,
-  shape
+  object,
+  shape,
+  func
 } from 'prop-types';
 import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
@@ -21,7 +23,12 @@ const InfoStyle = styled.div`${info}`;
 const TitleStyle = styled.h4`${title}`;
 const CompositionStyle = styled.div`${composition}`;
 
-function TopicPreview({ title, resources }) {
+function TopicPreview({
+  path,
+  navigateTo,
+  resources,
+  title
+}) {
   const totalCount = resources.length;
   const stats = getResourcesStats(resources);
   return (
@@ -30,6 +37,7 @@ function TopicPreview({ title, resources }) {
         params => (
           <BaseStyle
             disabled={totalCount === 0}
+            onClick={() => navigateTo(path)}
           >
             <FrameStyle>
               <CounterStyle className={cx(params)}>
@@ -61,10 +69,9 @@ function TopicPreview({ title, resources }) {
 }
 
 TopicPreview.propTypes = {
-  resources: arrayOf(shape({
-    color: string.isRequired,
-    key: string.isRequired
-  })).isRequired,
+  navigateTo: func,
+  path: string,
+  resources: arrayOf(object).isRequired,
   title: string.isRequired
 };
 
