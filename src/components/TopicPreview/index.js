@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PillIcon } from '../Icon/icons/basic';
-import { string } from 'prop-types';
+import {
+  string,
+  arrayOf,
+  shape
+} from 'prop-types';
 import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
 import cx from 'classnames';
@@ -57,8 +61,11 @@ function TopicPreview({ title, resources }) {
 }
 
 TopicPreview.propTypes = {
-  title: string.isRequired,
-  // resources: @TODO
+  resources: arrayOf(shape({
+    color: string.isRequired,
+    key: string.isRequired
+  })).isRequired,
+  title: string.isRequired
 };
 
 export default TopicPreview;
