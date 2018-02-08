@@ -6,6 +6,8 @@ import { getRandomTopicList } from '../../utils/fixtures';
 
 export default (sectionTitle, sectionDescription) => () => {
 
+  const navigateTo = path => alert(`Navigate to ${path}`);
+
   return (
     <SectionPage
       description={sectionDescription}
@@ -13,6 +15,7 @@ export default (sectionTitle, sectionDescription) => () => {
     >
       <InteractiveExample
         component={TopicsList}
+        navigateTo={navigateTo}
         topics={getRandomTopicList(number('Resources', 6, {
           range: true,
           min: 1,
