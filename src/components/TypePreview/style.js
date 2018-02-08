@@ -15,7 +15,7 @@ export const base = css`
   align-items: center;
   line-height: 1;
   text-align: center;
-  background: ${neutral.lowest};
+  background: ${basic.primary};
   border-top: 3px solid ${props => props.color};
   cursor: pointer;
 `;

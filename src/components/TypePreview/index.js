@@ -25,7 +25,7 @@ function TypePreview({
       onClick={() => navigateTo(id)}
     >
       <IconStyle>
-        <Icon size={48} />
+        <Icon size={52} />
       </IconStyle>
       <TextStyle>
         <strong>{count}</strong> {count === 1 ? label.singular : label.plural}
