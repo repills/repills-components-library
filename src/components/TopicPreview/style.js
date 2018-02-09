@@ -120,6 +120,15 @@ export const title = css`
 export const composition = css`
   padding: ${extRem(0,12)};
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  height: 25px;
 `;
+
+export const compositionItem = css`
+  background-color: ${props => props.color};
+  height: ${props => props.percentage}%;
+  width: 5px;
+  margin-right: 3px;
+`;
+
