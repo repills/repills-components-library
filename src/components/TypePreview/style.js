@@ -32,5 +32,6 @@ export const text = css`
   ${ellipsis()}
   margin-top: ${extRem(15)};
   line-height: 1;
-  color: ${basic.primaryHighest}; 
+  color: ${basic.primaryHighest};
+  text-transform: uppercase;
 `;
