@@ -5,6 +5,8 @@ export TypePreview from './TypePreview';
 export TypesList from './TypesList';
 export TopicPreview from './TopicPreview';
 export TopicsList from './TopicsList';
+export TopNavigation from './TopNavigation';
+export SectionPreview from './SectionPreview';
 export typography from '../shared/styles/typography';
 export theme from '../config/theme';
 export { extRem } from '../utils';
