@@ -34,7 +34,7 @@ function TopicsList({
                       key={topicNameId}
                     >
                       <TopicPreview
-                        navigateTo={navigateTo}
+                        navigateTo={() => navigateTo(topic.path)}
                         {...topic}
                       />
                     </ItemStyle>

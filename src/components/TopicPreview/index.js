@@ -1,17 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { PillIcon } from '../Icon/icons/basic';
 import {
   string,
   arrayOf,
   object,
-  shape,
   func
 } from 'prop-types';
 import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
 import cx from 'classnames';
-import { base, frame, counter, total, totalLabel, info, title, composition } from './style';
+import { base, frame, counter, total, totalLabel, info, title, composition, compositionItem } from './style';
 import { getResourcesStats } from '../../utils/index';
 
 const BaseStyle = styled.article`${base}`;
@@ -22,22 +20,22 @@ const TotalLabelStyle = styled.div`${totalLabel}`;
 const InfoStyle = styled.div`${info}`;
 const TitleStyle = styled.h4`${title}`;
 const CompositionStyle = styled.div`${composition}`;
+const CompositionItemStyle = styled.div`${compositionItem}`;
 
 function TopicPreview({
-  path,
   navigateTo,
   resources,
   title
 }) {
   const totalCount = resources.length;
-  const stats = getResourcesStats(resources);
+  const stats = getResourcesStats(resources, true);
   return (
     <ContainerQuery query={query}>
       {
         params => (
           <BaseStyle
             disabled={totalCount === 0}
-            onClick={() => navigateTo(path)}
+            onClick={navigateTo}
           >
             <FrameStyle>
               <CounterStyle className={cx(params)}>
@@ -51,10 +49,11 @@ function TopicPreview({
               <InfoStyle className={cx(params)}>
                 <CompositionStyle>
                   { stats.map(stat => (
-                    <PillIcon
+                    <CompositionItemStyle
                       color={stat.color}
                       key={stat.type}
-                      size={14}
+                      percentage={stat.percentage}
+                      title={stat.count}
                     />
                   ))}
                 </CompositionStyle>

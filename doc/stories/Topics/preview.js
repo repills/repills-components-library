@@ -23,6 +23,7 @@ export default (sectionTitle, sectionDescription) => () => {
     >
       <InteractiveExample
         component={TopicPreview}
+        navigateTo={() => alert('Navigate to: ' + randomTopic.path)}
         {...randomTopic}
       />
     </SectionPage>
