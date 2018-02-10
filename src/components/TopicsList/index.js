@@ -3,7 +3,8 @@ import TopicPreview from '../TopicPreview';
 import cx from 'classnames';
 import {
   func,
-  object
+  arrayOf,
+  shape
 } from 'prop-types';
 import styled from 'styled-components';
 import { ContainerQuery } from 'react-container-query';
@@ -25,20 +26,17 @@ function TopicsList({
           <BaseStyle>
             <ItemsStyle>
               {
-                Object.keys(topics).map(topicNameId => {
-                  const topic = topics[topicNameId];
-                  return (
-                    <ItemStyle
-                      className={cx(params)}
-                      key={topicNameId}
-                    >
-                      <TopicPreview
-                        navigateTo={() => navigateTo(topic.path)}
-                        {...topic}
-                      />
-                    </ItemStyle>
-                  );
-                })
+                topics.map(topic => (
+                  <ItemStyle
+                    className={cx(params)}
+                    key={topic.id}
+                  >
+                    <TopicPreview
+                      navigateTo={() => navigateTo(topic.path)}
+                      {...topic}
+                    />
+                  </ItemStyle>
+                ))
               }
             </ItemsStyle>
           </BaseStyle>
@@ -49,7 +47,7 @@ function TopicsList({
 
 TopicsList.propTypes = {
   navigateTo: func,
-  topics: object
+  topics: arrayOf(shape(TopicPreview.propTypes)).isRequired
 };
 
 export default TopicsList;
