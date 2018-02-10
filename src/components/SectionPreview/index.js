@@ -2,30 +2,45 @@ import React from 'react';
 import styled from 'styled-components';
 import {
   string,
-  arrayOf,
-  object,
   func
 } from 'prop-types';
-import { base, frame, counter, total, totalLabel, info, title, composition } from './style';
+import Button from '../Button';
+import {
+  base,
+  name,
+  abstract,
+  icon
+} from './style';
 
 const BaseStyle = styled.article`${base}`;
+const NameStyle = styled.h3`${name}`;
+const AbstractStyle = styled.p`${abstract}`;
+const IconStyle = styled.div`${icon}`;
 
 function SectionPreview({
-  path,
-  navigateTo,
-  resources,
-  title
+  abstract,
+  icon,
+  name,
+  navigateTo
 }) {
   return (
-    <BaseStyle>Section Preview</BaseStyle>
+    <BaseStyle>
+      <NameStyle>{name}</NameStyle>
+      <AbstractStyle>{abstract}</AbstractStyle>
+      <Button
+        label="Learn"
+        onClick={navigateTo}
+        outline
+      />
+    </BaseStyle>
   );
 }
 
 SectionPreview.propTypes = {
-  navigateTo: func,
-  path: string,
-  resources: arrayOf(object).isRequired,
-  title: string.isRequired
+  abstract: string,
+  icon: string.isRequired,
+  name: string.isRequired,
+  navigateTo: func.isRequired
 };
 
 export default SectionPreview;
