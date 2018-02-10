@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {
   string,
+  number,
   func
 } from 'prop-types';
 import Button from '../Button';
@@ -21,7 +22,9 @@ function SectionPreview({
   abstract,
   icon,
   name,
-  navigateTo
+  navigateTo,
+  resourcesCount,
+  topicsCount
 }) {
   return (
     <BaseStyle>
@@ -40,7 +43,9 @@ SectionPreview.propTypes = {
   abstract: string,
   icon: string.isRequired,
   name: string.isRequired,
-  navigateTo: func.isRequired
+  navigateTo: func.isRequired,
+  resourcesCount: number,
+  topicsCount: number
 };
 
 export default SectionPreview;
