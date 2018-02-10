@@ -5,7 +5,7 @@
   "repository": "https://github.com/repills/repills-react-components.git",
   "main": "lib/components/index.js",
   "scripts": {
-    "start": "start-storybook -s ./static -p 8000",
+    "start": "start-storybook -s ./static -p 3000",
     "build": "babel src -d lib",
     "build-doc": "build-storybook -c .storybook -o .doc-build"
   },
@@ -20,7 +20,7 @@
     "react-container-query": "^0.10.0",
     "react-dom": "^16.2.0",
     "react-element-to-jsx-string": "^13.1.0",
-    "repills-config": "git+https://github.com/repills/repills-config.git#1.1.1",
+    "repills-config": "git+https://github.com/repills/repills-config.git#1.2.1",
     "styled-components": "^2.4.0",
     "styled-components-grid": "^1.0.0-preview.15"
   },
