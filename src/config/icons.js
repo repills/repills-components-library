@@ -5,6 +5,16 @@ export default {
       name: 'Pill'
     }
   ],
+  sections: [
+    {
+      id: 'Serverless',
+      name: 'Serverless'
+    },
+    {
+      id: 'React',
+      name: 'React'
+    }
+  ],
   types: [
     {
       id: 'Book',

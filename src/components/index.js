@@ -1,5 +1,6 @@
 export * from './Icon/icons/basic';
 export * from './Icon/icons/types';
+export * from './Icon/icons/sections';
 export Button from './Button';
 export TypePreview from './TypePreview';
 export TypesList from './TypesList';

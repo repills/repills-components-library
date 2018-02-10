@@ -6,7 +6,7 @@ import * as Icons from '../../../src/components';
 import palettes from '../../../src/config/palettes';
 import theme from '../../../src/config/theme';
 
-const iconsOptions = icons.types.reduce((options, config) => {
+const iconsOptions = icons.sections.reduce((options, config) => {
   options[config.id] = config.name;
   return options;
 }, {});
@@ -22,13 +22,13 @@ const colorsOptions = palettesKeys.reduce((options, key) => {
 
 export default (sectionTitle, sectionDescription) => () => {
 
-  const selectedIcon = select('Icona', iconsOptions, icons.types[0].id);
+  const selectedIcon = select('Icona', iconsOptions, icons.sections[0].id);
   const selectedColor = select('Colore Icona', colorsOptions, theme.palettes.neutral['highest']);
 
   return (
     <SectionPage
       sectionDescription={sectionDescription}
-      subSectionTitle="Types"
+      subSectionTitle="Sections"
       title={sectionTitle}
     >
       <InteractiveExample
@@ -45,7 +45,7 @@ export default (sectionTitle, sectionDescription) => () => {
 
       <h2>Icone</h2>
       <IconList
-        icons={icons.types}
+        icons={icons.sections}
         settings={
           {
             color: '#000',
