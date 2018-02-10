@@ -30,6 +30,13 @@ export default [
     weight: 700
   },
   {
+    id: 'header4',
+    name: 'Header 4',
+    family: primaryFontFamily,
+    size: '28px',
+    weight: 700
+  },
+  {
     id: 'body',
     name: 'Body',
     family: primaryFontFamily,
