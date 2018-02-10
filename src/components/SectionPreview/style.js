@@ -11,6 +11,7 @@ export const base = css`
   background-color: ${mainColor};
   padding: ${extRem(28,20,32)};
   border-radius: 5px;
+  text-align: center;
 `;
 
 export const icon = css``;
