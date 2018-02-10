@@ -1,5 +1,5 @@
 import faker from 'faker';
-import { types } from 'repills-config';
+import { types, sections } from 'repills-config';
 
 // Exclude extended types
 const typeKeys = Object.keys(types).filter(key => !key.includes('_'));
@@ -64,4 +64,27 @@ export function getRandomTopic({ title, resourcesLength }) {
 
 export function getRandomTopicList(length) {
   return Array.from({ length }, () => getRandomTopic({}) );
+}
+
+//---------
+// SECTIONS
+//---------
+
+export function getRandomSection() {
+  const baseSection = sections[getRandomNumber(0, sections.length - 1)];
+  return Object.assign(
+    {},
+    baseSection,
+    {
+      id: `${faker.lorem.word()}-${getRandomNumber(0, 100)}`,
+      resourcesCount: getRandomNumber(0, 50),
+      topicsCount: getRandomNumber(0, 20),
+      // topicsCount: baseSection.topics.length,
+      path: `/${faker.lorem.word()}`
+    }
+  );
+}
+
+export function getRandomSectionList(length) {
+  return Array.from({ length }, () => getRandomSection({}) );
 }
