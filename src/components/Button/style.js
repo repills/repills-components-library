@@ -20,7 +20,7 @@ export const base = css`
   ${typography.body};
   align-items: center;
   background: none;
-  border-radius: ${props => stripUnit(height[props.size]) / 2}rem;
+  // border-radius: ${props => stripUnit(height[props.size]) / 2}rem;
   border: 3px solid ${basic.primary};
   box-sizing: border-box;
   color: ${neutral.lowest};
