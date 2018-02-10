@@ -47,7 +47,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  size: 'M', 
+  size: 'M',
   type: 'primary'
 };
 
