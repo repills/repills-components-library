@@ -27,12 +27,16 @@ class PreviewBlock extends React.Component {
       {
         name: 'Neutral Medium',
         value: '#e0e0e0'
+      },
+      {
+        name: 'Neutral Lowest',
+        value: '#fff'
       }
     ];
 
     this.state = {
       currentBreakpoint: breakpoint || XS,
-      currentBackground: background || '#e0e0e0'
+      currentBackground: background || '#fff'
     };
   }
 
