@@ -14,7 +14,7 @@ export const base = css`
   text-align: center;
   border-top: 3px solid ${basic.primary};
   overflow: hidden;
-  border-radius: 3px;
+  // border-radius: 3px;
   position: relative;
   cursor: pointer;
   background-color: ${mainColor};
