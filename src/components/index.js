@@ -2,6 +2,8 @@ export * from './Icon/icons/basic';
 export * from './Icon/icons/sections';
 export * from './Icon/icons/types';
 export Button from './Button';
+export ResourcePreview from './ResourcePreview';
+export ResourcesList from './ResourcesList';
 export SectionPreview from './SectionPreview';
 export SectionsList from './SectionsList';
 export theme from '../config/theme';
