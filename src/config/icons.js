@@ -3,6 +3,10 @@ export default {
     {
       id: 'Pill',
       name: 'Pill'
+    },
+    {
+      id: 'Link',
+      name: 'Link'
     }
   ],
   sections: [
