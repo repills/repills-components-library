@@ -14,7 +14,7 @@ export default (sectionTitle, sectionDescription) => () => {
     >
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {
-          palettes.types.colors.map(color => {
+          palettes.types.colors.filter(c => !c.id.includes('_')).map(color => {
 
             return (
               <div
