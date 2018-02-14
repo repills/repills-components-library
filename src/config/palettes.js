@@ -47,6 +47,11 @@ export default {
         value: '#e0e0e0'
       },
       {
+        id: 'high',
+        name: 'High',
+        value: '#333'
+      },
+      {
         id: 'highest',
         name: 'Highest',
         value: '#000'
