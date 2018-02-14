@@ -27,13 +27,13 @@ export const icon = css`
   font-size: ${extRem(50)};
   margin: 0 auto;
   line-height: 0;
-  color: ${basic.primary};
+  color: ${basic.primaryHighest};
 `;
 
 export const text = css`
   ${ellipsis()}
   margin-top: ${extRem(15)};
   line-height: 1;
-  color: ${basic.primary};
+  color: ${basic.primaryHighest};
   text-transform: uppercase;
 `;
