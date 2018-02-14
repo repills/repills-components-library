@@ -4,7 +4,7 @@ import { text, boolean, select } from '@storybook/addon-knobs/react';
 import { SectionPage, InteractiveExample } from '../../components';
 import { Button } from '../../../src/components';
 
-const sectionTitle = '4. Buttons';
+const sectionTitle = 'Buttons';
 const sectionDescription = 'Description will be here.';
 const section = createSection({ title: sectionTitle });
 

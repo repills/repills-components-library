@@ -3,7 +3,7 @@ import basic from './basic';
 import neutral from './neutral';
 import types from './types';
 
-const sectionTitle = '1. Colour palettes';
+const sectionTitle = 'Colour palettes';
 const sectionDescription = 'Description will be here';
 const section = createSection({ title: sectionTitle });
 

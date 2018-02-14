@@ -3,7 +3,7 @@ import types from './types';
 import sections from './sections';
 import basic from './basic';
 
-const sectionTitle = '3. Icons';
+const sectionTitle = 'Icons';
 const sectionDescription = 'Description will be here';
 const section = createSection({ title: sectionTitle });
 
