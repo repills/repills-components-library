@@ -5,7 +5,7 @@ import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
 const { basic, neutral } = theme.palettes;
-const mainColor = basic.primaryHighest;
+const mainColor = basic.primary;
 
 export const base = css`
   text-align: left;
@@ -16,7 +16,7 @@ export const base = css`
 `;
 
 export const mainInfo = css`
-  padding: ${extRem(12,12,20)};
+  padding: ${extRem(12,12,24)};
   background-color: ${mainColor};
 `;
 
@@ -64,7 +64,7 @@ export const secondaryInfo = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${extRem(16, 12)};
+  padding: ${extRem(12)};
 `;
 
 const detail = css`

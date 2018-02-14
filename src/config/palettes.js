@@ -1,4 +1,4 @@
-import { darken } from 'polished';
+import { lighten, darken } from 'polished';
 import config from 'repills-config';
 const primary = '#7a08fa';
 
@@ -16,6 +16,11 @@ export default {
   basic: {
     name: 'Basic',
     colors: [
+      {
+        id: 'primaryLowest',
+        name: 'Primary Lowest',
+        value: lighten(0.4, primary)
+      },
       {
         id: 'primary',
         name: 'Primary',
@@ -49,7 +54,7 @@ export default {
       {
         id: 'high',
         name: 'High',
-        value: '#333'
+        value: '#666'
       },
       {
         id: 'highest',
