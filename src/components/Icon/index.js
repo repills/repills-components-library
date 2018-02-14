@@ -27,13 +27,13 @@ const Icon = ({
       size={size || 20}
     >
       <svg
-        transform={`rotate(${orientations[orientation]})`}
         version="1.1"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
       >
-        {children}
+        <g transform={`rotate(${orientations[orientation]},0,0)`}>
+          {children}
+        </g>
       </svg>
     </BaseStyle>
   );
