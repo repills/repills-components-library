@@ -13,7 +13,7 @@ export default (sectionTitle, sectionDescription) => () => {
       max: 10,
       step: 1,
     })
-  });
+  }).frontmatter;
 
   return (
     <SectionPage

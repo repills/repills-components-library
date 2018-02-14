@@ -28,15 +28,17 @@ export function getRandomType() {
 export function getRandomResource({ title, date, author, link, color, typeLabel, type }) {
   const randomType = getRandomType();
   return {
-    title: title || faker.lorem.sentence(),
-    date: date || faker.date.past().toJSON(),
-    sections: ['reactjs'], // @TODO: add fixture
-    author: author || faker.name.findName(),
-    link: link || faker.internet.url(),
-    topics: ['why_react', 'react_components'],   // @TODO: add fixture
-    color: color || randomType.config.color,
-    typeLabel: typeLabel || randomType.config.label.singular,
-    type: type || [randomType.key]
+    frontmatter: {
+      title: title || faker.lorem.sentence(),
+      date: date || faker.date.past().toJSON(),
+      sections: ['reactjs'], // @TODO: add fixture
+      author: author || faker.name.findName(),
+      link: link || faker.internet.url(),
+      topics: ['why_react', 'react_components'],   // @TODO: add fixture
+      color: color || randomType.config.color,
+      typeLabel: typeLabel || randomType.config.label.singular,
+      type: type || [randomType.key]
+    }
   };
 }
 

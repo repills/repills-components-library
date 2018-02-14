@@ -15,7 +15,7 @@ export default (sectionTitle, sectionDescription) => () => {
       <InteractiveExample
         component={ResourcesList}
         navigateTo={navigateTo}
-        resources={getRandomResourceList(3,10)}
+        resources={getRandomResourceList(3,10).map(e => e.frontmatter)}
       />
     </SectionPage>
   );
