@@ -16,7 +16,7 @@ export const base = css`
 `;
 
 export const mainInfo = css`
-  padding: ${extRem(12)};
+  padding: ${extRem(12,12,20)};
   background-color: ${mainColor};
 `;
 
@@ -45,7 +45,7 @@ export const title = css`
   ${typography.header4}
   color: ${neutral.lowest};
   margin: ${extRem(16, 0)};
-  height: ${extRem(110)};
+  height: ${extRem(90)};
   position: relative;
   overflow: hidden;
   
@@ -64,7 +64,7 @@ export const secondaryInfo = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${extRem(12)};
+  padding: ${extRem(16, 12)};
 `;
 
 const detail = css`

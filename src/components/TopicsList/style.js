@@ -5,6 +5,7 @@ import { SM, MD, LG } from '../../config/breakpoints';
 
 const halfGutterStripUnit = 6;
 const gutter = extRem(halfGutterStripUnit * 2);
+const doubleGutter = extRem(halfGutterStripUnit * 4);
 const halfGutter = extRem(halfGutterStripUnit);
 
 export const base = css`
@@ -15,6 +16,11 @@ export const items = css`
   ${grid()}
   margin-left: -${halfGutter};
   margin-right: -${halfGutter};
+  
+  &.${SM} {
+    margin-left: -${gutter};
+    margin-right: -${gutter};
+  }
 `;
 
 export const item = css`
@@ -26,6 +32,9 @@ export const item = css`
   
   &.${SM} {
     ${grid.unit({ size: 1/3 })}
+    padding-left: ${gutter};
+    padding-right: ${gutter};
+    padding-bottom: ${doubleGutter};
   }
   
   &.${MD} {
