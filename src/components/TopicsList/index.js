@@ -29,7 +29,7 @@ function TopicsList({
                 topics.map(topic => (
                   <ItemStyle
                     className={cx(params)}
-                    key={topic.id}
+                    key={topic.slug}
                   >
                     <TopicPreview
                       navigateTo={() => navigateTo(topic.path)}
