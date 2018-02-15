@@ -5,23 +5,24 @@ import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
 const { basic, neutral } = theme.palettes;
-const mainColor = basic.primary;
+const mainColor = '#fafafa';
 
 export const base = css`
   text-align: left;
   background-color: ${neutral.lowest};
-  cursor: pointer;
+  // cursor: pointer;
   border-top: 4px solid ${props => props.color};
 `;
 
 export const mainInfo = css`
   padding: ${extRem(12,12,24)};
   background-color: ${mainColor};
+  border: 1px solid ${neutral.medium};
 `;
 
 export const source = css`
   ${typography.small}
-  color: ${neutral.medium};
+  color: ${neutral.high};
   display: flex;
   align-items: center;
   line-height: 1;
@@ -34,17 +35,17 @@ export const source = css`
 export const author = css`
   ${typography.small}
   ${ellipsis()}
-  color: ${neutral.medium};
+  color: ${neutral.high};
   margin-left: ${extRem(8)};
   
   span {
-    color: ${neutral.lowest};
+    font-weight: bold;
   }
 `;
 
 export const title = css`
   ${typography.header4}
-  color: ${neutral.lowest};
+  color: ${basic.primaryHighest};
   margin: ${extRem(16, 0)};
   height: ${extRem(90)};
   position: relative;
@@ -77,7 +78,7 @@ export const secondaryInfo = css`
 
 export const detail = css`
   ${typography.small}
-  color: ${neutral.lowest};
+  color: ${neutral.high};
   display: flex;
   align-items: center;
   // justify-content: space-between;
