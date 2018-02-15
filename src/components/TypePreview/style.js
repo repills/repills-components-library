@@ -14,12 +14,12 @@ export const base = css`
   align-items: center;
   line-height: 1;
   text-align: center;
-  background: ${rgba(neutral.highest, .05)};
+  background: ${rgba(neutral.highest, .03)};
   border-top: 3px solid ${props => props.color};
   cursor: pointer;
   
   &:hover {
-    background: ${rgba(neutral.highest, .07)};
+    background: ${rgba(neutral.highest, .05)};
   }
 `;
 

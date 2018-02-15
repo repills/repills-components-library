@@ -12,14 +12,12 @@ const mainColor = lighten(0.2, neutral.lowest);
 export const base = css`
   box-sizing: border-box;
   text-align: center;
-  border-top: 3px solid ${basic.primary};
+  border: 1px solid ${neutral.medium};
   overflow: hidden;
-  // border-radius: 3px;
   position: relative;
   cursor: pointer;
   background-color: ${mainColor};
   color: ${basic.primaryHighest};
-  box-shadow: 0 1px 2px 2px ${rgba(neutral.highest, 0.02)};
   
   ${props => props.disabled && `
     opacity: .6;
