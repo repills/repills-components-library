@@ -33,7 +33,7 @@ function ResourcesList({
                       key={resource.link}
                     >
                       <ResourcePreview
-                        navigateTo={() => navigateTo(resource.path)}
+                        navigateTo={() => navigateTo(resource.link)}
                         {...resource}
                       />
                     </ItemStyle>
