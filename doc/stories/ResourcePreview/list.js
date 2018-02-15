@@ -5,8 +5,6 @@ import { getRandomResourceList } from '../../utils/fixtures';
 
 export default (sectionTitle, sectionDescription) => () => {
 
-  const navigateTo = link => alert(`Navigate to: ${link}`);
-
   return (
     <SectionPage
       description={sectionDescription}
@@ -14,7 +12,6 @@ export default (sectionTitle, sectionDescription) => () => {
     >
       <InteractiveExample
         component={ResourcesList}
-        navigateTo={navigateTo}
         resources={getRandomResourceList(3,10).map(e => e.frontmatter)}
       />
     </SectionPage>

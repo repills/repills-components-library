@@ -4,9 +4,7 @@ import m from 'moment';
 import { getBaseUrl } from '../../utils';
 import { PillIcon, LinkIcon } from '../Icon/icons/basic';
 import {
-  string,
-  arrayOf,
-  func
+  string
 } from 'prop-types';
 import {
   base,
@@ -35,27 +33,20 @@ function ResourcePreview({
   title,
   author,
   link,
-  path,
   date,
-  type,
-  sections,
-  topics,
   typeLabel,
-  navigateTo,
-  suggestedBy,
   handleDetailView
 }) {
   return (
     <BaseStyle
       color={color}
-      onClick={navigateTo}
     >
       <MainInfoStyle>
         <SourceStyle>
           <LinkIcon size={14} />
           <span>{getBaseUrl(link)}</span>
         </SourceStyle>
-        <TitleStyle>{title}</TitleStyle>
+        <TitleStyle><a href={link}>{title}</a></TitleStyle>
         <DetailStyle>
           <TypeStyle>
             <PillIcon
@@ -77,17 +68,11 @@ function ResourcePreview({
 
 ResourcePreview.propTypes = {
   author: string,
-  color: string,
+  color: string.isRequired,
   date: string,
   link: string.isRequired,
-  navigateTo: func,
-  path: string.isRequired,
-  sections: arrayOf(string),
-  suggestedBy: string,
   title: string.isRequired,
-  topics: arrayOf(string),
-  type: string.isRequired,
-  typeLabel: string
+  typeLabel: string.isRequired
 };
 
 export default ResourcePreview;

@@ -50,6 +50,11 @@ export const title = css`
   position: relative;
   overflow: hidden;
   
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
+  
   &::after {
     content: '';
     height: ${extRem(30)};

@@ -22,7 +22,6 @@ export default (sectionTitle, sectionDescription) => () => {
     >
       <InteractiveExample
         component={ResourcePreview}
-        navigateTo={() => alert('Navigate to: ' + randomResource.link)}
         {...randomResource}
       />
     </SectionPage>

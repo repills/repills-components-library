@@ -2,7 +2,6 @@ import React from 'react';
 import ResourcePreview from '../ResourcePreview';
 import cx from 'classnames';
 import {
-  func,
   arrayOf,
   shape
 } from 'prop-types';
@@ -16,8 +15,7 @@ const ItemsStyle = styled.div`${items}`;
 const ItemStyle = styled.div`${item}`;
 
 function ResourcesList({
-  resources,
-  navigateTo
+  resources
 }) {
   return (
     <ContainerQuery query={query}>
@@ -33,7 +31,6 @@ function ResourcesList({
                       key={resource.link}
                     >
                       <ResourcePreview
-                        navigateTo={() => navigateTo(resource.link)}
                         {...resource}
                       />
                     </ItemStyle>
@@ -49,7 +46,6 @@ function ResourcesList({
 }
 
 ResourcesList.propTypes = {
-  navigateTo: func,
   resources: arrayOf(shape(ResourcePreview.propTypes)).isRequired
 };
 
