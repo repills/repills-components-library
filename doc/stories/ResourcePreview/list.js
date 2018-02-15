@@ -5,7 +5,7 @@ import { getRandomResourceList } from '../../utils/fixtures';
 
 export default (sectionTitle, sectionDescription) => () => {
 
-  const navigateTo = path => alert(`Navigate to ${path}`);
+  const navigateTo = link => alert(`Navigate to: ${link}`);
 
   return (
     <SectionPage
