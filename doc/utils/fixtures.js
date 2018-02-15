@@ -25,7 +25,7 @@ export function getRandomType() {
 // RESOURCES
 //----------
 
-export function getRandomResource({ title, date, author, link, color, typeLabel, type }) {
+export function getRandomResource({ title, date, author, link, color, typeLabel, type, suggestedBy }) {
   const randomType = getRandomType();
   return {
     frontmatter: {
@@ -37,7 +37,8 @@ export function getRandomResource({ title, date, author, link, color, typeLabel,
       topics: ['why_react', 'react_components'],   // @TODO: add fixture
       color: color || randomType.config.color,
       typeLabel: typeLabel || randomType.config.label.singular,
-      type: type || [randomType.key]
+      type: type || [randomType.key],
+      suggestedBy: suggestedBy || faker.name.findName()
     }
   };
 }
