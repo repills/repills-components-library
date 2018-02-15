@@ -15,6 +15,7 @@ const TextStyle = styled.div`${text}`;
 
 function TypePreview({
   color,
+  path,
   count,
   icon,
   id,
@@ -27,7 +28,8 @@ function TypePreview({
   return (
     <BaseStyle
       color={color}
-      onClick={() => navigateTo(id)}
+      id={id}
+      onClick={() => navigateTo(path)}
     >
       <IconStyle>
         <Icon size={52} />
@@ -48,7 +50,8 @@ TypePreview.propTypes = {
     singular: string.isRequired,
     plural: string.isRequired
   }),
-  navigateTo: func
+  navigateTo: func,
+  path: string.isRequired
 };
 
 export default TypePreview;
