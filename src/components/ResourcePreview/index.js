@@ -15,6 +15,7 @@ import {
   title,
   type,
   date,
+  detail,
   secondaryInfo,
   author
 } from './style';
@@ -27,6 +28,7 @@ const TitleStyle = styled.h4`${title}`;
 const AuthorStyle = styled.div`${author}`;
 const TypeStyle = styled.div`${type}`;
 const DateStyle = styled.div`${date}`;
+const DetailStyle = styled.div`${detail}`;
 
 function ResourcePreview({
   color,
@@ -54,17 +56,20 @@ function ResourcePreview({
           <span>{getBaseUrl(link)}</span>
         </SourceStyle>
         <TitleStyle>{title}</TitleStyle>
-        {author && <AuthorStyle>by <span>{author}</span></AuthorStyle>}
+        <DetailStyle>
+          <TypeStyle>
+            <PillIcon
+              color={color}
+              size={16}
+            />
+            <span>{typeLabel}</span>
+          </TypeStyle>
+          &mdash;
+          {author && <AuthorStyle>by <span>{author}</span></AuthorStyle>}
+        </DetailStyle>
       </MainInfoStyle>
       <SecondaryInfoStyle>
-        <TypeStyle>
-          <PillIcon
-            color={color}
-            size={16}
-          />
-          <span>{typeLabel}</span>
-        </TypeStyle>
-        <DateStyle>{m(date).fromNow()}</DateStyle>
+        <DateStyle>Published {m(date).fromNow()}</DateStyle>
       </SecondaryInfoStyle>
     </BaseStyle>
   );

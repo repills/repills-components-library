@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import theme from '../../config/theme';
-import { rgba } from 'polished';
+import { rgba, ellipsis } from 'polished';
 import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
@@ -12,7 +12,6 @@ export const base = css`
   background-color: ${neutral.lowest};
   cursor: pointer;
   border-top: 4px solid ${props => props.color};
-  box-shadow: 0 1px 2px 2px ${rgba(neutral.highest, 0.02)};
 `;
 
 export const mainInfo = css`
@@ -34,7 +33,9 @@ export const source = css`
 
 export const author = css`
   ${typography.small}
+  ${ellipsis()}
   color: ${neutral.medium};
+  margin-left: ${extRem(8)};
   
   span {
     color: ${neutral.lowest};
@@ -65,19 +66,23 @@ export const secondaryInfo = css`
   justify-content: space-between;
   align-items: center;
   padding: ${extRem(12)};
+  border: 1px solid ${neutral.medium};
+  border-top: 0;
 `;
 
-const detail = css`
+export const detail = css`
   ${typography.small}
-  line-height: 1;
-  color: ${neutral.high};
+  color: ${neutral.lowest};
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
 `;
 
 export const type = css`
-  ${detail}
-  display: flex;
-  align-items: center;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  margin-right: ${extRem(8)};
   
   span {
     margin-left: ${extRem(5)};
@@ -85,5 +90,7 @@ export const type = css`
 `;
 
 export const date = css`
-  ${detail}
+  ${typography.small}
+  line-height: 1;
+  color: ${neutral.high};
 `;
