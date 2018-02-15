@@ -8,6 +8,7 @@ export SectionPreview from './SectionPreview';
 export SectionsList from './SectionsList';
 export theme from '../config/theme';
 export TopicPreview from './TopicPreview';
+export ResourceDetail from './ResourceDetail';
 export TopicsList from './TopicsList';
 export TopNavigation from './TopNavigation';
 export TypePreview from './TypePreview';
