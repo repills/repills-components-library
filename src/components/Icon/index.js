@@ -24,14 +24,14 @@ const Icon = ({
 
   return (
     <BaseStyle
-      size={size || 20}
+      size={size}
     >
       <svg
         version="1.1"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g transform={`rotate(${orientations[orientation]},0,0)`}>
+        <g transform={`rotate(${orientations[orientation]},50,50)`}>
           {children}
         </g>
       </svg>
