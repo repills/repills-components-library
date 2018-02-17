@@ -4,13 +4,14 @@ import { rgba, ellipsis } from 'polished';
 import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
-const { basic, neutral } = theme.palettes;
-const mainColor = '#fafafa';
+const { neutral } = theme.palettes;
+const mainColor = neutral.lower;
 
 export const base = css`
   text-align: left;
   background-color: ${neutral.lowest};
   // cursor: pointer;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   border-top: 4px solid ${props => props.color};
 `;
 
@@ -18,6 +19,7 @@ export const mainInfo = css`
   padding: ${extRem(12,12,24)};
   background-color: ${mainColor};
   border: 1px solid ${neutral.medium};
+  border-top: 0;
 `;
 
 export const source = css`
@@ -45,7 +47,7 @@ export const author = css`
 
 export const title = css`
   ${typography.header4}
-  color: ${basic.primaryHighest};
+  color: ${neutral.highest};
   margin: ${extRem(16, 0)};
   height: ${extRem(90)};
   position: relative;

@@ -5578,9 +5578,9 @@ repeating@^2.0.0:
   dependencies:
     is-finite "^1.0.0"
 
-"repills-config@git+https://github.com/repills/repills-config.git#1.2.3":
-  version "1.2.3"
-  resolved "git+https://github.com/repills/repills-config.git#890bd341147e5b4a6495c3a22477fcef25fe7293"
+"repills-config@git+https://github.com/repills/repills-config.git#1.2.4":
+  version "1.2.4"
+  resolved "git+https://github.com/repills/repills-config.git#7f695d7b076668a5959300aa617a0f9f77dba84b"
 
 request@2.81.0:
   version "2.81.0"
@@ -5843,6 +5843,10 @@ shelljs@^0.7.8:
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
+
+simple-pagination@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/simple-pagination/-/simple-pagination-1.0.0.tgz#fb34bcbd8de62c230212c8fcf44badf2cd1a7fda"
 
 slash@^1.0.0:
   version "1.0.0"
