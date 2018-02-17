@@ -28,7 +28,7 @@ export const itemsWrapper = css`
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  margin: 0 -1px;
+  margin: 0 -4px;
   
   &::-webkit-scrollbar {
     display: none; 
@@ -47,9 +47,9 @@ export const items = css`
 export const item = css`
   box-sizing: border-box;
   flex: 0 0 auto;
-  padding: 1px;
+  padding: 4px;
   
-  ${grid.unit({ size: 3/10 })}
+  ${grid.unit({ size: 4/10 })}
   
   &.${SM} {
     ${grid.unit({ size: 3/14 })}

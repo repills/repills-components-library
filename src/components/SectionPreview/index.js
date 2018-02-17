@@ -10,13 +10,17 @@ import Button from '../Button';
 import {
   base,
   name,
+  cover,
   description,
   details,
+  info,
   detail,
   icon
 } from './style';
 
 const BaseStyle = styled.article`${base}`;
+const CoverStyle = styled.div`${cover}`;
+const InfoStyle = styled.div`${info}`;
 const NameStyle = styled.h3`${name}`;
 const DescriptionStyle = styled.p`${description}`;
 const IconStyle = styled.div`${icon}`;
@@ -36,32 +40,32 @@ function SectionPreview({
 
   return (
     <BaseStyle>
-      <IconStyle>
-        <Icon
-          color={color}
-          size={100}
-        />
-      </IconStyle>
-      <NameStyle>{name}</NameStyle>
-      <DescriptionStyle>{description}</DescriptionStyle>
-
-      <DetailsStyle>
-        <DetailStyle>
-          <strong>{resourcesCount}</strong> pill{resourcesCount === 1 ? '' : 's'}
-        </DetailStyle>
-        /
-        <DetailStyle>
-          <strong>{topicsCount}</strong> topic{topicsCount === 1 ? '' : 's'}
-        </DetailStyle>
-      </DetailsStyle>
-
-      <div>
-        <Button
-          label="Learn"
-          onClick={navigateTo}
-          outline
-        />
-      </div>
+      <CoverStyle>
+        <IconStyle>
+          <Icon
+            color={color}
+            size={100}
+          />
+        </IconStyle>
+        <NameStyle>{name}</NameStyle>
+        <DetailsStyle>
+          <DetailStyle>
+            <strong>{resourcesCount}</strong> pill{resourcesCount === 1 ? '' : 's'}
+          </DetailStyle>
+          <DetailStyle>
+            <strong>{topicsCount}</strong> topic{topicsCount === 1 ? '' : 's'}
+          </DetailStyle>
+        </DetailsStyle>
+      </CoverStyle>
+      <InfoStyle>
+        <DescriptionStyle>{description}</DescriptionStyle>
+        <div>
+          <Button
+            label="Learn"
+            onClick={navigateTo}
+          />
+        </div>
+      </InfoStyle>
     </BaseStyle>
   );
 }

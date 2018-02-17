@@ -17,7 +17,8 @@ export const base = css`
   position: relative;
   cursor: pointer;
   background-color: ${mainColor};
-  color: ${basic.primaryHighest};
+  color: ${neutral.highest};
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   
   ${props => props.disabled && `
     opacity: .6;
@@ -55,7 +56,7 @@ export const counter = css`
     padding: ${extRem(15, 0)};
     ${typography.header3}
     order: 2;
-    border-left: 1px solid ${rgba(basic.primaryHighest, 0.1)}
+    border-left: 1px solid ${rgba(neutral.highest, 0.1)}
   }
 `;
 
@@ -126,7 +127,7 @@ export const composition = css`
 export const compositionItem = css`
   background-color: ${props => props.color};
   height: ${props => props.percentage}%;
-  width: 5px;
+  width: ${extRem(6)};
   margin-right: 3px;
 `;
 

@@ -9,17 +9,29 @@ const { basic, neutral } = theme.palettes;
 export const base = css`
   ${typography.body}
   text-decoration: none;
-  padding: ${extRem(20, 10, 18)};
+  padding: ${extRem(23, 10, 18)};
   display: block;
   align-items: center;
   line-height: 1;
   text-align: center;
-  background: ${rgba(neutral.highest, .03)};
-  border-top: 3px solid ${props => props.color};
+  background: ${neutral.lower};
   cursor: pointer;
+  border: 1px solid ${neutral.medium};
+  border-top: 0;
+  position: relative;
   
   &:hover {
     background: ${rgba(neutral.highest, .05)};
+  }
+  
+  &::after {
+    background-color: ${props => props.color};
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -1px;
+    right: -1px;
+    height: 3px;
   }
 `;
 
@@ -27,13 +39,13 @@ export const icon = css`
   font-size: ${extRem(50)};
   margin: 0 auto;
   line-height: 0;
-  color: ${basic.primaryHighest};
+  color: ${neutral.highest};
 `;
 
 export const text = css`
   ${ellipsis()}
   margin-top: ${extRem(15)};
   line-height: 1;
-  color: ${basic.primaryHighest};
+  color: ${neutral.highest};
   text-transform: uppercase;
 `;

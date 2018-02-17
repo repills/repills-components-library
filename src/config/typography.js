@@ -26,7 +26,7 @@ export default [
     id: 'header3',
     name: 'Header 3',
     family: primaryFontFamily,
-    size: '36px',
+    size: '34px',
     weight: 700
   },
   {

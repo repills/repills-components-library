@@ -5,27 +5,37 @@ import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
 const { basic, neutral } = theme.palettes;
-const mainColor = basic.primaryHighest;
+const mainColor = neutral.lowest;
 
 export const base = css`
   background-color: ${mainColor};
-  padding: ${extRem(28,20,32)};
-  border-radius: 5px;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   text-align: center;
 `;
 
 export const icon = css``;
 
+export const cover = css`
+  background-color: ${neutral.highest};
+  padding: ${extRem(24,16)};
+`;
+
+export const info = css`
+  border: 1px solid ${neutral.medium};
+  padding: ${extRem(20,16)};
+`;
+
 export const name = css`
-  ${typography.header4}
+  ${typography.header3}
   color: ${neutral.lowest};
   margin: ${extRem(16,0,0)};
+  line-height: 1;
 `;
 
 export const description = css`
   ${typography.small}
-  color: ${rgba(neutral.lowest,.6)};
-  margin: ${extRem(16,0,0)};
+  color: ${neutral.highest};
+  margin: 0;
   height: ${extRem(80)};
   overflow: hidden;
   position: relative;
@@ -43,12 +53,16 @@ export const description = css`
 
 export const details = css`
   ${typography.body}
-  color: ${rgba(neutral.lowest,.6)};
-  margin: ${extRem(16,0,28)};
+  color: ${neutral.lowest};
+  margin-top: ${extRem(16)};
 `;
 
 export const detail = css`
   display: inline-block;
-  margin: ${extRem(0,8)};
+  padding: ${extRem(0,12)};
   line-height: 1;
+  
+  &:first-child {
+    border-right: 1px solid ${neutral.high}
+  }
 `;
