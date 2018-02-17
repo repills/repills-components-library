@@ -22,7 +22,7 @@ function ResourcesList({
       {
         params => (
           <BaseStyle>
-            <ItemsStyle>
+            <ItemsStyle className={cx(params)}>
               {
                 resources.map(resource => {
                   return (

@@ -24,7 +24,7 @@ function TopicsList({
       {
         params => (
           <BaseStyle>
-            <ItemsStyle>
+            <ItemsStyle className={cx(params)}>
               {
                 topics.map(topic => (
                   <ItemStyle

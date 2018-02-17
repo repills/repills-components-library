@@ -9,29 +9,25 @@ const { basic, neutral } = theme.palettes;
 export const base = css`
   ${typography.body}
   text-decoration: none;
-  padding: ${extRem(23, 10, 18)};
+  padding: ${extRem(30, 10, 18)};
   display: block;
   align-items: center;
   line-height: 1;
   text-align: center;
   background: ${neutral.lower};
   cursor: pointer;
-  border: 1px solid ${neutral.medium};
+  // border: 1px solid ${neutral.medium};
   border-top: 0;
   position: relative;
-  
-  &:hover {
-    background: ${rgba(neutral.highest, .05)};
-  }
   
   &::after {
     background-color: ${props => props.color};
     content: '';
     position: absolute;
     top: 0;
-    left: -1px;
-    right: -1px;
-    height: 3px;
+    left: 0;
+    right: 0;
+    height: 10px;
   }
 `;
 

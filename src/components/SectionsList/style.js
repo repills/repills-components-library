@@ -3,7 +3,7 @@ import { extRem } from '../../utils';
 import { grid } from 'styled-components-grid';
 import { SM, LG, XL } from '../../config/breakpoints';
 
-const halfGutterStripUnit = 6;
+const halfGutterStripUnit = 8;
 const gutter = extRem(halfGutterStripUnit * 2);
 const doubleGutter = extRem(halfGutterStripUnit * 4);
 const halfGutter = extRem(halfGutterStripUnit);
@@ -26,7 +26,7 @@ export const items = css`
 export const item = css`
   padding-left: ${halfGutter};
   padding-right: ${halfGutter};
-  margin-bottom: ${gutter};
+  padding-bottom: ${gutter};
   
   ${grid.unit({ size: 1 })}
   

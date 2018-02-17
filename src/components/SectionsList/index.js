@@ -24,7 +24,7 @@ function SectionsList({
       {
         params => (
           <BaseStyle>
-            <ItemsStyle>
+            <ItemsStyle className={cx(params)}>
               {
                 sections.map(section => {
                   return (
