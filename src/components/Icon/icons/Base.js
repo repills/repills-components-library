@@ -14,7 +14,7 @@ const Base = ({
   return (
     <Icon
       orientation={orientation}
-      size={size}
+      size={size || 20}
     >
       <path
         d={path}
