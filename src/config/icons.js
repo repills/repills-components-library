@@ -5,6 +5,10 @@ export default {
       name: 'Pill'
     },
     {
+      id: 'Arrow',
+      name: 'Arrow'
+    },
+    {
       id: 'Link',
       name: 'Link'
     }
