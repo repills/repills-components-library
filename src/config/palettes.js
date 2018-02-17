@@ -47,6 +47,11 @@ export default {
         value: '#fff'
       },
       {
+        id: 'lower',
+        name: 'Lower',
+        value: '#fafafa'
+      },
+      {
         id: 'medium',
         name: 'Medium',
         value: '#e0e0e0'
@@ -59,7 +64,7 @@ export default {
       {
         id: 'highest',
         name: 'Highest',
-        value: '#000'
+        value: '#1c2020'
       }
     ]
   },
