@@ -9,7 +9,7 @@ const { basic, neutral } = theme.palettes;
 export const base = css`
   ${typography.body}
   text-decoration: none;
-  padding: ${extRem(30, 10, 18)};
+  padding: ${extRem(28, 10, 18)};
   display: block;
   align-items: center;
   line-height: 1;
@@ -27,7 +27,7 @@ export const base = css`
     top: 0;
     left: 0;
     right: 0;
-    height: 10px;
+    height: ${extRem(8)};
   }
 `;
 
