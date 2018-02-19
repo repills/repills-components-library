@@ -5,7 +5,7 @@ import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
 const { basic, neutral } = theme.palettes;
-const mainColor = basic.primary;
+const mainColor = neutral.lower;
 
 export const base = css`
   text-align: left;
@@ -17,11 +17,12 @@ export const base = css`
 export const mainInfo = css`
   padding: ${extRem(12,12,24)};
   background-color: ${mainColor};
+  border: 1px solid ${neutral.medium};
 `;
 
 export const mainInfoTop = css`
   ${typography.small}
-  color: ${neutral.medium};
+  color: ${neutral.high};
   display: flex;
   align-items: center;
   line-height: 1;
@@ -30,7 +31,7 @@ export const mainInfoTop = css`
 
 export const mainInfoBottom = css`
   ${typography.small}
-  color: ${neutral.medium};
+  color: ${neutral.high};
   display: flex;
   align-items: center;
 `;
@@ -50,14 +51,13 @@ export const author = css`
   ${ellipsis()}
   
   span {
-    color: ${neutral.lowest};
     margin: ${extRem(0,5)};
   }
 `;
 
 export const title = css`
   ${typography.header3}
-  color: ${neutral.lowest};
+  color: ${neutral.highest};
   margin: ${extRem(16, 0)};
   cursor: pointer;
 `;
@@ -68,7 +68,6 @@ export const secondaryInfo = css`
 `;
 
 export const type = css`
-  color: ${neutral.lowest};
   display: inline-flex;
   align-items: center;
   line-height: 1;
