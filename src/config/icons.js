@@ -11,6 +11,18 @@ export default {
     {
       id: 'Link',
       name: 'Link'
+    },
+    {
+      id: 'Close',
+      name: 'Close'
+    },
+    {
+      id: 'Checked',
+      name: 'Checked'
+    },
+    {
+      id: 'Unchecked',
+      name: 'Unchecked'
     }
   ],
   sections: [
