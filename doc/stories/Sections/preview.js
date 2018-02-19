@@ -6,7 +6,7 @@ import { getRandomSection } from '../../utils/fixtures';
 
 export default (sectionTitle, sectionDescription) => () => {
 
-  const randomTopic = getRandomSection({
+  const randomSection = getRandomSection({
     name: text('Name', 'Section Name'),
     resourcesLength: number('Resources', 2, {
       range: true,
@@ -23,8 +23,8 @@ export default (sectionTitle, sectionDescription) => () => {
     >
       <InteractiveExample
         component={SectionPreview}
-        navigateTo={() => alert('Navigate to: ' + randomTopic.path)}
-        {...randomTopic}
+        navigateTo={() => alert('Navigate to: ' + randomSection.path)}
+        {...randomSection}
       />
     </SectionPage>
   );

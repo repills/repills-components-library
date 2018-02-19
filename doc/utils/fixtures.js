@@ -87,5 +87,5 @@ export function getRandomSection() {
 }
 
 export function getRandomSectionList(length) {
-  return Array.from({ length }, () => getRandomSection({}) );
+  return Array.from({ length }, () => getRandomSection() );
 }
