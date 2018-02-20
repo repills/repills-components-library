@@ -23,12 +23,12 @@ const TextField = ({
   dirty,
   disabled,
   expanded,
+  handleOnBlur,
+  handleOnChange,
+  handleOnFocus,
   hasError,
   id,
   name,
-  onBlur,
-  onChange,
-  onFocus,
   placeholder,
   readOnly,
   required,
@@ -61,9 +61,9 @@ const TextField = ({
         hasIcon={hasIcon}
         id={id}
         name={name}
-        onBlur={onBlur}
-        onChange={onChange}
-        onFocus={onFocus}
+        onBlur={handleOnBlur}
+        onChange={handleOnChange}
+        onFocus={handleOnFocus}
         placeholder={placeholder}
         readOnly={readOnly}
         required={required}
@@ -86,12 +86,12 @@ TextField.propTypes = {
   dirty: bool,
   disabled: bool,
   expanded: bool,
+  handleOnBlur: func,
+  handleOnChange: func,
+  handleOnFocus: func,
   hasError: bool,
   id: string,
   name: string,
-  onBlur: func,
-  onChange: func,
-  onFocus: func,
   placeholder: string,
   readOnly: bool,
   required: bool,
