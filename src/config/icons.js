@@ -23,6 +23,14 @@ export default {
     {
       id: 'Unchecked',
       name: 'Unchecked'
+    },
+    {
+      id: 'Check',
+      name: 'Check'
+    },
+    {
+      id: 'Error',
+      name: 'Error'
     }
   ],
   sections: [
