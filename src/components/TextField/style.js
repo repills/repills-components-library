@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
 import { extRem } from '../../utils';
-import { size } from 'polished';
+import { size, placeholder } from 'polished';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
 
 const { palettes } = theme;
-const { basic, neutral } = palettes;
+const { basic, neutral, status } = palettes;
 
 const variant = {
   'M': {
@@ -27,6 +27,7 @@ export const base = css`
   padding-bottom: 2px;
   max-width: ${props => props.expanded ? '100%' : variant[props.size].maxWidth};
   position: relative;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   
   &::after {
     content: '';
@@ -42,7 +43,7 @@ export const base = css`
     `}    
     
     ${props => typeof(props.hasError) === 'boolean' && `
-      background-color: ${props.hasError ? 'red' : 'green'};
+      background-color: ${props.hasError ? status.danger : status.ok};
     `}
   }
 `;
@@ -56,7 +57,7 @@ export const icon = css`
   top: 0;
   right: 0;
   
-  color: ${props => props.hasError ? 'red': 'green'};
+  color: ${props => props.hasError ? status.danger : status.ok};
 `;
 
 export const input = css`
@@ -70,7 +71,7 @@ export const input = css`
   padding: 0 ${props => variant[props.size].sidePadding};
   display: inline-flex;
   align-items: center;
-  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
+  box-shadow: none;
   width: 100%;
   
   ${props => props.hasIcon && `
@@ -88,7 +89,7 @@ export const input = css`
   }
   
   &::placeholder {
-    color: ${neutral.medium};
+    color: ${neutral.mediumHigh};
   }
   
   ${props => (props.disabled || props.readOnly) && `

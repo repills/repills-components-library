@@ -39,6 +39,11 @@ const TextField = ({
 
   const hasIcon = dirty && typeof(hasError) === 'boolean';
 
+  const iconSize = {
+    M: 16,
+    L: 20
+  };
+
   return (
     <BaseStyle
       disabled={disabled}
@@ -53,7 +58,7 @@ const TextField = ({
           hasError={hasError}
           size={size}
         >
-          { hasError ? <ErrorIcon size={16} /> : <CheckIcon size={16} /> }
+          { hasError ? <ErrorIcon size={iconSize[size]} /> : <CheckIcon size={iconSize[size]} /> }
         </IconStyle>
       }
       <InputStyle
