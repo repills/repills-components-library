@@ -39,11 +39,9 @@ function TypesList({ types, navigateTo, shadeColor }) {
                       key={typeId}
                     >
                       <TypePreview
-                        color={type.color}
+                        {...type}
                         count={type.resources.length}
                         icon={typeId.charAt(0).toUpperCase() + typeId.slice(1)}
-                        id={type.id}
-                        label={type.label}
                         navigateTo={navigateTo}
                       />
                     </ItemStyle>
