@@ -12,6 +12,7 @@ export SectionPreview from './SectionPreview';
 export SectionPreviewSelection from './SectionPreviewSelection';
 export TextField from './TextField';
 export SectionSelector from './SectionSelector';
+export Select from './Select';
 export SectionsList from './SectionsList';
 export theme from '../config/theme';
 export TopicPreview from './TopicPreview';

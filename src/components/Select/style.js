@@ -1,0 +1,108 @@
+import { css } from 'styled-components';
+import { extRem } from '../../utils';
+import theme from '../../config/theme';
+import typography from '../../shared/styles/typography';
+import { arrowUp, arrowDown } from '../../shared/styles/caret';
+import { ellipsis } from 'polished';
+
+const { neutral } = theme.palettes;
+
+const sizes = {
+  M: {
+    height: extRem(36),
+    heightItem: extRem(32),
+    sideSpace: extRem(12),
+    width: extRem(200)
+  },
+  L: {
+    height: extRem(56),
+    heightItem: extRem(52),
+    sideSpace: extRem(24),
+    width: extRem(300)
+  }
+};
+
+export const base = css`
+  ${typography.body}
+  position: relative;
+  box-sizing: border-box;
+  width: ${props => props.expanded ? '100%' : sizes[props.size].width};
+  display: inline-flex;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
+  cursor: pointer;
+  
+  ${props => props.disabled && `
+    cursor: default;
+  `}
+`;
+
+export const selected = css`
+  box-sizing: border-box;
+  height: ${props => sizes[props.size].height};
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 0 ${props => sizes[props.size].sideSpace};
+  position: relative;
+  z-index: 1;
+  border: 1px solid ${neutral.medium};
+  color: ${props => props.filled ? neutral.highest : neutral.mediumHigh};
+  
+  &::after {
+    display: ${props => (props.disabled && props.filled) ? 'none' : 'block'};
+    content: '';
+    ${props => props.open ? arrowUp('5px') : arrowDown('5px')}
+    margin-left: ${extRem(10)};
+    color: ${ props => props.disabled ? neutral.mediumHigh : neutral.highest }
+  }
+
+  ${props => props.disabled && `
+    background-color: ${neutral.lower};
+  `}
+`;
+
+export const selectedText = css`
+  ${ellipsis()}
+  text-align: left;
+`;
+
+export const list = css`
+  position: absolute;
+  background-color: ${neutral.lowest};
+  top: ${props => sizes[props.size].height};
+  left: 0;
+  right: 0;
+  z-index: ${theme.zIndex.inpage}
+`;
+
+export const item = css`
+  color: ${neutral.highest};
+  background-color: ${neutral.lowest};
+  border: 1px solid ${neutral.medium};
+  padding: 0 ${props => sizes[props.size].sideSpace};
+  height: ${props => sizes[props.size].heightItem};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin-top: -1px;
+  
+  ${props => props.disabled && `
+    cursor: default;
+    color: ${neutral.lower};
+  `}
+`;
+
+export const itemText = css`
+  ${ellipsis()}
+  text-align: left;
+`;
+
+export const checkIcon = css`
+  margin-left: ${extRem(8)};
+`;
+
+
