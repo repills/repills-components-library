@@ -13,7 +13,7 @@ class TextFieldExample extends React.Component {
     };
   }
 
-  handleOnChange = event => this.setState({ value: event.target.value, dirty: true });
+  onHandleChange = event => this.setState({ value: event.target.value, dirty: true });
 
   render() {
 
@@ -43,12 +43,12 @@ class TextFieldExample extends React.Component {
         dirty={dirty}
         disabled={boolean('Disabled', false)}
         expanded={boolean('Expanded', false)}
+        handleOnBlur={() => {}}
+        handleOnChange={this.onHandleChange}
+        handleOnFocus={() => {}}
         hasError={hasError}
         id={text('Id', 'textfield_id')}
         name={text('Name', 'textfield_name')}
-        onBlur={() => {}}
-        onChange={this.handleOnChange}
-        onFocus={() => {}}
         placeholder={text('Placeholder', 'Placeholder...')}
         readOnly={boolean('Read only', false)}
         required={boolean('Required', false)}
