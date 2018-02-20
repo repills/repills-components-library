@@ -12,13 +12,15 @@ const sizes = {
     height: extRem(36),
     heightItem: extRem(32),
     sideSpace: extRem(12),
-    width: extRem(200)
+    width: extRem(200),
+    arrowSize: '5px'
   },
   L: {
     height: extRem(56),
     heightItem: extRem(52),
     sideSpace: extRem(24),
-    width: extRem(300)
+    width: extRem(300),
+    arrowSize: '7px'
   }
 };
 
@@ -52,7 +54,7 @@ export const selected = css`
   &::after {
     display: ${props => (props.disabled && props.filled) ? 'none' : 'block'};
     content: '';
-    ${props => props.open ? arrowUp('5px') : arrowDown('5px')}
+    ${props => props.open ? arrowUp(sizes[props.size].arrowSize) : arrowDown(sizes[props.size].arrowSize)}
     margin-left: ${extRem(10)};
     color: ${ props => props.disabled ? neutral.mediumHigh : neutral.highest }
   }
