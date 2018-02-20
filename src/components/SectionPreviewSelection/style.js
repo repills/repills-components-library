@@ -1,32 +1,44 @@
 import { css } from 'styled-components';
 import { extRem } from '../../utils';
 import theme from '../../config/theme';
-import { size, ellipsis } from 'polished';
+import { size, ellipsis, rgba } from 'polished';
 import typography from '../../shared/styles/typography';
 
 const { palettes } = theme;
-const { basic, neutral } = palettes;
+const { status, neutral } = palettes;
 
 export const base = css`
   box-sizing: border-box;
   text-align: center;
-  padding: ${extRem(20, 16)};
-  border: 2px solid transparent;
+  padding: ${extRem(24, 16)};
+  border: 1px solid ${neutral.medium};
   display: flex;
   align-items: center;
   flex-direction: column;
   cursor: pointer;
-  background-color: ${neutral.lower};
+  background-color: ${neutral.lowest};
   color: ${neutral.highest};
+  box-shadow: 0 1px 2px 2px ${rgba(neutral.highest, 0.02)};
+  position: relative;
   
   ${props => props.checked && `
-    background-color: ${basic.primary};
-    color: ${neutral.lowest};
+
   `}
+  
+  &::after {
+    display: ${props => props.checked ? 'block' : 'none'};
+    content: '';
+    height: ${extRem(4)};
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+    position: absolute;
+    background-color: ${status.ok};
+  }
 `;
 
 export const icon = css`
-  ${size(extRem(50),extRem(50))}
+  ${size(extRem(52))}
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +56,9 @@ export const selectButton = css`
   ${typography.small}
   display: inline-flex;
   align-items: center;
-  margin-top: ${extRem(12)};
+  justify-content: flex-start;
+  margin: ${extRem(12)} auto 0;
+  width: ${extRem(140)};
   
   span {
     margin-left: ${extRem(8)};

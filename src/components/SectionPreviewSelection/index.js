@@ -5,7 +5,7 @@ import {
   func
 } from 'prop-types';
 import styled from 'styled-components';
-import { CheckedIcon, UncheckedIcon } from '../Icon/icons/basic';
+import { CheckIcon, UncheckedIcon } from '../Icon/icons/basic';
 import * as icons from '../Icon/icons/sections';
 import {
   base,
@@ -76,8 +76,8 @@ class SectionPreviewSelection extends React.Component {
           {name}
         </NameStyle>
         <SelectionButtonStyle>
-          { checked ? <CheckedIcon size={20} /> : <UncheckedIcon size={20} /> }
-          <span>{ checked ? 'Selected' : 'Select section' }</span>
+          { checked ? <CheckIcon size={20} /> : <UncheckedIcon size={20} /> }
+          <span>{ checked ? 'Section selected' : 'Select section' }</span>
         </SelectionButtonStyle>
       </BaseStyle>
     );
