@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, bool, func } from 'prop-types';
+import { string, bool, func, oneOf } from 'prop-types';
 import styled from 'styled-components';
 import { base } from './style';
 
@@ -43,7 +43,7 @@ Button.propTypes = {
   onMouseEnter: func,
   onMouseLeave: func,
   outline: bool,
-  size: string
+  size: oneOf(['S', 'M'])
 };
 
 Button.defaultProps = {
