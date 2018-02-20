@@ -6,7 +6,7 @@ import { SectionPage, InteractiveExample } from '../../components';
 export default (sectionTitle, sectionDescription) => () => {
 
   const itemsPerPage = number('Item per pagina', 5);
-  const itemsTotalCount = number('Numero totale di item', 70);
+  const itemsTotalCount = number('Numero totale di item', 140);
   const currentPage = number('Pagina corrente', 1, {
     range: false,
     min: 1,

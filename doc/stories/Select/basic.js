@@ -49,7 +49,7 @@ export default (sectionTitle, sectionDescription) => () => {
         id={text('Id', 'button_id')}
         onChange={({ value, index }) => alert(`Value: ${value} - Index: ${index}`)}
         options={options}
-        placeholder={text('Placeholder', 'Seleziona...')}
+        placeholder={text('Placeholder', 'Select...')}
         previewMinHeight="300px"
         selectedIndex={selectedIndex !== 'none' ? parseInt(selectedIndex, 10) : null}
         size={select('Size', { M: 'Medium', L: 'Large' }, 'M')}
