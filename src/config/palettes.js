@@ -57,6 +57,11 @@ export default {
         value: '#e0e0e0'
       },
       {
+        id: 'mediumHigh',
+        name: 'Medium High',
+        value: '#bbb'
+      },
+      {
         id: 'high',
         name: 'High',
         value: '#666'
@@ -71,5 +76,25 @@ export default {
   types: {
     name: 'Types',
     colors: colorTypes
+  },
+  status: {
+    name: 'Status',
+    colors: [
+      {
+        id: 'ok',
+        name: 'Ok',
+        value: '#64a338'
+      },
+      {
+        id: 'warning',
+        name: 'warning',
+        value: '#ffcc00'
+      },
+      {
+        id: 'danger',
+        name: 'Danger',
+        value: '#e03b24'
+      }
+    ]
   }
 };
