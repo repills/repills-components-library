@@ -10,6 +10,7 @@ export ResourcesList from './ResourcesList';
 export ResponsivePagination from './ResponsivePagination';
 export SectionPreview from './SectionPreview';
 export SectionPreviewSelection from './SectionPreviewSelection';
+export TextField from './TextField';
 export SectionSelector from './SectionSelector';
 export SectionsList from './SectionsList';
 export theme from '../config/theme';
