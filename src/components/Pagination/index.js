@@ -69,15 +69,18 @@ function Pagination({
 
   return (
     <BaseStyle>
-      <ButtonStyle
-        disabled={!pagination.previousPage}
-        onClick={() => handleNavigateToPage(1)}
-      >
-        <ArrowIcon
-          orientation="left"
-          size={16}
-        />
-      </ButtonStyle>
+      {
+        (pageCount > rangePageDisplayed) &&
+        <ButtonStyle
+          disabled={!pagination.previousPage}
+          onClick={() => handleNavigateToPage(1)}
+        >
+          <ArrowIcon
+            orientation="left"
+            size={16}
+          />
+        </ButtonStyle>
+      }
       {
         showLeftBreak &&
         <ButtonStyle>...</ButtonStyle>
@@ -97,15 +100,18 @@ function Pagination({
         showRightBreak &&
         <ButtonStyle>...</ButtonStyle>
       }
-      <ButtonStyle
-        disabled={!pagination.nextPage}
-        onClick={() => handleNavigateToPage(pageCount)}
-      >
-        <ArrowIcon
-          orientation="right"
-          size={16}
-        />
-      </ButtonStyle>
+      {
+        (pageCount > rangePageDisplayed) &&
+        <ButtonStyle
+          disabled={!pagination.nextPage}
+          onClick={() => handleNavigateToPage(pageCount)}
+        >
+          <ArrowIcon
+            orientation="right"
+            size={16}
+          />
+        </ButtonStyle>
+      }
     </BaseStyle>
   );
 }
