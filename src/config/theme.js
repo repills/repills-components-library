@@ -1,4 +1,5 @@
 import palettes from './palettes';
+import zIndex from './zIndex';
 
 const _palettes = Object.keys(palettes).reduce((acc, key) =>{
   acc[key] = palettes[key].colors.reduce((colors, color) => {
@@ -13,5 +14,6 @@ import { query } from './breakpoints';
 export default {
   palettes: _palettes,
   breakpoints: query,
-  remBase: 16
+  remBase: 16,
+  zIndex
 };
