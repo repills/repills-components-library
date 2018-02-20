@@ -20,6 +20,9 @@ export const mainInfo = css`
   background-color: ${mainColor};
   border: 1px solid ${neutral.medium};
   border-top: 0;
+  display: block;
+  text-decoration: none;
+  color: currentColor;
 `;
 
 export const source = css`

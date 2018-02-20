@@ -19,7 +19,7 @@ import {
 } from './style';
 
 const BaseStyle = styled.article`${base}`;
-const MainInfoStyle = styled.div`${mainInfo}`;
+const MainInfoStyle = styled.a`${mainInfo}`;
 const SecondaryInfoStyle = styled.div`${secondaryInfo}`;
 const SourceStyle = styled.article`${source}`;
 const TitleStyle = styled.h4`${title}`;
@@ -41,12 +41,12 @@ function ResourcePreview({
     <BaseStyle
       color={color}
     >
-      <MainInfoStyle>
+      <MainInfoStyle href={link}>
         <SourceStyle>
           <LinkIcon size={14} />
           <span>{getBaseUrl(link)}</span>
         </SourceStyle>
-        <TitleStyle><a href={link}>{title}</a></TitleStyle>
+        <TitleStyle>{title}</TitleStyle>
         <DetailStyle>
           <TypeStyle>
             <PillIcon
