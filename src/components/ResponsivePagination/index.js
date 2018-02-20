@@ -20,7 +20,7 @@ function ResponsivePagination({
     let temp = 7;
 
     if (params.includes(SM)) {
-      temp = 15;
+      temp = 13;
     }
 
     return temp;
