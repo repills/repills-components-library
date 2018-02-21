@@ -35,8 +35,8 @@ class Select extends React.Component {
   static propTypes = {
     disabled: bool,
     expanded: bool,
+    handleOnChange: func.isRequired,
     id: string,
-    onChange: func.isRequired,
     options: arrayOf(shape({
       label: string.isRequired,
       value: any.isRequired,
@@ -73,12 +73,12 @@ class Select extends React.Component {
     }
 
     const {
-      onChange,
+      handleOnChange,
       options
     } = this.props;
 
     this.setState({ selectedIndex: index, open: false });
-    onChange({ value: options[index].value, index });
+    handleOnChange({ value: options[index].value, index });
   };
 
   handleOpen = () => {

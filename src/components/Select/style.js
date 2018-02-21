@@ -39,6 +39,7 @@ export const base = css`
 `;
 
 export const selected = css`
+  user-select: none;
   box-sizing: border-box;
   height: ${props => sizes[props.size].height};
   justify-content: space-between;
@@ -70,7 +71,9 @@ export const selectedText = css`
 `;
 
 export const list = css`
+  user-select: none;
   position: absolute;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   background-color: ${neutral.lowest};
   top: ${props => sizes[props.size].height};
   left: 0;
@@ -92,9 +95,15 @@ export const item = css`
   box-sizing: border-box;
   margin-top: -1px;
   
+  ${props => !props.disabled && `
+    &:hover {
+      background-color: ${neutral.lower};
+    }
+  `}
+  
   ${props => props.disabled && `
     cursor: default;
-    color: ${neutral.lower};
+    color: ${neutral.mediumHigh};
   `}
 `;
 
