@@ -60,7 +60,7 @@ function ResourcePreview({
         </DetailStyle>
       </MainInfoStyle>
       <SecondaryInfoStyle>
-        <DateStyle>Published {m(date).fromNow()}</DateStyle>
+        <DateStyle>{m(date).fromNow()}</DateStyle>
       </SecondaryInfoStyle>
     </BaseStyle>
   );

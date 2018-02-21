@@ -36,7 +36,6 @@ export const frame = css`
   position: relative;
   z-index: 2;
   text-decoration: none;
-  // text-shadow: ${rgba(neutral.highest, 0.4)} 0 1px 2px;
   opacity: .9;
 `;
 
