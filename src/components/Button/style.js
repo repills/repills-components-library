@@ -32,6 +32,7 @@ export const base = css`
   outline: none;
   padding: 0 ${extRem(30)};
   width: ${props => props.expanded ? '100%' : 'auto'};
+  text-transform: uppercase;
   
   ${ props => !props.disabled && `
     &:hover {

@@ -8,7 +8,6 @@ const BaseStyle = styled.button`${base}`;
 const Button = ({
   disabled,
   expanded,
-  id,
   label,
   onClick,
   onMouseEnter,
@@ -21,7 +20,6 @@ const Button = ({
     <BaseStyle
       disabled={disabled}
       expanded={expanded}
-      id={id}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -37,7 +35,6 @@ const Button = ({
 Button.propTypes = {
   disabled: bool,
   expanded: bool,
-  id: string,
   label: string,
   onClick: func,
   onMouseEnter: func,
@@ -47,8 +44,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  size: 'M',
-  type: 'primary'
+  size: 'M'
 };
 
 export default Button;
