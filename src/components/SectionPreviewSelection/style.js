@@ -8,6 +8,7 @@ const { palettes } = theme;
 const { status, neutral } = palettes;
 
 export const base = css`
+  user-select: none;
   box-sizing: border-box;
   text-align: center;
   padding: ${extRem(24, 16)};
