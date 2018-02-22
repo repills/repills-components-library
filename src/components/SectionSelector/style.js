@@ -16,6 +16,7 @@ export const items = css`
   ${grid()}
   margin-left: -${halfGutter};
   margin-right: -${halfGutter};
+  justify-content: center;
   
   &.${SM} {
     margin-left: -${gutter};

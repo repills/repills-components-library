@@ -134,6 +134,7 @@ class Select extends React.Component {
         {
           (!disabled && open) &&
           <ListStyle
+            count={options.length}
             size={size}
           >
             {

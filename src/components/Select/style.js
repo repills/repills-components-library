@@ -3,7 +3,7 @@ import { extRem } from '../../utils';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
 import { arrowUp, arrowDown } from '../../shared/styles/caret';
-import { ellipsis } from 'polished';
+import { ellipsis, stripUnit } from 'polished';
 
 const { neutral } = theme.palettes;
 
@@ -78,11 +78,16 @@ export const list = css`
   top: ${props => sizes[props.size].height};
   left: 0;
   right: 0;
-  z-index: ${theme.zIndex.inpage}
+  z-index: ${theme.zIndex.inpage};
+  max-height: ${props => props.count >= 7 ? stripUnit(sizes[props.size].heightItem) * 4.5 + 'rem' : 'auto'};
+  overflow: hidden;
+  overflow-y: auto;
+  border-bottom: 1px solid ${neutral.medium};
 `;
 
 export const item = css`
   color: ${neutral.highest};
+  box-sizing: border-box;
   background-color: ${neutral.lowest};
   border: 1px solid ${neutral.medium};
   padding: 0 ${props => sizes[props.size].sideSpace};
@@ -94,6 +99,10 @@ export const item = css`
   cursor: pointer;
   box-sizing: border-box;
   margin-top: -1px;
+  
+  &:last-child {
+    border-bottom: 0;
+  }
   
   ${props => !props.disabled && `
     &:hover {
