@@ -27,6 +27,7 @@ export const overlay = css`
   ${props => props.closeOnClick && `
     cursor: pointer;
   `}
+  z-index: ${theme.zIndex.modal - 1};
 `;
 
 export const wrapper = css`
@@ -41,6 +42,7 @@ export const modal = css`
  background-color: ${neutral.lowest};
  position: relative;
  box-shadow: ${extRem(0, 10, 10)} ${rgba(neutral.highest, .3)};
+ z-index: ${theme.zIndex.modal};
 `;
 
 export const content = css`
