@@ -1,5 +1,5 @@
 import React from 'react';
-import { select } from '@storybook/addon-knobs/react';
+import { select, number } from '@storybook/addon-knobs/react';
 import { SectionPage, InteractiveExample } from '../../components';
 import { Logo } from '../../../src/components';
 import palettes from '../../../src/config/palettes';
@@ -18,11 +18,21 @@ colorsOptions['none'] = 'None';
 export default (sectionTitle, sectionDescription) => () => {
 
   const selectedColor = select('Color', colorsOptions, 'none');
+  const selectedVariant = select('Variant', { full: 'Full', minimal: 'Minimal' }, 'none');
+  const selectedSize = number('Size', null);
 
   const options = {};
 
   if (selectedColor !== 'none') {
     options['color'] = selectedColor;
+  }
+
+  if (selectedSize !== null) {
+    options['size'] = selectedSize;
+  }
+
+  if (selectedVariant !== 'none') {
+    options['variant'] = selectedVariant;
   }
 
   return (
