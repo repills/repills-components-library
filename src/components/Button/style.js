@@ -41,7 +41,7 @@ export const base = css`
   
   ${ props => !props.outline && `
     background-color: ${basic.primary};
-    color: ${neutral.lowest};
+    color: ${neutral.primary};
   `}
   
   ${ props => props.disabled && `
