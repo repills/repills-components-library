@@ -24,6 +24,7 @@ export const base = css`
   border: 3px solid ${basic.primary};
   box-sizing: border-box;
   color: ${neutral.lowest};
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.3);
   cursor: pointer;
   display: inline-flex;
   height: ${props => height[props.size]};
@@ -33,6 +34,7 @@ export const base = css`
   padding: 0 ${extRem(30)};
   width: ${props => props.expanded ? '100%' : 'auto'};
   text-transform: uppercase;
+  letter-spacing: .2em;
   
   ${ props => !props.disabled && `
     &:hover {
