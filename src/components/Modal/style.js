@@ -33,7 +33,7 @@ export const overlay = css`
 export const wrapper = css`
   box-sizing: border-box;
   padding: ${extRem(0,10)};
-  max-width: ${extRem(600)};
+  max-width: ${extRem(720)};
   flex: 0 0 100%;
 `;
 
