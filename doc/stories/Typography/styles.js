@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SectionPage, CodeBlock } from '../../components';
+import { SectionPage } from '../../components';
+import CodePreview from '../../../src/components/CodePreview';
 import typography from '../../../src/config/typography';
 import typographyStyles from '../../../src/shared/styles/typography';
 
@@ -12,13 +13,14 @@ export default (sectionTitle, sectionDescription) => () => {
       size="S"
       title={sectionTitle}
     >
-      <h4>Usage</h4>
-      <CodeBlock>
+      <CodePreview
+        title="Usage"
+      >
         {`import { typography } from 'repills-react-components';
 import styled from 'styled-components';
 
 const MyStyledComponent = styled.YOUR_HTML_TAG\`\${typography.TYPOGRAPHY_ID}\``}
-      </CodeBlock>
+      </CodePreview>
 
       {
         typography.map(style => {
@@ -30,11 +32,12 @@ const MyStyledComponent = styled.YOUR_HTML_TAG\`\${typography.TYPOGRAPHY_ID}\``}
           return (
             <div key={style.id}>
               <hr style={{ margin: '40px 0' }} />
-              <div>{style.name}</div>
               <Title>{style.family}-{style.weight} / {style.size}</Title>
-              <CodeBlock>
+              <CodePreview
+                title={`Style ${style.name}`}
+              >
                 {`const MyStyledComponent = styled.YOUR_HTML_TAG\`\${typography.${style.id}}\``}
-              </CodeBlock>
+              </CodePreview>
             </div>
           );
         })
