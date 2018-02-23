@@ -31,6 +31,14 @@ export default {
     {
       id: 'Error',
       name: 'Error'
+    },
+    {
+      id: 'GitHub',
+      name: 'GitHub'
+    },
+    {
+      id: 'SquarePill',
+      name: 'Square Pill'
     }
   ],
   sections: [
