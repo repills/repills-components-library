@@ -18,6 +18,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-container-query": "^0.10.0",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.2.0",
     "react-element-to-jsx-string": "^13.1.0",
     "repills-config": "git+https://github.com/repills/repills-config.git#1.2.4",

@@ -1,4 +1,3 @@
-export { default as CodeBlock } from './CodeBlock';
 export { default as ColorBlock } from './ColorBlock';
 export { default as IconBlock } from './IconBlock';
 export { default as IconList } from './IconList';

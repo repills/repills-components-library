@@ -2,6 +2,7 @@ export * from './Icon/icons/basic';
 export * from './Icon/icons/sections';
 export * from './Icon/icons/types';
 export Button from './Button';
+export CodePreview from './CodePreview';
 export Logo from './Logo';
 export Modal from './Modal';
 export Pagination from './Pagination';

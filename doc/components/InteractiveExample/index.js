@@ -1,6 +1,6 @@
 import React from 'react';
 import PreviewBlock from '../PreviewBlock';
-import CodeBlock from '../CodeBlock';
+import CodePreview from '../../../src/components/CodePreview';
 import {
   func,
   object,
@@ -52,14 +52,17 @@ class InteractiveExample extends React.Component {
           </PreviewBlock>
         </PreviewStyle>
         <HighlighterStyle>
-          <h4>Component Import</h4>
-          <CodeBlock>
+          <CodePreview
+            title="Component Import"
+          >
             {`import { ${getComponentDisplayName(component)} } from 'repills-react-components';`}
-          </CodeBlock>
-          <h4>Component Usage</h4>
-          <CodeBlock>
+          </CodePreview>
+          <CodePreview
+            title="Component Usage"
+            style={{marginTop: '30px'}}
+          >
             {reactElementToJSXString(this.getComponent())}
-          </CodeBlock>
+          </CodePreview>
         </HighlighterStyle>
       </BaseStyle>
     );
