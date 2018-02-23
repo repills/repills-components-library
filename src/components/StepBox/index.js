@@ -2,8 +2,11 @@ import React from 'react';
 import {
   string,
   number,
-  element
+  any
 } from 'prop-types';
+import { ContainerQuery } from 'react-container-query';
+import { query } from '../../config/breakpoints';
+import cx from 'classnames';
 import styled from 'styled-components';
 import {
   base,
@@ -26,22 +29,30 @@ const StepBox = ({
 }) => {
 
   return (
-    <BaseStyle>
-      <HeaderStyle>
-        <IndexStyle>{index}</IndexStyle>
-        <TitleStyle>{title}</TitleStyle>
-      </HeaderStyle>
-      <BodyStyle>
-        {children}
-      </BodyStyle>
-    </BaseStyle>
+  <ContainerQuery query={query}>
+      {
+        params => (
+          <BaseStyle>
+            <div>
+              <HeaderStyle>
+                <IndexStyle>{index}</IndexStyle>
+                <TitleStyle>{title}</TitleStyle>
+              </HeaderStyle>
+              <BodyStyle className={cx(params)}>
+                {children}
+              </BodyStyle>
+            </div>
+          </BaseStyle>
+        )
+      }
+    </ContainerQuery>
   );
 };
 
 StepBox.propTypes = {
-  children: element,
-  index: number,
-  title: string
+  children: any.isRequired,
+  index: number.isRequired,
+  title: string.isRequired
 };
 
 export default StepBox;

@@ -10,15 +10,17 @@ import typography from '../../shared/styles/typography';
 const { palettes } = theme;
 const { basic, neutral } = palettes;
 
-const indexSize = extRem(40);
+const indexSizeStripUnit = 40;
+const indexSize = extRem(indexSizeStripUnit);
 
 export const base = css`
   text-align: left;
+  box-sizing: border-box;
 `;
 
 export const header = css`
   position: relative;
-  padding: ${extRem(6,0,0,52)};
+  padding: ${extRem(5,0,5,52)};
 `;
 
 export const index = css`
@@ -37,13 +39,17 @@ export const index = css`
 export const title = css`
   ${typography.header4}
   color: ${neutral.highest};
-  line-height: 1.2;
+  line-height: ${extRem(indexSizeStripUnit - 10)};
   margin: 0;
 `;
 
 export const body = css`
   ${typography.body}
-  padding: ${extRem(16,52,28)};
+  padding: ${extRem(16,0,28)};
+  
+  &.${SM} {
+    padding: ${extRem(16,52,32)};
+  }
 `;
 
 
