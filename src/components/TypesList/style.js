@@ -9,6 +9,7 @@ import { grid } from 'styled-components-grid';
 
 export const base = css`
   box-sizing: border-box;
+  width: 100%;
   position: relative;
    
   ${props => props.shadeColor && `

@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { extRem } from '../../utils';
 import { grid } from 'styled-components-grid';
-import { SM, LG, XL } from '../../config/breakpoints';
+import { SM, LG } from '../../config/breakpoints';
 
 const halfGutterStripUnit = 8;
 const gutter = extRem(halfGutterStripUnit * 2);
@@ -10,6 +10,7 @@ const halfGutter = extRem(halfGutterStripUnit);
 
 export const base = css`
   box-sizing: border-box;
+  width: 100%;
 `;
 
 export const items = css`
