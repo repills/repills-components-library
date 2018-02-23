@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import m from 'moment';
 import { getBaseUrl } from '../../utils';
-import { PillIcon, LinkIcon } from '../Icon/icons/basic';
+import { SquarePillIcon, LinkIcon } from '../Icon/icons/basic';
 import {
   string
 } from 'prop-types';
@@ -49,7 +49,7 @@ function ResourcePreview({
         <TitleStyle>{title}</TitleStyle>
         <DetailStyle>
           <TypeStyle>
-            <PillIcon
+            <SquarePillIcon
               color={color}
               size={16}
             />
