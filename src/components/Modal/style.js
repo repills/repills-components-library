@@ -41,6 +41,7 @@ export const modal = css`
  box-sizing: border-box;
  background-color: ${neutral.lowest};
  position: relative;
+ width: 100%;
  box-shadow: ${extRem(0, 10, 10)} ${rgba(neutral.highest, .3)};
  z-index: ${theme.zIndex.modal};
 `;
@@ -62,9 +63,9 @@ export const body = css`
   box-sizing: border-box;
   max-height: calc(100vh - ${extRem(180)});
   overflow-y: auto;
-  max-width: ${extRem(580)};
   margin: 0 auto;
   padding: ${extRem(10)};
+  width: 100%;
 `;
 
 export const close = css`
