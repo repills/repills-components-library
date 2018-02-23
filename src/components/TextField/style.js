@@ -25,7 +25,7 @@ export const base = css`
   border: 1px solid ${neutral.medium};
   border-bottom: 0;
   padding-bottom: 2px;
-  max-width: ${props => props.expanded ? '100%' : variant[props.size].maxWidth};
+  width: ${props => props.expanded ? '100%' : variant[props.size].maxWidth};
   position: relative;
   box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   
