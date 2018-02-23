@@ -24,14 +24,14 @@ export const base = css`
   box-sizing: border-box;
   border: 1px solid ${neutral.medium};
   border-bottom: 0;
-  padding-bottom: 2px;
+  padding-bottom: 3px;
   width: ${props => props.expanded ? '100%' : variant[props.size].maxWidth};
   position: relative;
   box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   
   &::after {
     content: '';
-    height: 2px;
+    height: 3px;
     position: absolute;
     bottom: 0;
     right: -1px;
