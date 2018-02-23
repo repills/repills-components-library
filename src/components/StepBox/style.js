@@ -48,7 +48,9 @@ export const body = css`
   padding: ${extRem(16,0,28)};
   
   &.${SM} {
-    padding: ${extRem(16,52,32)};
+    padding: ${extRem(16,0,28,32)};
+    border-left: 1px solid ${neutral.mediumHigh};
+    margin-left: ${extRem(19)};
   }
 `;
 

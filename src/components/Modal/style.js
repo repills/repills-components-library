@@ -32,7 +32,7 @@ export const overlay = css`
 
 export const wrapper = css`
   box-sizing: border-box;
-  padding: ${extRem(0,10)};
+  padding: ${extRem(0,12)};
   max-width: ${extRem(720)};
   flex: 0 0 100%;
 `;
@@ -52,7 +52,7 @@ export const content = css`
 `;
 
 export const header = css`
-  padding: ${extRem(10)};
+  padding: ${extRem(12)};
   height: ${extRem(40)};
   display: flex;
   justify-content: flex-end;
@@ -64,7 +64,7 @@ export const body = css`
   max-height: calc(100vh - ${extRem(180)});
   overflow-y: auto;
   margin: 0 auto;
-  padding: ${extRem(10)};
+  padding: ${extRem(12)};
   width: 100%;
 `;
 
