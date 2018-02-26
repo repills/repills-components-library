@@ -19,6 +19,8 @@ export StepBox from './StepBox';
 export TextField from './TextField';
 export theme from '../config/theme';
 export TopicPreview from './TopicPreview';
+export TopicPreviewSelection from './TopicPreviewSelection';
+export TopicSelector from './TopicSelector';
 export TopicsList from './TopicsList';
 export TopNavigation from './TopNavigation';
 export TypePreview from './TypePreview';
