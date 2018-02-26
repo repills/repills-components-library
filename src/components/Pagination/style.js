@@ -10,17 +10,16 @@ const { basic, neutral } = palettes;
 export const base = css`
   display: inline-flex;
   align-items: center;
-  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
+  // box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
 `;
 
 
 export const button = css`
   ${typography.body}
-  ${size(extRem(34),extRem(34))}
-  border: 1px solid ${neutral.medium};
+  ${size(extRem(36))}
   outline: 0;
+  border: 0;
   background: none;
-  margin-left: -1px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -38,6 +37,7 @@ export const button = css`
   
   ${props => props.disabled && `
     opacity: .4;
+    cursor: default;
   `}
   
   &:first-child {

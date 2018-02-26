@@ -17,7 +17,7 @@ function ResponsivePagination({
 
   const getRangePageDisplayed = params => {
 
-    let temp = 7;
+    let temp = 5;
 
     if (params.includes(SM)) {
       temp = 13;
