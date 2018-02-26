@@ -10,6 +10,7 @@ const fixedPosition = css`
   bottom: 0;
   left: 0;
   right: 0;
+ z-index: ${theme.zIndex.modal};
 `;
 
 export const base = css`
@@ -27,7 +28,7 @@ export const overlay = css`
   ${props => props.closeOnClick && `
     cursor: pointer;
   `}
-  z-index: ${theme.zIndex.modal - 1};
+  z-index: 1;
 `;
 
 export const wrapper = css`
@@ -43,7 +44,7 @@ export const modal = css`
  position: relative;
  width: 100%;
  box-shadow: ${extRem(0, 10, 10)} ${rgba(neutral.highest, .3)};
- z-index: ${theme.zIndex.modal};
+ z-index: 2;
 `;
 
 export const content = css`
