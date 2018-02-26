@@ -51,8 +51,7 @@ class SectionPreviewSelection extends React.Component {
   render() {
     const {
       name,
-      icon,
-      color
+      icon
     } = this.props;
 
     const {
@@ -66,9 +65,10 @@ class SectionPreviewSelection extends React.Component {
         checked={checked}
         onClick={this.handleOnChange}
       >
-        <IconStyle>
+        <IconStyle
+          checked={checked}
+        >
           <Icon
-            color={checked ? color : 'currentColor'}
             size={60}
           />
         </IconStyle>

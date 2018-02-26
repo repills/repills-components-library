@@ -14,7 +14,6 @@ export default (sectionTitle, sectionDescription) => () => {
       title={sectionTitle}
     >
       <InteractiveExample
-        color={randomSection.color}
         component={SectionPreviewSelection}
         handleOnChange={({ checked }) => alert(`Selected: ${checked}`)}
         icon={randomSection.icon}

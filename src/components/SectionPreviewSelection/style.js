@@ -17,15 +17,11 @@ export const base = css`
   align-items: center;
   flex-direction: column;
   cursor: pointer;
-  background-color: ${neutral.lowest};
+  background-color: ${props => props.checked ? neutral.lower : neutral.lowest};
   color: ${neutral.highest};
   box-shadow: 0 1px 2px 2px ${rgba(neutral.highest, 0.02)};
   position: relative;
-  
-  ${props => props.checked && `
 
-  `}
-  
   &::after {
     display: ${props => props.checked ? 'block' : 'none'};
     content: '';
@@ -36,6 +32,10 @@ export const base = css`
     position: absolute;
     background-color: ${status.ok};
   }
+  
+  &:hover {
+    background-color: ${neutral.lower}
+  }
 `;
 
 export const icon = css`
@@ -44,6 +44,10 @@ export const icon = css`
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+  
+  ${props => props.checked && `
+    color: ${status.ok};
+  `}
 `;
 
 export const name = css`
