@@ -25,18 +25,18 @@ class TopicSelector extends React.Component {
 
   static propTypes = {
     handleOnChange: func,
-    selected: object,
+    selected: arrayOf(string),
     topics: object.isRequired
   };
 
   static defaultProps = {
-    selected: {}
+    selected: []
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      selected: this.props.selected ? this.transformSelectedToObject(this.props.selected) : {}
+      selected: this.transformSelectedToObject(this.props.selected)
     };
   }
 
@@ -61,7 +61,7 @@ class TopicSelector extends React.Component {
   isChecked = id => {
     const {
       selected
-    } = this.props;
+    } = this.state;
 
     return selected && selected[id];
   };
