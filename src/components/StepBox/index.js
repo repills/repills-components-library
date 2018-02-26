@@ -25,6 +25,7 @@ const BodyStyle = styled.div`${body}`;
 const StepBox = ({
   children,
   index,
+  last,
   title
 }) => {
 
@@ -38,7 +39,10 @@ const StepBox = ({
                 <IndexStyle>{index}</IndexStyle>
                 <TitleStyle>{title}</TitleStyle>
               </HeaderStyle>
-              <BodyStyle className={cx(params)}>
+              <BodyStyle
+                className={cx(params)}
+                last={last}
+              >
                 {children}
               </BodyStyle>
             </div>

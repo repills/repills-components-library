@@ -48,9 +48,13 @@ export const body = css`
   padding: ${extRem(16,0,28)};
   
   &.${SM} {
-    padding: ${extRem(16,0,28,32)};
-    border-left: 1px solid ${neutral.mediumHigh};
-    margin-left: ${extRem(19)};
+    padding: ${extRem(14,0,28,32)};
+    border-left: ${props => props.last ? 0 : `1px dotted ${neutral.mediumHigh}`};
+    margin: ${extRem(2,0,2,19)};
+    
+    ${props => props.last && `
+      margin-left: ${extRem(20)};
+    `}
   }
 `;
 
