@@ -13,28 +13,39 @@ function getVariant(variant) {
 
 const Logo = ({
   color,
+  secondaryColor,
   size,
   variant
 }) => {
 
   const _fileName = getVariant(variant);
-  const { path, viewBox } = require(`./assets/${_fileName}`);
+  const { path, secondaryPath, viewBox } = require(`./assets/${_fileName}`);
 
   return (
-    <svg
-      style={{ width: size ? extRem(size) : '100%'}}
-      viewBox={viewBox}
-    >
-      <path
-        d={path}
-        fill={color || 'currentColor'}
-      />
-    </svg>
+    <div style={{ display: 'block', lineHeight: 0 }} >
+      <svg
+        style={{ width: size ? extRem(size) : '100%' }}
+        viewBox={viewBox}
+      >
+        <path
+          d={path}
+          fill={color || 'currentColor'}
+        />
+        {
+          secondaryPath &&
+          <path
+            d={secondaryPath}
+            fill={secondaryColor || 'currentColor'}
+          />
+        }
+      </svg>
+    </div>
   );
 };
 
 Logo.propTypes = {
   color: string,
+  secondaryColor: string,
   size: number,
   variant: oneOf(availableVariants)
 };
