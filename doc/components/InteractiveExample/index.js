@@ -10,12 +10,16 @@ import {
 } from 'prop-types';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import styled from 'styled-components';
-import { base, preview, highlighter } from './style';
+import {
+  base,
+  preview,
+  code
+} from './style';
 import { getComponentDisplayName } from '../../utils';
 
 const BaseStyle = styled.div`${base}`;
 const PreviewStyle = styled.div`${preview}`;
-const HighlighterStyle = styled.div`${highlighter}`;
+const CodeStyle = styled(CodePreview)`${code}`;
 
 class InteractiveExample extends React.Component {
 
@@ -51,19 +55,16 @@ class InteractiveExample extends React.Component {
             {this.getComponent()}
           </PreviewBlock>
         </PreviewStyle>
-        <HighlighterStyle>
-          <CodePreview
-            title="Component Import"
-          >
-            {`import { ${getComponentDisplayName(component)} } from 'repills-react-components';`}
-          </CodePreview>
-          <CodePreview
-            title="Component Usage"
-            style={{marginTop: '30px'}}
-          >
-            {reactElementToJSXString(this.getComponent())}
-          </CodePreview>
-        </HighlighterStyle>
+        <CodeStyle
+          title="Component Import"
+        >
+          {`import { ${getComponentDisplayName(component)} } from 'repills-react-components';`}
+        </CodeStyle>
+        <CodeStyle
+          title="Component Usage"
+        >
+          {reactElementToJSXString(this.getComponent())}
+        </CodeStyle>
       </BaseStyle>
     );
   }

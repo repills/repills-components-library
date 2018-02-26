@@ -18,6 +18,7 @@ colorsOptions['none'] = 'None';
 export default (sectionTitle, sectionDescription) => () => {
 
   const selectedColor = select('Color', colorsOptions, 'none');
+  const selectedSecondaryColor = select('Secondary color', colorsOptions, 'none');
   const selectedVariant = select('Variant', { full: 'Full', minimal: 'Minimal' }, 'none');
   const selectedSize = number('Size', null);
 
@@ -25,6 +26,10 @@ export default (sectionTitle, sectionDescription) => () => {
 
   if (selectedColor !== 'none') {
     options['color'] = selectedColor;
+  }
+
+  if (selectedSecondaryColor !== 'none') {
+    options['secondaryColor'] = selectedSecondaryColor;
   }
 
   if (selectedSize !== null) {

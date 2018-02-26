@@ -38,7 +38,6 @@ export const buttonCopy = css`
   line-height: ${extRem(28)};
   display: flex;
   align-items: center;
-  text-transform: uppercase;
   letter-spacing: .1em;
   box-sizing: border-box;
   cursor: pointer;
