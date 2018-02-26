@@ -36,7 +36,7 @@ class TopicSelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: this.props.selected
+      selected: this.props.selected ? this.transformSelectedToObject(this.props.selected) : {}
     };
   }
 
@@ -45,6 +45,11 @@ class TopicSelector extends React.Component {
       this.setState({ selected: nextProps.selected });
     }
   }
+
+  transformSelectedToObject = selected => selected.reduce((acc,e) => {
+    acc.push({ [e]: true });
+    return acc;
+  }, {});
 
   handleOnChange = id => () => this.setState(state => {
     state.selected[id] = !state.selected[id];
