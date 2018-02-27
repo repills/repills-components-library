@@ -37,6 +37,13 @@ export default [
     weight: 700
   },
   {
+    id: 'caption',
+    name: 'caption',
+    family: primaryFontFamily,
+    size: '18px',
+    weight: 700
+  },
+  {
     id: 'body',
     name: 'Body',
     family: primaryFontFamily,

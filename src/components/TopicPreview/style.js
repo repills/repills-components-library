@@ -42,7 +42,7 @@ export const counter = css`
   justify-content: center;
   flex-direction: column;
   background-color: ${neutral.lower};
-  padding: ${extRem(16, 0)};
+  padding: ${extRem(12, 0)};
   ${typography.header3}
   border-left: 1px solid ${neutral.low};
   
@@ -81,14 +81,14 @@ export const info = css`
 `;
 
 export const title = css`
-  ${typography.body}
+  ${typography.caption}
   margin: ${extRem(0,12,20)};
   box-sizing: border-box;
   font-weight: 600;
   bottom: 0;
   left: 0;
   right: 0;
-  height: ${extRem(45)};
+  height: ${extRem(48)};
   overflow: hidden;
   
   position: relative;
@@ -100,7 +100,7 @@ export const title = css`
     bottom: 0;
     left: 0;
     right: 0;
-    height: ${extRem(20)};
+    height: ${extRem(24)};
     background: linear-gradient(to bottom, ${rgba(mainColor, 0)}, ${mainColor});
   }
 `;
