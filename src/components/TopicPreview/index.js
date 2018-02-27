@@ -47,6 +47,15 @@ function TopicPreview({
             onClick={totalCount !== 0 ? navigateTo : null}
           >
             <FrameStyle>
+              <InfoStyle className={cx(params)}>
+                <TitleStyle className={cx(params)}>{title}</TitleStyle>
+                <CompositionStyle
+                  barWidth={6}
+                  className={cx(params)}
+                  maxHeight={24}
+                  stats={stats}
+                />
+              </InfoStyle>
               <CounterStyle className={cx(params)}>
                 <TotalStyle>
                   {totalCount}
@@ -55,15 +64,6 @@ function TopicPreview({
                   Pill{totalCount !== 1 ? 's' : ''}
                 </TotalLabelStyle>
               </CounterStyle>
-              <InfoStyle className={cx(params)}>
-                <CompositionStyle
-                  barWidth={6}
-                  className={cx(params)}
-                  maxHeight={24}
-                  stats={stats}
-                />
-                <TitleStyle className={cx(params)}>{title}</TitleStyle>
-              </InfoStyle>
             </FrameStyle>
           </BaseStyle>
         )

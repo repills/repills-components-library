@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import { lighten, rgba } from 'polished';
 import { grid } from 'styled-components-grid';
 import theme from '../../config/theme';
-import { XS } from '../../config/breakpoints';
+import { SM } from '../../config/breakpoints';
 import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
@@ -34,23 +34,20 @@ export const frame = css`
 `;
 
 export const counter = css`
-  ${grid.unit({ size: 1 })}
+  ${grid.unit({ size: 2/7 })}
   box-sizing: border-box;
-  padding: ${extRem(36, 0)};
   text-transform: uppercase;
   opacity: .9;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  ${typography.header2}
   background-color: ${neutral.lower};
+  padding: ${extRem(16, 0)};
+  ${typography.header3}
+  border-left: 1px solid ${neutral.low};
   
-  &.${XS} {
-    ${grid.unit({ size: 2/7 })}
-    padding: ${extRem(16, 0)};
-    ${typography.header3}
-    order: 2;
-    border-left: 1px solid ${neutral.low};
+  &.${SM} {
+    ${grid.unit({ size: 3/8 })}
   }
 `;
 
@@ -64,39 +61,28 @@ export const totalLabel = css`
 `;
 
 export const composition = css`
-  background-color: ${neutral.lower};
-  padding-bottom: ${extRem(16)};
-  border-bottom: 1px solid ${neutral.low};
-  
-  &.${XS} {
-    background-color: ${neutral.lowest};
-    padding-bottom: 0;
-    border-bottom: 0;
-  }
+  background-color: ${neutral.lowest};
 `;
 
 export const info = css`
-  ${grid.unit({ size: 1 })}
-  height: ${extRem(124)};
+  ${grid.unit({ size: 5/7 })}
   box-sizing: border-box;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  padding-bottom: ${extRem(16)};
   
-  &.${XS} {
-    ${grid.unit({ size: 5/7 })}
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: left;
-    padding-bottom: ${extRem(16)};
-    height: auto;
+  &.${SM} {
+    ${grid.unit({ size: 5/8 })}
   }
 `;
 
 export const title = css`
   ${typography.body}
   margin: ${extRem(0,12,20)};
-  position: absolute;
   box-sizing: border-box;
   font-weight: 600;
   bottom: 0;
@@ -104,6 +90,9 @@ export const title = css`
   right: 0;
   height: ${extRem(45)};
   overflow: hidden;
+  
+  position: relative;
+  margin: ${extRem(16, 12)};
   
   &::after {
     content: '';
@@ -113,12 +102,6 @@ export const title = css`
     right: 0;
     height: ${extRem(20)};
     background: linear-gradient(to bottom, ${rgba(mainColor, 0)}, ${mainColor});
-  }
-
-  &.${XS} {
-    order: -1;
-    position: relative;
-    margin: ${extRem(16, 12)};
   }
 `;
 

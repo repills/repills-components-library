@@ -32,17 +32,17 @@ export const item = css`
   ${grid.unit({ size: 1 })}
   
   &.${SM} {
-    ${grid.unit({ size: 1/3 })}
+    ${grid.unit({ size: 1/2 })}
     padding-left: ${gutter};
     padding-right: ${gutter};
     padding-bottom: ${doubleGutter};
   }
   
   &.${MD} {
-    ${grid.unit({ size: 1/4 })}
+    ${grid.unit({ size: 1/3 })}
   }
   
   &.${LG} {
-    ${grid.unit({ size: 1/5 })}
+    ${grid.unit({ size: 1/4 })}
   }
 `;
