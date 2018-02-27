@@ -31,7 +31,7 @@ const CompositionChart = ({
             color={stat.color}
             key={stat.type}
             percentage={stat.percentage}
-            title={stat.count}
+            title={`${stat.count} ${stat.label}`}
             width={barWidth}
           />
         ))}
@@ -48,6 +48,7 @@ CompositionChart.propTypes = {
     type: string.isRequired,
     percentage: number.isRequired,
     count: number.isRequired,
+    label: string.isRequired
   })).isRequired
 };
 

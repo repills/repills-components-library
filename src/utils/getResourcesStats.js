@@ -29,7 +29,7 @@ export default function(resources, relative) {
     const typeConfig = types[item.type];
     const sourceCountBase = relative ? maxNumberPerType : sourcesCount;
     item.percentage = Math.round(item.count * 100 / sourceCountBase);
-    item.label = typeConfig[item.count === 1 ? 'singular' : 'plural'];
+    item.label = typeConfig.label[item.count === 1 ? 'singular' : 'plural'];
     item.color = typeConfig.color;
 
     return item;
