@@ -17,7 +17,8 @@ import {
   total,
   totalLabel,
   info,
-  title
+  title,
+  composition
 } from './style';
 import { getResourcesStats } from '../../utils';
 
@@ -28,6 +29,7 @@ const TotalStyle = styled.div`${total}`;
 const TotalLabelStyle = styled.div`${totalLabel}`;
 const InfoStyle = styled.div`${info}`;
 const TitleStyle = styled.h4`${title}`;
+const CompositionStyle = styled(CompositionChart)`${composition}`;
 
 function TopicPreview({
   navigateTo,
@@ -54,8 +56,9 @@ function TopicPreview({
                 </TotalLabelStyle>
               </CounterStyle>
               <InfoStyle className={cx(params)}>
-                <CompositionChart
+                <CompositionStyle
                   barWidth={6}
+                  className={cx(params)}
                   maxHeight={24}
                   stats={stats}
                 />

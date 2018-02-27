@@ -23,16 +23,6 @@ export const base = css`
     opacity: .6;
     cursor: default;
   `}
-  
-  &::after {
-    content: '';
-    height: 3px;
-    background-color: ${neutral.highest};
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    right: -1px;
-  }
 `;
 
 export const frame = css`
@@ -53,13 +43,14 @@ export const counter = css`
   justify-content: center;
   flex-direction: column;
   ${typography.header2}
+  background-color: ${neutral.lower};
   
   &.${XS} {
     ${grid.unit({ size: 2/7 })}
     padding: ${extRem(16, 0)};
     ${typography.header3}
     order: 2;
-    border-left: 1px solid ${rgba(neutral.highest, 0.1)}
+    border-left: 1px solid ${neutral.low};
   }
 `;
 
@@ -70,6 +61,18 @@ export const total = css`
 export const totalLabel = css`
   ${typography.mini}
   margin-top: ${extRem(7)};
+`;
+
+export const composition = css`
+  background-color: ${neutral.lower};
+  padding-bottom: ${extRem(16)};
+  border-bottom: 1px solid ${neutral.low};
+  
+  &.${XS} {
+    background-color: ${neutral.lowest};
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
 `;
 
 export const info = css`
@@ -115,7 +118,7 @@ export const title = css`
   &.${XS} {
     order: -1;
     position: relative;
-    margin: ${extRem(15, 10)};
+    margin: ${extRem(16, 12)};
   }
 `;
 

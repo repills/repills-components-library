@@ -52,6 +52,11 @@ export default {
         value: '#fafafa'
       },
       {
+        id: 'low',
+        name: 'Low',
+        value: '#f0f0f0'
+      },
+      {
         id: 'medium',
         name: 'Medium',
         value: '#e0e0e0'

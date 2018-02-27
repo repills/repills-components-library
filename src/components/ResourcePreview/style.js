@@ -10,7 +10,6 @@ const mainColor = neutral.lower;
 export const base = css`
   text-align: left;
   background-color: ${neutral.lowest};
-  // cursor: pointer;
   box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   border-top: 4px solid ${props => props.color};
 `;
@@ -19,6 +18,7 @@ export const mainInfo = css`
   padding: ${extRem(12,12,24)};
   background-color: ${mainColor};
   border: 1px solid ${neutral.medium};
+  border-bottom-color: ${neutral.low};
   border-top: 0;
   display: block;
   text-decoration: none;
@@ -86,7 +86,6 @@ export const detail = css`
   color: ${neutral.high};
   display: flex;
   align-items: center;
-  // justify-content: space-between;
 `;
 
 export const type = css`

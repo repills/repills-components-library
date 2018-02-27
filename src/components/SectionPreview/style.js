@@ -19,6 +19,7 @@ export const cover = css`
   background-color: ${neutral.lower};
   padding: ${extRem(24,16)};
   border: 1px solid ${neutral.medium};
+  border-bottom-color: ${neutral.low};
 `;
 
 export const info = css`

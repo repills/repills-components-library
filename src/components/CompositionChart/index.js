@@ -15,11 +15,14 @@ const CompositionItemStyle = styled.div`${compositionItem}`;
 const CompositionChart = ({
   barWidth,
   maxHeight,
-  stats
+  stats,
+  ...others
 }) => {
 
   return (
-    <BaseStyle>
+    <BaseStyle
+      {...others}
+    >
       <CompositionStyle
         height={maxHeight}
       >
