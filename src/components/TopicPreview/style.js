@@ -13,7 +13,6 @@ export const base = css`
   box-sizing: border-box;
   text-align: center;
   border: 1px solid ${neutral.medium};
-  overflow: hidden;
   position: relative;
   cursor: pointer;
   background-color: ${mainColor};
@@ -25,8 +24,14 @@ export const base = css`
     cursor: default;
   `}
   
-  &:hover {
-    
+  &::after {
+    content: '';
+    height: 3px;
+    background-color: ${neutral.highest};
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
   }
 `;
 
@@ -36,13 +41,12 @@ export const frame = css`
   position: relative;
   z-index: 2;
   text-decoration: none;
-  opacity: .9;
 `;
 
 export const counter = css`
   ${grid.unit({ size: 1 })}
   box-sizing: border-box;
-  padding: ${extRem(35, 0)};
+  padding: ${extRem(36, 0)};
   text-transform: uppercase;
   opacity: .9;
   display: flex;
@@ -52,7 +56,7 @@ export const counter = css`
   
   &.${XS} {
     ${grid.unit({ size: 2/7 })}
-    padding: ${extRem(15, 0)};
+    padding: ${extRem(16, 0)};
     ${typography.header3}
     order: 2;
     border-left: 1px solid ${rgba(neutral.highest, 0.1)}
@@ -70,7 +74,7 @@ export const totalLabel = css`
 
 export const info = css`
   ${grid.unit({ size: 1 })}
-  height: ${extRem(120)};
+  height: ${extRem(124)};
   box-sizing: border-box;
   position: relative;
   
@@ -81,14 +85,14 @@ export const info = css`
     align-items: flex-start;
     justify-content: flex-start;
     text-align: left;
-    padding-bottom: ${extRem(15)};
+    padding-bottom: ${extRem(16)};
     height: auto;
   }
 `;
 
 export const title = css`
   ${typography.body}
-  margin: ${extRem(0,12,15)};
+  margin: ${extRem(0,12,20)};
   position: absolute;
   box-sizing: border-box;
   font-weight: 600;
@@ -107,7 +111,7 @@ export const title = css`
     height: ${extRem(20)};
     background: linear-gradient(to bottom, ${rgba(mainColor, 0)}, ${mainColor});
   }
-    
+
   &.${XS} {
     order: -1;
     position: relative;

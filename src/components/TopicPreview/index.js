@@ -42,7 +42,7 @@ function TopicPreview({
         params => (
           <BaseStyle
             disabled={totalCount === 0}
-            onClick={navigateTo}
+            onClick={totalCount !== 0 ? navigateTo : null}
           >
             <FrameStyle>
               <CounterStyle className={cx(params)}>

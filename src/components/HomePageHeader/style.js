@@ -35,6 +35,7 @@ const pillSettings = {
 
 export const base = css`
   padding: ${extRem(60)} 0;
+  text-align: center;
 `;
 
 export const title = css`
