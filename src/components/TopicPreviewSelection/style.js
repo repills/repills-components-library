@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { extRem } from '../../utils';
 import theme from '../../config/theme';
-import { size, ellipsis, rgba } from 'polished';
+import { rgba } from 'polished';
 import typography from '../../shared/styles/typography';
 
 const { palettes } = theme;
@@ -11,14 +11,13 @@ export const base = css`
   user-select: none;
   box-sizing: border-box;
   text-align: left;
-  padding: ${extRem(24, 16)};
+  padding: ${extRem(16)};
   border: 1px solid ${neutral.medium};
   cursor: pointer;
   background-color: ${props => props.checked ? neutral.lower : neutral.lowest};
   color: ${neutral.highest};
   box-shadow: 0 1px 2px 2px ${rgba(neutral.highest, 0.02)};
   position: relative;
-  min-height: ${extRem(94)};
   display: flex;
   align-items: center;
   

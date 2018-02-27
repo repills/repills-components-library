@@ -43,13 +43,10 @@ export const item = css`
   &.${MD} {
     ${grid.unit({ size: 1/3 })}
   }
-  
-  &.${LG} {
-    ${grid.unit({ size: 1/4 })}
-  }
 `;
 
 export const selectedMessage = css`
   ${typography.header4}
+  text-align: center;
   margin: ${extRem(24,0,0)}
 `;

@@ -58,7 +58,7 @@ class TopicPreviewSelection extends React.Component {
         onClick={this.handleOnChange}
       >
         <SelectionButtonStyle>
-          { checked ? <CheckIcon size={24} /> : <UncheckedIcon size={24} /> }
+          { checked ? <CheckIcon size={20} /> : <UncheckedIcon size={20} /> }
           <NameStyle>{title}</NameStyle>
         </SelectionButtonStyle>
       </BaseStyle>
