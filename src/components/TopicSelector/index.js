@@ -14,12 +14,14 @@ import { query } from '../../config/breakpoints';
 import {
   base,
   items,
-  item
+  item,
+  selectedMessage
 } from './style';
 
 const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
 const ItemStyle = styled.div`${item}`;
+const SelectedMessageStyle = styled.p`${selectedMessage}`;
 
 class TopicSelector extends React.Component {
 
@@ -42,7 +44,8 @@ class TopicSelector extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.selected !== this.state.selected) {
-      this.setState({ selected: this.transformSelectedToObject(this.props.selected) });
+      const selected = this.transformSelectedToObject(nextProps.selected);
+      this.setState({ selected });
     }
   }
 
@@ -55,7 +58,7 @@ class TopicSelector extends React.Component {
     state.selected[id] = !state.selected[id];
     const result = Object.entries(state.selected).filter(e => e[1]).map(([key, value]) => key);
     this.props.handleOnChange({ selected: result });
-    return state.selected;
+    return state;
   });
   
   isChecked = id => {
@@ -70,6 +73,12 @@ class TopicSelector extends React.Component {
     const {
       topics
     } = this.props;
+
+    const {
+      selected
+    } = this.state;
+
+    const selectedCount = Object.keys(selected).length;
 
     return (
       <ContainerQuery query={query}>
@@ -92,6 +101,12 @@ class TopicSelector extends React.Component {
                   ))
                 }
               </ItemsStyle>
+              {
+                selectedCount > 0 &&
+                <SelectedMessageStyle>
+                  Selected {selectedCount} topic{selectedCount === 1 ? '' : 's'}
+                </SelectedMessageStyle>
+              }
             </BaseStyle>
           )
         }

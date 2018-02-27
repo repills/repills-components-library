@@ -2,6 +2,7 @@ import { css } from 'styled-components';
 import { extRem } from '../../utils/index';
 import { grid } from 'styled-components-grid';
 import { SM, MD, LG } from '../../config/breakpoints';
+import typography from '../../shared/styles/typography';
 
 const halfGutterStripUnit = 6;
 const gutter = extRem(halfGutterStripUnit * 2);
@@ -46,4 +47,9 @@ export const item = css`
   &.${LG} {
     ${grid.unit({ size: 1/4 })}
   }
+`;
+
+export const selectedMessage = css`
+  ${typography.header4}
+  margin: ${extRem(24,0,0)}
 `;
