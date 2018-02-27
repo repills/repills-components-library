@@ -47,7 +47,7 @@ class TopicSelector extends React.Component {
   }
 
   transformSelectedToObject = selected => selected.reduce((acc,e) => {
-    acc.push({ [e]: true });
+    acc[e] = true;
     return acc;
   }, {});
 
