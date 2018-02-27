@@ -42,7 +42,7 @@ class TopicSelector extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.selected !== this.state.selected) {
-      this.setState({ selected: nextProps.selected });
+      this.setState({ selected: this.transformSelectedToObject(this.props.selected) });
     }
   }
 
@@ -53,7 +53,7 @@ class TopicSelector extends React.Component {
 
   handleOnChange = id => () => this.setState(state => {
     state.selected[id] = !state.selected[id];
-    const result = Object.entries(state.selected).filter(e => e[1] === true).map(([key, value]) => key);
+    const result = Object.entries(state.selected).filter(e => e[1]).map(([key, value]) => key);
     this.props.handleOnChange({ selected: result });
     return state.selected;
   });
