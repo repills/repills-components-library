@@ -16,18 +16,20 @@ export const base = css`
 export const icon = css``;
 
 export const cover = css`
-  background-color: ${neutral.highest};
+  background-color: ${neutral.lower};
   padding: ${extRem(24,16)};
+  border: 1px solid ${neutral.medium};
 `;
 
 export const info = css`
   border: 1px solid ${neutral.medium};
   padding: ${extRem(20,16)};
+  border-top: 0;
 `;
 
 export const name = css`
   ${typography.header3}
-  color: ${neutral.lowest};
+  color: ${neutral.highest};
   margin: ${extRem(16,0,0)};
   line-height: 1;
 `;
@@ -53,7 +55,7 @@ export const description = css`
 
 export const details = css`
   ${typography.body}
-  color: ${neutral.lowest};
+  color: ${neutral.highest};
   margin-top: ${extRem(16)};
 `;
 

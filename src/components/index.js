@@ -3,6 +3,8 @@ export * from './Icon/icons/sections';
 export * from './Icon/icons/types';
 export Button from './Button';
 export CodePreview from './CodePreview';
+export CompositionChart from './CompositionChart';
+export HomePageHeader from './HomePageHeader';
 export Logo from './Logo';
 export Modal from './Modal';
 export Pagination from './Pagination';
