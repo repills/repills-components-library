@@ -1,21 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
+import theme from '../../config/theme';
+import cx from 'classnames';
+import { ContainerQuery } from 'react-container-query';
+import { query } from '../../config/breakpoints';
+import Logo from '../Logo';
+
+const { basic, neutral } = theme.palettes;
+
 import {
-  string,
-  arrayOf,
-  object,
-  func
-} from 'prop-types';
-import { base, frame, counter, total, totalLabel, info, title, composition } from './style';
+  base,
+  logoLink
+} from './style';
 
 const BaseStyle = styled.nav`${base}`;
+const LogoLinkStyle = styled.a`${logoLink}`;
 
-function TopNavigation({
-}) {
+function TopNavigation() {
   return (
-    <BaseStyle>
-      Top Navigation here
-    </BaseStyle>
+    <ContainerQuery query={query}>
+      {
+        params => (
+          <BaseStyle>
+            <LogoLinkStyle
+              className={cx(params)}
+              href="/"
+            >
+              <Logo
+                color={basic.primary}
+                secondaryColor={neutral.highest}
+              />
+            </LogoLinkStyle>
+          </BaseStyle>
+        )
+      }
+    </ContainerQuery>
   );
 }
 
