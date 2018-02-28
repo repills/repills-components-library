@@ -17,14 +17,12 @@ const { basic, neutral } = theme.palettes;
 
 import {
   base,
-  logoLink,
   logoContainer,
   navigation,
   navigationItem
 } from './style';
 
 const BaseStyle = styled.div`${base}`;
-const LogoLinkStyle = styled.a`${logoLink}`;
 const LogoContainerStyle = styled.div`${logoContainer}`;
 const NavigationStyle = styled.nav`${navigation}`;
 
@@ -42,14 +40,14 @@ function TopNavigation({
             <LogoContainerStyle
               className={cx(params)}
             >
-              <LogoLinkStyle
+              <a
                 href="/"
               >
                 <Logo
                   color={basic.primary}
                   secondaryColor={neutral.highest}
                 />
-              </LogoLinkStyle>
+              </a>
             </LogoContainerStyle>
             {
               items.length > 0 &&

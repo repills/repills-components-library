@@ -19,21 +19,24 @@ export const base = css`
   }
 `;
 
-export const logoLink = css`
-  display: block;
-  line-height: 0;
-  margin: 0 auto;
-`;
-
 export const logoContainer = css`
   background-color: ${neutral.lower};
   padding: ${extRem(16,12)};
-  width: ${extRem(150)};
+  
+  a {
+    display: block;
+    line-height: 0;
+    margin: 0 auto;
+    width: ${extRem(150)};
+  }
 
   &.${MD} {
     padding: 0;
     background-color: transparent;
-    width: ${extRem(220)};
+    
+    a {
+      width: ${extRem(220)};
+    }
   }
 `;
 
