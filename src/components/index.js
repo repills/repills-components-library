@@ -12,6 +12,7 @@ export ResourceDetail from './ResourceDetail';
 export ResourcePreview from './ResourcePreview';
 export ResourcesList from './ResourcesList';
 export ResponsivePagination from './ResponsivePagination';
+export SectionPageHeader from './SectionPageHeader';
 export SectionPreview from './SectionPreview';
 export SectionPreviewSelection from './SectionPreviewSelection';
 export SectionSelector from './SectionSelector';
