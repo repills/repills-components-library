@@ -80,7 +80,6 @@ export const list = css`
   right: 0;
   z-index: ${theme.zIndex.inpage};
   max-height: ${props => props.count >= 7 ? stripUnit(sizes[props.size].heightItem) * 4.5 + 'rem' : 'auto'};
-  overflow: hidden;
   overflow-y: auto;
   border-bottom: 1px solid ${neutral.medium};
 `;
