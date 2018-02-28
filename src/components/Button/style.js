@@ -6,45 +6,74 @@ import typography from '../../shared/styles/typography';
 
 const { basic, neutral } = theme.palettes;
 
-const height = {
-  M: extRem(40),
-  L: extRem(60)
+const size = {
+  S: {
+    height: extRem(28),
+    minWidth: extRem(100),
+    padding: extRem(0, 20)
+  },
+  M: {
+    height: extRem(40),
+    minWidth: extRem(150),
+    padding: extRem(0, 24)
+  },
+  L: {
+    height: extRem(60),
+    minWidth: extRem(220),
+    padding: extRem(0, 32)
+  }
 };
 
-const minWidth = {
-  M: extRem(150),
-  L: extRem(220)
+const skin = {
+  default: {
+    backgroundColor: basic.primary,
+    color: neutral.lowest,
+    boxShadow: '0 2px 10px 0 rgba(0,0,0,0.3)'
+  },
+  skin: {
+    color: neutral.highest
+  },
+  outline: {
+    borderColor: basic.primary,
+    color: neutral.highest
+  }
+};
+
+
+const tp = {
+  S: typography.small,
+  M: typography.body,
+  L: typography.body
 };
 
 export const base = css`
-  ${typography.body};
-  align-items: center;
-  background: none;
-  // border-radius: ${props => stripUnit(height[props.size]) / 2}rem;
-  border: 3px solid ${basic.primary};
   box-sizing: border-box;
-  color: ${neutral.lowest};
-  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.3);
+  align-items: center;
+  border: 3px solid transparent;
+  box-sizing: border-box;
   cursor: pointer;
   display: inline-flex;
-  height: ${props => height[props.size]};
   justify-content: center;
-  min-width: ${props => minWidth[props.size]};
   outline: none;
-  padding: 0 ${extRem(30)};
   width: ${props => props.expanded ? '100%' : 'auto'};
   text-transform: uppercase;
   letter-spacing: .2em;
   
-  ${ props => !props.disabled && `
-    &:hover {
-      color: ${basic.secondary}
-  }`}
+  ${props => size[props.size]};
+ 
+  ${props => skin[props.skin]};
   
-  ${ props => !props.outline && `
-    background-color: ${basic.primary};
-    color: ${neutral.primary};
-  `}
+  ${props => tp[props.size]};
+  
+  ${props => props.autoWidth && `
+    min-width: auto;
+  `};
+  
+  ${props => props.skin === 'ghost' && `
+    padding-left: 0;
+    padding-right: 0;
+    border: 0;
+  `};
   
   ${ props => props.disabled && `
     opacity: .5;

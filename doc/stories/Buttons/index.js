@@ -9,25 +9,41 @@ const sectionDescription = 'Description will be here.';
 const section = createSection({ title: sectionTitle });
 
 section
-  .add('Basic', () => (
-    <SectionPage
-      description={sectionDescription}
-      title={sectionTitle}
-    >
-      <InteractiveExample
-        component={Button}
-        disabled={boolean('Disabled', false)}
-        expanded={boolean('Expanded', false)}
-        id={text('Id', 'button_id')}
-        label={text('Label', 'Button Label')}
-        onClick={() => alert('Clicked!')}
-        onMouseEnter={() => {}}
-        onMouseLeave={() => {}}
-        outline={boolean('Outline', false)}
-        size={select('Size', { M: 'Medium', L: 'Large' }, 'M')}
-      />
-    </SectionPage>
-  ));
+  .add('Basic', () => {
+
+    const options = {};
+    const selectedSkin = select('Skin', { 'none': 'Default', 'ghost': 'Ghost', 'outline': 'Outline' }, 'none');
+
+    const autoWidth = boolean('autoWidth', false);
+
+    if (selectedSkin !== 'none') {
+      options['skin'] = selectedSkin;
+    }
+
+    if (autoWidth) {
+      options['autoWidth'] = autoWidth;
+    }
+
+    return (
+      <SectionPage
+        description={sectionDescription}
+        title={sectionTitle}
+      >
+        <InteractiveExample
+          component={Button}
+          disabled={boolean('Disabled', false)}
+          expanded={boolean('Expanded', false)}
+          id={text('Id', 'button_id')}
+          label={text('Label', 'Button Label')}
+          onClick={() => alert('Clicked!')}
+          onMouseEnter={() => {}}
+          onMouseLeave={() => {}}
+          size={select('Size', { S: 'Small', M: 'Medium', L: 'Large' }, 'M')}
+          {...options}
+        />
+      </SectionPage>
+    );
+  });
 
 
 

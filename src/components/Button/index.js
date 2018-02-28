@@ -1,30 +1,37 @@
 import React from 'react';
-import { string, bool, func, oneOf } from 'prop-types';
+import {
+  string,
+  bool,
+  func,
+  oneOf
+} from 'prop-types';
 import styled from 'styled-components';
 import { base } from './style';
 
 const BaseStyle = styled.button`${base}`;
 
 const Button = ({
+  autoWidth,
   disabled,
   expanded,
   label,
   onClick,
   onMouseEnter,
   onMouseLeave,
-  outline,
+  skin,
   size,
   ...otherOptions
 }) => {
   return (
     <BaseStyle
+      autoWidth={autoWidth}
       disabled={disabled}
       expanded={expanded}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      outline={outline}
       size={size}
+      skin={skin}
       {...otherOptions}
     >
       {label && <span>{label}</span>}
@@ -33,18 +40,20 @@ const Button = ({
 };
 
 Button.propTypes = {
+  autoWidth: bool,
   disabled: bool,
   expanded: bool,
   label: string,
   onClick: func,
   onMouseEnter: func,
   onMouseLeave: func,
-  outline: bool,
-  size: oneOf(['S', 'M'])
+  size: oneOf(['S', 'M', 'L']),
+  skin: oneOf(['ghost'])
 };
 
 Button.defaultProps = {
-  size: 'M'
+  size: 'M',
+  skin: 'default'
 };
 
 export default Button;
