@@ -1,24 +1,72 @@
 import { css } from 'styled-components';
-// import { grid } from 'styled-components-grid';
 import theme from '../../config/theme';
-import { MD } from '../../config/breakpoints';
+import { MD, LG } from '../../config/breakpoints';
 import { extRem } from '../../utils';
-// import typography from '../../shared/styles/typography';
+import typography from '../../shared/styles/typography';
 
 const { basic, neutral } = theme.palettes;
 
 export const base = css`
-  padding: ${extRem(48,0,24)};
-  border-bottom: 3px  solid ${neutral.medium};
   text-align: left;
+  border-bottom: 3px  solid ${neutral.medium};
+
+  &.${MD} {
+    padding: ${extRem(48,0,24)};
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
 `;
 
 export const logoLink = css`
-  width: ${extRem(150)};
   display: block;
   line-height: 0;
-  
+  margin: 0 auto;
+`;
+
+export const logoContainer = css`
+  background-color: ${neutral.lower};
+  padding: ${extRem(16,12)};
+  width: ${extRem(150)};
+
   &.${MD} {
-    width: ${extRem(250)};
+    padding: 0;
+    background-color: transparent;
+    width: ${extRem(220)};
   }
 `;
+
+export const navigation = css`
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  background-color: ${basic.lowest};
+  color: ${neutral.highest};
+  
+  &.${MD} {
+    padding: 0;
+    background-color: transparent;
+    width: calc(100% - ${extRem(240)});
+  }
+  
+  &.${LG} {
+    flex-wrap: wrap;
+  }
+`;
+
+export const navigationItem = css`
+  ${typography.body}
+  padding: ${extRem(0,12)};
+  line-height: ${extRem(32)};
+  height: ${extRem(44)};
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  color: currentColor;
+  text-decoration: underline;
+  cursor: pointer;
+`;
+
