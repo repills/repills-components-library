@@ -50,6 +50,7 @@ export const base = css`
   box-sizing: border-box;
   align-items: center;
   border: 3px solid transparent;
+  background: none;
   box-sizing: border-box;
   cursor: pointer;
   display: inline-flex;
