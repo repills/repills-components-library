@@ -9,22 +9,23 @@ const { basic, neutral } = theme.palettes;
 export const base = css`
   ${typography.caption}
   text-decoration: none;
-  padding: ${extRem(16, 12)};
+  padding: ${extRem(16, 12, 16, 24)};
   display: flex;
   align-items: center;
   background: ${neutral.lower};
   cursor: pointer;
   font-weight: normal;
   position: relative;
+  border-top: 1px solid ${neutral.medium};
   
   &::after {
     background-color: ${props => props.color};
     content: '';
     position: absolute;
-    top: 0;
+    top: -1px;
     left: 0;
-    right: 0;
-    height: ${extRem(3)};
+    bottom: 0;
+    width: ${extRem(8)};
   }
 `;
 

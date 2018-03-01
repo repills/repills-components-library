@@ -38,7 +38,7 @@ export const item = css`
     padding-bottom: ${doubleGutter};
   }
   
-  &.${LG} {
+  &.${MD} {
     ${grid.unit({ size: 1/3 })}
   }
 `;

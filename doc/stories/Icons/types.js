@@ -35,10 +35,10 @@ export default (sectionTitle, sectionDescription) => () => {
         color={selectedColor}
         component={Icons[`${selectedIcon}Icon`]}
         showBreakpoints={false}
-        size={number('Font Size', 60, {
+        size={number('Font Size', 120, {
           range: true,
           min: 32,
-          max: 70,
+          max: 120,
           step: 1,
         })}
       />
