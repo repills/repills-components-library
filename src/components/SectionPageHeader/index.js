@@ -4,15 +4,13 @@ import {
 } from 'prop-types';
 import * as sectionsIcons from '../Icon/icons/sections';
 import { ContainerQuery } from 'react-container-query';
-import { getCurrentBreakpoint } from '../../utils';
-import { MD, query } from '../../config/breakpoints';
+import { SM, query } from '../../config/breakpoints';
 import styled from 'styled-components';
 import {
   base,
   icon,
   label,
   title,
-  titleContainer,
   main,
   description
 } from './style';
@@ -22,7 +20,6 @@ const LabelStyle = styled.div`${label}`;
 const IconStyle = styled.div`${icon}`;
 const TitleStyle = styled.h1`${title}`;
 const MainStyle = styled.div`${main}`;
-const TitleContainerStyle = styled.div`${titleContainer}`;
 const DescriptionStyle = styled.p`${description}`;
 
 const SectionPageHeader = ({
@@ -50,7 +47,7 @@ const SectionPageHeader = ({
                   breakpointsStatus={params}
                   color={color}
                 >
-                  <Icon size={params[MD] ? 80 : 100} />
+                  <Icon size={params[SM] ? 80 : 100} />
                 </IconStyle>
               }
               <LabelStyle>Section</LabelStyle>

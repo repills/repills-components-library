@@ -1,18 +1,16 @@
 import { css } from 'styled-components';
 import { extRem } from '../../utils';
-import { ellipsis } from 'polished';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
-import { grid } from 'styled-components-grid';
-import { SM, MD, LG } from '../../config/breakpoints';
+import { SM } from '../../config/breakpoints';
 
-const { basic, types, neutral } = theme.palettes;
+const { neutral } = theme.palettes;
 
 export const base = css`
   padding: ${extRem(40)} 0;
   text-align: center;
   
-  ${props => props.breakpointsStatus[MD] && `
+  ${props => props.breakpointsStatus[SM] && `
     text-align: left;
     padding: ${extRem(60)} 0;
   `}
@@ -32,7 +30,7 @@ export const title = css`
 export const main = css`
   position: relative;
     
-  ${props => props.breakpointsStatus[MD] && `
+  ${props => props.breakpointsStatus[SM] && `
     display: inline-block;
     padding-right: ${extRem(100)};
   `}
@@ -52,7 +50,7 @@ export const icon = css`
   color: ${props => props.color};
   margin-bottom: ${extRem(12)};
   
-  ${props => props.breakpointsStatus[MD] && `
+  ${props => props.breakpointsStatus[SM] && `
     position: absolute;
     right: 0;
     top: 0;
