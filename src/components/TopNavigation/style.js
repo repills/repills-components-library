@@ -8,10 +8,10 @@ const { basic, neutral } = theme.palettes;
 
 export const base = css`
   text-align: left;
-  border-bottom: 3px  solid ${neutral.medium};
+  border-bottom: 1px  solid ${neutral.medium};
 
   &.${MD} {
-    padding: ${extRem(24,0,16)};
+    padding: ${extRem(20,0)};
     display: flex;
     flex-wrap: wrap;
     align-items: center;
