@@ -11,7 +11,7 @@ export const base = css`
   border-bottom: 3px  solid ${neutral.medium};
 
   &.${MD} {
-    padding: ${extRem(48,0,24)};
+    padding: ${extRem(24,0,16)};
     display: flex;
     flex-wrap: wrap;
     align-items: center;
