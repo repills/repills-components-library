@@ -11,14 +11,12 @@ import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
 import {
   base,
-  // items,
-  item,
-  itemsWrapper
+  items,
+  item
 } from './style';
 
 const BaseStyle = styled.div`${base}`;
-// const ItemsStyle = styled.div`${items}`;
-const ItemsWrapperStyle = styled.div`${itemsWrapper}`;
+const ItemsStyle = styled.div`${items}`;
 const ItemStyle = styled.div`${item}`;
 
 function TypesList({ types, navigateTo, shadeColor }) {
@@ -29,7 +27,7 @@ function TypesList({ types, navigateTo, shadeColor }) {
           <BaseStyle
             shadeColor={shadeColor}
           >
-            <ItemsWrapperStyle>
+            <ItemsStyle>
               {
                 Object.keys(types).map(typeId => {
                   const type = types[typeId];
@@ -48,7 +46,7 @@ function TypesList({ types, navigateTo, shadeColor }) {
                   );
                 })
               }
-            </ItemsWrapperStyle>
+            </ItemsStyle>
           </BaseStyle>
         )}
     </ContainerQuery>

@@ -1,66 +1,44 @@
 import { css } from 'styled-components';
-import { rgba } from 'polished';
 import { extRem } from '../../utils';
-import { SM, MD, LG } from '../../config/breakpoints';
-// import theme from '../../config/theme';
 import { grid } from 'styled-components-grid';
+import { SM, MD, LG } from '../../config/breakpoints';
 
-// const { neutral } = theme.palettes;
+const halfGutterStripUnit = 6;
+const gutter = extRem(halfGutterStripUnit * 2);
+const doubleGutter = extRem(halfGutterStripUnit * 4);
+const halfGutter = extRem(halfGutterStripUnit);
 
 export const base = css`
   box-sizing: border-box;
   width: 100%;
-  position: relative;
-   
-  ${props => props.shadeColor && `
-    &::after {
-      content: '';
-      width: ${extRem(35)};
-      top: 0;
-      right: -1px;
-      bottom: 0;
-      background: linear-gradient(to right, ${rgba(props.shadeColor, 0)}, ${props.shadeColor});
-      position: absolute;
-    }
-  `}
 `;
 
-export const itemsWrapper = css`
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  margin: 0 -4px;
-  
-  &::-webkit-scrollbar {
-    display: none; 
-  }
-`;
-
-/*
 export const items = css`
   ${grid()}
-  display: flex;
-  flex-wrap: nowrap;
-  margin: 0 -1px;
-`;
-*/
-
-export const item = css`
-  box-sizing: border-box;
-  flex: 0 0 auto;
-  padding: 4px;
-  
-  ${grid.unit({ size: 4/10 })}
+  margin-left: -${halfGutter};
+  margin-right: -${halfGutter};
   
   &.${SM} {
-    ${grid.unit({ size: 3/14 })}
+    margin-left: -${gutter};
+    margin-right: -${gutter};
   }
+`;
+
+export const item = css`
+  padding-left: ${halfGutter};
+  padding-right: ${halfGutter};
+  padding-bottom: ${gutter};
   
-  &.${MD} {
-    ${grid.unit({ size: 3/17 })}
+  ${grid.unit({ size: 1 })}
+  
+  &.${SM} {
+    ${grid.unit({ size: 1/2 })}
+    padding-left: ${gutter};
+    padding-right: ${gutter};
+    padding-bottom: ${doubleGutter};
   }
   
   &.${LG} {
-    ${grid.unit({ size: 3/23 })}
+    ${grid.unit({ size: 1/3 })}
   }
 `;
