@@ -1,10 +1,10 @@
 import { css } from 'styled-components';
-import { rem } from 'polished';
+import { extRem } from '../../utils';
 import typography from '../../config/typography';
 
 function getTypographyCss(config) {
   return css`
-    font-size: ${rem(config.size)};
+    font-size: ${extRem(config.size)};
     font-weight: ${config.weight || 400};
     font-family: ${config.family};
   `;
