@@ -17,27 +17,22 @@ export const base = css`
 `;
 
 export const title = css`
-  ${typography.header2}
   color: ${neutral.highest};
   margin: 0;
   line-height: 1.1;
   word-break: break-word;
   margin-left: ${extRem(-3)};
+  
+  ${props => props.breakpointsStatus[SM] ? typography.header1 : typography.header2}
 `;
-
-// ${typography.header1}
 
 export const main = css`
   position: relative;
     
   ${props => props.breakpointsStatus[SM] && `
     display: inline-block;
-    padding-right: ${extRem(100)};
+    padding-right: ${extRem(110)};
   `}
-`;
-
-export const titleContainer = css`
-
 `;
 
 export const label = css`
@@ -54,6 +49,7 @@ export const icon = css`
     position: absolute;
     right: 0;
     top: 0;
+    margin: 0;
   `}
 `;
 

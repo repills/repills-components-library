@@ -47,11 +47,15 @@ const SectionPageHeader = ({
                   breakpointsStatus={params}
                   color={color}
                 >
-                  <Icon size={params[SM] ? 80 : 100} />
+                  <Icon size={90} />
                 </IconStyle>
               }
               <LabelStyle>Section</LabelStyle>
-              <TitleStyle>{title}</TitleStyle>
+              <TitleStyle
+                breakpointsStatus={params}
+              >
+                {title}
+              </TitleStyle>
             </MainStyle>
             {
               description &&
