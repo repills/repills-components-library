@@ -29,4 +29,4 @@ export TopNavigation from './TopNavigation';
 export TypePreview from './TypePreview';
 export TypesList from './TypesList';
 export typography from '../shared/styles/typography';
-export { extRem } from '../utils';
+export * from '../utils';

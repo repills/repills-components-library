@@ -28,7 +28,7 @@ const skin = {
   default: {
     backgroundColor: basic.primary,
     color: neutral.lowest,
-    boxShadow: '0 2px 10px 0 rgba(0,0,0,0.3)'
+    boxShadow: '0 8px 16px rgba(0,0,0,.1),0 3px 6px rgba(0,0,0,.08)'
   },
   skin: {
     color: neutral.highest

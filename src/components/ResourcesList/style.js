@@ -14,7 +14,6 @@ export const base = css`
 
 export const items = css`
   ${grid()}
-  justify-content: center;
   margin-left: -${halfGutter};
   margin-right: -${halfGutter};
   
