@@ -6,9 +6,10 @@ import { SM } from '../../config/breakpoints';
 import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
-const { basic, neutral } = theme.palettes;
+const { neutral } = theme.palettes;
 const mainColor = lighten(0.2, neutral.lowest);
 
+// box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
 export const base = css`
   box-sizing: border-box;
   text-align: center;
@@ -17,12 +18,15 @@ export const base = css`
   cursor: pointer;
   background-color: ${mainColor};
   color: ${neutral.highest};
-  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   
   ${props => props.disabled && `
     opacity: .6;
     cursor: default;
   `}
+  
+  &:hover {
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
+  }
 `;
 
 export const frame = css`
@@ -41,6 +45,7 @@ export const counter = css`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
   background-color: ${neutral.lower};
   padding: ${extRem(12, 0)};
   ${typography.header3}
@@ -55,13 +60,8 @@ export const total = css`
   line-height: 1;
 `;
 
-export const totalLabel = css`
-  ${typography.mini}
-  margin-top: ${extRem(7)};
-`;
-
 export const composition = css`
-  background-color: ${neutral.lowest};
+  margin-top: ${extRem(8)};
 `;
 
 export const info = css`
@@ -73,7 +73,6 @@ export const info = css`
   align-items: flex-start;
   justify-content: flex-start;
   text-align: left;
-  padding-bottom: ${extRem(16)};
   
   &.${SM} {
     ${grid.unit({ size: 5/8 })}
@@ -88,8 +87,9 @@ export const title = css`
   bottom: 0;
   left: 0;
   right: 0;
-  height: ${extRem(48)};
+  height: ${extRem(72)};
   overflow: hidden;
+  line-height: 1.2;
   
   position: relative;
   margin: ${extRem(16, 12)};

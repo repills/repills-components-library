@@ -15,7 +15,6 @@ import {
   frame,
   counter,
   total,
-  totalLabel,
   info,
   title,
   composition
@@ -26,7 +25,6 @@ const BaseStyle = styled.article`${base}`;
 const FrameStyle = styled.div`${frame}`;
 const CounterStyle = styled.div`${counter}`;
 const TotalStyle = styled.div`${total}`;
-const TotalLabelStyle = styled.div`${totalLabel}`;
 const InfoStyle = styled.div`${info}`;
 const TitleStyle = styled.h4`${title}`;
 const CompositionStyle = styled(CompositionChart)`${composition}`;
@@ -49,20 +47,17 @@ function TopicPreview({
             <FrameStyle>
               <InfoStyle className={cx(params)}>
                 <TitleStyle className={cx(params)}>{title}</TitleStyle>
-                <CompositionStyle
-                  barWidth={6}
-                  className={cx(params)}
-                  maxHeight={24}
-                  stats={stats}
-                />
               </InfoStyle>
               <CounterStyle className={cx(params)}>
                 <TotalStyle>
                   {totalCount}
                 </TotalStyle>
-                <TotalLabelStyle>
-                  Pill{totalCount !== 1 ? 's' : ''}
-                </TotalLabelStyle>
+                <CompositionStyle
+                  barWidth={4}
+                  className={cx(params)}
+                  maxHeight={20}
+                  stats={stats}
+                />
               </CounterStyle>
             </FrameStyle>
           </BaseStyle>

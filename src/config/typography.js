@@ -40,7 +40,7 @@ export default [
     id: 'caption',
     name: 'caption',
     family: primaryFontFamily,
-    size: 18,
+    size: 20,
     weight: 700
   },
   {

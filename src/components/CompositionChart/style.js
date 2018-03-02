@@ -16,4 +16,8 @@ export const compositionItem = css`
   height: ${props => props.percentage}%;
   width: ${props => extRem(props.width)};
   margin-right: ${extRem(3)};
+  
+  &::last-child {
+    margin-right: 0;
+  }
 `;
