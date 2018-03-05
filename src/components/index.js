@@ -10,6 +10,7 @@ export Modal from './Modal';
 export Pagination from './Pagination';
 export ResourceDetail from './ResourceDetail';
 export ResourcePreview from './ResourcePreview';
+export ResourceMiniPreview from './ResourceMiniPreview';
 export ResourcesList from './ResourcesList';
 export ResponsivePagination from './ResponsivePagination';
 export SectionPageHeader from './SectionPageHeader';

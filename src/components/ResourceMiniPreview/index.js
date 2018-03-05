@@ -1,31 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
-import m from 'moment';
-import { getBaseUrl } from '../../utils';
-import { SquarePillIcon, LinkIcon } from '../Icon/icons/basic';
+import { SquarePillIcon } from '../Icon/icons/basic';
 import {
   string
 } from 'prop-types';
 import {
   base,
   mainInfo,
-  source,
   title,
   type,
-  date,
   detail,
-  secondaryInfo,
   author
 } from './style';
 
 const BaseStyle = styled.article`${base}`;
 const MainInfoStyle = styled.a`${mainInfo}`;
-const SecondaryInfoStyle = styled.div`${secondaryInfo}`;
-const SourceStyle = styled.div`${source}`;
 const TitleStyle = styled.h4`${title}`;
 const AuthorStyle = styled.div`${author}`;
 const TypeStyle = styled.div`${type}`;
-const DateStyle = styled.div`${date}`;
 const DetailStyle = styled.div`${detail}`;
 
 function ResourcePreview({
@@ -33,19 +25,12 @@ function ResourcePreview({
   title,
   author,
   link,
-  date,
   typeLabel,
   handleDetailView
 }) {
   return (
-    <BaseStyle
-      color={color}
-    >
+    <BaseStyle>
       <MainInfoStyle href={link}>
-        <SourceStyle>
-          <LinkIcon size={14} />
-          <span>{getBaseUrl(link)}</span>
-        </SourceStyle>
         <TitleStyle>{title}</TitleStyle>
         <DetailStyle>
           <TypeStyle>
@@ -59,9 +44,6 @@ function ResourcePreview({
           {author && <AuthorStyle>by <span>{author}</span></AuthorStyle>}
         </DetailStyle>
       </MainInfoStyle>
-      <SecondaryInfoStyle>
-        <DateStyle>{m(date).fromNow()}</DateStyle>
-      </SecondaryInfoStyle>
     </BaseStyle>
   );
 }
@@ -69,7 +51,6 @@ function ResourcePreview({
 ResourcePreview.propTypes = {
   author: string,
   color: string.isRequired,
-  date: string,
   link: string.isRequired,
   title: string.isRequired,
   typeLabel: string.isRequired

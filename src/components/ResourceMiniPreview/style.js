@@ -12,7 +12,6 @@ const mainColor = neutral.lower;
 export const base = css`
   text-align: left;
   background-color: ${neutral.lowest};
-  border-top: 4px solid ${props => props.color};
   
   &:hover {
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
@@ -23,8 +22,6 @@ export const mainInfo = css`
   padding: ${extRem(12)};
   background-color: ${mainColor};
   border: 1px solid ${neutral.medium};
-  border-bottom-color: ${neutral.low};
-  border-top: 0;
   display: block;
   text-decoration: none;
   color: currentColor;
@@ -56,7 +53,7 @@ export const author = css`
 export const title = css`
   ${typography.caption}
   color: ${neutral.highest};
-  margin: ${extRem(12, 0,16)};
+  margin: ${extRem(0, 0,12)};
   height: ${extRem(58)};
   position: relative;
   overflow: hidden;
@@ -77,15 +74,6 @@ export const title = css`
   }
 `;
 
-export const secondaryInfo = css`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: ${extRem(10,12)};
-  border: 1px solid ${neutral.medium};
-  border-top: 0;
-`;
-
 export const detail = css`
   color: ${neutral.high};
   display: flex;
@@ -104,8 +92,3 @@ export const type = css`
   }
 `;
 
-export const date = css`
-  ${typography.mini}
-  line-height: 1;
-  color: ${neutral.high};
-`;

@@ -1,9 +1,11 @@
 import React from 'react';
 import ResourcePreview from '../ResourcePreview';
+import ResourceMiniPreview from '../ResourceMiniPreview';
 import cx from 'classnames';
 import {
   arrayOf,
-  shape
+  shape,
+  oneOf
 } from 'prop-types';
 import styled from 'styled-components';
 import { ContainerQuery } from 'react-container-query';
@@ -15,8 +17,10 @@ const ItemsStyle = styled.div`${items}`;
 const ItemStyle = styled.div`${item}`;
 
 function ResourcesList({
-  resources
+  resources,
+  variant
 }) {
+
   return (
     <ContainerQuery query={query}>
       {
@@ -30,9 +34,17 @@ function ResourcesList({
                       className={cx(params)}
                       key={resource.link}
                     >
-                      <ResourcePreview
-                        {...resource}
-                      />
+                      {
+                        variant === 'mini' ?
+                          <ResourceMiniPreview
+                            {...resource}
+                          />
+                          :
+                          <ResourcePreview
+                            {...resource}
+                          />
+                      }
+
                     </ItemStyle>
                   );
                 })
@@ -46,7 +58,8 @@ function ResourcesList({
 }
 
 ResourcesList.propTypes = {
-  resources: arrayOf(shape(ResourcePreview.propTypes)).isRequired
+  resources: arrayOf(shape(ResourcePreview.propTypes)).isRequired,
+  variant: oneOf(['default', 'mini'])
 };
 
 export default ResourcesList;
