@@ -15,7 +15,7 @@ export const compositionItem = css`
   background-color: ${props => props.color};
   height: ${props => props.percentage}%;
   width: ${props => extRem(props.width)};
-  margin-right: ${extRem(3)};
+  margin-right: ${extRem(1)};
   
   &::last-child {
     margin-right: 0;

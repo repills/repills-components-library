@@ -47,7 +47,7 @@ export const counter = css`
   flex-direction: column;
   align-items: center;
   background-color: ${neutral.lower};
-  padding: ${extRem(12, 0)};
+  padding: ${extRem(16, 0)};
   ${typography.header3}
   border-left: 1px solid ${neutral.low};
   
@@ -71,7 +71,7 @@ export const info = css`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
   text-align: left;
   
   &.${SM} {
@@ -81,28 +81,16 @@ export const info = css`
 
 export const title = css`
   ${typography.caption}
-  margin: ${extRem(0,12,20)};
   box-sizing: border-box;
   font-weight: 600;
   bottom: 0;
   left: 0;
   right: 0;
-  height: ${extRem(72)};
   overflow: hidden;
   line-height: 1.2;
   
   position: relative;
-  margin: ${extRem(16, 12)};
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: ${extRem(24)};
-    background: linear-gradient(to bottom, ${rgba(mainColor, 0)}, ${mainColor});
-  }
+  margin: ${extRem(16)};
 `;
 
 
