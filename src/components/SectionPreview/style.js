@@ -4,7 +4,7 @@ import theme from '../../config/theme';
 import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
-const { basic, neutral } = theme.palettes;
+const { neutral } = theme.palettes;
 const mainColor = neutral.lowest;
 
 export const base = css`
@@ -20,6 +20,7 @@ export const cover = css`
   padding: ${extRem(24,16)};
   border: 1px solid ${neutral.medium};
   border-bottom-color: ${neutral.low};
+  cursor: pointer;
 `;
 
 export const info = css`

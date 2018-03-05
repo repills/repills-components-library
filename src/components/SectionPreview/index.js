@@ -40,7 +40,9 @@ function SectionPreview({
 
   return (
     <BaseStyle>
-      <CoverStyle>
+      <CoverStyle
+        onClick={navigateTo}
+      >
         <IconStyle>
           <Icon
             color={color}
@@ -48,14 +50,23 @@ function SectionPreview({
           />
         </IconStyle>
         <NameStyle>{name}</NameStyle>
-        <DetailsStyle>
-          <DetailStyle>
-            <strong>{resourcesCount}</strong> pill{resourcesCount === 1 ? '' : 's'}
-          </DetailStyle>
-          <DetailStyle>
-            <strong>{topicsCount}</strong> topic{topicsCount === 1 ? '' : 's'}
-          </DetailStyle>
-        </DetailsStyle>
+        {
+          (resourcesCount || resourcesCount) &&
+          <DetailsStyle>
+            {
+              resourcesCount &&
+              <DetailStyle>
+                <strong>{resourcesCount}</strong> pill{resourcesCount === 1 ? '' : 's'}
+              </DetailStyle>
+            }
+            {
+              topicsCount &&
+              <DetailStyle>
+                <strong>{topicsCount}</strong> topic{topicsCount === 1 ? '' : 's'}
+              </DetailStyle>
+            }
+          </DetailsStyle>
+        }
       </CoverStyle>
       <InfoStyle>
         <DescriptionStyle>{description}</DescriptionStyle>
