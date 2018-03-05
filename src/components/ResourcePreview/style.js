@@ -15,7 +15,7 @@ export const base = css`
 `;
 
 export const mainInfo = css`
-  padding: ${extRem(12,12,24)};
+  padding: ${extRem(12)};
   background-color: ${mainColor};
   border: 1px solid ${neutral.medium};
   border-bottom-color: ${neutral.low};
@@ -49,10 +49,10 @@ export const author = css`
 `;
 
 export const title = css`
-  ${typography.header4}
+  ${typography.caption}
   color: ${neutral.highest};
-  margin: ${extRem(16, 0)};
-  height: ${extRem(90)};
+  margin: ${extRem(12, 0,16)};
+  height: ${extRem(58)};
   position: relative;
   overflow: hidden;
   
@@ -76,31 +76,31 @@ export const secondaryInfo = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${extRem(12)};
+  padding: ${extRem(10,12)};
   border: 1px solid ${neutral.medium};
   border-top: 0;
 `;
 
 export const detail = css`
-  ${typography.small}
   color: ${neutral.high};
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 `;
 
 export const type = css`
+  ${typography.small}
   line-height: 1;
   display: inline-flex;
   align-items: center;
   margin-right: ${extRem(8)};
   
   span {
-    margin-left: ${extRem(5)};
+    margin-left: ${extRem(8)};
   }
 `;
 
 export const date = css`
-  ${typography.small}
+  ${typography.mini}
   line-height: 1;
   color: ${neutral.high};
 `;

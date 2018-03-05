@@ -7,14 +7,12 @@ import typography from '../../shared/styles/typography';
 const { basic, neutral } = theme.palettes;
 
 export const base = css`
-  ${typography.caption}
   text-decoration: none;
-  padding: ${extRem(16, 12, 16, 24)};
+  padding: ${extRem(12, 12, 12, 20)};
   display: flex;
   align-items: center;
   background: ${neutral.lower};
   cursor: pointer;
-  font-weight: normal;
   position: relative;
   border-top: 1px solid ${neutral.medium};
   
@@ -32,10 +30,12 @@ export const base = css`
 export const icon = css`
   line-height: 0;
   color: ${neutral.highest};
-  margin-right: ${extRem(10)};
+  margin-right: ${extRem(12)};
 `;
 
 export const text = css`
+  ${typography.caption}
+  font-weight: normal;
   ${ellipsis()}
   line-height: 1;
   color: ${neutral.highest};
