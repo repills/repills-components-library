@@ -51,5 +51,5 @@ export const count = css`
   right: ${extRem(12)};
   display: flex;
   align-items: center;
-  color: ${neutral.high};
+  color: ${neutral.mediumHigh};
 `;
