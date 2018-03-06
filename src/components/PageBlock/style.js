@@ -28,9 +28,8 @@ export const count = css`
   justify-content: center;
   height; ${sideCount};
   line-height: ${sideCount};
-  min-width: ${sideCount};
-  background-color: ${neutral.low};
-  text-align: center;
+  padding-left: ${extRem(12)};
+  border-left: 1px solid ${neutral.medium};
 `;
 
 export const body = css`
