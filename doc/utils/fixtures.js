@@ -58,7 +58,7 @@ export function getRandomResourceList(min = 0, max = 20) {
 export function getRandomContributor({ nickname, count }) {
   return {
     nickname: nickname || faker.internet.userName(),
-    publishedCount: count || getRandomNumber(0,30)
+    publishedCount: count || getRandomNumber(1,30)
   };
 }
 
