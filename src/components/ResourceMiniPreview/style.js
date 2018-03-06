@@ -5,13 +5,13 @@ import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
 const { neutral } = theme.palettes;
-const mainColor = neutral.lower;
+const mainColor = neutral.lowest;
 
 // box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
 
 export const base = css`
   text-align: left;
-  background-color: ${neutral.lowest};
+  background-color: ${mainColor};
   
   &:hover {
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
@@ -20,7 +20,6 @@ export const base = css`
 
 export const mainInfo = css`
   padding: ${extRem(12)};
-  background-color: ${mainColor};
   border: 1px solid ${neutral.medium};
   display: block;
   text-decoration: none;

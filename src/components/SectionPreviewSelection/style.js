@@ -19,7 +19,6 @@ export const base = css`
   cursor: pointer;
   background-color: ${props => props.checked ? neutral.lower : neutral.lowest};
   color: ${neutral.highest};
-  box-shadow: 0 1px 2px 2px ${rgba(neutral.highest, 0.02)};
   position: relative;
 
   &::after {
@@ -34,7 +33,8 @@ export const base = css`
   }
   
   &:hover {
-    background-color: ${neutral.lower}
+    background-color: ${neutral.lowest};
+    box-shadow: 0 1px 2px 2px ${rgba(neutral.highest, 0.02)};
   }
 `;
 

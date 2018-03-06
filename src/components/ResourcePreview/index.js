@@ -38,9 +38,7 @@ function ResourcePreview({
   handleDetailView
 }) {
   return (
-    <BaseStyle
-      color={color}
-    >
+    <BaseStyle>
       <MainInfoStyle href={link}>
         <SourceStyle>
           <LinkIcon size={14} />
