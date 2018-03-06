@@ -51,6 +51,25 @@ export function getRandomResourceList(min = 0, max = 20) {
   return getResourceList(getRandomNumber(min, max)) ;
 }
 
+//-------------
+// CONTRIBUTORS
+//-------------
+
+export function getRandomContributor({ nickname, count }) {
+  return {
+    nickname: nickname || faker.internet.userName(),
+    publishedCount: count || getRandomNumber(0,30)
+  };
+}
+
+export function getContributorsList(length) {
+  return Array.from({ length }, () => getRandomContributor({}) );
+}
+
+export function getRandomContributorsList(min = 0, max = 20) {
+  return getContributorsList(getRandomNumber(min, max)) ;
+}
+
 //-------
 // TOPICS
 //-------
