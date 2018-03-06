@@ -1,3 +1,4 @@
+// Icons by Gregor Cresnar from the Noun Project
 export ArticleIcon from './ArticleIcon';
 export BookIcon from './BookIcon';
 export CourseIcon from './CourseIcon';
