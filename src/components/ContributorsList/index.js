@@ -6,9 +6,18 @@ import {
   string
 } from 'prop-types';
 import styled from 'styled-components';
-import { base } from './style';
+import { UserIcon } from '../Icon/icons/basic';
+import {
+  base,
+  title,
+  items,
+  item
+} from './style';
 
 const BaseStyle = styled.div`${base}`;
+const TitleStyle = styled.h3`${title}`;
+const ItemsStyle = styled.div`${items}`;
+const ItemStyle = styled.a`${item}`;
 
 const ContributorsList = ({
   title,
@@ -16,29 +25,28 @@ const ContributorsList = ({
 }) => {
 
   return (
+    contributors.length > 1 &&
     <BaseStyle>
-      <h3>{title ? title : 'Contributors'}</h3>
-      {
-        contributors.length > 1 &&
-        <div>
-          {
-            contributors.map(c => (
-              <div>
-                <a
-                  href={`https://github.com/${c.nickname}`}
-                  target="_blank"
-                >
-                  {c.nickname} -
-                  {
-                    c.publishedCount &&
-                    <span>{c.publishedCount} pills</span>
-                  }
-                </a>
-              </div>
-            ))
-          }
-        </div>
-      }
+      <TitleStyle>{title ? title : 'Contributions'}</TitleStyle>
+      <ItemsStyle>
+        {
+          contributors.sort((a,b) => a.publishedCount < b.publishedCount).map(c => (
+            <ItemStyle
+              href={`https://github.com/${c.nickname}`}
+              target="_blank"
+            >
+              <UserIcon
+                size={20}
+              />
+              <span>{c.nickname}</span>
+              {
+                c.publishedCount &&
+                <div>(<strong>{c.publishedCount}</strong>)</div>
+              }
+            </ItemStyle>
+          ))
+        }
+      </ItemsStyle>
     </BaseStyle>
   );
 };
