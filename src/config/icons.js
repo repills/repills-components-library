@@ -25,10 +25,6 @@ export default {
       name: 'Unchecked'
     },
     {
-      id: 'Check',
-      name: 'Check'
-    },
-    {
       id: 'Error',
       name: 'Error'
     },
@@ -39,6 +35,18 @@ export default {
     {
       id: 'SquarePill',
       name: 'Square Pill'
+    },
+    {
+      id: 'Add',
+      name: 'Add'
+    },
+    {
+      id: 'User',
+      name: 'User'
+    },
+    {
+      id: 'SquareFilledPill',
+      name: 'Square Filled Pill'
     }
   ],
   sections: [
