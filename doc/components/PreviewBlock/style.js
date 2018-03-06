@@ -19,7 +19,7 @@ export const exampleHeader = css`
   ${typography.small}
   color: ${neutral.mediumHigh};
   align-items: center;
-  background: ${neutral.lower};
+  background-color: ${neutral.lower};
   border: 1px solid ${neutral.medium};
   border-bottom: none;
   border-radius: 3px 3px 0 0;
@@ -33,4 +33,5 @@ export const exampleBody = css`
   padding: ${extRem(16)};
   border: 1px solid ${neutral.medium};
   overflow-y: auto;
+  background-color: ${neutral.lower};
 `;
