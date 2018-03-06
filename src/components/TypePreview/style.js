@@ -1,12 +1,14 @@
 import { css } from 'styled-components';
-import { ellipsis, rgba } from 'polished';
+import { ellipsis } from 'polished';
 import theme from '../../config/theme';
 import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
-const { basic, neutral } = theme.palettes;
+const { neutral } = theme.palettes;
 
 export const base = css`
+  ${typography.caption}
+  color: ${neutral.highest};
   text-decoration: none;
   padding: ${extRem(12, 12, 12, 20)};
   display: flex;
@@ -29,15 +31,25 @@ export const base = css`
 
 export const icon = css`
   line-height: 0;
-  color: ${neutral.highest};
+  color: ${neutral.mediumHigh};
   margin-right: ${extRem(12)};
 `;
 
 export const text = css`
-  ${typography.caption}
   font-weight: normal;
   ${ellipsis()}
-  line-height: 1;
-  color: ${neutral.highest};
-  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: ${extRem(32)};
+`;
+
+export const count = css`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: ${extRem(12)};
+  display: flex;
+  align-items: center;
+  color: ${neutral.high};
 `;

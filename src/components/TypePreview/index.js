@@ -7,11 +7,17 @@ import {
   func
 } from 'prop-types';
 import styled from 'styled-components';
-import { base, icon, text } from './style';
+import {
+  base,
+  icon,
+  text,
+  count
+} from './style';
 
 const BaseStyle = styled.div`${base}`;
 const IconStyle = styled.div`${icon}`;
 const TextStyle = styled.div`${text}`;
+const CountStyle = styled.div`${count}`;
 
 function TypePreview({
   color,
@@ -32,11 +38,12 @@ function TypePreview({
       onClick={() => navigateTo(path)}
     >
       <IconStyle>
-        <Icon size={48} />
+        <Icon size={32} />
       </IconStyle>
       <TextStyle>
-        <strong>{count}</strong> {count === 1 ? label.singular : label.plural}
+        {count === 1 ? label.singular : label.plural}
       </TextStyle>
+      <CountStyle>{count}</CountStyle>
     </BaseStyle>
   );
 }
