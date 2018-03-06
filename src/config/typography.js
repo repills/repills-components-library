@@ -27,21 +27,21 @@ export default [
     name: 'Header 3',
     family: primaryFontFamily,
     size: 34,
-    weight: 700
+    weight: 600
   },
   {
     id: 'header4',
     name: 'Header 4',
     family: primaryFontFamily,
     size: 22,
-    weight: 700
+    weight: 600
   },
   {
     id: 'caption',
     name: 'caption',
     family: primaryFontFamily,
     size: 20,
-    weight: 700
+    weight: 600
   },
   {
     id: 'body',
