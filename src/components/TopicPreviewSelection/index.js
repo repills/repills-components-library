@@ -5,7 +5,7 @@ import {
   func
 } from 'prop-types';
 import styled from 'styled-components';
-import { CheckIcon, UncheckedIcon } from '../Icon/icons/basic';
+import { AddIcon, CheckedIcon } from '../Icon/icons/basic';
 import {
   base,
   title,
@@ -58,7 +58,7 @@ class TopicPreviewSelection extends React.Component {
         onClick={this.handleOnChange}
       >
         <SelectionButtonStyle>
-          { checked ? <CheckIcon size={20} /> : <UncheckedIcon size={20} /> }
+          { checked ? <CheckedIcon size={20} /> : <AddIcon size={20} /> }
           <NameStyle>{title}</NameStyle>
         </SelectionButtonStyle>
       </BaseStyle>

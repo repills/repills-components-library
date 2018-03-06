@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SquarePillIcon } from '../Icon/icons/basic';
+import { SquareFilledPillIcon } from '../Icon/icons/basic';
 import {
   string
 } from 'prop-types';
@@ -34,7 +34,7 @@ function ResourcePreview({
         <TitleStyle>{title}</TitleStyle>
         <DetailStyle>
           <TypeStyle>
-            <SquarePillIcon
+            <SquareFilledPillIcon
               color={color}
               size={16}
             />

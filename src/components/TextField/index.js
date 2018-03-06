@@ -8,7 +8,7 @@ import {
   oneOf,
   oneOfType
 } from 'prop-types';
-import { CheckIcon, ErrorIcon } from '../Icon/icons/basic';
+import { CheckedIcon, ErrorIcon } from '../Icon/icons/basic';
 import {
   base,
   icon,
@@ -40,8 +40,8 @@ const TextField = ({
   const hasIcon = dirty && typeof(hasError) === 'boolean';
 
   const iconSize = {
-    M: 16,
-    L: 20
+    M: 24,
+    L: 28
   };
 
   return (
@@ -58,7 +58,7 @@ const TextField = ({
           hasError={hasError}
           size={size}
         >
-          { hasError ? <ErrorIcon size={iconSize[size]} /> : <CheckIcon size={iconSize[size]} /> }
+          { hasError ? <ErrorIcon size={iconSize[size]} /> : <CheckedIcon size={iconSize[size]} /> }
         </IconStyle>
       }
       <InputStyle
