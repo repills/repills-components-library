@@ -12,7 +12,7 @@ export const base = css`
 export const title = css`
   ${typography.header3}
   color: ${neutral.high};
-  line-heigh: 1.1;
+  line-height: 1.2;
   margin: 0;
   
   span {

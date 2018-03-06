@@ -20,11 +20,14 @@ const ContentsCountStyle = styled.div`${count}`;
 const PageBlock = ({
   title,
   children,
-  contentsCount
+  contentsCount,
+  ...others
 }) => {
 
   return (
-    <BaseStyle>
+    <BaseStyle
+      {...others}
+    >
       <TitleStyle>
         <span>{title}</span>
         {
