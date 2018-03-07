@@ -93,8 +93,8 @@ class TopicSelector extends React.Component {
                       key={topic.slug}
                     >
                       <TopicPreviewSelection
-                        checked={this.isChecked(topic.slug)}
-                        handleOnChange={this.handleOnChange(topic.slug)}
+                        checked={this.isChecked(key)}
+                        handleOnChange={this.handleOnChange(key)}
                         {...topic}
                       />
                     </ItemStyle>

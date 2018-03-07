@@ -5,6 +5,7 @@ import {
   func
 } from 'prop-types';
 import styled from 'styled-components';
+import theme from '../../config/theme';
 import { AddIcon, CheckedIcon } from '../Icon/icons/basic';
 import {
   base,
@@ -58,7 +59,14 @@ class TopicPreviewSelection extends React.Component {
         onClick={this.handleOnChange}
       >
         <SelectionButtonStyle>
-          { checked ? <CheckedIcon size={20} /> : <AddIcon size={20} /> }
+          {
+            checked ?
+              <CheckedIcon
+                color={checked ? theme.palettes.status.ok : null}
+                size={20}
+              />
+              : <AddIcon size={20} />
+          }
           <NameStyle>{title}</NameStyle>
         </SelectionButtonStyle>
       </BaseStyle>

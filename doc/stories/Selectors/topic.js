@@ -17,7 +17,7 @@ class Example extends React.Component {
     return (
       <InteractiveExample
         component={TopicSelector}
-        handleOnChange={({ selected }) => this.setState({ selected })}
+        handleOnChange={({ selected }) => { alert(selected); this.setState({ selected }); }}
         selected={this.state.selected}
         topics={sections[0].topics}
       />
