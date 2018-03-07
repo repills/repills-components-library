@@ -81,6 +81,7 @@ export const info = css`
 
 export const title = css`
   ${typography.caption}
+  color: ${neutral.high};
   box-sizing: border-box;
   font-weight: 600;
   bottom: 0;

@@ -51,15 +51,15 @@ export const author = css`
 
 export const title = css`
   ${typography.caption}
-  color: ${neutral.highest};
-  margin: ${extRem(0, 0,12)};
+  color: ${neutral.high};
+  margin: ${extRem(0, 0,8)};
   height: ${extRem(58)};
   position: relative;
   overflow: hidden;
-  
+  text-decoration: underline;
+
   a {
     color: currentColor;
-    text-decoration: none;
   }
   
   &::after {

@@ -11,7 +11,7 @@ export const base = css`
 
 export const title = css`
   ${typography.header3}
-  color: ${neutral.high};
+  color: ${neutral.mediumHigh};
   line-height: 1.2;
   margin: 0;
   
@@ -22,7 +22,6 @@ export const title = css`
 
 export const count = css`
   font-size: 80%;
-  color: ${neutral.mediumHigh};
   display: inline-block;
   align-items: center;
   justify-content: center;

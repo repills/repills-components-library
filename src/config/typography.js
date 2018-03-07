@@ -19,14 +19,14 @@ export default [
     id: 'header2',
     name: 'Header 2',
     family: primaryFontFamily,
-    size: 48,
-    weight: 600
+    size: 40,
+    weight: 400
   },
   {
     id: 'header3',
     name: 'Header 3',
     family: primaryFontFamily,
-    size: 34,
+    size: 28,
     weight: 600
   },
   {
@@ -40,7 +40,7 @@ export default [
     id: 'caption',
     name: 'caption',
     family: primaryFontFamily,
-    size: 20,
+    size: 18,
     weight: 600
   },
   {

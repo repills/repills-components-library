@@ -69,7 +69,7 @@ export default {
       {
         id: 'high',
         name: 'High',
-        value: '#666'
+        value: '#444'
       },
       {
         id: 'highest',

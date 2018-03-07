@@ -3,7 +3,7 @@ import {
   string
 } from 'prop-types';
 import styled from 'styled-components';
-import { SquarePillIcon } from '../Icon/icons/basic';
+import { SquareFilledPillIcon } from '../Icon/icons/basic';
 import {
   base,
   pillsAnimation,
@@ -35,7 +35,7 @@ const HomePageHeader = ({
               index={i}
               key={`pill-${i}`}
             >
-              <SquarePillIcon size={i === 2 ? 100 : 60} />
+              <SquareFilledPillIcon size={i === 2 ? 100 : 60} />
             </PillStyle>
           ))
         }
