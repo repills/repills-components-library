@@ -40,6 +40,7 @@ export const base = css`
 
 export const selected = css`
   user-select: none;
+  background-color: ${neutral.lowest};
   box-sizing: border-box;
   height: ${props => sizes[props.size].height};
   justify-content: space-between;

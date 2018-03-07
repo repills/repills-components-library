@@ -17,7 +17,7 @@ export const base = css`
   align-items: center;
   flex-direction: column;
   cursor: pointer;
-  background-color: ${props => props.checked ? neutral.lower : neutral.lowest};
+  background-color: ${neutral.lowest};
   color: ${neutral.highest};
   position: relative;
 

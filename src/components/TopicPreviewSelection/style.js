@@ -14,7 +14,7 @@ export const base = css`
   padding: ${extRem(16)};
   border: 1px solid ${neutral.medium};
   cursor: pointer;
-  background-color: ${props => props.checked ? neutral.lower : neutral.lowest};
+  background-color: ${neutral.lowest};
   color: ${neutral.highest};
   position: relative;
   display: flex;
