@@ -20,6 +20,7 @@ const ItemsStyle = styled.div`${items}`;
 const ItemStyle = styled.div`${item}`;
 
 function TypesList({ types, navigateTo, shadeColor }) {
+  console.log(Object.entries(types))
   return (
     <ContainerQuery query={query}>
       {
@@ -29,22 +30,24 @@ function TypesList({ types, navigateTo, shadeColor }) {
           >
             <ItemsStyle>
               {
-                Object.keys(types).map(typeId => {
-                  const type = types[typeId];
-                  return (
-                    <ItemStyle
-                      className={cx(params)}
-                      key={typeId}
-                    >
-                      <TypePreview
-                        {...type}
-                        count={type.resources.length}
-                        icon={typeId.charAt(0).toUpperCase() + typeId.slice(1)}
-                        navigateTo={navigateTo}
-                      />
-                    </ItemStyle>
-                  );
-                })
+                Object
+                  .entries(types)
+                  .sort((a,b) => a[1].resources.length < b[1].resources.length)
+                  .map(([key,type]) => {
+                    return (
+                      <ItemStyle
+                        className={cx(params)}
+                        key={key}
+                      >
+                        <TypePreview
+                          {...type}
+                          count={type.resources.length}
+                          icon={key.charAt(0).toUpperCase() + key.slice(1)}
+                          navigateTo={navigateTo}
+                        />
+                      </ItemStyle>
+                    );
+                  })
               }
             </ItemsStyle>
           </BaseStyle>
