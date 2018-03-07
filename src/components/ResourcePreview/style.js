@@ -31,7 +31,7 @@ export const mainInfo = css`
 
 export const source = css`
   ${typography.small}
-  color: ${neutral.high};
+  color: ${neutral.mediumHigh};
   display: flex;
   align-items: center;
   line-height: 1;
@@ -55,8 +55,8 @@ export const author = css`
 export const title = css`
   ${typography.caption}
   color: ${neutral.high};
-  margin: ${extRem(12, 0,16)};
-  height: ${extRem(58)};
+  margin: ${extRem(12, 0,8)};
+  height: ${extRem(52)};
   position: relative;
   overflow: hidden;
   text-decoration: underline;
@@ -67,7 +67,7 @@ export const title = css`
   
   &::after {
     content: '';
-    height: ${extRem(30)};
+    height: ${extRem(24)};
     bottom: 0;
     left: 0;
     right: 0;
@@ -106,5 +106,5 @@ export const type = css`
 export const date = css`
   ${typography.mini}
   line-height: 1;
-  color: ${neutral.high};
+  color: ${neutral.mediumHigh};
 `;

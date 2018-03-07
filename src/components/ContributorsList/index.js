@@ -21,12 +21,15 @@ const ItemStyle = styled.a`${item}`;
 
 const ContributorsList = ({
   title,
-  contributors
+  contributors,
+  ...others
 }) => {
 
   return (
     contributors.length > 1 &&
-    <BaseStyle>
+    <BaseStyle
+      {...others}
+    >
       <TitleStyle>{title ? title : 'Contributions'}</TitleStyle>
       <ItemsStyle>
         {

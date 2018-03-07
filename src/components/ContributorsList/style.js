@@ -10,6 +10,7 @@ export const base = css`
 
 export const title = css`
   ${typography.header4}
+  color: ${neutral.mediumHigh};
   margin: 0;
 `;
 
@@ -29,7 +30,7 @@ export const item = css`
   
   span {
     margin: 0 ${extRem(8)};
-    color: ${neutral.highest};
+    color: ${neutral.high};
   }
   
   &:hover {
