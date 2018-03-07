@@ -1,4 +1,4 @@
-import palettes from './palettes';
+import palettes from './palettes/index';
 import zIndex from './zIndex';
 import { query } from './breakpoints';
 
