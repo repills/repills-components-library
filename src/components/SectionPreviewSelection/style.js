@@ -22,7 +22,7 @@ export const base = css`
   position: relative;
 
   &::after {
-    display: ${props => props.checked ? 'block' : 'none'};
+    opacity: ${props => props.checked ? 'block' : 'none'};
     content: '';
     height: ${extRem(4)};
     bottom: -1px;

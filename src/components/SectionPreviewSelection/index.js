@@ -7,6 +7,7 @@ import {
 import styled from 'styled-components';
 import { AddIcon, CheckedIcon } from '../Icon/icons/basic';
 import * as icons from '../Icon/icons/sections';
+import theme from '../../config/theme';
 import {
   base,
   icon,
@@ -76,7 +77,13 @@ class SectionPreviewSelection extends React.Component {
           {name}
         </NameStyle>
         <SelectionButtonStyle>
-          { checked ? <CheckedIcon size={20} /> : <AddIcon size={20} /> }
+          { checked ?
+            <CheckedIcon
+              color={checked ? theme.palettes.status.ok : null}
+              size={20}
+            /> :
+            <AddIcon size={20} />
+          }
           <span>{ checked ? 'Section selected' : 'Select section' }</span>
         </SelectionButtonStyle>
       </BaseStyle>
