@@ -59,6 +59,28 @@ export default {
       name: 'React'
     }
   ],
+  social: [
+    {
+      id: 'Facebook',
+      name: 'Facebook'
+    },
+    {
+      id: 'Linkedin',
+      name: 'Linkedin'
+    },
+    {
+      id: 'Twitter',
+      name: 'Twitter'
+    },
+    {
+      id: 'GooglePlus',
+      name: 'Google Plus'
+    },
+    {
+      id: 'Email',
+      name: 'Email'
+    }
+  ],
   types: [
     {
       id: 'Book',
