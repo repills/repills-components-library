@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import m from 'moment';
 import { getBaseUrl } from '../../utils';
-import { SquarePillIcon, LinkIcon } from '../Icon/icons/basic';
+import { SquareFilledPillIcon, LinkIcon } from '../Icon/icons/basic';
 import Button from '../Button';
 import {
   string,
@@ -59,7 +59,7 @@ function ResourceDetail({
       <MainInfoStyle>
         <MainInfoTopStyle>
           <TypeStyle>
-            <SquarePillIcon
+            <SquareFilledPillIcon
               color={color}
               size={16}
             />
