@@ -33,7 +33,7 @@ function ResourcePreview({
   title,
   author,
   link,
-  date,
+  createdAt,
   typeLabel,
   handleDetailView
 }) {
@@ -58,7 +58,7 @@ function ResourcePreview({
         </DetailStyle>
       </MainInfoStyle>
       <SecondaryInfoStyle>
-        <DateStyle>{m(date).fromNow()}</DateStyle>
+        <DateStyle>{m(createdAt).fromNow()}</DateStyle>
       </SecondaryInfoStyle>
     </BaseStyle>
   );
@@ -67,8 +67,8 @@ function ResourcePreview({
 ResourcePreview.propTypes = {
   author: string,
   color: string.isRequired,
-  date: string,
   link: string.isRequired,
+  createdAt: string,
   title: string.isRequired,
   typeLabel: string.isRequired
 };

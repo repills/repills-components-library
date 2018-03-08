@@ -30,7 +30,8 @@ export function getRandomResource({ title, date, author, link, color, typeLabel,
   return {
     frontmatter: {
       title: title || faker.lorem.sentence(),
-      date: date || faker.date.past().toJSON(),
+      publishedAt: date || faker.date.past().toJSON(),
+      createdAt: date || faker.date.past().toJSON(),
       sections: ['reactjs'], // @TODO: add fixture
       author: author || faker.name.findName(),
       link: link || faker.internet.url(),
