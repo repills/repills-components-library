@@ -101,7 +101,7 @@ TextField.propTypes = {
   readOnly: bool,
   required: bool,
   size: oneOf(['M', 'L']),
-  type: oneOf(['text', 'number', 'url']),
+  type: oneOf(['text', 'number', 'url', 'date', 'datetime']),
   value: oneOfType([string, number])
 };
 
