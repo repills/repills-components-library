@@ -46,8 +46,8 @@ export default (sectionTitle, sectionDescription) => () => {
         component={Select}
         disabled={boolean('Disabled', false)}
         expanded={boolean('Expanded', false)}
+        handleOnChange={({ value, index }) => alert(`Value: ${value} - Index: ${index}`)}
         id={text('Id', 'button_id')}
-        onChange={({ value, index }) => alert(`Value: ${value} - Index: ${index}`)}
         options={options}
         placeholder={text('Placeholder', 'Select...')}
         previewMinHeight="300px"

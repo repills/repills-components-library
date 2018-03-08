@@ -10,7 +10,7 @@ import {
   shape
 } from 'prop-types';
 import styled from 'styled-components';
-import { CheckIcon } from '../Icon/icons/basic';
+import { CheckedIcon } from '../Icon/icons/basic';
 import {
   base,
   selected,
@@ -94,10 +94,10 @@ class Select extends React.Component {
     const {
       disabled,
       expanded,
-      id,
       options,
       placeholder,
-      size
+      size,
+      ...others
     } = this.props;
 
     const {
@@ -115,8 +115,8 @@ class Select extends React.Component {
       <BaseStyle
         disabled={disabled}
         expanded={expanded}
-        id={id}
         size={size}
+        {...others}
       >
         {
           <SelectedStyle
@@ -152,7 +152,7 @@ class Select extends React.Component {
                   {
                     index === selectedIndex &&
                     <CheckIconStyle>
-                      <CheckIcon
+                      <CheckedIcon
                         size={size === 'M' ? 16 : 20}
                       />
                     </CheckIconStyle>
