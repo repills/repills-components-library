@@ -1,6 +1,6 @@
 import React from 'react';
 import { text, boolean, select } from '@storybook/addon-knobs/react';
-import { TextField } from '../../../src/components';
+import { TextFieldWithSuggestions } from '../../../src/components';
 import { SectionPage, InteractiveExample } from '../../components';
 
 class TextFieldExample extends React.Component {
@@ -38,7 +38,7 @@ class TextFieldExample extends React.Component {
 
     return (
       <InteractiveExample
-        component={TextField}
+        component={TextFieldWithSuggestions}
         dirty={dirty}
         disabled={boolean('Disabled', false)}
         expanded={boolean('Expanded', false)}
@@ -52,6 +52,7 @@ class TextFieldExample extends React.Component {
         readOnly={boolean('Read only', false)}
         required={boolean('Required', false)}
         size={select('Size', { M: 'Medium', L: 'Large' }, 'M')}
+        suggestions={['suggestion 1', 'suggestions 2', 'suggestion 3']}
         value={value}
       />
     );

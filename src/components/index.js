@@ -26,6 +26,7 @@ export SectionSelector from './SectionSelector';
 export SectionsList from './SectionsList';
 export Select from './Select';
 export ShareBar from './ShareBar';
+export TextFieldWithSuggestions from './TextFieldWithSuggestions';
 export SocialShare from './SocialShare';
 export StepBox from './StepBox';
 export TextField from './TextField';

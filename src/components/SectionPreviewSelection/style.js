@@ -22,7 +22,7 @@ export const base = css`
   position: relative;
 
   &::after {
-    opacity: ${props => props.checked ? 'block' : 'none'};
+    display: ${props => props.checked ? 'block' : 'none'};
     content: '';
     height: ${extRem(4)};
     bottom: -1px;
@@ -32,9 +32,13 @@ export const base = css`
     background-color: ${status.ok};
   }
   
+  ${props => props.checked && `
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
+  `}
+  
   &:hover {
     background-color: ${neutral.lowest};
-    box-shadow: 0 1px 2px 2px ${rgba(neutral.highest, 0.02)};
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   }
 `;
 

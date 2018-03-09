@@ -12,6 +12,10 @@ const mainColor = neutral.lowest;
 export const base = css`
   background-color: ${mainColor};
   text-align: center;
+  
+  &:hover {
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
+  }
 `;
 
 export const icon = css``;
