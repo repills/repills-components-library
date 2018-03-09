@@ -44,6 +44,8 @@ class TextFieldWithSuggestions extends React.Component {
     this.props.handleOnChange({ value, dirty });
   };
 
+  onItemClick = value => () => this.onHandleOnChange({ value, dirty: true });
+
   render() {
 
     const {
@@ -72,7 +74,7 @@ class TextFieldWithSuggestions extends React.Component {
                 s !== value &&
                 <ItemStyle
                   key={`s-${i}`}
-                  onClick={() => this.setState({ value: s, dirty: true })}
+                  onClick={this.onItemClick(s)}
                 >
                   {s}
                 </ItemStyle>
