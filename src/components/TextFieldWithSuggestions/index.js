@@ -41,7 +41,7 @@ class TextFieldWithSuggestions extends React.Component {
 
   onHandleOnChange = ({ value, dirty }) => {
     this.setState({ value, dirty });
-    this.onHandleOnChange({ value, dirty });
+    this.props.handleOnChange({ value, dirty });
   };
 
   render() {
@@ -65,14 +65,14 @@ class TextFieldWithSuggestions extends React.Component {
           value={value}
         />
         {
-          (!dirty || value === '') &&
+          ((!dirty || value === '') && suggestions.length > 0) &&
           <ListStyle>
             {
               suggestions.map((s, i) => (
                 s !== value &&
                 <ItemStyle
                   key={`s-${i}`}
-                  onClick={() => this.setState({ value: s })}
+                  onClick={() => this.setState({ value: s, dirty: true })}
                 >
                   {s}
                 </ItemStyle>
