@@ -39,7 +39,8 @@ export function getRandomResource({ title, date, author, link, color, typeLabel,
       color: color || randomType.config.color,
       typeLabel: typeLabel || randomType.config.label.singular,
       type: type || [randomType.key],
-      suggestedBy: suggestedBy || faker.name.findName()
+      suggestedBy: suggestedBy || faker.name.findName(),
+      reference: faker.random.uuid()
     }
   };
 }
