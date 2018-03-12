@@ -1,19 +1,16 @@
 import React from 'react';
-import { number } from '@storybook/addon-knobs/react';
+import { select } from '@storybook/addon-knobs/react';
 import { SectionPage, InteractiveExample } from '../../components';
 import { ResourcePreview } from '../../../src/components';
 import { getRandomResource } from '../../utils/fixtures';
 
-export default (sectionTitle, sectionDescription) => () => {
+const randomResource = getRandomResource({}).frontmatter;
 
-  const randomResource = getRandomResource({
-    resourcesLength: number('Resources', 2, {
-      range: true,
-      min: 0,
-      max: 10,
-      step: 1,
-    })
-  }).frontmatter;
+const onHandleDetailView = ({ reference }) => {
+  alert(`Detail view for resource with reference: ${reference}`);
+};
+
+export default (sectionTitle, sectionDescription) => () => {
 
   return (
     <SectionPage
@@ -22,6 +19,8 @@ export default (sectionTitle, sectionDescription) => () => {
     >
       <InteractiveExample
         component={ResourcePreview}
+        dateType={select('Date type', { createdAt: 'Share date', publishedAt: 'Publish date' }, 'createdAt')}
+        handleDetailView={onHandleDetailView}
         {...randomResource}
       />
     </SectionPage>
