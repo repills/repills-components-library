@@ -34,6 +34,7 @@ function ResourcePreview({
   author,
   link,
   createdAt,
+  publishedAt,
   typeLabel,
   handleDetailView
 }) {
@@ -67,8 +68,9 @@ function ResourcePreview({
 ResourcePreview.propTypes = {
   author: string,
   color: string.isRequired,
-  link: string.isRequired,
   createdAt: string,
+  link: string.isRequired,
+  publishedAt: string,
   title: string.isRequired,
   typeLabel: string.isRequired
 };
