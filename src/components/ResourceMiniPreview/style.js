@@ -52,7 +52,7 @@ export const author = css`
 export const title = css`
   ${typography.caption}
   color: ${neutral.high};
-  margin: ${extRem(0, 0,8)};
+  margin: ${extRem(0,0,12)};
   height: ${extRem(52)};
   position: relative;
   overflow: hidden;
@@ -62,6 +62,7 @@ export const title = css`
     color: currentColor;
   }
   
+  /*
   &::after {
     content: '';
     height: ${extRem(24)};
@@ -71,6 +72,7 @@ export const title = css`
     background: linear-gradient(to bottom, ${rgba(mainColor, 0)}, ${mainColor});
     position: absolute;
   }
+  */
 `;
 
 export const detail = css`

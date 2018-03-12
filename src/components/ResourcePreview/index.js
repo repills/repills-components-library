@@ -75,6 +75,7 @@ class ResourcePreview extends React.Component {
         <MainInfoStyle>
           <SourceStyle
             href={link}
+            target="_blank"
           >
             <LinkIcon size={18} />
             <span>{getBaseUrl(link)}</span>
