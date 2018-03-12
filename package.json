@@ -7,7 +7,8 @@
   "scripts": {
     "start": "start-storybook -s ./static -p 3000",
     "build": "babel src -d lib",
-    "build-doc": "build-storybook -c .storybook -o .doc-build"
+    "build-doc": "build-storybook -c .storybook -o .doc-build",
+    "deploy-doc": "yarn build-doc && gh-pages -d .doc-build"
   },
   "dependencies": {
     "classnames": "^2.2.5",
@@ -21,11 +22,11 @@
     "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.2.0",
     "react-element-to-jsx-string": "^13.1.0",
+    "react-syntax-highlighter": "^7.0.0",
     "repills-config": "git+https://github.com/repills/repills-config.git#1.4.0",
     "simple-pagination": "^1.0.0",
     "styled-components": "^2.4.0",
-    "styled-components-grid": "^1.0.0-preview.15",
-    "react-syntax-highlighter": "^7.0.0"
+    "styled-components-grid": "^1.0.0-preview.15"
   },
   "devDependencies": {
     "@storybook/addon-knobs": "^3.3.8",
@@ -41,6 +42,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
-    "eslint-watch": "^3.1.3"
+    "eslint-watch": "^3.1.3",
+    "gh-pages": "^1.1.0"
   }
 }
