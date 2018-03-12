@@ -67,7 +67,7 @@ function ResourceDetail({
             <span>{typeLabel}</span>
           </TypeStyle>
           <SourceStyle>
-            <LinkIcon size={14} />
+            <LinkIcon size={18} />
             <span>{getBaseUrl(link)}</span>
           </SourceStyle>
         </MainInfoTopStyle>
@@ -79,8 +79,7 @@ function ResourceDetail({
               by <span>{author}</span> &mdash;
             </AuthorStyle>
           }
-          <DateStyle>Published at: {m(publishedAt).fromNow()}</DateStyle>
-          <DateStyle>Shared at: {m(createdAt).fromNow()}</DateStyle>
+          <DateStyle>Published <strong>{m(publishedAt).fromNow()}</strong></DateStyle>
         </MainInfoBottomStyle>
       </MainInfoStyle>
       <SecondaryInfoStyle>
@@ -117,6 +116,13 @@ function ResourceDetail({
         </DetailStyle>
       </SecondaryInfoStyle>
       <ActionsStyle>
+        <Button
+          autoWidth
+          label="Edit resource"
+          onClick={() => {}}
+          size="M"
+          skin="ghost"
+        />
         <Button
           label={`Go to ${typeLabel}`}
           onClick={navigateTo}

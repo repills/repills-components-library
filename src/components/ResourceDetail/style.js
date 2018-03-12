@@ -105,5 +105,7 @@ export const actions = css`
   border: 1px solid ${neutral.medium};
   margin-top: -1px;
   background-color: ${rgba(neutral.medium,0.2)};
+  display: flex;
+  justify-content: space-between;
 `;
 
