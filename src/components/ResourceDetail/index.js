@@ -42,7 +42,8 @@ function ResourceDetail({
   title,
   author,
   link,
-  date,
+  createdAt,
+  publishedAt,
   sections,
   topics,
   typeLabel,
@@ -78,7 +79,8 @@ function ResourceDetail({
               by <span>{author}</span> &mdash;
             </AuthorStyle>
           }
-          <DateStyle>{m(date).fromNow()}</DateStyle>
+          <DateStyle>Published at: {m(publishedAt).fromNow()}</DateStyle>
+          <DateStyle>Shared at: {m(createdAt).fromNow()}</DateStyle>
         </MainInfoBottomStyle>
       </MainInfoStyle>
       <SecondaryInfoStyle>
@@ -128,10 +130,11 @@ function ResourceDetail({
 ResourceDetail.propTypes = {
   author: string,
   color: string,
-  date: string,
+  createdAt: string,
   link: string.isRequired,
   navigateTo: func,
   path: string.isRequired,
+  publishedAt: string,
   sections: arrayOf(string),
   suggestedBy: string,
   title: string.isRequired,
