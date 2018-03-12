@@ -94,6 +94,7 @@ export const base = css`
   justify-content: center;
   outline: none;
   width: ${props => props.expanded ? '100%' : 'auto'};
+  transition: all .3s ease-in-out;
   
   ${props => size[props.size]};
  
