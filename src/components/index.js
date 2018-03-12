@@ -18,6 +18,7 @@ export ResourceDetail from './ResourceDetail';
 export ResourceMiniPreview from './ResourceMiniPreview';
 export ResourcePreview from './ResourcePreview';
 export ResourcesList from './ResourcesList';
+export ResourcesListWithDetail from './ResourcesListWithDetail';
 export ResponsivePagination from './ResponsivePagination';
 export SectionPageHeader from './SectionPageHeader';
 export SectionPreview from './SectionPreview';

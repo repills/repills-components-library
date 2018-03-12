@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import m from 'moment';
 import { getBaseUrl } from '../../utils';
 import { SquareFilledPillIcon, LinkIcon } from '../Icon/icons/basic';
+import { sections as sectionsConfig } from 'repills-config';
 import Button from '../Button';
 import {
   string,
@@ -94,25 +95,35 @@ function ResourceDetail({
           </DetailStyle>
         }
         <DetailStyle>
-          <strong>Section{topics.length > 1 ? 's' : ''}</strong>
-          { sections.map(s =>
-            <span
-              key={s}
-              onClick={() => navigateToSection(s)}
-            >
-              {s}
-            </span>) }
+          <strong>Section{sections.length !== 1 ? 's' : ''}</strong>
+          {
+            sections.map(sectionId => {
+              const section = sectionsConfig.find(s => s.id === sectionId);
+              return (
+                <span
+                  key={sectionId}
+                  onClick={() => navigateToSection(sectionId)}
+                >
+                  {section.name}
+                </span>
+              );
+            })
+          }
         </DetailStyle>
         <DetailStyle>
-          <strong>Topic{topics.length > 1 ? 's' : ''}</strong>
-          { topics.map(t =>
-            <span
-              key={t}
-              onClick={() => navigateToTopic(t)}
-            >
-              {t}
-            </span>
-          ) }
+          <strong>Topic{topics.length !== 1 ? 's' : ''}</strong>
+          {
+            topics.map(t => {
+              return (
+                <span
+                  key={t}
+                  onClick={() => navigateToTopic(t)}
+                >
+                  {t}
+                </span>
+              );
+            })
+          }
         </DetailStyle>
       </SecondaryInfoStyle>
       <ActionsStyle>
@@ -139,13 +150,13 @@ ResourceDetail.propTypes = {
   createdAt: string,
   link: string.isRequired,
   navigateTo: func,
-  path: string.isRequired,
+  navigateToSection: func,
+  navigateToTopic: func,
   publishedAt: string,
   sections: arrayOf(string),
   suggestedBy: string,
   title: string.isRequired,
   topics: arrayOf(string),
-  type: string.isRequired,
   typeLabel: string
 };
 
