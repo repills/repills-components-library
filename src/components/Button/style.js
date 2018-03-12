@@ -28,14 +28,51 @@ const skin = {
   default: {
     backgroundColor: basic.primary,
     color: neutral.lowest,
-    boxShadow: '0 8px 16px rgba(0,0,0,.1),0 3px 6px rgba(0,0,0,.08)'
+    boxShadow: '0 8px 16px rgba(0,0,0,.1),0 3px 6px rgba(0,0,0,.08)',
+    textTransform: 'uppercase',
+    letterSpacing: '0.2em'
   },
-  skin: {
-    color: neutral.highest
+  ghost: {
+    color: neutral.highest,
+    paddingLeft: 0,
+    paddingRight: 0,
+    border: 0,
+    backgroundColor: 'transparent'
   },
   outline: {
-    borderColor: basic.primary,
+    borderColor: neutral.medium,
+    color: neutral.highest,
+    textTransform: 'uppercase',
+    letterSpacing: '0.2em'
+  }
+};
+
+const skinHover = {
+  default: {
+    backgroundColor: basic.secondary,
     color: neutral.highest
+  },
+  ghost: {
+    color: basic.primary,
+    backgroundColor: 'transparent'
+  },
+  outline: {
+    color: basic.primary,
+    borderColor: basic.primary
+  }
+};
+
+const skinDisabled = {
+  default: {
+    backgroundColor: neutral.medium,
+    color: neutral.high,
+    opacity: '0.5'
+  },
+  ghost: {
+    opacity: '0.5'
+  },
+  outline: {
+    opacity: '0.5'
   }
 };
 
@@ -57,8 +94,6 @@ export const base = css`
   justify-content: center;
   outline: none;
   width: ${props => props.expanded ? '100%' : 'auto'};
-  text-transform: uppercase;
-  letter-spacing: .2em;
   
   ${props => size[props.size]};
  
@@ -70,14 +105,9 @@ export const base = css`
     min-width: auto;
   `};
   
-  ${props => props.skin === 'ghost' && `
-    padding-left: 0;
-    padding-right: 0;
-    border: 0;
-  `};
+  ${ props => props.disabled && skinDisabled[props.skin] }
   
-  ${ props => props.disabled && `
-    opacity: .5;
-    cursor: default;
-  `}
+  &:hover {
+    ${ props => !props.disabled && skinHover[props.skin] }
+  }
 `;
