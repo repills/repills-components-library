@@ -1,10 +1,6 @@
 export default {
   basic: [
     {
-      id: 'Pill',
-      name: 'Pill'
-    },
-    {
       id: 'Arrow',
       name: 'Arrow'
     },
