@@ -4,7 +4,8 @@ import m from 'moment';
 import { getBaseUrl } from '../../utils';
 import { SquareFilledPillIcon, LinkIcon } from '../Icon/icons/basic';
 import {
-  string
+  string,
+  func
 } from 'prop-types';
 import {
   base,
@@ -19,60 +20,100 @@ import {
 } from './style';
 
 const BaseStyle = styled.article`${base}`;
-const MainInfoStyle = styled.a`${mainInfo}`;
+const MainInfoStyle = styled.div`${mainInfo}`;
 const SecondaryInfoStyle = styled.div`${secondaryInfo}`;
-const SourceStyle = styled.div`${source}`;
+const SourceStyle = styled.a`${source}`;
 const TitleStyle = styled.h4`${title}`;
 const AuthorStyle = styled.div`${author}`;
 const TypeStyle = styled.div`${type}`;
 const DateStyle = styled.div`${date}`;
 const DetailStyle = styled.div`${detail}`;
 
-function ResourcePreview({
-  color,
-  title,
-  author,
-  link,
-  createdAt,
-  publishedAt,
-  typeLabel,
-  handleDetailView
-}) {
-  return (
-    <BaseStyle>
-      <MainInfoStyle href={link}>
-        <SourceStyle>
-          <LinkIcon size={14} />
-          <span>{getBaseUrl(link)}</span>
-        </SourceStyle>
-        <TitleStyle>{title}</TitleStyle>
-        <DetailStyle>
-          <TypeStyle>
-            <SquareFilledPillIcon
-              color={color}
-              size={16}
-            />
-            <span>{typeLabel}</span>
-          </TypeStyle>
-          &mdash;
-          {author && <AuthorStyle>by <span>{author}</span></AuthorStyle>}
-        </DetailStyle>
-      </MainInfoStyle>
-      <SecondaryInfoStyle>
-        <DateStyle>{m(createdAt).fromNow()}</DateStyle>
-      </SecondaryInfoStyle>
-    </BaseStyle>
-  );
-}
 
-ResourcePreview.propTypes = {
-  author: string,
-  color: string.isRequired,
-  createdAt: string,
-  link: string.isRequired,
-  publishedAt: string,
-  title: string.isRequired,
-  typeLabel: string.isRequired
-};
+class ResourcePreview extends React.Component {
+
+  static propTypes = {
+    author: string,
+    color: string.isRequired,
+    createdAt: string,
+    dateType: string,
+    handleDetailView: func,
+    link: string.isRequired,
+    publishedAt: string,
+    reference: string,
+    title: string.isRequired,
+    typeLabel: string.isRequired
+  };
+
+  static defaultProps = {
+    dateType: 'createdAt'
+  };
+
+  handleDetailView = () => {
+    const {
+      handleDetailView,
+      reference
+    } = this.props;
+    handleDetailView({ reference: reference });
+  };
+
+  render() {
+
+    const {
+      color,
+      title,
+      author,
+      link,
+      createdAt,
+      publishedAt,
+      dateType,
+      typeLabel
+    } = this.props;
+
+    return (
+      <BaseStyle>
+        <MainInfoStyle>
+          <SourceStyle
+            href={link}
+          >
+            <LinkIcon size={18} />
+            <span>{getBaseUrl(link)}</span>
+          </SourceStyle>
+          <TitleStyle
+            onClick={this.handleDetailView}
+          >
+            {title}
+          </TitleStyle>
+          <DetailStyle>
+            <TypeStyle>
+              <SquareFilledPillIcon
+                color={color}
+                size={16}
+              />
+              <span>{typeLabel}</span>
+            </TypeStyle>
+            &mdash;
+            {author && <AuthorStyle>by <span>{author}</span></AuthorStyle>}
+          </DetailStyle>
+        </MainInfoStyle>
+        <SecondaryInfoStyle>
+          {
+            dateType === 'createdAt' &&
+              <DateStyle>
+                {m(createdAt).fromNow()}
+              </DateStyle>
+          }
+          {
+            dateType === 'publishedAt' &&
+            <DateStyle>
+              {m(publishedAt).fromNow()}
+            </DateStyle>
+          }
+        </SecondaryInfoStyle>
+      </BaseStyle>
+    );
+  }
+
+}
 
 export default ResourcePreview;

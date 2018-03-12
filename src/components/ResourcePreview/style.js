@@ -35,6 +35,7 @@ export const source = css`
   display: flex;
   align-items: center;
   line-height: 1;
+  text-decoration: none;
   
   span {
     margin-left: ${extRem(5)};
@@ -60,6 +61,7 @@ export const title = css`
   position: relative;
   overflow: hidden;
   text-decoration: underline;
+  cursor: pointer;
   
   a {
     color: currentColor;
