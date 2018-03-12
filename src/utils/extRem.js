@@ -4,7 +4,7 @@ import theme from '../config/theme';
 export default function extRem() {
 
   if (arguments.length > 1) {
-    return Array.from(arguments).reduce((acc, item) => {
+    return Array.prototype.slice.call(arguments).reduce((acc, item) => {
       const toPx = ` ${item}px`;
       return `${acc} ${rem(toPx, theme.remBase)}`;
     }, '');
