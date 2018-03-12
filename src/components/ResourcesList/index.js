@@ -5,7 +5,9 @@ import cx from 'classnames';
 import {
   arrayOf,
   shape,
-  oneOf
+  oneOf,
+  string,
+  func
 } from 'prop-types';
 import styled from 'styled-components';
 import { ContainerQuery } from 'react-container-query';
@@ -18,7 +20,9 @@ const ItemStyle = styled.div`${item}`;
 
 function ResourcesList({
   resources,
-  variant
+  variant,
+  dateType,
+  handleDetailView
 }) {
 
   return (
@@ -38,13 +42,16 @@ function ResourcesList({
                         variant === 'mini' ?
                           <ResourceMiniPreview
                             {...resource}
+                            dateType={dateType}
+                            handleDetailView={handleDetailView}
                           />
                           :
                           <ResourcePreview
                             {...resource}
+                            dateType={dateType}
+                            handleDetailView={handleDetailView}
                           />
                       }
-
                     </ItemStyle>
                   );
                 })
@@ -58,6 +65,8 @@ function ResourcesList({
 }
 
 ResourcesList.propTypes = {
+  dateType: string,
+  handleDetailView: func,
   resources: arrayOf(shape(ResourcePreview.propTypes)).isRequired,
   variant: oneOf(['default', 'mini'])
 };
