@@ -38,6 +38,7 @@ function Modal({
       <OverlayStyle
         closeOnClick={handleClose}
         onClick={handleClose ? handleClose : null}
+        open={open}
       />
       <WrapperStyle>
         <ModalStyle>

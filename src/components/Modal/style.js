@@ -23,7 +23,7 @@ export const base = css`
 
 export const overlay = css`
   ${fixedPosition}
-  background-color: ${rgba(basic.primary, .7)};
+  background-color: ${rgba(neutral.lowest, .8)};
   
   ${props => props.closeOnClick && `
     cursor: pointer;
@@ -43,7 +43,8 @@ export const modal = css`
  background-color: ${neutral.lowest};
  position: relative;
  width: 100%;
- box-shadow: ${extRem(0, 10, 10)} ${rgba(neutral.highest, .3)};
+ border: 1px solid ${neutral.medium};
+ box-shadow: 0 6px 16px 0 rgba(0,0,0,0.1);
  z-index: 2;
 `;
 
