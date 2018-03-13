@@ -27,7 +27,7 @@ export const items = css`
 export const item = css`
   padding-left: ${halfGutter};
   padding-right: ${halfGutter};
-  padding-bottom: ${gutter};
+  padding-bottom: 1px;
   
   ${grid.unit({ size: 1 })}
   
@@ -35,7 +35,6 @@ export const item = css`
     ${grid.unit({ size: 1/2 })}
     padding-left: ${gutter};
     padding-right: ${gutter};
-    padding-bottom: ${doubleGutter};
   }
   
   &.${MD} {
