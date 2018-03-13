@@ -103,6 +103,7 @@ export const type = css`
   
   span {
     margin-left: ${extRem(8)};
+    white-space: nowrap;
   }
 `;
 

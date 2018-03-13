@@ -67,7 +67,7 @@ const SocialShare = ({
     >
       <Icon
         color={color}
-        size={44}
+        size={36}
       />
     </BaseStyle>
   );

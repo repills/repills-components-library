@@ -46,6 +46,7 @@ export const author = css`
   
   span {
     font-weight: bold;
+    white-space: nowrap;
   }
 `;
 
