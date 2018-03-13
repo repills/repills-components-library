@@ -33,8 +33,10 @@ function Modal({
   children,
   open
 }) {
-  return open ? (
-    <BaseStyle>
+  return (
+    <BaseStyle
+      open={open}
+    >
       <OverlayStyle
         closeOnClick={handleClose}
         onClick={handleClose ? handleClose : null}
@@ -60,7 +62,7 @@ function Modal({
         </ModalStyle>
       </WrapperStyle>
     </BaseStyle>
-  ) : null;
+  );
 }
 
 Modal.propTypes = {

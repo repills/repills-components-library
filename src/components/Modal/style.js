@@ -19,6 +19,10 @@ export const base = css`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: opacity .3s ease-in-out;
+  
+  visibility: ${props => props.open ? 'visible' : 'hidden'};
+  opacity: ${props => props.open ? 1 : 0}
 `;
 
 export const overlay = css`
