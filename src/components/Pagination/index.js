@@ -68,6 +68,7 @@ function Pagination({
   }
 
   return (
+    pageCount > 1 &&
     <BaseStyle>
       {
         (pageCount > rangePageDisplayed) &&
