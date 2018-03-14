@@ -6,6 +6,7 @@ import {
   string
 } from 'prop-types';
 import styled from 'styled-components';
+import { types } from 'repills-config';
 import { base, composition, compositionItem } from './style';
 
 const BaseStyle = styled.div`${base}`;
@@ -19,6 +20,12 @@ const CompositionChart = ({
   ...others
 }) => {
 
+  const partials = stats.map(e => e.type);
+  const rest = Object.keys(types).reduce((acc,key) => {
+    acc.push(key);
+    return acc;
+  }, []).filter(e => (!partials.includes(e) && e.indexOf('_') === -1));
+
   return (
     <BaseStyle
       {...others}
@@ -26,15 +33,26 @@ const CompositionChart = ({
       <CompositionStyle
         height={maxHeight}
       >
-        { stats.map(stat => (
-          <CompositionItemStyle
-            color={stat.color}
-            key={stat.type}
-            percentage={stat.percentage}
-            title={`${stat.count} ${stat.label}`}
-            width={barWidth}
-          />
-        ))}
+        {
+          stats.map(stat => (
+            <CompositionItemStyle
+              color={stat.color}
+              key={stat.type}
+              percentage={stat.percentage}
+              title={`${stat.count} ${stat.label}`}
+              width={barWidth}
+            />
+          ))
+        }
+        {
+          rest.map(key => (
+            <CompositionItemStyle
+              key={key}
+              percentage={0}
+              width={barWidth}
+            />
+          ))
+        }
       </CompositionStyle>
     </BaseStyle>
   );
