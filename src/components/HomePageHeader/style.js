@@ -2,34 +2,34 @@ import { css, keyframes } from 'styled-components';
 import { extRem } from '../../utils';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
+import { MD } from '../../config/breakpoints';
 
 const { basic, types, neutral } = theme.palettes;
 
-/*
-TBD
-const spinner = keyframes`
-  0% {
+const bouncing = keyframes`
+  from {
+    opacity: 1;
+    transform: translateY(0);
   }
-  50% {
-  }
-  100% {
+  to {
+    opacity: 0.8;
+    transform: translateY(-1rem);
   }
 `;
-*/
 
 const pillSettings = {
   1: {
     color: types.article,
-    animationDelay: '3s'
+    animationDelay: '0'
   },
   2: {
     color: basic.primary,
-    animationDelay: '0',
-    margin: extRem(0, 28)
+    animationDelay: '0.2s',
+    margin: extRem(0, 16)
   },
   3: {
     color: types.video,
-    animationDelay: '6s'
+    animationDelay: '0.4s'
   }
 };
 
@@ -39,10 +39,12 @@ export const base = css`
 `;
 
 export const title = css`
-  ${typography.header1}
+  ${typography.header2}
   color: ${neutral.highest};
-  margin: ${extRem(50)} 0 0;
+  margin: ${extRem(32)} 0 0;
   line-height: 1.1;
+  
+  ${props => props.breakpointsStatus[MD] && typography.header1}
 `;
 
 export const subTitle = css`
@@ -62,7 +64,7 @@ export const description = css`
   color: ${neutral.highest};
   line-height: 1.5;
   max-width: ${extRem(650)};
-  margin: ${extRem(60)} auto 0;
+  margin: ${extRem(48)} auto 0;
 `;
 
 export const pillsAnimation = css`
@@ -71,11 +73,7 @@ export const pillsAnimation = css`
   justify-content: center;
 `;
 
-/* TBD: animation: ${spinner} 3s infinite; */
 export const pill = css`
-  display: inline-block;
-  animation-timing-function: cubic-bezier(0.030, 0.615, 0.995, 0.415);
-  animation-fill-mode: both;
-  
+  animation: ${bouncing} 0.6s infinite alternate;
   ${props => pillSettings[props.index]}
 `;

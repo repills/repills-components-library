@@ -3,6 +3,8 @@ import {
   string
 } from 'prop-types';
 import styled from 'styled-components';
+import { ContainerQuery } from 'react-container-query';
+import { query } from '../../config/breakpoints';
 import { SquareFilledPillIcon } from '../Icon/icons/basic';
 import {
   base,
@@ -27,29 +29,35 @@ const HomePageHeader = ({
 }) => {
 
   return (
-    <BaseStyle>
-      <PillsAnimationStyle>
-        {
-          [1,2,3].map(i => (
-            <PillStyle
-              index={i}
-              key={`pill-${i}`}
-            >
-              <SquareFilledPillIcon size={i === 2 ? 100 : 60} />
-            </PillStyle>
-          ))
-        }
-      </PillsAnimationStyle>
-      <TitleStyle>{title}</TitleStyle>
+    <ContainerQuery query={query}>
       {
-        subTitle &&
-        <SubTitleStyle>{subTitle}</SubTitleStyle>
+        params => (
+          <BaseStyle>
+            <PillsAnimationStyle>
+              {
+                [1, 2, 3].map(i => (
+                  <PillStyle
+                    index={i}
+                    key={`pill-${i}`}
+                  >
+                    <SquareFilledPillIcon size={i === 2 ? 100 : 60} />
+                  </PillStyle>
+                ))
+              }
+            </PillsAnimationStyle>
+            <TitleStyle breakpointsStatus={params}>{title}</TitleStyle>
+            {
+              subTitle &&
+              <SubTitleStyle>{subTitle}</SubTitleStyle>
+            }
+            {
+              description &&
+              <DescriptionStyle>{description}</DescriptionStyle>
+            }
+          </BaseStyle>
+        )
       }
-      {
-        description &&
-        <DescriptionStyle>{description}</DescriptionStyle>
-      }
-    </BaseStyle>
+    </ContainerQuery>
   );
 };
 
