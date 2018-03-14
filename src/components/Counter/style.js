@@ -6,10 +6,7 @@ import { grid } from 'styled-components-grid';
 
 const { basic, neutral } = theme.palettes;
 
-export const base = css`
-  border: 1px solid ${neutral.medium};
-  padding: ${extRem(16,12)}
-`;
+export const base = css``;
 
 export const content = css`
   ${grid()}
@@ -21,11 +18,16 @@ export const box = css`
   
   &:first-child {
     border-right: 1px solid ${neutral.medium};
+    padding-right: ${extRem(12)};
+  }
+  
+  &:last-child {
+    padding-left: ${extRem(12)};
   }
 `;
 
 export const count = css`
-  ${typography.header1}
+  ${typography.header2}
   line-height: 1;
   color: ${basic.high};
 `;
@@ -36,5 +38,5 @@ export const label = css`
   font-weight: 400;
   color: ${neutral.mediumHigh};
   margin-top: ${extRem(4)};
-  padding-bottom: ${extRem(8)};
+  padding-bottom: ${extRem(4)};
 `;

@@ -3,6 +3,6 @@ import theme from '../../config/theme';
 const { neutral } = theme.palettes;
 
 export const base = css`
-  display: inline-block;
+  display: block;
   color: ${neutral.high}
 `;

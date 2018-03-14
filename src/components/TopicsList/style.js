@@ -17,6 +17,7 @@ export const items = css`
   ${grid()}
   margin-left: -${halfGutter};
   margin-right: -${halfGutter};
+  padding-top: 1px;
   
   &.${SM} {
     margin-left: -${gutter};
@@ -27,7 +28,7 @@ export const items = css`
 export const item = css`
   padding-left: ${halfGutter};
   padding-right: ${halfGutter};
-  padding-bottom: ${gutter};
+  margin-top: -1px;
   
   ${grid.unit({ size: 1 })}
   

@@ -7,12 +7,11 @@ import { SM } from '../../config/breakpoints';
 const { neutral } = theme.palettes;
 
 export const base = css`
-  padding: ${extRem(40)} 0;
   text-align: center;
   
   ${props => props.breakpointsStatus[SM] && `
     text-align: left;
-    padding: ${extRem(60)} 0;
+    padding: ${extRem(40)} 0;
   `}
 `;
 

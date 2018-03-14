@@ -7,8 +7,6 @@ const { neutral } = palettes;
 
 export const base = css`
   display: flex;
-  align-items: center;
-  justify-content: center;
   color: ${neutral.high};
 `;
 

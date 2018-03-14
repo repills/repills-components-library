@@ -35,7 +35,7 @@ const Counter = ({
         <BoxStyle>
           <CompositionChart
             barWidth={8}
-            maxHeight={48}
+            maxHeight={44}
             stats={stats}
           />
         </BoxStyle>
