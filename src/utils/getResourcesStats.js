@@ -35,7 +35,7 @@ export default function(resources, relative) {
     return item;
   });
 
-  stats.sort((a, b) => b.count - a.count);
+  // stats.sort((a, b) => b.count - a.count);
 
   return stats;
 };
