@@ -19,6 +19,7 @@ export default (sectionTitle, sectionDescription) => () => {
         component={SectionPageHeader}
         description={randomSection.description}
         icon={randomSection.icon}
+        label={text('Label', 'Section')}
         title={randomSection.name}
       />
     </SectionPage>

@@ -26,6 +26,7 @@ const SectionPageHeader = ({
   color,
   description,
   icon,
+  label,
   title
 }) => {
 
@@ -50,7 +51,10 @@ const SectionPageHeader = ({
                   <Icon size={90} />
                 </IconStyle>
               }
-              <LabelStyle>Section</LabelStyle>
+              {
+                label &&
+                <LabelStyle>{label}</LabelStyle>
+              }
               <TitleStyle
                 breakpointsStatus={params}
               >
@@ -72,6 +76,7 @@ SectionPageHeader.propTypes = {
   color: string.isRequired,
   description: string,
   icon: string.isRequired,
+  label: string,
   title: string.isRequired
 };
 
