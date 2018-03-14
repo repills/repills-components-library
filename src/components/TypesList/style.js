@@ -1,11 +1,10 @@
 import { css } from 'styled-components';
 import { extRem } from '../../utils';
 import { grid } from 'styled-components-grid';
-import { SM, MD, LG } from '../../config/breakpoints';
+import { SM, MD } from '../../config/breakpoints';
 
 const halfGutterStripUnit = 6;
 const gutter = extRem(halfGutterStripUnit * 2);
-const doubleGutter = extRem(halfGutterStripUnit * 4);
 const halfGutter = extRem(halfGutterStripUnit);
 
 export const base = css`

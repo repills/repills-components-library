@@ -8,15 +8,16 @@ const { neutral } = theme.palettes;
 
 export const base = css`
   ${typography.caption}
-  color: ${neutral.highest};
+  color: ${props => props.active ? props.color : neutral.highest};
   text-decoration: none;
-  padding: ${extRem(12, 12, 12, 20)};
+  padding: ${extRem(12, 12, 12, 24)};
   display: flex;
   align-items: center;
   background: ${neutral.lower};
-  cursor: pointer;
+  cursor: ${props => props.active ? 'default' : 'pointer'};
   position: relative;
   border-top: 1px solid ${neutral.medium};
+  user-select: none;
   
   &::after {
     background-color: ${props => props.color};
@@ -31,8 +32,8 @@ export const base = css`
 
 export const icon = css`
   line-height: 0;
-  color: ${neutral.mediumHigh};
-  margin-right: ${extRem(12)};
+  opacity: ${props => props.active ? 1 : 0.4};
+  margin-right: ${extRem(16)};
 `;
 
 export const text = css`
@@ -51,5 +52,5 @@ export const count = css`
   right: ${extRem(12)};
   display: flex;
   align-items: center;
-  color: ${neutral.mediumHigh};
+  opacity: ${props => props.active ? 1 : 0.4};
 `;

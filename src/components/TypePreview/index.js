@@ -4,7 +4,8 @@ import {
   string,
   number,
   shape,
-  func
+  func,
+  bool
 } from 'prop-types';
 import styled from 'styled-components';
 import {
@@ -20,6 +21,7 @@ const TextStyle = styled.div`${text}`;
 const CountStyle = styled.div`${count}`;
 
 function TypePreview({
+  active,
   color,
   path,
   count,
@@ -33,22 +35,30 @@ function TypePreview({
 
   return (
     <BaseStyle
+      active={active}
       color={color}
       id={id}
-      onClick={() => navigateTo(path)}
+      onClick={active ? null : () => navigateTo(path)}
     >
-      <IconStyle>
-        <Icon size={32} />
+      <IconStyle
+        active={active}
+      >
+        <Icon size={28} />
       </IconStyle>
       <TextStyle>
         {count === 1 ? label.singular : label.plural}
       </TextStyle>
-      <CountStyle>{count}</CountStyle>
+      <CountStyle
+        active={active}
+      >
+        {count}
+      </CountStyle>
     </BaseStyle>
   );
 }
 
 TypePreview.propTypes = {
+  active: bool,
   color: string,
   count: number.isRequired,
   icon: string.isRequired,

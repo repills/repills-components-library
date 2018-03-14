@@ -12,9 +12,9 @@ const data = filteredTypes.reduce((acc, key) => {
   return acc;
 }, {});
 
-export default (sectionTitle, sectionDescription) => () => {
+const navigateTo = path => alert(`Navigate to ${path}`);
 
-  const navigateTo = path => alert(`Navigate to ${path}`);
+export default (sectionTitle, sectionDescription) => () => {
 
   return (
     <SectionPage
@@ -22,6 +22,7 @@ export default (sectionTitle, sectionDescription) => () => {
       title={sectionTitle}
     >
       <InteractiveExample
+        activeKey={'video'}
         component={TypesList}
         navigateTo={navigateTo}
         // shadeColor="#190135"

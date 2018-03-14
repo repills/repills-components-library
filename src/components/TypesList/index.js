@@ -19,15 +19,16 @@ const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
 const ItemStyle = styled.div`${item}`;
 
-function TypesList({ types, navigateTo, shadeColor }) {
-  console.log(Object.entries(types))
+function TypesList({
+  activeKey,
+  types,
+  navigateTo
+}) {
   return (
     <ContainerQuery query={query}>
       {
         params => (
-          <BaseStyle
-            shadeColor={shadeColor}
-          >
+          <BaseStyle>
             <ItemsStyle>
               {
                 Object
@@ -41,6 +42,7 @@ function TypesList({ types, navigateTo, shadeColor }) {
                       >
                         <TypePreview
                           {...type}
+                          active={key === activeKey}
                           count={type.resources.length}
                           icon={key.charAt(0).toUpperCase() + key.slice(1)}
                           navigateTo={navigateTo}
@@ -58,8 +60,8 @@ function TypesList({ types, navigateTo, shadeColor }) {
 
 
 TypesList.propTypes = {
+  activeKey: string,
   navigateTo: func,
-  shadeColor: string,
   types: object
 };
 
