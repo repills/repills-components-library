@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 export * from '../utils';
 export * from './Icon/icons/basic';
 export * from './Icon/icons/sections';
@@ -15,6 +16,7 @@ export Modal from './Modal';
 export PageBlock from './PageBlock';
 export Pagination from './Pagination';
 export ResourceDetail from './ResourceDetail';
+export Counter from './Counter';
 export ResourceMiniPreview from './ResourceMiniPreview';
 export ResourcePreview from './ResourcePreview';
 export ResourcesList from './ResourcesList';

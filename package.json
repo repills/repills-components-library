@@ -11,6 +11,7 @@
     "deploy-doc": "yarn build-doc && gh-pages -d .doc-build"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
     "faker": "^4.1.0",
     "moment": "^2.20.1",
