@@ -11,7 +11,6 @@ export const base = css`
   
   ${props => props.breakpointsStatus[SM] && `
     text-align: left;
-    padding: ${extRem(40)} 0;
   `}
 `;
 
