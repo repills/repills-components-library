@@ -25,22 +25,32 @@ export const items = css`
   }
 `;
 
-export const item = css`
-  padding-left: ${halfGutter};
+export const item = css` 
+  ${grid.unit({ size: 1 })}padding-left: ${halfGutter};
   padding-right: ${halfGutter};
   margin-top: -1px;
-  margin-bottom: ${extRem(28)};
+  padding-bottom: ${extRem(28)};
   
-  ${grid.unit({ size: 1 })}
-  
+  &:last-child {
+    padding-bottom: 0;
+  }
+
   &.${SM} {
     ${grid.unit({ size: 1/2 })}
     padding-left: ${gutter};
     padding-right: ${gutter};
     padding-bottom: ${doubleGutter};
+    
+    &:nth-last-child(-n+2) {
+      padding-bottom: 0;
+    }
   }
   
   &.${LG} {
     ${grid.unit({ size: 1/3 })}
+    
+    &:nth-last-child(-n+3) {
+      padding-bottom: 0;
+    }
   }
 `;
