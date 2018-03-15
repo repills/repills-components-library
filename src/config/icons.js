@@ -43,6 +43,14 @@ export default {
     {
       id: 'SquareFilledPill',
       name: 'Square Filled Pill'
+    },
+    {
+      id: 'Star',
+      name: 'Star'
+    },
+    {
+      id: 'PullRequest',
+      name: 'Pull request'
     }
   ],
   sections: [
