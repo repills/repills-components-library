@@ -18,13 +18,13 @@ export const icon = css`
 `;
 
 export const title = css`
-  ${typography.header4}
+  ${typography.caption}
   color: ${neutral.high};
   margin: 0;
 `;
 
 export const description = css`
-  ${typography.body}
+  ${typography.small}
   color: ${neutral.high};
   margin: ${extRem(8)} 0 0;
 `;

@@ -31,7 +31,7 @@ const FeatureItem = ({
       <TitleStyle>{title}</TitleStyle>
       {
         description &&
-        <DescriptionStyle>{description}</DescriptionStyle>
+        <DescriptionStyle dangerouslySetInnerHTML={{ __html: description }} />
       }
     </BaseStyle>
   );

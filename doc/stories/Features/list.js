@@ -16,7 +16,7 @@ const features = [
   {
     icon: 'Star',
     title: 'Title feature 3',
-    description: 'Phasellus id fringilla nibh, at lacinia risus. Nam tincidunt eros sit amet sagittis consequat.'
+    description: 'Phasellus id fringilla nibh, at <strong>lacinia risus</strong>. Nam tincidunt eros sit amet sagittis consequat.'
   },
   {
     icon: 'User',
