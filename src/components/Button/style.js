@@ -70,7 +70,8 @@ const skinDisabled = {
   default: {
     backgroundColor: neutral.medium,
     color: neutral.high,
-    opacity: '0.5'
+    opacity: '0.5',
+    boxShadow: 'none'
   },
   ghost: {
     opacity: '0.5'
