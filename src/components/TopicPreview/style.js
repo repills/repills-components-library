@@ -13,20 +13,16 @@ const mainColor = lighten(0.2, neutral.lowest);
 export const base = css`
   box-sizing: border-box;
   text-align: center;
-  border: 1px solid ${neutral.medium};
   position: relative;
   cursor: pointer;
-  background-color: ${mainColor};
+  background-color: ${neutral.lower};
   color: ${neutral.highest};
+  height: 100%;
   
   ${props => props.disabled && `
     opacity: .6;
     cursor: default;
   `}
-  
-  &:hover {
-    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
-  }
 `;
 
 export const frame = css`
@@ -35,6 +31,7 @@ export const frame = css`
   position: relative;
   z-index: 2;
   text-decoration: none;
+  height: 100%;
 `;
 
 export const counter = css`
@@ -47,9 +44,8 @@ export const counter = css`
   flex-direction: column;
   align-items: center;
   background-color: ${neutral.lower};
-  padding: ${extRem(16, 0)};
+  padding: ${extRem(12, 0)};
   ${typography.header3}
-  border-left: 1px solid ${neutral.low};
   
   &.${SM} {
     ${grid.unit({ size: 3/8 })}
@@ -91,7 +87,7 @@ export const title = css`
   line-height: 1.2;
   
   position: relative;
-  margin: ${extRem(16)};
+  margin: ${extRem(12)};
 `;
 
 

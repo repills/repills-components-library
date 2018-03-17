@@ -27,10 +27,11 @@ export const mainInfo = css`
   display: block;
   text-decoration: none;
   color: currentColor;
+  cursor: pointer;
 `;
 
 export const source = css`
-  ${typography.small}
+  ${typography.mini}
   color: ${neutral.mediumHigh};
   display: flex;
   align-items: center;
@@ -43,7 +44,7 @@ export const source = css`
 `;
 
 export const author = css`
-  ${typography.small}
+  ${typography.mini}
   ${ellipsis()}
   color: ${neutral.high};
   margin-left: ${extRem(8)};
@@ -56,12 +57,11 @@ export const author = css`
 export const title = css`
   ${typography.caption}
   color: ${neutral.high};
-  margin: ${extRem(12, 0)};
-  height: ${extRem(52)};
+  margin: ${extRem(0,0,12)};
+  height: ${extRem(48)};
   position: relative;
   overflow: hidden;
   text-decoration: underline;
-  cursor: pointer;
   
   a {
     color: currentColor;
@@ -83,7 +83,7 @@ export const secondaryInfo = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${extRem(10,12)};
+  padding: ${extRem(8,12)};
   border: 1px solid ${neutral.medium};
   border-top: 0;
 `;
@@ -95,7 +95,7 @@ export const detail = css`
 `;
 
 export const type = css`
-  ${typography.small}
+  ${typography.mini}
   line-height: 1;
   display: inline-flex;
   align-items: center;

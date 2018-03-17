@@ -26,5 +26,5 @@ export const title = css`
 export const description = css`
   ${typography.small}
   color: ${neutral.high};
-  margin: ${extRem(8)} 0 0;
+  margin: ${extRem(4)} 0 0;
 `;

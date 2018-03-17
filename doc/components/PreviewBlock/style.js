@@ -33,5 +33,5 @@ export const exampleBody = css`
   padding: ${extRem(16)};
   border: 1px solid ${neutral.medium};
   overflow-y: auto;
-  background-color: ${neutral.lower};
+  background-color: ${neutral.lowest};
 `;

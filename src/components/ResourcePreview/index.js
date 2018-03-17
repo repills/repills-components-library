@@ -72,17 +72,10 @@ class ResourcePreview extends React.Component {
 
     return (
       <BaseStyle>
-        <MainInfoStyle>
-          <SourceStyle
-            href={link}
-            target="_blank"
-          >
-            <LinkIcon size={18} />
-            <span>{getBaseUrl(link)}</span>
-          </SourceStyle>
-          <TitleStyle
-            onClick={this.handleDetailView}
-          >
+        <MainInfoStyle
+          onClick={this.handleDetailView}
+        >
+          <TitleStyle>
             {title}
           </TitleStyle>
           <DetailStyle>
@@ -98,6 +91,13 @@ class ResourcePreview extends React.Component {
           </DetailStyle>
         </MainInfoStyle>
         <SecondaryInfoStyle>
+          <SourceStyle
+            href={link}
+            target="_blank"
+          >
+            <LinkIcon size={16} />
+            <span>{getBaseUrl(link)}</span>
+          </SourceStyle>
           {
             dateType === 'createdAt' &&
               <DateStyle>

@@ -8,7 +8,6 @@ const { basic, neutral } = theme.palettes;
 
 export const base = css`
   text-align: left;
-  border-bottom: 1px  solid ${neutral.medium};
 
   &.${MD} {
     padding: ${extRem(20,0)};

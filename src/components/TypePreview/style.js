@@ -13,7 +13,6 @@ export const base = css`
   padding: ${extRem(12, 12, 12, 24)};
   display: flex;
   align-items: center;
-  background: ${neutral.lower};
   cursor: ${props => props.active ? 'default' : 'pointer'};
   position: relative;
   border-top: 1px solid ${neutral.medium};
