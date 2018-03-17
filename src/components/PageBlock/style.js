@@ -3,6 +3,12 @@ import { extRem } from '../../utils';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
 
+const align = {
+  LEFT: 'left',
+  RIGHT: 'right',
+  CENTER: 'center'
+};
+
 const { neutral } = theme.palettes;
 const sideCount = extRem(36);
 export const base = css`
@@ -11,9 +17,10 @@ export const base = css`
 
 export const title = css`
   ${typography.header3}
-  color: ${neutral.mediumHigh};
+  color: ${neutral.high};
   line-height: 1.2;
   margin: 0;
+  text-align: ${props => align[props.align]};
   
   span {
     margin-right: ${extRem(12)};
@@ -29,6 +36,13 @@ export const count = css`
   line-height: ${sideCount};
   padding-left: ${extRem(12)};
   border-left: 1px solid ${neutral.medium};
+`;
+
+export const description = css`
+  ${typography.body}
+  color: ${neutral.mediumHigh};
+  margin: ${extRem(16)} 0 0;
+  text-align: ${props => align[props.align]};
 `;
 
 export const body = css`
