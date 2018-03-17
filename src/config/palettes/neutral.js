@@ -19,7 +19,7 @@ export default {
     {
       id: 'medium',
       name: 'Medium',
-      value: '#e0e0e0'
+      value: '#e8e8e8'
     },
     {
       id: 'mediumHigh',
