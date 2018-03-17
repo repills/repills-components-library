@@ -24,12 +24,11 @@ export const items = css`
 `;
 
 export const item = css`
+  ${grid.unit({ size: 1 })}
   padding-left: ${halfGutter};
   padding-right: ${halfGutter};
   padding-bottom: 1px;
-  
-  ${grid.unit({ size: 1 })}
-  
+   
   &.${SM} {
     ${grid.unit({ size: 1/2 })}
     padding-left: ${gutter};

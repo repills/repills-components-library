@@ -29,7 +29,9 @@ function TypesList({
       {
         params => (
           <BaseStyle>
-            <ItemsStyle>
+            <ItemsStyle
+              className={cx(params)}
+            >
               {
                 Object
                   .entries(types)
