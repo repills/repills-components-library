@@ -57,7 +57,7 @@ function TopNavigation({
                 className={cx(params)}
               >
                 {
-                  items.map((item,i) => {
+                  items.filter(i => !i.hidden).map((item,i) => {
 
                     const NavigationItemStyle = styled[(item.href ? 'a' : 'div')]`${navigationItem}`;
 
@@ -84,7 +84,8 @@ TopNavigation.propTypes = {
   items: arrayOf(shape({
     href: string,
     label: string.isRequired,
-    onClick: func
+    onClick: func,
+    hidden: bool
   }))
 };
 
