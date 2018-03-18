@@ -13,6 +13,7 @@ export FeatureList from './FeatureList';
 export HomePageHeader from './HomePageHeader';
 export Logo from './Logo';
 export MaintainersList from './MaintainersList';
+export Message from './Message';
 export Modal from './Modal';
 export PageBlock from './PageBlock';
 export Pagination from './Pagination';
