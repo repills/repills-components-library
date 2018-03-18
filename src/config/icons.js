@@ -51,6 +51,10 @@ export default {
     {
       id: 'PullRequest',
       name: 'Pull request'
+    },
+    {
+      id: 'English',
+      name: 'English Language'
     }
   ],
   sections: [
