@@ -20,7 +20,8 @@ function Pagination({
   handleNavigateToPage,
   itemsPerPage,
   itemsTotalCount,
-  rangePageDisplayed
+  rangePageDisplayed,
+  ...others
 }) {
   const pagination = paginate(itemsTotalCount, itemsPerPage, currentPage);
 
@@ -69,7 +70,9 @@ function Pagination({
 
   return (
     pageCount > 1 &&
-    <BaseStyle>
+    <BaseStyle
+      {...others}
+    >
       {
         (pageCount > rangePageDisplayed) &&
         <ButtonStyle

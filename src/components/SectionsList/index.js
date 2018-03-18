@@ -17,13 +17,16 @@ const ItemStyle = styled.div`${item}`;
 
 function SectionsList({
   sections,
-  navigateTo
+  navigateTo,
+  ...others
 }) {
   return (
     <ContainerQuery query={query}>
       {
         params => (
-          <BaseStyle>
+          <BaseStyle
+            {...others}
+          >
             <ItemsStyle className={cx(params)}>
               {
                 sections.map(section => {

@@ -32,7 +32,8 @@ const CompositionStyle = styled(CompositionChart)`${composition}`;
 function TopicPreview({
   navigateTo,
   resources,
-  title
+  title,
+  ...others
 }) {
   const totalCount = resources.length;
   const stats = getResourcesStats(resources, true);
@@ -41,6 +42,7 @@ function TopicPreview({
       {
         params => (
           <BaseStyle
+            {...others}
             disabled={totalCount === 0}
             onClick={totalCount !== 0 ? navigateTo : null}
           >

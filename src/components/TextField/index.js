@@ -95,12 +95,12 @@ class TextField extends React.Component {
 
     return (
       <BaseStyle
+        {...others}
         disabled={disabled}
         expanded={expanded}
         filled={value && value.length !== 0}
         hasError={hasError}
         size={size}
-        {...others}
       >
         {
           hasIcon &&

@@ -34,12 +34,15 @@ function SectionPreview({
   name,
   navigateTo,
   resourcesCount,
-  topicsCount
+  topicsCount,
+  ...others
 }) {
   const Icon = icon && icons[icon];
 
   return (
-    <BaseStyle>
+    <BaseStyle
+      {...others}
+    >
       <CoverStyle
         onClick={navigateTo}
       >

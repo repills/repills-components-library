@@ -50,7 +50,8 @@ class SectionSelector extends React.Component {
 
   render() {
     const {
-      sections
+      sections,
+      ...others
     } = this.props;
 
     const {
@@ -61,7 +62,9 @@ class SectionSelector extends React.Component {
       <ContainerQuery query={query}>
         {
           params => (
-            <BaseStyle>
+            <BaseStyle
+              {...others}
+            >
               <ItemsStyle className={cx(params)}>
                 {
                   sections.map((section, index) => (

@@ -67,11 +67,14 @@ class ResourcePreview extends React.Component {
       createdAt,
       publishedAt,
       dateType,
-      typeLabel
+      typeLabel,
+      ...others
     } = this.props;
 
     return (
-      <BaseStyle>
+      <BaseStyle
+        {...others}
+      >
         <MainInfoStyle
           onClick={this.handleDetailView}
         >

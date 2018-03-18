@@ -28,13 +28,15 @@ function TypePreview({
   icon,
   id,
   label,
-  navigateTo
+  navigateTo,
+  ...others
 }) {
 
   const Icon = Icons[`${icon}Icon`];
 
   return (
     <BaseStyle
+      {...others}
       active={active}
       color={color}
       id={id}

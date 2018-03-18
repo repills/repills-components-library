@@ -25,14 +25,17 @@ const DescriptionStyle = styled.p`${description}`;
 const HomePageHeader = ({
   description,
   subTitle,
-  title
+  title,
+  ...others
 }) => {
 
   return (
     <ContainerQuery query={query}>
       {
         params => (
-          <BaseStyle>
+          <BaseStyle
+            {...others}
+          >
             <PillsAnimationStyle>
               {
                 [1, 2, 3].map(i => (

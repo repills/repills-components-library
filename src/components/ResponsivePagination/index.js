@@ -12,7 +12,8 @@ function ResponsivePagination({
   itemsTotalCount,
   currentPage,
   handleNavigateToPage,
-  itemsPerPage
+  itemsPerPage,
+  ...others
 }) {
 
   const getRangePageDisplayed = params => {
@@ -31,6 +32,7 @@ function ResponsivePagination({
       {
         params => (
           <Pagination
+            {...others}
             currentPage={currentPage}
             handleNavigateToPage={handleNavigateToPage}
             itemsPerPage={itemsPerPage}

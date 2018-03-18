@@ -22,13 +22,16 @@ const ItemStyle = styled.div`${item}`;
 function TypesList({
   activeKey,
   types,
-  navigateTo
+  navigateTo,
+  ...others
 }) {
   return (
     <ContainerQuery query={query}>
       {
         params => (
-          <BaseStyle>
+          <BaseStyle
+            {...others}
+          >
             <ItemsStyle
               className={cx(params)}
             >

@@ -26,14 +26,17 @@ const StepBox = ({
   children,
   index,
   last,
-  title
+  title,
+  ...others
 }) => {
 
   return (
   <ContainerQuery query={query}>
       {
         params => (
-          <BaseStyle>
+          <BaseStyle
+            {...others}
+          >
             <div>
               <HeaderStyle>
                 <IndexStyle>{index}</IndexStyle>

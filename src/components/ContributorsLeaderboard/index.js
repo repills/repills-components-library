@@ -10,11 +10,13 @@ import { base } from './style';
 const BaseStyle = styled.div`${base}`;
 
 const ContributorsLeaderboard = ({
-
+  ...others
 }) => {
 
   return (
-    <BaseStyle>
+    <BaseStyle
+      {...others}
+    >
       TODO
     </BaseStyle>
   );

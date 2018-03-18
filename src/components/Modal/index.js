@@ -31,10 +31,12 @@ const ModalBodyStyle = styled.div`${body}`;
 function Modal({
   handleClose,
   children,
-  open
+  open,
+  ...others
 }) {
   return (
     <BaseStyle
+      {...others}
       open={open}
     >
       <OverlayStyle

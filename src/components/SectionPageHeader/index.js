@@ -27,7 +27,8 @@ const SectionPageHeader = ({
   description,
   icon,
   label,
-  title
+  title,
+  ...others
 }) => {
 
   const Icon = sectionsIcons[icon];
@@ -37,6 +38,7 @@ const SectionPageHeader = ({
       {
         params => (
           <BaseStyle
+            {...others}
             breakpointsStatus={params}
           >
             <MainStyle

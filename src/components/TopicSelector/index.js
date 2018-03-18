@@ -71,7 +71,8 @@ class TopicSelector extends React.Component {
 
   render() {
     const {
-      topics
+      topics,
+      ...others
     } = this.props;
 
     const {
@@ -84,7 +85,9 @@ class TopicSelector extends React.Component {
       <ContainerQuery query={query}>
         {
           params => (
-            <BaseStyle>
+            <BaseStyle
+              {...others}
+            >
               <ItemsStyle className={cx(params)}>
                 {
                   Object.entries(topics).map(([key, topic], index) => (

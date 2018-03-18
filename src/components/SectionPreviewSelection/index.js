@@ -52,7 +52,8 @@ class SectionPreviewSelection extends React.Component {
   render() {
     const {
       name,
-      icon
+      icon,
+      ...others
     } = this.props;
 
     const {
@@ -63,6 +64,7 @@ class SectionPreviewSelection extends React.Component {
 
     return (
       <BaseStyle
+        {...others}
         checked={checked}
         onClick={this.handleOnChange}
       >

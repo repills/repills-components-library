@@ -51,11 +51,13 @@ function ResourceDetail({
   navigateTo,
   suggestedBy,
   navigateToSection,
-  navigateToTopic
+  navigateToTopic,
+  ...others
 }) {
 
   return (
     <BaseStyle
+      {...others}
       color={color}
     >
       <MainInfoStyle>

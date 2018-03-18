@@ -46,7 +46,8 @@ class TopicPreviewSelection extends React.Component {
 
   render() {
     const {
-      title
+      title,
+      ...others
     } = this.props;
 
     const {
@@ -55,6 +56,7 @@ class TopicPreviewSelection extends React.Component {
 
     return (
       <BaseStyle
+        {...others}
         checked={checked}
         onClick={this.handleOnChange}
       >

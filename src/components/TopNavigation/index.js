@@ -28,6 +28,7 @@ const NavigationStyle = styled.nav`${navigation}`;
 
 function TopNavigation({
   items,
+  ...others
 }) {
 
   return (
@@ -35,6 +36,7 @@ function TopNavigation({
       {
         params => (
           <BaseStyle
+            {...others}
             className={cx(params)}
           >
             <LogoContainerStyle

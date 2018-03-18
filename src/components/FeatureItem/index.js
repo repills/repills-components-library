@@ -19,12 +19,15 @@ const DescriptionStyle = styled.p`${description}`;
 const FeatureItem = ({
   description,
   icon,
-  title
+  title,
+  ...others
 }) => {
   const Icon = Icons[`${icon}Icon`];
 
   return (
-    <BaseStyle>
+    <BaseStyle
+      {...others}
+    >
       <IconStyle>
         <Icon size={44} />
       </IconStyle>

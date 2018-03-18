@@ -20,14 +20,17 @@ const ItemsStyle = styled.div`${items}`;
 const ItemStyle = styled.div`${item}`;
 
 const FeatureList = ({
-  features
+  features,
+  ...others
 }) => {
 
   return (
     <ContainerQuery query={query}>
       {
         params => (
-          <BaseStyle>
+          <BaseStyle
+            {...others}
+          >
             <ItemsStyle className={cx(params)}>
               {
                 features.map((feature,i) => (

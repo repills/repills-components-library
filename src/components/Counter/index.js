@@ -22,11 +22,14 @@ const BoxStyle = styled.div`${box}`;
 const Counter = ({
   count,
   label,
-  stats
+  stats,
+  ...others
 }) => {
 
   return (
-    <BaseStyle>
+    <BaseStyle
+      {...others}
+    >
       <ContentStyle>
         <BoxStyle>
           <CountStyle>{count}</CountStyle>

@@ -113,10 +113,10 @@ class Select extends React.Component {
 
     return (
       <BaseStyle
+        {...others}
         disabled={disabled}
         expanded={expanded}
         size={size}
-        {...others}
       >
         {
           <SelectedStyle

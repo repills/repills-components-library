@@ -22,14 +22,17 @@ function ResourcesList({
   resources,
   variant,
   dateType,
-  handleDetailView
+  handleDetailView,
+  ...others
 }) {
 
   return (
     <ContainerQuery query={query}>
       {
         params => (
-          <BaseStyle>
+          <BaseStyle
+            {...others}
+          >
             <ItemsStyle className={cx(params)}>
               {
                 resources.map(resource => {

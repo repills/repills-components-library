@@ -20,10 +20,11 @@ const Button = ({
   onMouseLeave,
   skin,
   size,
-  ...otherOptions
+  ...others
 }) => {
   return (
     <BaseStyle
+      {...others}
       autoWidth={autoWidth}
       disabled={disabled}
       expanded={expanded}
@@ -32,7 +33,6 @@ const Button = ({
       onMouseLeave={onMouseLeave}
       size={size}
       skin={skin}
-      {...otherOptions}
     >
       {label && <span>{label}</span>}
     </BaseStyle>

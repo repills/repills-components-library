@@ -58,7 +58,8 @@ class ResourcesListWithDetail extends React.Component {
       variant,
       dateType,
       navigateToSection,
-      navigateToTopic
+      navigateToTopic,
+      ...others
     } = this.props;
 
     const {
@@ -70,7 +71,9 @@ class ResourcesListWithDetail extends React.Component {
       <ContainerQuery query={query}>
         {
           params => (
-            <BaseStyle>
+            <BaseStyle
+              {...others}
+            >
               <ItemsStyle className={cx(params)}>
                 {
                   resources.map(resource => {

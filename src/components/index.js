@@ -17,7 +17,6 @@ export Modal from './Modal';
 export PageBlock from './PageBlock';
 export Pagination from './Pagination';
 export ResourceDetail from './ResourceDetail';
-export ResourceMiniPreview from './ResourceMiniPreview';
 export ResourcePreview from './ResourcePreview';
 export ResourcesList from './ResourcesList';
 export ResourcesListWithDetail from './ResourcesListWithDetail';
