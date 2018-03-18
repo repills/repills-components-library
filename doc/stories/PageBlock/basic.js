@@ -14,7 +14,7 @@ export default (sectionTitle, sectionDescription) => () => {
       title={sectionTitle}
     >
       <InteractiveExample
-        align={select('Alignment', { LEFT: 'Left', CENTER: 'Center', RIGHT: 'RIGHT' })}
+        align={select('Alignment', { LEFT: 'Left', CENTER: 'Center' })}
         children={childrenX}
         component={PageBlock}
         contentsCount={number('Number of contents', 5)}

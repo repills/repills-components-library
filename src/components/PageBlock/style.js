@@ -4,9 +4,14 @@ import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
 
 const align = {
-  LEFT: 'left',
-  RIGHT: 'right',
-  CENTER: 'center'
+  LEFT: {
+    justifyContent: 'flex-start',
+    textAlign: 'left'
+  },
+  CENTER: {
+    justifyContent: 'center',
+    textAlign: 'center'
+  }
 };
 
 const { neutral } = theme.palettes;
@@ -20,7 +25,8 @@ export const title = css`
   color: ${neutral.high};
   line-height: 1.2;
   margin: 0;
-  text-align: ${props => align[props.align]};
+  display: flex;
+  ${props => align[props.align]};
   
   span {
     margin-right: ${extRem(12)};
@@ -40,10 +46,14 @@ export const count = css`
 
 export const description = css`
   ${typography.body}
+  display: flex;
   color: ${neutral.mediumHigh};
-  margin: ${extRem(8)} auto 0;
-  text-align: ${props => align[props.align]};
-  max-width: ${extRem(700)}
+  margin: ${extRem(8)} ${props => props.size === 'CENTER' ? 'auto' : '0' } 0;
+  ${props => align[props.align]};
+  
+  div {
+    max-width: ${extRem(700)}
+  }
 `;
 
 export const body = css`

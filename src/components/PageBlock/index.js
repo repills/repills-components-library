@@ -46,8 +46,9 @@ const PageBlock = ({
         description &&
         <DescriptionStyle
           align={align}
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
+        >
+          <div dangerouslySetInnerHTML={{ __html: description }} />
+        </DescriptionStyle>
       }
       <BodyStyle>
         {children}
@@ -57,7 +58,7 @@ const PageBlock = ({
 };
 
 PageBlock.propTypes = {
-  align: oneOf(['LEFT', 'RIGHT', 'CENTER']),
+  align: oneOf(['LEFT', 'CENTER']),
   children: any,
   contentsCount: number,
   description: string,
@@ -66,6 +67,6 @@ PageBlock.propTypes = {
 
 PageBlock.defaultProps = {
   align: 'LEFT'
-}
+};
 
 export default PageBlock;
