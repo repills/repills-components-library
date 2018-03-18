@@ -94,7 +94,7 @@ export const base = css`
   border: 2px solid transparent;
   background: none;
   box-sizing: border-box;
-  cursor: pointer;
+  cursor: ${props => props.disabled ? 'default' : 'cursor'};
   display: inline-flex;
   justify-content: center;
   border-radius: 3px;
