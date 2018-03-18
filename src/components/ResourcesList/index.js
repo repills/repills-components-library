@@ -1,11 +1,9 @@
 import React from 'react';
 import ResourcePreview from '../ResourcePreview';
-import ResourceMiniPreview from '../ResourceMiniPreview';
 import cx from 'classnames';
 import {
   arrayOf,
   shape,
-  oneOf,
   string,
   func
 } from 'prop-types';
@@ -20,7 +18,6 @@ const ItemStyle = styled.div`${item}`;
 
 function ResourcesList({
   resources,
-  variant,
   dateType,
   handleDetailView,
   ...others
@@ -41,20 +38,11 @@ function ResourcesList({
                       className={cx(params)}
                       key={resource.link}
                     >
-                      {
-                        variant === 'mini' ?
-                          <ResourceMiniPreview
-                            {...resource}
-                            dateType={dateType}
-                            handleDetailView={handleDetailView}
-                          />
-                          :
-                          <ResourcePreview
-                            {...resource}
-                            dateType={dateType}
-                            handleDetailView={handleDetailView}
-                          />
-                      }
+                      <ResourcePreview
+                        {...resource}
+                        dateType={dateType}
+                        handleDetailView={handleDetailView}
+                      />
                     </ItemStyle>
                   );
                 })
@@ -70,8 +58,7 @@ function ResourcesList({
 ResourcesList.propTypes = {
   dateType: string,
   handleDetailView: func,
-  resources: arrayOf(shape(ResourcePreview.propTypes)).isRequired,
-  variant: oneOf(['default', 'mini'])
+  resources: arrayOf(shape(ResourcePreview.propTypes)).isRequired
 };
 
 export default ResourcesList;

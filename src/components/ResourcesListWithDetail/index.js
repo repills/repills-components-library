@@ -1,13 +1,11 @@
 import React from 'react';
 import ResourcePreview from '../ResourcePreview';
 import ResourceDetail from '../ResourceDetail';
-import ResourceMiniPreview from '../ResourceMiniPreview';
 import Modal from '../Modal';
 import cx from 'classnames';
 import {
   arrayOf,
   shape,
-  oneOf,
   string,
   func
 } from 'prop-types';
@@ -27,8 +25,7 @@ class ResourcesListWithDetail extends React.Component {
     handleDetailView: func,
     navigateToSection: func,
     navigateToTopic: func,
-    resources: arrayOf(shape(ResourcePreview.propTypes)).isRequired,
-    variant: oneOf(['default', 'mini'])
+    resources: arrayOf(shape(ResourcePreview.propTypes)).isRequired
   };
 
   constructor(props) {
@@ -55,7 +52,6 @@ class ResourcesListWithDetail extends React.Component {
 
     const {
       resources,
-      variant,
       dateType,
       navigateToSection,
       navigateToTopic,
@@ -82,20 +78,11 @@ class ResourcesListWithDetail extends React.Component {
                         className={cx(params)}
                         key={resource.link}
                       >
-                        {
-                          variant === 'mini' ?
-                            <ResourceMiniPreview
-                              {...resource}
-                              dateType={dateType}
-                              handleDetailView={this.onHandleDetailView}
-                            />
-                            :
-                            <ResourcePreview
-                              {...resource}
-                              dateType={dateType}
-                              handleDetailView={this.onHandleDetailView}
-                            />
-                        }
+                        <ResourcePreview
+                          {...resource}
+                          dateType={dateType}
+                          handleDetailView={this.onHandleDetailView}
+                        />
                       </ItemStyle>
                     );
                   })
