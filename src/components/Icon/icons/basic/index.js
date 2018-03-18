@@ -11,3 +11,4 @@ export SquarePillIcon from './SquarePillIcon';
 export StarIcon from './StarIcon';
 export UncheckedIcon from './UncheckedIcon';
 export UserIcon from './UserIcon';
+export EnglishIcon from './EnglishIcon';
