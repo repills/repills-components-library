@@ -16,7 +16,8 @@ export default (sectionTitle, sectionDescription) => () => {
     },
     {
       label: 'Item 3',
-      onClick: ({ index }) => alert('Item 3')
+      onClick: ({ index }) => alert('Item 3'),
+      hidden: true
     },
     {
       label: 'Item 4',
