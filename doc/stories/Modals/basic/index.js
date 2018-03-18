@@ -29,6 +29,7 @@ export default (sectionTitle, sectionDescription) => () => {
         component={Modal}
         handleClose={() => alert('Close modal!')}
         open={boolean('Open', false)}
+        size={select('Size', { S: 'Small', M: 'Medium', L: 'Large' }, 'M')}
       />
     </SectionPage>
   );

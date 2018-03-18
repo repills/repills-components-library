@@ -2,7 +2,8 @@ import React from 'react';
 import {
   func,
   bool,
-  element
+  element,
+  oneOf
 } from 'prop-types';
 import { CloseIcon } from '../Icon/icons/basic';
 import styled from 'styled-components';
@@ -32,6 +33,7 @@ function Modal({
   handleClose,
   children,
   open,
+  size,
   ...others
 }) {
   return (
@@ -44,7 +46,9 @@ function Modal({
         onClick={handleClose ? handleClose : null}
         open={open}
       />
-      <WrapperStyle>
+      <WrapperStyle
+        size={size}
+      >
         <ModalStyle>
           <ContentStyle>
             <ModalHeaderStyle>
@@ -70,7 +74,12 @@ function Modal({
 Modal.propTypes = {
   children: element.isRequired,
   handleClose: func,
-  open: bool
+  open: bool,
+  size: oneOf(['M', 'L'])
+};
+
+Modal.defaultProps = {
+  size: 'M'
 };
 
 export default Modal;

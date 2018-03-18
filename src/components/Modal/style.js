@@ -2,7 +2,13 @@ import { css } from 'styled-components';
 import { rgba, size } from 'polished';
 import { extRem } from '../../utils';
 import theme from '../../config/theme';
-const { basic, neutral } = theme.palettes;
+const { neutral } = theme.palettes;
+
+const sizes = {
+  S: extRem(500),
+  M: extRem(700),
+  L: extRem(900)
+};
 
 const fixedPosition = css`
   position: fixed;
@@ -38,7 +44,7 @@ export const overlay = css`
 export const wrapper = css`
   box-sizing: border-box;
   padding: ${extRem(0,12)};
-  max-width: ${extRem(720)};
+  max-width: ${props => sizes[props.size]};
   flex: 0 0 100%;
 `;
 
