@@ -41,9 +41,9 @@ export const count = css`
 export const description = css`
   ${typography.body}
   color: ${neutral.mediumHigh};
-  margin: ${extRem(8)} 0 0;
+  margin: ${extRem(8)} auto 0;
   text-align: ${props => align[props.align]};
-  max-width: ${extRem(700)};
+  max-width: ${extRem(700)}
 `;
 
 export const body = css`
