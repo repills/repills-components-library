@@ -43,6 +43,7 @@ export const description = css`
   color: ${neutral.mediumHigh};
   margin: ${extRem(8)} 0 0;
   text-align: ${props => align[props.align]};
+  max-width: ${extRem(700)};
 `;
 
 export const body = css`

@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   string,
-  element,
+  any,
   number,
   oneOf
 } from 'prop-types';
@@ -58,7 +58,7 @@ const PageBlock = ({
 
 PageBlock.propTypes = {
   align: oneOf(['LEFT', 'RIGHT', 'CENTER']),
-  children: element,
+  children: any,
   contentsCount: number,
   description: string,
   title: string
