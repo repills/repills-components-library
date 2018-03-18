@@ -27,4 +27,9 @@ export const description = css`
   ${typography.small}
   color: ${neutral.high};
   margin: ${extRem(4)} 0 0;
+  
+  a {
+    font-weight: 600;
+    color: currentColor;
+  }
 `;
