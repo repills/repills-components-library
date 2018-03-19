@@ -38,7 +38,7 @@ const skin = {
     letterSpacing: '0.2em'
   },
   ghost: {
-    color: neutral.highest,
+    color: neutral.medium,
     paddingLeft: 0,
     paddingRight: 0,
     border: 0,
@@ -68,7 +68,7 @@ const skinHover = {
 
 const skinDisabled = {
   default: {
-    backgroundColor: neutral.medium,
+    backgroundColor: neutral.low,
     color: neutral.high,
     opacity: '0.5',
     boxShadow: 'none'
