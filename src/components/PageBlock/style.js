@@ -28,9 +28,11 @@ export const title = css`
   display: flex;
   ${props => align[props.align]};
   
-  span {
-    margin-right: ${extRem(12)};
-  }
+  ${props => props.count && `
+    span {
+      margin-right: ${extRem(12)};
+    }
+  `}
 `;
 
 export const count = css`
