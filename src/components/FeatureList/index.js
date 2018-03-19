@@ -33,11 +33,11 @@ const FeatureList = ({
           <BaseStyle
             {...others}
           >
-            <ItemsStyle className={cx(params)}>
+            <ItemsStyle breakpointsStatus={params}>
               {
                 features.map((feature,i) => (
                   <ItemStyle
-                    className={cx(params)}
+                    breakpointsStatus={params}
                     count={count}
                     key={`feature-${i}`}
                   >

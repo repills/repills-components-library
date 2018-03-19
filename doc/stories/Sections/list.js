@@ -17,7 +17,6 @@ export default (sectionTitle, sectionDescription) => () => {
         component={SectionsList}
         navigateTo={navigateTo}
         sections={getRandomSectionList(number('Sezioni', 6, {
-          range: true,
           min: 1,
           max: 12,
           step: 1,

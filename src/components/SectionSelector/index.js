@@ -7,7 +7,6 @@ import {
 } from 'prop-types';
 import styled from 'styled-components';
 import SectionPreviewSelection from '../SectionPreviewSelection';
-import cx from 'classnames';
 import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
 import {
@@ -67,11 +66,11 @@ class SectionSelector extends React.Component {
             <BaseStyle
               {...others}
             >
-              <ItemsStyle className={cx(params)}>
+              <ItemsStyle breakpointsStatus={params}>
                 {
                   sections.map((section, index) => (
                     <ItemStyle
-                      className={cx(params)}
+                      breakpointsStatus={params}
                       count={count}
                       key={section.id}
                     >

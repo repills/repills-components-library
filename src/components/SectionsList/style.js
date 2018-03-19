@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { extRem } from '../../utils';
-import { grid } from 'styled-components-grid';
+import { gridItem } from '../../shared/styles';
 import { SM, LG } from '../../config/breakpoints';
 
 const halfGutterStripUnit = 8;
@@ -8,49 +8,24 @@ const gutter = extRem(halfGutterStripUnit * 2);
 const doubleGutter = extRem(halfGutterStripUnit * 4);
 const halfGutter = extRem(halfGutterStripUnit);
 
-export const base = css`
-  box-sizing: border-box;
-  width: 100%;
-`;
-
 export const items = css`
-  ${grid()}
-  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
   margin-left: -${halfGutter};
   margin-right: -${halfGutter};
   
-  &.${SM} {
+  ${props => props.breakpointsStatus[SM] && `
     margin-left: -${gutter};
     margin-right: -${gutter};
-  }
+  `}
 `;
 
 export const item = css`
-  ${grid.unit({ size: 1 })}
-  padding-left: ${halfGutter};
-  padding-right: ${halfGutter};
-  padding-bottom: ${gutter};
+  box-sizing: border-box;
   
-  &:last-child {
-    padding-bottom: 0;
-  }
+  ${props => !props.breakpointsStatus[SM] && gridItem(props.count, 1, halfGutter, gutter)}
   
-  &.${SM} {
-    ${grid.unit({ size: 1/2 })}
-    padding-left: ${gutter};
-    padding-right: ${gutter};
-    padding-bottom: ${doubleGutter};
-    
-    &:nth-last-child(-n+2) {
-      padding-bottom: 0;
-    }
-  }
+  ${props => props.breakpointsStatus[SM] && !props.breakpointsStatus[LG] && gridItem(props.count, 2, gutter, doubleGutter)}
   
-  &.${LG} {
-    ${grid.unit({ size: 1/3 })}
-    
-    &:nth-last-child(-n+3) {
-      padding-bottom: 0;
-    }
-  }
+  ${props => props.breakpointsStatus[LG] && gridItem(props.count, 3, gutter, doubleGutter)}
 `;

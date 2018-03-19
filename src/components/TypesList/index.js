@@ -25,6 +25,7 @@ function TypesList({
   navigateTo,
   ...others
 }) {
+  const count = Object.entries(types).length;
   return (
     <ContainerQuery query={query}>
       {
@@ -33,7 +34,7 @@ function TypesList({
             {...others}
           >
             <ItemsStyle
-              className={cx(params)}
+              breakpointsStatus={params}
             >
               {
                 Object
@@ -42,7 +43,8 @@ function TypesList({
                   .map(([key,type]) => {
                     return (
                       <ItemStyle
-                        className={cx(params)}
+                        breakpointsStatus={params}
+                        count={count}
                         key={key}
                       >
                         <TypePreview

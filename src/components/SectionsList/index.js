@@ -1,6 +1,5 @@
 import React from 'react';
 import SectionPreview from '../SectionPreview';
-import cx from 'classnames';
 import {
   func,
   arrayOf,
@@ -9,9 +8,8 @@ import {
 import styled from 'styled-components';
 import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
-import { base, items, item } from './style';
+import { items, item } from './style';
 
-const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
 const ItemStyle = styled.div`${item}`;
 
@@ -20,19 +18,23 @@ function SectionsList({
   navigateTo,
   ...others
 }) {
+  const count = sections.length;
   return (
     <ContainerQuery query={query}>
       {
         params => (
-          <BaseStyle
+          <div
             {...others}
           >
-            <ItemsStyle className={cx(params)}>
+            <ItemsStyle
+              breakpointsStatus={params}
+            >
               {
                 sections.map(section => {
                   return (
                     <ItemStyle
-                      className={cx(params)}
+                      breakpointsStatus={params}
+                      count={count}
                       key={section.id}
                     >
                       <SectionPreview
@@ -44,7 +46,7 @@ function SectionsList({
                 })
               }
             </ItemsStyle>
-          </BaseStyle>
+          </div>
         )}
     </ContainerQuery>
   );

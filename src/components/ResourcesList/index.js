@@ -32,12 +32,14 @@ function ResourcesList({
           <BaseStyle
             {...others}
           >
-            <ItemsStyle className={cx(params)}>
+            <ItemsStyle
+              breakpointsStatus={params}
+            >
               {
                 resources.map(resource => {
                   return (
                     <ItemStyle
-                      className={cx(params)}
+                      breakpointsStatus={params}
                       count={count}
                       key={resource.link}
                     >

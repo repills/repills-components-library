@@ -7,7 +7,6 @@ import {
 } from 'prop-types';
 import styled from 'styled-components';
 import TopicPreviewSelection from '../TopicPreviewSelection/index';
-import cx from 'classnames';
 import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
 
@@ -90,11 +89,11 @@ class TopicSelector extends React.Component {
             <BaseStyle
               {...others}
             >
-              <ItemsStyle className={cx(params)}>
+              <ItemsStyle breakpointsStatus={params}>
                 {
                   Object.entries(topics).map(([key, topic], index) => (
                     <ItemStyle
-                      className={cx(params)}
+                      breakpointsStatus={params}
                       count={count}
                       key={topic.slug}
                     >

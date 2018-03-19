@@ -1,6 +1,5 @@
 import React from 'react';
 import TopicPreview from '../TopicPreview';
-import cx from 'classnames';
 import {
   func,
   arrayOf,
@@ -29,11 +28,13 @@ function TopicsList({
           <BaseStyle
             {...others}
           >
-            <ItemsStyle className={cx(params)}>
+            <ItemsStyle
+              breakpointsStatus={params}
+            >
               {
                 topics.map(topic => (
                   <ItemStyle
-                    className={cx(params)}
+                    breakpointsStatus={params}
                     count={count}
                     key={topic.slug}
                   >

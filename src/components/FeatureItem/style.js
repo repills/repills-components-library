@@ -32,5 +32,6 @@ export const description = css`
   a {
     font-weight: 600;
     color: currentColor;
+    text-decoration: underline;
   }
 `;

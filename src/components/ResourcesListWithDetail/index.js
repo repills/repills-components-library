@@ -63,6 +63,8 @@ class ResourcesListWithDetail extends React.Component {
       currentResource
     } = this.state;
 
+    const count = resources.length;
+
     return (
       <ContainerQuery query={query}>
         {
@@ -70,12 +72,15 @@ class ResourcesListWithDetail extends React.Component {
             <BaseStyle
               {...others}
             >
-              <ItemsStyle className={cx(params)}>
+              <ItemsStyle
+                breakpointsStatus={params}
+              >
                 {
                   resources.map(resource => {
                     return (
                       <ItemStyle
-                        className={cx(params)}
+                        breakpointsStatus={params}
+                        count={count}
                         key={resource.link}
                       >
                         <ResourcePreview

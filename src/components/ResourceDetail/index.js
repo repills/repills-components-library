@@ -156,7 +156,7 @@ ResourceDetail.propTypes = {
   navigateToTopic: func,
   publishedAt: string,
   sections: arrayOf(string),
-  suggestedBy: string,
+  suggestedBy: arrayOf(string),
   title: string.isRequired,
   topics: arrayOf(string),
   typeLabel: string

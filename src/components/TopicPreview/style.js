@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { lighten, rgba } from 'polished';
+import { lighten } from 'polished';
 import { grid } from 'styled-components-grid';
 import theme from '../../config/theme';
 import { SM } from '../../config/breakpoints';
@@ -7,7 +7,6 @@ import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
 const { neutral } = theme.palettes;
-const mainColor = lighten(0.2, neutral.lowest);
 
 // box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
 export const base = css`
@@ -23,6 +22,10 @@ export const base = css`
     opacity: .6;
     cursor: default;
   `}
+  
+  &:hover {
+    background-color: ${lighten(.01, neutral.lower)};
+  }
 `;
 
 export const frame = css`
@@ -43,7 +46,6 @@ export const counter = css`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: ${neutral.lower};
   padding: ${extRem(12, 0)};
   ${typography.header3}
   
