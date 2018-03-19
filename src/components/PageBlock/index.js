@@ -35,6 +35,7 @@ const PageBlock = ({
     >
       <TitleStyle
         align={align}
+        count={contentsCount}
       >
         <span>{title}</span>
         {
