@@ -20,6 +20,8 @@ function TopicsList({
   navigateTo,
   ...others
 }) {
+
+  const count = topics.length;
   return (
     <ContainerQuery query={query}>
       {
@@ -32,6 +34,7 @@ function TopicsList({
                 topics.map(topic => (
                   <ItemStyle
                     className={cx(params)}
+                    count={count}
                     key={topic.slug}
                   >
                     <TopicPreview

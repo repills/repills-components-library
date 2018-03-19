@@ -33,12 +33,13 @@ export const icon = css`
   position: absolute;
   top: ${extRem(12)};
   right: ${extRem(16)};
+  color: ${neutral.low};
 `;
 
 export const description = css`
   ${typography.body}
   display: flex;
-  color: ${neutral.mediumHigh};
+  color: ${neutral.medium};
   margin: ${extRem(8)} 0 0;
   max-width: ${extRem(700)}
 `;

@@ -35,7 +35,7 @@ export const main = css`
 
 export const label = css`
   ${typography.body}
-  color: ${neutral.mediumHigh};
+  color: ${neutral.medium};
   text-transform: uppercase;
 `;
 
@@ -53,7 +53,7 @@ export const icon = css`
 
 export const description = css`
   ${typography.body}
-  color: ${neutral.highest};
+  color: ${neutral.medium};
   margin: ${extRem(24)} 0 0;
   line-height: 1.5;
   max-width: ${extRem(500)};

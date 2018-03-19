@@ -23,15 +23,15 @@ export const icon = css``;
 export const cover = css`
   background-color: ${neutral.lower};
   padding: ${extRem(24,16)};
-  border: 1px solid ${neutral.medium};
-  border-bottom-color: ${neutral.low};
+  border: 1px solid ${neutral.low};
+  border-bottom: 0;
   cursor: pointer;
 `;
 
 export const info = css`
-  border: 1px solid ${neutral.medium};
-  padding: ${extRem(20,16)};
+  border: 1px solid ${neutral.low};
   border-top: 0;
+  padding: ${extRem(20,16)};
 `;
 
 export const name = css`
@@ -43,7 +43,7 @@ export const name = css`
 
 export const description = css`
   ${typography.small}
-  color: ${neutral.highest};
+  color: ${neutral.medium};
   margin: 0;
   height: ${extRem(80)};
   overflow: hidden;
@@ -62,7 +62,7 @@ export const description = css`
 
 export const details = css`
   ${typography.body}
-  color: ${neutral.highest};
+  color: ${neutral.high};
   margin-top: ${extRem(16)};
 `;
 

@@ -33,7 +33,7 @@ export const base = css`
 
 export const overlay = css`
   ${fixedPosition}
-  background-color: ${rgba(neutral.highest, .4)};
+  background-color: ${rgba(neutral.medium, .7)};
   
   ${props => props.closeOnClick && `
     cursor: pointer;
@@ -66,7 +66,7 @@ export const header = css`
   height: ${extRem(40)};
   display: flex;
   justify-content: flex-end;
-  border-bottom: 1px solid ${neutral.medium};
+  border-bottom: 1px solid ${neutral.low};
 `;
 
 export const body = css`
@@ -81,8 +81,8 @@ export const body = css`
 export const close = css`
   ${size(extRem(40))}
   box-sizing: border-box;
-  color: ${neutral.highest};
-  border: 1px solid ${neutral.medium};
+  color: ${neutral.high};
+  background-color: ${neutral.lower};
   display: flex;
   align-items: center;
   justify-content: center;

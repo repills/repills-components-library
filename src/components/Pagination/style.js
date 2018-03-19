@@ -23,7 +23,7 @@ export const button = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: ${neutral.highest};
+  color: ${neutral.high};
   padding: 0;
   cursor: pointer;
   

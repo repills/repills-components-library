@@ -22,7 +22,7 @@ const variant = {
 
 export const base = css`
   box-sizing: border-box;
-  border: 1px solid ${neutral.medium};
+  border: 1px solid ${neutral.low};
   border-bottom: 0;
   padding-bottom: 3px;
   width: ${props => props.expanded ? '100%' : variant[props.size].maxWidth};
@@ -36,10 +36,10 @@ export const base = css`
     bottom: 0;
     right: -1px;
     left: -1px;
-    background-color: ${neutral.medium};
+    background-color: ${neutral.low};
     
     ${props => props.filled && `
-      background-color: ${props.disabled ? neutral.medium : basic.primary};
+      background-color: ${props.disabled ? neutral.low : basic.primary};
     `}    
     
     ${props => typeof(props.hasError) === 'boolean' && `
@@ -89,7 +89,7 @@ export const input = css`
   }
   
   &::placeholder {
-    color: ${neutral.mediumHigh};
+    color: ${neutral.medium};
   }
   
   ${props => (props.disabled || props.readOnly) && `

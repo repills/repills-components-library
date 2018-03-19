@@ -41,7 +41,7 @@ export const item = css`
     padding-right: ${gutter};
     padding-bottom: ${doubleGutter};
     
-    &:nth-last-child(-n+2) {
+    &:nth-last-child(-n+${props => props.count % 2 === 0 ? 2 : (props.count % 2)}) {
       padding-bottom: 0;
     }
   }
@@ -49,7 +49,7 @@ export const item = css`
   &.${LG} {
     ${grid.unit({ size: 1/3 })}
     
-    &:nth-last-child(-n+3) {
+    &:nth-last-child(-n+${props => props.count % 3 === 0 ? 3 : (props.count % 3)}) {
       padding-bottom: 0;
     }
   }

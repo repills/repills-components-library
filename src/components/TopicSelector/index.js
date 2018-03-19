@@ -79,6 +79,8 @@ class TopicSelector extends React.Component {
       selected
     } = this.state;
 
+    const count = Object.entries(topics).length;
+
     const selectedCount = Object.keys(selected).length;
 
     return (
@@ -93,6 +95,7 @@ class TopicSelector extends React.Component {
                   Object.entries(topics).map(([key, topic], index) => (
                     <ItemStyle
                       className={cx(params)}
+                      count={count}
                       key={topic.slug}
                     >
                       <TopicPreviewSelection

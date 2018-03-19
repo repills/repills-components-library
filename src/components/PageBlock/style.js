@@ -41,13 +41,13 @@ export const count = css`
   height; ${sideCount};
   line-height: ${sideCount};
   padding-left: ${extRem(12)};
-  border-left: 1px solid ${neutral.medium};
+  border-left: 1px solid ${neutral.low};
 `;
 
 export const description = css`
   ${typography.body}
   display: flex;
-  color: ${neutral.mediumHigh};
+  color: ${neutral.medium};
   margin: ${extRem(8)} ${props => props.size === 'CENTER' ? 'auto' : '0' } 0;
   ${props => align[props.align]};
   

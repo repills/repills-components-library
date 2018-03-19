@@ -2,8 +2,7 @@ import { css } from 'styled-components';
 import { extRem } from '../../utils';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
-import { arrowUp, arrowDown } from '../../shared/styles/caret';
-import { ellipsis, stripUnit } from 'polished';
+import { ellipsis } from 'polished';
 
 const { neutral, basic } = theme.palettes;
 
@@ -22,7 +21,7 @@ export const header = css`
 
 export const title = css`
   ${typography.small}
-  color: ${neutral.mediumHigh};
+  color: ${neutral.medium};
    ${ellipsis()}
   span {
    

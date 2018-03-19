@@ -24,6 +24,8 @@ const FeatureList = ({
   ...others
 }) => {
 
+  const count = features.length;
+
   return (
     <ContainerQuery query={query}>
       {
@@ -36,6 +38,7 @@ const FeatureList = ({
                 features.map((feature,i) => (
                   <ItemStyle
                     className={cx(params)}
+                    count={count}
                     key={`feature-${i}`}
                   >
                     <FeatureItem

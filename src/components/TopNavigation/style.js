@@ -46,7 +46,7 @@ export const navigation = css`
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   background-color: ${basic.lowest};
-  color: ${neutral.highest};
+  color: ${neutral.high};
   
   &.${MD} {
     padding: 0;

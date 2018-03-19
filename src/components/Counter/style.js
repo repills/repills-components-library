@@ -17,7 +17,7 @@ export const box = css`
   ${grid.unit({ size: 1/2 })}
   
   &:first-child {
-    border-right: 1px solid ${neutral.medium};
+    border-right: 1px solid ${neutral.low};
     padding-right: ${extRem(12)};
   }
   
@@ -36,7 +36,7 @@ export const label = css`
   ${typography.header4}
   line-height: 1;
   font-weight: 400;
-  color: ${neutral.mediumHigh};
+  color: ${neutral.medium};
   margin-top: ${extRem(4)};
   padding-bottom: ${extRem(4)};
 `;

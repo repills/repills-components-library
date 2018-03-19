@@ -17,10 +17,10 @@ export const example = css`
 
 export const exampleHeader = css`
   ${typography.small}
-  color: ${neutral.mediumHigh};
+  color: ${neutral.high};
   align-items: center;
   background-color: ${neutral.lower};
-  border: 1px solid ${neutral.medium};
+  border: 1px solid ${neutral.low};
   border-bottom: none;
   border-radius: 3px 3px 0 0;
   display: flex;
@@ -31,7 +31,7 @@ export const exampleHeader = css`
 
 export const exampleBody = css`
   padding: ${extRem(16)};
-  border: 1px solid ${neutral.medium};
+  border: 1px solid ${neutral.low};
   overflow-y: auto;
   background-color: ${neutral.lowest};
 `;

@@ -1,7 +1,6 @@
 import { css } from 'styled-components';
 import { extRem } from '../../utils';
 import theme from '../../config/theme';
-import { rgba } from 'polished';
 import typography from '../../shared/styles/typography';
 
 const { palettes } = theme;
@@ -12,13 +11,14 @@ export const base = css`
   box-sizing: border-box;
   text-align: left;
   padding: ${extRem(16)};
-  border: 1px solid ${neutral.medium};
+  border: 1px solid ${neutral.low};
   cursor: pointer;
   background-color: ${neutral.lowest};
-  color: ${neutral.highest};
+  color: ${neutral.high};
   position: relative;
   display: flex;
   align-items: center;
+  height: 100%;
   
   &::after {
     display: ${props => props.checked ? 'block' : 'none'};
@@ -48,6 +48,7 @@ export const title = css`
 
 export const selectButton = css`
   ${typography.small}
+  color: ${neutral.high};
   display: flex;
   align-items: center;
   justify-content: flex-start;

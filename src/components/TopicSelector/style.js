@@ -27,21 +27,32 @@ export const items = css`
 `;
 
 export const item = css`
+  ${grid.unit({ size: 1 })}
   padding-left: ${halfGutter};
   padding-right: ${halfGutter};
   padding-bottom: ${gutter};
   
-  ${grid.unit({ size: 1 })}
-  
+  &:last-child {
+    padding-bottom: 0;
+  }
+    
   &.${SM} {
     ${grid.unit({ size: 1/2 })}
     padding-left: ${gutter};
     padding-right: ${gutter};
     padding-bottom: ${doubleGutter};
+    
+    &:nth-last-child(-n+${props => props.count % 2 === 0 ? 2 : (props.count % 2)}) {
+      padding-bottom: 0;
+    }
   }
   
   &.${MD} {
     ${grid.unit({ size: 1/3 })}
+    
+    &:nth-last-child(-n+${props => props.count % 3 === 0 ? 3 : (props.count % 3)}) {
+      padding-bottom: 0;
+    }
   }
 `;
 

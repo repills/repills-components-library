@@ -38,7 +38,7 @@ export const index = css`
 
 export const title = css`
   ${typography.header4}
-  color: ${neutral.highest};
+  color: ${neutral.high};
   line-height: ${extRem(indexSizeStripUnit - 10)};
   margin: 0;
 `;
@@ -46,10 +46,11 @@ export const title = css`
 export const body = css`
   ${typography.body}
   padding: ${extRem(16,0,28)};
+  color: ${neutral.medium};
   
   &.${SM} {
     padding: ${extRem(14,0,28,32)};
-    border-left: ${props => props.last ? 0 : `1px dotted ${neutral.mediumHigh}`};
+    border-left: ${props => props.last ? 0 : `1px dotted ${neutral.medium}`};
     margin: ${extRem(2,0,2,19)};
     
     ${props => props.last && `

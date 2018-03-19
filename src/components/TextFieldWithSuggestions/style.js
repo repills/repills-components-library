@@ -13,11 +13,12 @@ export const base = css`
 
 export const list = css`
   margin-top: ${extRem(10)};
+  background-color: ${neutral.lower};
 `;
 
 export const item = css`
   ${typography.body}
-  color: ${neutral.mediumHigh};
+  color: ${neutral.medium};
   cursor: pointer;
   padding: ${extRem(4, 12)};
 `;

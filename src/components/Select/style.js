@@ -50,15 +50,15 @@ export const selected = css`
   padding: 0 ${props => sizes[props.size].sideSpace};
   position: relative;
   z-index: 1;
-  border: 1px solid ${neutral.medium};
-  color: ${props => props.filled ? neutral.highest : neutral.mediumHigh};
+  border: 1px solid ${neutral.low};
+  color: ${props => props.filled ? neutral.highest : neutral.medium};
   
   &::after {
     display: ${props => (props.disabled && props.filled) ? 'none' : 'block'};
     content: '';
     ${props => props.open ? arrowUp(sizes[props.size].arrowSize) : arrowDown(sizes[props.size].arrowSize)}
     margin-left: ${extRem(10)};
-    color: ${ props => props.disabled ? neutral.mediumHigh : neutral.highest }
+    color: ${ props => props.disabled ? neutral.medium : neutral.high }
   }
 
   ${props => props.disabled && `
@@ -82,14 +82,14 @@ export const list = css`
   z-index: ${theme.zIndex.inpage};
   max-height: ${props => props.count >= 7 ? stripUnit(sizes[props.size].heightItem) * 4.5 + 'rem' : 'auto'};
   overflow-y: auto;
-  border-bottom: 1px solid ${neutral.medium};
+  border-bottom: 1px solid ${neutral.low};
 `;
 
 export const item = css`
   color: ${neutral.highest};
   box-sizing: border-box;
   background-color: ${neutral.lowest};
-  border: 1px solid ${neutral.medium};
+  border: 1px solid ${neutral.low};
   padding: 0 ${props => sizes[props.size].sideSpace};
   height: ${props => sizes[props.size].heightItem};
   display: flex;
@@ -112,7 +112,7 @@ export const item = css`
   
   ${props => props.disabled && `
     cursor: default;
-    color: ${neutral.mediumHigh};
+    color: ${neutral.medium};
   `}
 `;
 

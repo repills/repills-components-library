@@ -58,6 +58,8 @@ class SectionSelector extends React.Component {
       selected
     } = this.state;
 
+    const count = sections.length;
+
     return (
       <ContainerQuery query={query}>
         {
@@ -70,6 +72,7 @@ class SectionSelector extends React.Component {
                   sections.map((section, index) => (
                     <ItemStyle
                       className={cx(params)}
+                      count={count}
                       key={section.id}
                     >
                       <SectionPreviewSelection

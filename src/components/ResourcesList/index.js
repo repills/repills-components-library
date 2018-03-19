@@ -23,6 +23,8 @@ function ResourcesList({
   ...others
 }) {
 
+  const count = resources.length;
+
   return (
     <ContainerQuery query={query}>
       {
@@ -36,6 +38,7 @@ function ResourcesList({
                   return (
                     <ItemStyle
                       className={cx(params)}
+                      count={count}
                       key={resource.link}
                     >
                       <ResourcePreview

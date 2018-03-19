@@ -15,6 +15,7 @@ export const icon = css`
   position: absolute;
   top: ${extRem(4)};
   left: 0;
+  color: ${neutral.high};
 `;
 
 export const title = css`
@@ -25,7 +26,7 @@ export const title = css`
 
 export const description = css`
   ${typography.small}
-  color: ${neutral.high};
+  color: ${neutral.medium};
   margin: ${extRem(4)} 0 0;
   
   a {

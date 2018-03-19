@@ -49,7 +49,7 @@ export const title = css`
 
 export const subTitle = css`
   ${typography.header4}
-  color: ${neutral.highest};
+  color: ${neutral.high};
   font-weight: 500;
   line-height: 1.2;
   margin: ${extRem(20)} 0 0;
@@ -61,7 +61,7 @@ export const subTitle = css`
 
 export const description = css`
   ${typography.body}
-  color: ${neutral.highest};
+  color: ${neutral.medium};
   line-height: 1.5;
   max-width: ${extRem(650)};
   margin: ${extRem(48)} auto 0;

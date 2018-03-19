@@ -11,13 +11,12 @@ export const base = css`
   text-align: left;
   background-color: ${neutral.lowest};
   border-top: 4px solid ${props => props.color};
-  box-shadow: 0 1px 2px 2px ${rgba(neutral.highest, 0.02)};
 `;
 
 export const mainInfo = css`
   padding: ${extRem(12,12,24)};
   background-color: ${mainColor};
-  border: 1px solid ${neutral.medium};
+  border: 1px solid ${neutral.low};
 `;
 
 export const mainInfoTop = css`
@@ -63,7 +62,7 @@ export const title = css`
 `;
 
 export const secondaryInfo = css`
-  border: 1px solid ${neutral.medium};
+  border: 1px solid ${neutral.low};
   border-top: 0;
 `;
 
@@ -86,7 +85,7 @@ export const detail = css`
   ${typography.small}
   color: ${neutral.high};
   padding: ${extRem(12)};
-  border-top: 1px dotted ${neutral.medium};
+  border-top: 1px dotted ${neutral.low};
   
   &:first-child {
     border-top: 0;
@@ -102,9 +101,9 @@ export const detail = css`
 
 export const actions = css`
   padding: ${extRem(12)};
-  border: 1px solid ${neutral.medium};
+  border: 1px solid ${neutral.low};
   margin-top: -1px;
-  background-color: ${rgba(neutral.medium,0.2)};
+  background-color: ${neutral.lower};
   display: flex;
   justify-content: space-between;
 `;

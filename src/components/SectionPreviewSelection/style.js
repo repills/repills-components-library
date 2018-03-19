@@ -12,13 +12,13 @@ export const base = css`
   box-sizing: border-box;
   text-align: center;
   padding: ${extRem(24, 16)};
-  border: 1px solid ${neutral.medium};
+  border: 1px solid ${neutral.low};
   display: flex;
   align-items: center;
   flex-direction: column;
   cursor: pointer;
   background-color: ${neutral.lowest};
-  color: ${neutral.highest};
+  color: ${neutral.high};
   position: relative;
 
   &::after {
@@ -48,6 +48,7 @@ export const icon = css`
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+  color: ${neutral.medium};
   
   ${props => props.checked && `
     color: ${status.ok};
@@ -68,6 +69,7 @@ export const selectButton = css`
   justify-content: flex-start;
   margin: ${extRem(12)} auto 0;
   width: ${extRem(140)};
+  color: ${neutral.high};
   
   span {
     margin-left: ${extRem(8)};

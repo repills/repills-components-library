@@ -8,14 +8,14 @@ const { neutral } = theme.palettes;
 
 export const base = css`
   ${typography.caption}
-  color: ${props => props.active ? props.color : neutral.highest};
+  color: ${props => props.active ? props.color : neutral.high};
   text-decoration: none;
   padding: ${extRem(12, 12, 12, 24)};
   display: flex;
   align-items: center;
   cursor: ${props => props.active ? 'default' : 'pointer'};
   position: relative;
-  border-top: 1px solid ${neutral.medium};
+  border-top: 1px solid ${neutral.low};
   user-select: none;
   
   &::after {

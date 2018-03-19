@@ -15,7 +15,7 @@ export const composition = css`
 `;
 
 export const compositionItem = css`
-  background-color: ${darken(0.04, neutral.lower)};
+  background-color: ${neutral.lower};
   height: 100%;
   width: ${props => extRem(props.width)};
   margin-right: ${extRem(2)};

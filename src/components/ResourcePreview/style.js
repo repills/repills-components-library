@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import theme from '../../config/theme';
-import { rgba, ellipsis } from 'polished';
+import { rgba, lighten, ellipsis } from 'polished';
 import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
@@ -22,8 +22,7 @@ export const base = css`
 export const mainInfo = css`
   padding: ${extRem(12)};
   background-color: ${mainColor};
-  border: 1px solid ${neutral.medium};
-  border-bottom-color: ${neutral.low};
+  border: 1px solid ${neutral.low};
   display: block;
   text-decoration: none;
   color: currentColor;
@@ -32,7 +31,7 @@ export const mainInfo = css`
 
 export const source = css`
   ${typography.mini}
-  color: ${neutral.mediumHigh};
+  color: ${neutral.medium};
   display: flex;
   align-items: center;
   line-height: 1;
@@ -84,8 +83,9 @@ export const secondaryInfo = css`
   justify-content: space-between;
   align-items: center;
   padding: ${extRem(8,12)};
-  border: 1px solid ${neutral.medium};
-  border-top: 0;
+  border: 1px solid ${neutral.low};
+  border-top-color: ${lighten(.06, neutral.low)};
+  margin-top: -1px;
 `;
 
 export const detail = css`
@@ -110,5 +110,5 @@ export const type = css`
 export const date = css`
   ${typography.mini}
   line-height: 1;
-  color: ${neutral.mediumHigh};
+  color: ${neutral.medium};
 `;
