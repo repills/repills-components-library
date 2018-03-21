@@ -82,14 +82,14 @@ class ResourcePreview extends React.Component {
             {title}
           </TitleStyle>
           <DetailStyle>
-            <TypeStyle>
+            <TypeStyle color={color}>
               <SquareFilledPillIcon
                 color={color}
                 size={16}
               />
               <span>{typeLabel}</span>
             </TypeStyle>
-            &mdash;
+            &ndash;
             {author && <AuthorStyle>by <span>{author}</span></AuthorStyle>}
           </DetailStyle>
         </MainInfoStyle>

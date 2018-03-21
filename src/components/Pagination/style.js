@@ -33,6 +33,7 @@ export const button = css`
     border: 1px solid ${basic.primary};
     position: relative;
     z-index: 1;
+    border-radius: 3px;
   `}
   
   ${props => props.disabled && `

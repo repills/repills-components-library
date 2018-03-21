@@ -33,7 +33,7 @@ export const base = css`
 
 export const overlay = css`
   ${fixedPosition}
-  background-color: ${rgba(neutral.medium, .7)};
+  background-color: ${rgba(neutral.high, .4)};
   
   ${props => props.closeOnClick && `
     cursor: pointer;

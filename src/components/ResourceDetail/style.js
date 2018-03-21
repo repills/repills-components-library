@@ -4,13 +4,12 @@ import { rgba, ellipsis } from 'polished';
 import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
-const { basic, neutral } = theme.palettes;
+const { neutral } = theme.palettes;
 const mainColor = neutral.lower;
 
 export const base = css`
   text-align: left;
   background-color: ${neutral.lowest};
-  border-top: 4px solid ${props => props.color};
 `;
 
 export const mainInfo = css`

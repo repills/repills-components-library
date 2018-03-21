@@ -28,7 +28,7 @@ export const items = css`
 export const item = css`
   box-sizing: border-box;
   
-  ${props => !props.breakpointsStatus[SM] && gridItem(props.count, 1, halfGutter, '2px')}
+  ${props => !props.breakpointsStatus[SM] && gridItem(props.count, 1, halfGutter, gutter)}
   
   ${props => props.breakpointsStatus[SM] && !props.breakpointsStatus[LG] && gridItem(props.count, 2, gutter, doubleGutter)}
   
