@@ -66,12 +66,21 @@ export const secondaryInfo = css`
 `;
 
 export const type = css`
+  ${typography.mini}
+  line-height: 1;
   display: inline-flex;
   align-items: center;
-  line-height: 1;
+  margin-right: ${extRem(8)};
+  
   
   span {
-    margin-left: ${extRem(5)};
+    color: ${neutral.lowest};
+    background-color: ${props => props.color};
+    margin-left: 1px;
+    white-space: nowrap;
+    height: ${extRem(16)};
+    line-height: ${extRem(16)};
+    padding: ${extRem(0,8)};
   }
 `;
 

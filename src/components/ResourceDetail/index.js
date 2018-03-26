@@ -62,7 +62,9 @@ function ResourceDetail({
     >
       <MainInfoStyle>
         <MainInfoTopStyle>
-          <TypeStyle>
+          <TypeStyle
+            color={color}
+          >
             <SquareFilledPillIcon
               color={color}
               size={16}
@@ -79,7 +81,7 @@ function ResourceDetail({
           {
             author &&
             <AuthorStyle>
-              by <span>{author}</span> &mdash;
+              by <span>{author}</span> &ndash;
             </AuthorStyle>
           }
           <DateStyle>Published <strong>{m(publishedAt).fromNow()}</strong></DateStyle>
@@ -131,7 +133,7 @@ function ResourceDetail({
       <ActionsStyle>
         <Button
           autoWidth
-          label="Edit resource"
+          label="Edit"
           onClick={() => {}}
           size="M"
           skin="ghost"

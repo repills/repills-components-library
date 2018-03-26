@@ -46,7 +46,7 @@ const skin = {
   },
   outline: {
     borderColor: neutral.medium,
-    color: neutral.highest,
+    color: neutral.medium,
     textTransform: 'uppercase',
     letterSpacing: '0.2em'
   }
@@ -117,5 +117,9 @@ export const base = css`
   
   &:hover {
     ${ props => !props.disabled && skinHover[props.skin] }
+  }
+  
+  & + & {
+    margin-left: ${extRem(12)};
   }
 `;
