@@ -20,9 +20,9 @@ export const base = css`
 
 export const logoContainer = css`
   background-color: ${neutral.lower};
-  padding: ${extRem(16,12)};
+  padding: ${extRem(16,0)};
   
-  a {
+  span {
     display: block;
     line-height: 0;
     margin: 0 auto;

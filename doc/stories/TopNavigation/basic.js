@@ -66,6 +66,7 @@ export default (sectionTitle, sectionDescription) => () => {
       <InteractiveExample
         component={TopNavigation}
         items={items}
+        onClickLogo={() => alert('Logo clicked')}
       />
     </SectionPage>
   );

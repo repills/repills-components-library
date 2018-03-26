@@ -28,6 +28,7 @@ const NavigationStyle = styled.nav`${navigation}`;
 
 function TopNavigation({
   items,
+  onClickLogo,
   ...others
 }) {
 
@@ -41,15 +42,14 @@ function TopNavigation({
           >
             <LogoContainerStyle
               className={cx(params)}
+              onClick={onClickLogo}
             >
-              <a
-                href="/"
-              >
+              <span>
                 <Logo
                   color={basic.primary}
                   secondaryColor={neutral.highest}
                 />
-              </a>
+              </span>
             </LogoContainerStyle>
             {
               items.length > 0 &&
@@ -86,7 +86,8 @@ TopNavigation.propTypes = {
     label: string.isRequired,
     onClick: func,
     hidden: bool
-  }))
+  })),
+  onClickLogo: func
 };
 
 TopNavigation.defaultProps = {
