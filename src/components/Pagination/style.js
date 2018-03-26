@@ -45,7 +45,7 @@ export const button = css`
     cursor: default;
   `}
   
-  ${props => !props.disabled && `
+  ${props => !props.disabled && !props.active && `
     &:hover {
       border-color: ${neutral.low};
     }
