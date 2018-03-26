@@ -8,8 +8,11 @@ const { palettes } = theme;
 const { basic, neutral } = palettes;
 
 export const base = css`
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  padding: ${extRem(12)};
+  background-color: ${neutral.lower};
   // box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
 `;
 
@@ -26,19 +29,26 @@ export const button = css`
   color: ${neutral.high};
   padding: 0;
   cursor: pointer;
-  
+  border-radius: 3px;
+  border: 2px solid transparent;
+
   ${props => props.active && `
     background-color: ${basic.primary};
     color: ${neutral.lowest};
-    border: 1px solid ${basic.primary};
     position: relative;
     z-index: 1;
-    border-radius: 3px;
+    border-color: ${basic.primary};
   `}
   
   ${props => props.disabled && `
     opacity: .4;
     cursor: default;
+  `}
+  
+  ${props => !props.disabled && `
+    &:hover {
+      border-color: ${neutral.low};
+    }
   `}
   
   &:first-child {
