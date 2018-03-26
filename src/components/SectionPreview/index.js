@@ -4,7 +4,8 @@ import * as icons from '../Icon/icons/sections';
 import {
   string,
   number,
-  func
+  func,
+  bool
 } from 'prop-types';
 import Button from '../Button';
 import {
@@ -35,6 +36,7 @@ function SectionPreview({
   navigateTo,
   resourcesCount,
   topicsCount,
+  disabled,
   ...others
 }) {
   const Icon = icon && icons[icon];
@@ -42,9 +44,11 @@ function SectionPreview({
   return (
     <BaseStyle
       {...others}
+      disabled={disabled}
     >
       <CoverStyle
-        onClick={navigateTo}
+        disabled={disabled}
+        onClick={!disabled && navigateTo}
       >
         <IconStyle>
           <Icon
@@ -54,7 +58,6 @@ function SectionPreview({
         </IconStyle>
         <NameStyle>{name}</NameStyle>
         {
-          (resourcesCount || resourcesCount) &&
           <DetailsStyle>
             {
               resourcesCount &&
@@ -75,7 +78,8 @@ function SectionPreview({
         <DescriptionStyle>{description}</DescriptionStyle>
         <div>
           <Button
-            label="Learn"
+            disabled={disabled}
+            label={disabled ? 'Coming soon' : 'Learn'}
             onClick={navigateTo}
           />
         </div>
@@ -87,6 +91,7 @@ function SectionPreview({
 SectionPreview.propTypes = {
   color: string,
   description: string,
+  disabled: bool,
   icon: string.isRequired,
   name: string.isRequired,
   navigateTo: func.isRequired,

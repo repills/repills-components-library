@@ -102,7 +102,8 @@ export function getRandomSection() {
       resourcesCount: getRandomNumber(0, 50),
       topicsCount: getRandomNumber(0, 20),
       // topicsCount: baseSection.topics.length,
-      path: `/${faker.lorem.word()}`
+      path: `/${faker.lorem.word()}`,
+      disabled: Boolean(getRandomNumber(0, 1))
     }
   );
 }
