@@ -9,6 +9,7 @@ export const base = css`
   position: relative;
   text-align: center;
   border: 1px solid ${neutral.low};
+  border-top-width: 4px;
   padding: ${extRem(20,16)};
 `;
 

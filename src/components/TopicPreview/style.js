@@ -22,6 +22,7 @@ export const base = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  ${typography.caption}
   
   ${props => props.disabled && `
     opacity: .6;
@@ -35,7 +36,6 @@ export const base = css`
 
 export const total = css`
   line-height: 1;
-  ${typography.header4}
   color: ${neutral.medium};
   flex-shrink: 1;
   padding-left: ${extRem(16)};
@@ -49,7 +49,6 @@ export const composition = css`
 `;
 
 export const title = css`
-  ${typography.caption}
   color: ${neutral.high};
   font-weight: 600;
   overflow: hidden;

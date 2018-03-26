@@ -10,7 +10,7 @@ export const base = css`
   ${typography.caption}
   color: ${props => props.active ? props.color : neutral.high};
   text-decoration: none;
-  padding: ${extRem(12, 12, 12, 24)};
+  padding: ${extRem(12, 12, 12, 20)};
   display: flex;
   align-items: center;
   cursor: ${props => props.active ? 'default' : 'pointer'};
@@ -25,7 +25,7 @@ export const base = css`
     top: -1px;
     left: 0;
     bottom: 0;
-    width: ${extRem(8)};
+    width: ${extRem(4)};
   }
 `;
 
