@@ -26,6 +26,7 @@ export const logoContainer = css`
     display: block;
     line-height: 0;
     margin: 0 auto;
+    cursor: pointer;
     width: ${extRem(150)};
   }
 
@@ -33,8 +34,8 @@ export const logoContainer = css`
     padding: 0;
     background-color: transparent;
     
-    a {
-      width: ${extRem(220)};
+    span {
+      width: ${extRem(180)};
     }
   }
 `;
