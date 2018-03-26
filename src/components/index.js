@@ -31,6 +31,7 @@ export Select from './Select';
 export ShareBar from './ShareBar';
 export SocialShare from './SocialShare';
 export StepBox from './StepBox';
+export TileCta from './TileCta';
 export CompositionBar from './CompositionBar';
 export TextField from './TextField';
 export TextFieldWithSuggestions from './TextFieldWithSuggestions';
