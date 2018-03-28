@@ -35,13 +35,16 @@ const Counter = ({
           <CountStyle>{count}</CountStyle>
           <LabelStyle>{label}</LabelStyle>
         </BoxStyle>
-        <BoxStyle>
-          <CompositionChart
-            barWidth={8}
-            maxHeight={44}
-            stats={stats}
-          />
-        </BoxStyle>
+        {
+          stats &&
+          <BoxStyle>
+            <CompositionChart
+              barWidth={8}
+              maxHeight={44}
+              stats={stats}
+            />
+          </BoxStyle>
+        }
       </ContentStyle>
     </BaseStyle>
   );

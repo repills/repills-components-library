@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionPage, InteractiveExample } from '../../components';
 import { Counter } from '../../../src/components';
-import { text, number } from '@storybook/addon-knobs/react';
+import { text, number, boolean } from '@storybook/addon-knobs/react';
 import { getResourcesStats } from '../../../src/utils';
 import { getRandomTopic } from '../../utils/fixtures';
 
@@ -16,7 +16,12 @@ export default (sectionTitle, sectionDescription) => () => {
     })
   });
 
-  const stats = getResourcesStats(randomTopic.resources, true);
+  const options = {};
+  const showStats = boolean('Show Stats', true);
+
+  if (showStats) {
+    options['stats'] = getResourcesStats(randomTopic.resources, true);
+  }
 
   return (
     <SectionPage
@@ -27,7 +32,7 @@ export default (sectionTitle, sectionDescription) => () => {
         component={Counter}
         count={number('Count', 12)}
         label={text('Label', 'total pills')}
-        stats={stats}
+        {...options}
       />
     </SectionPage>
   );

@@ -11,18 +11,20 @@ export const base = css``;
 export const content = css`
   ${grid()}
   align-items: center;
+  justify-content: center;
 `;
 
 export const box = css`
   ${grid.unit({ size: 1/2 })}
-  
+  border-right: 1px solid ${neutral.low};
+
   &:first-child {
-    border-right: 1px solid ${neutral.low};
     padding-right: ${extRem(12)};
   }
   
   &:last-child {
     padding-left: ${extRem(12)};
+    border-right-width: 0;
   }
 `;
 
