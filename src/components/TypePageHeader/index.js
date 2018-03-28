@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   string,
-  func
+  func,
+  number
 } from 'prop-types';
 import * as sectionsIcons from '../Icon/icons/types';
 import { ContainerQuery } from 'react-container-query';
@@ -29,6 +30,7 @@ const SectionName = ({ topicAction, topicName }) => (
 
 const TypePageHeader = ({
   color,
+  count,
   icon,
   topicName,
   topicAction,
@@ -61,7 +63,7 @@ const TypePageHeader = ({
               <TitleStyle
                 breakpointsStatus={params}
               >
-                <span>{typeName} {
+                <span><strong>{count}</strong> {count === 1 ? typeName.singular : typeName.plural} {
                   topicName &&
                   <SectionName
                     topicAction={topicAction}
@@ -79,10 +81,14 @@ const TypePageHeader = ({
 
 TypePageHeader.propTypes = {
   color: string.isRequired,
+  count: number.isRequired,
   icon: string.isRequired,
   topicAction: func,
   topicName: string,
-  typeName: string.isRequired
+  typeName: {
+    plural: string.isRequired,
+    singular: string.isRequired
+  }.isRequired
 };
 
 export default TypePageHeader;
