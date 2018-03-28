@@ -3,7 +3,7 @@ import { extRem } from '../../utils';
 import { gridItem } from '../../shared/styles';
 import { SM, LG } from '../../config/breakpoints';
 
-const halfGutterStripUnit = 8;
+const halfGutterStripUnit = 6;
 const gutter = extRem(halfGutterStripUnit * 2);
 const halfGutter = extRem(halfGutterStripUnit);
 

@@ -86,6 +86,7 @@ export const secondaryInfo = css`
   border: 1px solid ${neutral.low};
   border-top-color: ${lighten(.06, neutral.low)};
   margin-top: -1px;
+  line-height: 1;
 `;
 
 export const detail = css`
@@ -100,7 +101,6 @@ export const type = css`
   display: inline-flex;
   align-items: center;
   margin-right: ${extRem(8)};
-  
   
   span {
     color: ${neutral.lowest};

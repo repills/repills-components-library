@@ -54,7 +54,7 @@ export const icon = css`
 export const description = css`
   ${typography.body}
   color: ${neutral.medium};
-  margin: ${extRem(24)} 0 0;
+  margin: ${extRem(8)} 0 0;
   line-height: 1.5;
   max-width: ${extRem(500)};
 `;
