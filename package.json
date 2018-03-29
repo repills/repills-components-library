@@ -24,7 +24,7 @@
     "react-dom": "^16.2.0",
     "react-element-to-jsx-string": "^13.1.0",
     "react-syntax-highlighter": "^7.0.0",
-    "repills-config": "git+https://github.com/repills/repills-config.git#1.4.1",
+    "repills-config": "git+https://github.com/repills/repills-config.git#1.5.0",
     "simple-pagination": "^1.0.0",
     "styled-components": "^2.4.0",
     "styled-components-grid": "^1.0.0-preview.15"
