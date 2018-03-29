@@ -2,7 +2,8 @@ import React from 'react';
 import {
   string,
   func,
-  number
+  number,
+  shape
 } from 'prop-types';
 import * as sectionsIcons from '../Icon/icons/types';
 import { ContainerQuery } from 'react-container-query';
@@ -85,10 +86,10 @@ TypePageHeader.propTypes = {
   icon: string.isRequired,
   topicAction: func,
   topicName: string,
-  typeName: {
+  typeName: shape({
     plural: string.isRequired,
     singular: string.isRequired
-  }.isRequired
+  }).isRequired
 };
 
 export default TypePageHeader;
