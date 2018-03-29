@@ -33,7 +33,7 @@ export const cover = css`
 export const info = css`
   border: 1px solid ${neutral.low};
   border-top: 0;
-  padding: ${extRem(20,16)};
+  padding: ${extRem(20,16,28)};
 `;
 
 export const name = css`
@@ -46,7 +46,7 @@ export const name = css`
 export const description = css`
   ${typography.small}
   color: ${neutral.medium};
-  margin: 0;
+  margin: 0 0 ${extRem(20)};
   height: ${extRem(80)};
   overflow: hidden;
   position: relative;
