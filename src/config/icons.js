@@ -65,6 +65,14 @@ export default {
     {
       id: 'React',
       name: 'React'
+    },
+    {
+      id: 'Redux',
+      name: 'Redux'
+    },
+    {
+      id: 'Node',
+      name: 'Node'
     }
   ],
   social: [
