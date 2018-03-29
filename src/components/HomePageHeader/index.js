@@ -43,7 +43,7 @@ const HomePageHeader = ({
                     index={i}
                     key={`pill-${i}`}
                   >
-                    <SquareFilledPillIcon size={i === 2 ? 100 : 60} />
+                    <SquareFilledPillIcon size={i === 2 ? 90 : 50} />
                   </PillStyle>
                 ))
               }

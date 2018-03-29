@@ -43,6 +43,7 @@ export const title = css`
   color: ${neutral.highest};
   margin: ${extRem(32)} 0 0;
   line-height: 1.1;
+  font-weight: 600;
   
   ${props => props.breakpointsStatus[MD] && typography.header1}
 `;
