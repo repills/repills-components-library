@@ -8,7 +8,7 @@ import {
   shape,
   string,
   func,
-  obj
+  object
 } from 'prop-types';
 import styled from 'styled-components';
 import { ContainerQuery } from 'react-container-query';
@@ -23,7 +23,7 @@ const ActionsStyle = styled.div`${actions}`;
 class ResourcesListWithDetail extends React.Component {
 
     static propTypes = {
-      breaks: obj,
+      breaks: object,
       dateType: string,
       handleDetailView: func,
       navigateToSection: func,
@@ -115,6 +115,7 @@ class ResourcesListWithDetail extends React.Component {
               <BaseStyle
                 {...others}
               >
+                {Object.keys(params).length > 0} &&
                 <ItemsStyle
                   breakpointsStatus={params}
                 >
