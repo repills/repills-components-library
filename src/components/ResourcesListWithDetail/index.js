@@ -2,39 +2,46 @@ import React from 'react';
 import ResourcePreview from '../ResourcePreview';
 import ResourceDetail from '../ResourceDetail';
 import Modal from '../Modal';
-import cx from 'classnames';
+import Button from '../Button';
 import {
   arrayOf,
   shape,
   string,
-  func
+  func,
+  obj
 } from 'prop-types';
 import styled from 'styled-components';
 import { ContainerQuery } from 'react-container-query';
-import { query } from '../../config/breakpoints';
-import { base, items, item } from './style';
+import { query, queryList } from '../../config/breakpoints';
+import { base, items, item, actions } from './style';
 
 const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
 const ItemStyle = styled.div`${item}`;
+const ActionsStyle = styled.div`${actions}`;
 
 class ResourcesListWithDetail extends React.Component {
 
-  static propTypes = {
-    dateType: string,
-    handleDetailView: func,
-    navigateToSection: func,
-    navigateToTopic: func,
-    resources: arrayOf(shape(ResourcePreview.propTypes)).isRequired
-  };
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      showDetailModal: false,
-      currentResource: null
+    static propTypes = {
+      breaks: obj,
+      dateType: string,
+      handleDetailView: func,
+      navigateToSection: func,
+      navigateToTopic: func,
+      resources: arrayOf(shape(ResourcePreview.propTypes)).isRequired,
+      showAllAction: shape({
+        onClick: func.isRequired
+      }),
     };
-  }
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        showDetailModal: false,
+        currentResource: null,
+        showEntireList: false
+      };
+    }
 
   onHandleDetailView = ({ reference }) => {
     const {
@@ -48,6 +55,37 @@ class ResourcesListWithDetail extends React.Component {
 
   closeDetailModal = () => this.setState({ showDetailModal: false, currentResource: null });
 
+  getCurrentBreakPoint = statusBreakpoints => {
+    let current = null;
+
+    queryList.forEach(b => {
+      if (statusBreakpoints[b]) {
+        current = b;
+      }
+    });
+
+    return current;
+  };
+
+  getShowedResources = ({ currentBreakpoint }) => {
+    const {
+      breaks,
+      resources
+    } = this.props;
+
+    const {
+      showEntireList
+    } = this.state;
+
+    if (breaks && !showEntireList) {
+      if (currentBreakpoint && breaks[currentBreakpoint]) {
+        return resources.slice(0, breaks[currentBreakpoint]);
+      }
+    }
+
+    return resources;
+  };
+
   render() {
 
     const {
@@ -55,6 +93,7 @@ class ResourcesListWithDetail extends React.Component {
       dateType,
       navigateToSection,
       navigateToTopic,
+      showAllAction,
       ...others
     } = this.props;
 
@@ -68,48 +107,73 @@ class ResourcesListWithDetail extends React.Component {
     return (
       <ContainerQuery query={query}>
         {
-          params => (
-            <BaseStyle
-              {...others}
-            >
-              <ItemsStyle
-                breakpointsStatus={params}
+          params => {
+            const currentBreakpoint = this.getCurrentBreakPoint(params);
+            const showedResources = this.getShowedResources({ currentBreakpoint });
+
+            return (
+              <BaseStyle
+                {...others}
               >
+                <ItemsStyle
+                  breakpointsStatus={params}
+                >
+                  {
+                    showedResources.map(resource => {
+                      return (
+                        <ItemStyle
+                          breakpointsStatus={params}
+                          count={count}
+                          key={resource.link}
+                        >
+                          <ResourcePreview
+                            {...resource}
+                            dateType={dateType}
+                            handleDetailView={this.onHandleDetailView}
+                          />
+                        </ItemStyle>
+                      );
+                    })
+                  }
+                </ItemsStyle>
                 {
-                  resources.map(resource => {
-                    return (
-                      <ItemStyle
-                        breakpointsStatus={params}
-                        count={count}
-                        key={resource.link}
-                      >
-                        <ResourcePreview
-                          {...resource}
-                          dateType={dateType}
-                          handleDetailView={this.onHandleDetailView}
-                        />
-                      </ItemStyle>
-                    );
-                  })
-                }
-              </ItemsStyle>
-              <Modal
-                handleClose={this.closeDetailModal}
-                open={showDetailModal}
-              >
-                {
-                  currentResource ?
-                    <ResourceDetail
-                      {...currentResource}
-                      navigateTo={this.handleNavigateTo(currentResource.link)}
-                      navigateToSection={navigateToSection}
-                      navigateToTopic={navigateToTopic}
+                  resources.length > showedResources.length &&
+                  <ActionsStyle>
+                    <Button
+                      expanded={currentBreakpoint === 'XS'}
+                      label="Show more"
+                      onClick={() => this.setState({ showEntireList: true })}
                     />
-                    : <div />
+                  </ActionsStyle>
                 }
-              </Modal>
-            </BaseStyle>
-          )
+                {
+                  (showAllAction && resources.length === showedResources.length) &&
+                  <ActionsStyle>
+                    <Button
+                      expanded={currentBreakpoint === 'XS'}
+                      label="Show All"
+                      onClick={showAllAction.onClick}
+                    />
+                  </ActionsStyle>
+                }
+                <Modal
+                  handleClose={this.closeDetailModal}
+                  open={showDetailModal}
+                >
+                  {
+                    currentResource ?
+                      <ResourceDetail
+                        {...currentResource}
+                        navigateTo={this.handleNavigateTo(currentResource.link)}
+                        navigateToSection={navigateToSection}
+                        navigateToTopic={navigateToTopic}
+                      />
+                      : <div />
+                  }
+                </Modal>
+              </BaseStyle>
+            );
+          }
         }
       </ContainerQuery>
     );

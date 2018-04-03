@@ -34,3 +34,7 @@ export const item = css`
   
   ${props => props.breakpointsStatus[LG] && gridItem(props.count, 3, gutter, doubleGutter)}
 `;
+
+export const actions = css`
+  margin-top: ${extRem(32)};
+`;

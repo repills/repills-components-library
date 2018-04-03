@@ -14,8 +14,12 @@ export default (sectionTitle, sectionDescription) => () => {
       title={sectionTitle}
     >
       <InteractiveExample
+        breaks={{ XS: 4, SM: 6 }}
         component={TopicsList}
         navigateTo={navigateTo}
+        showAllAction={{
+          onClick: () => alert('Clicked on Show all button')
+        }}
         topics={getRandomTopicList(number('Resources', 6, {
           min: 1,
           max: 12,
