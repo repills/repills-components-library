@@ -29,6 +29,7 @@ export SectionPreviewSelection from './SectionPreviewSelection';
 export SectionSelector from './SectionSelector';
 export SectionsList from './SectionsList';
 export Select from './Select';
+export Spinner from './Spinner';
 export ShareBar from './ShareBar';
 export SocialShare from './SocialShare';
 export StepBox from './StepBox';

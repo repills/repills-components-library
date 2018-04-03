@@ -6,6 +6,7 @@ import {
   shape
 } from 'prop-types';
 import styled from 'styled-components';
+import Spinner from '../Spinner';
 import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
 import { items, item } from './style';
@@ -22,32 +23,40 @@ function SectionsList({
   return (
     <ContainerQuery query={query}>
       {
-        params => (
-          <div
-            {...others}
-          >
-            <ItemsStyle
-              breakpointsStatus={params}
+        params => {
+          const loading = Object.keys(params).length === 0;
+
+          return (
+            <div
+              {...others}
             >
+              { loading && <Spinner /> }
               {
-                sections.map(section => {
-                  return (
-                    <ItemStyle
-                      breakpointsStatus={params}
-                      count={count}
-                      key={section.id}
-                    >
-                      <SectionPreview
-                        navigateTo={() => navigateTo(section.path)}
-                        {...section}
-                      />
-                    </ItemStyle>
-                  );
-                })
+                !loading &&
+                <ItemsStyle
+                  breakpointsStatus={params}
+                >
+                  {
+                    sections.map(section => {
+                      return (
+                        <ItemStyle
+                          breakpointsStatus={params}
+                          count={count}
+                          key={section.id}
+                        >
+                          <SectionPreview
+                            navigateTo={() => navigateTo(section.path)}
+                            {...section}
+                          />
+                        </ItemStyle>
+                      );
+                    })
+                  }
+                </ItemsStyle>
               }
-            </ItemsStyle>
-          </div>
-        )}
+            </div>
+          );
+        }}
     </ContainerQuery>
   );
 }

@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
 import { SquareFilledPillIcon } from '../Icon/icons/basic';
+import Spinner from '../Spinner';
+
 import {
   base,
   pillsAnimation,
@@ -32,33 +34,43 @@ const HomePageHeader = ({
   return (
     <ContainerQuery query={query}>
       {
-        params => (
-          <BaseStyle
-            {...others}
-          >
-            <PillsAnimationStyle>
+        params => {
+          const loading = Object.keys(params).length === 0;
+
+          return (
+            <BaseStyle
+              {...others}
+            >
+              { loading && <Spinner /> }
               {
-                [1, 2, 3].map(i => (
-                  <PillStyle
-                    index={i}
-                    key={`pill-${i}`}
-                  >
-                    <SquareFilledPillIcon size={i === 2 ? 90 : 50} />
-                  </PillStyle>
-                ))
+                !loading &&
+                <div>
+                  <PillsAnimationStyle>
+                    {
+                      [1, 2, 3].map(i => (
+                        <PillStyle
+                          index={i}
+                          key={`pill-${i}`}
+                        >
+                          <SquareFilledPillIcon size={i === 2 ? 90 : 50} />
+                        </PillStyle>
+                      ))
+                    }
+                  </PillsAnimationStyle>
+                  <TitleStyle breakpointsStatus={params}>{title}</TitleStyle>
+                  {
+                    subTitle &&
+                    <SubTitleStyle>{subTitle}</SubTitleStyle>
+                  }
+                  {
+                    description &&
+                    <DescriptionStyle>{description}</DescriptionStyle>
+                  }
+                </div>
               }
-            </PillsAnimationStyle>
-            <TitleStyle breakpointsStatus={params}>{title}</TitleStyle>
-            {
-              subTitle &&
-              <SubTitleStyle>{subTitle}</SubTitleStyle>
-            }
-            {
-              description &&
-              <DescriptionStyle>{description}</DescriptionStyle>
-            }
-          </BaseStyle>
-        )
+            </BaseStyle>
+          );
+        }
       }
     </ContainerQuery>
   );

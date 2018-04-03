@@ -4,10 +4,10 @@ import {
   arrayOf,
   shape
 } from 'prop-types';
-import cx from 'classnames';
 import styled from 'styled-components';
 import { ContainerQuery } from 'react-container-query';
 import FeatureItem from '../FeatureItem';
+import Spinner from '../Spinner';
 import { query } from '../../config/breakpoints';
 import {
   base,
@@ -29,27 +29,35 @@ const FeatureList = ({
   return (
     <ContainerQuery query={query}>
       {
-        params => (
-          <BaseStyle
-            {...others}
-          >
-            <ItemsStyle breakpointsStatus={params}>
+        params => {
+          const loading = Object.keys(params).length === 0;
+
+          return (
+            <BaseStyle
+              {...others}
+            >
+              { loading && <Spinner /> }
               {
-                features.map((feature,i) => (
-                  <ItemStyle
-                    breakpointsStatus={params}
-                    count={count}
-                    key={`feature-${i}`}
-                  >
-                    <FeatureItem
-                      {...feature}
-                    />
-                  </ItemStyle>
-                ))
+                !loading &&
+                <ItemsStyle breakpointsStatus={params}>
+                  {
+                    features.map((feature,i) => (
+                      <ItemStyle
+                        breakpointsStatus={params}
+                        count={count}
+                        key={`feature-${i}`}
+                      >
+                        <FeatureItem
+                          {...feature}
+                        />
+                      </ItemStyle>
+                    ))
+                  }
+                </ItemsStyle>
               }
-            </ItemsStyle>
-          </BaseStyle>
-        )}
+            </BaseStyle>
+          );
+        }}
     </ContainerQuery>
   );
 };

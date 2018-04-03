@@ -4,7 +4,9 @@ import {
 } from 'prop-types';
 import * as sectionsIcons from '../Icon/icons/sections';
 import { ContainerQuery } from 'react-container-query';
-import { SM, query } from '../../config/breakpoints';
+import { query } from '../../config/breakpoints';
+import Spinner from '../Spinner';
+
 import styled from 'styled-components';
 import {
   base,
@@ -36,39 +38,49 @@ const SectionPageHeader = ({
   return (
     <ContainerQuery query={query}>
       {
-        params => (
-          <BaseStyle
-            {...others}
-            breakpointsStatus={params}
-          >
-            <MainStyle
+        params => {
+          const loading = Object.keys(params).length === 0;
+
+          return (
+            <BaseStyle
+              {...others}
               breakpointsStatus={params}
             >
+              { loading && <Spinner /> }
               {
-                Icon &&
-                <IconStyle
-                  breakpointsStatus={params}
-                  color={color}
-                >
-                  <Icon size={90} />
-                </IconStyle>
+                !loading &&
+                <div>
+                  <MainStyle
+                    breakpointsStatus={params}
+                  >
+                    {
+                      Icon &&
+                      <IconStyle
+                        breakpointsStatus={params}
+                        color={color}
+                      >
+                        <Icon size={90} />
+                      </IconStyle>
+                    }
+                    {
+                      label &&
+                      <LabelStyle>{label}</LabelStyle>
+                    }
+                    <TitleStyle
+                      breakpointsStatus={params}
+                    >
+                      {title}
+                    </TitleStyle>
+                  </MainStyle>
+                  {
+                    description &&
+                    <DescriptionStyle icon={icon}>{description}</DescriptionStyle>
+                  }
+                </div>
               }
-              {
-                label &&
-                <LabelStyle>{label}</LabelStyle>
-              }
-              <TitleStyle
-                breakpointsStatus={params}
-              >
-                {title}
-              </TitleStyle>
-            </MainStyle>
-            {
-              description &&
-              <DescriptionStyle icon={icon}>{description}</DescriptionStyle>
-            }
-          </BaseStyle>
-        )
+            </BaseStyle>
+          );
+        }
       }
     </ContainerQuery>
   );

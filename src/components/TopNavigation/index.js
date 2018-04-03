@@ -12,6 +12,7 @@ import cx from 'classnames';
 import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
 import Logo from '../Logo';
+import Spinner from '../Spinner';
 
 const { basic, neutral } = theme.palettes;
 
@@ -35,46 +36,56 @@ function TopNavigation({
   return (
     <ContainerQuery query={query}>
       {
-        params => (
-          <BaseStyle
-            {...others}
-            className={cx(params)}
-          >
-            <LogoContainerStyle
+        params => {
+          const loading = Object.keys(params).length === 0;
+
+          return (
+            <BaseStyle
+              {...others}
               className={cx(params)}
-              onClick={onClickLogo}
             >
-              <span>
-                <Logo
-                  color={basic.primary}
-                  secondaryColor={neutral.highest}
-                />
-              </span>
-            </LogoContainerStyle>
-            {
-              items.length > 0 &&
-              <NavigationStyle
-                className={cx(params)}
-              >
-                {
-                  items.filter(i => !i.hidden).map((item,i) => {
+              { loading && <Spinner /> }
+              {
+                !loading &&
+                <div>
+                  <LogoContainerStyle
+                    className={cx(params)}
+                    onClick={onClickLogo}
+                  >
+                    <span>
+                      <Logo
+                        color={basic.primary}
+                        secondaryColor={neutral.highest}
+                      />
+                    </span>
+                  </LogoContainerStyle>
+                  {
+                    items.length > 0 &&
+                    <NavigationStyle
+                      className={cx(params)}
+                    >
+                      {
+                        items.filter(i => !i.hidden).map((item, i) => {
 
-                    const NavigationItemStyle = styled[(item.href ? 'a' : 'div')]`${navigationItem}`;
+                          const NavigationItemStyle = styled[(item.href ? 'a' : 'div')]`${navigationItem}`;
 
-                    return (
-                      <NavigationItemStyle
-                        key={`item-${i}`}
-                        {...item}
-                      >
-                        {item.label}
-                      </NavigationItemStyle>
-                    );
-                  })
-                }
-              </NavigationStyle>
-            }
-          </BaseStyle>
-        )
+                          return (
+                            <NavigationItemStyle
+                              key={`item-${i}`}
+                              {...item}
+                            >
+                              {item.label}
+                            </NavigationItemStyle>
+                          );
+                        })
+                      }
+                    </NavigationStyle>
+                  }
+                </div>
+              }
+            </BaseStyle>
+          );
+        }
       }
     </ContainerQuery>
   );

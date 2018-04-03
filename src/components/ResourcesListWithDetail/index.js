@@ -3,6 +3,7 @@ import ResourcePreview from '../ResourcePreview';
 import ResourceDetail from '../ResourceDetail';
 import Modal from '../Modal';
 import Button from '../Button';
+import Spinner from '../Spinner';
 import {
   arrayOf,
   shape,
@@ -110,13 +111,15 @@ class ResourcesListWithDetail extends React.Component {
           params => {
             const currentBreakpoint = this.getCurrentBreakPoint(params);
             const showedResources = this.getShowedResources({ currentBreakpoint });
+            const loading = Object.keys(params).length === 0;
 
             return (
               <BaseStyle
                 {...others}
               >
+                { loading && <Spinner /> }
                 {
-                  Object.keys(params).length > 0 &&
+                  !loading &&
                   <div>
                     <ItemsStyle
                       breakpointsStatus={params}

@@ -11,6 +11,7 @@ import { ContainerQuery } from 'react-container-query';
 import Button from '../Button';
 import { query, queryList } from '../../config/breakpoints';
 import { base, items, item, actions } from './style';
+import Spinner from '../Spinner';
 
 const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
@@ -81,48 +82,55 @@ class TopicsList extends React.Component {
           params => {
             const currentBreakpoint = this.getCurrentBreakPoint(params);
             const showedTopics = this.getShowedTopics({ currentBreakpoint });
+            const loading = Object.keys(params).length === 0;
 
             return (
               <BaseStyle
                 {...others}
               >
-                <ItemsStyle
-                  breakpointsStatus={params}
-                >
-                  {
-                    showedTopics.map(topic => (
-                      <ItemStyle
-                        breakpointsStatus={params}
-                        count={count}
-                        key={topic.slug}
-                      >
-                        <TopicPreview
-                          navigateTo={() => navigateTo(topic.path)}
-                          {...topic}
+                { loading && <Spinner /> }
+                {
+                  !loading &&
+                  <div>
+                    <ItemsStyle
+                      breakpointsStatus={params}
+                    >
+                      {
+                        showedTopics.map(topic => (
+                          <ItemStyle
+                            breakpointsStatus={params}
+                            count={count}
+                            key={topic.slug}
+                          >
+                            <TopicPreview
+                              navigateTo={() => navigateTo(topic.path)}
+                              {...topic}
+                            />
+                          </ItemStyle>
+                        ))
+                      }
+                    </ItemsStyle>
+                    {
+                      topics.length > showedTopics.length &&
+                      <ActionsStyle>
+                        <Button
+                          expanded={currentBreakpoint === 'XS'}
+                          label="Show more"
+                          onClick={() => this.setState({ showEntireList: true })}
                         />
-                      </ItemStyle>
-                    ))
-                  }
-                </ItemsStyle>
-                {
-                  topics.length > showedTopics.length &&
-                  <ActionsStyle>
-                    <Button
-                      expanded={currentBreakpoint === 'XS'}
-                      label="Show more"
-                      onClick={() => this.setState({ showEntireList: true })}
-                    />
-                  </ActionsStyle>
-                }
-                {
-                  (showAllAction && topics.length === showedTopics.length) &&
-                  <ActionsStyle>
-                    <Button
-                      expanded={currentBreakpoint === 'XS'}
-                      label="Show All"
-                      onClick={showAllAction.onClick}
-                    />
-                  </ActionsStyle>
+                      </ActionsStyle>
+                    }
+                    {
+                      (showAllAction && topics.length === showedTopics.length) &&
+                      <ActionsStyle>
+                        <Button
+                          expanded={currentBreakpoint === 'XS'}
+                          label="Show All"
+                          onClick={showAllAction.onClick}
+                        />
+                      </ActionsStyle>
+                    }
+                  </div>
                 }
               </BaseStyle>
             );
