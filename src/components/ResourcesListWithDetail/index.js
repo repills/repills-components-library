@@ -115,63 +115,67 @@ class ResourcesListWithDetail extends React.Component {
               <BaseStyle
                 {...others}
               >
-                {Object.keys(params).length > 0} &&
-                <ItemsStyle
-                  breakpointsStatus={params}
-                >
-                  {
-                    showedResources.map(resource => {
-                      return (
-                        <ItemStyle
-                          breakpointsStatus={params}
-                          count={count}
-                          key={resource.link}
-                        >
-                          <ResourcePreview
-                            {...resource}
-                            dateType={dateType}
-                            handleDetailView={this.onHandleDetailView}
+                {
+                  Object.keys(params).length > 0 &&
+                  <div>
+                    <ItemsStyle
+                      breakpointsStatus={params}
+                    >
+                      {
+                        showedResources.map(resource => {
+                          return (
+                            <ItemStyle
+                              breakpointsStatus={params}
+                              count={count}
+                              key={resource.link}
+                            >
+                              <ResourcePreview
+                                {...resource}
+                                dateType={dateType}
+                                handleDetailView={this.onHandleDetailView}
+                              />
+                            </ItemStyle>
+                          );
+                        })
+                      }
+                    </ItemsStyle>
+                    {
+                      resources.length > showedResources.length &&
+                      <ActionsStyle>
+                        <Button
+                          expanded={currentBreakpoint === 'XS'}
+                          label="Show more"
+                          onClick={() => this.setState({showEntireList: true})}
+                        />
+                      </ActionsStyle>
+                    }
+                    {
+                      (showAllAction && resources.length === showedResources.length) &&
+                      <ActionsStyle>
+                        <Button
+                          expanded={currentBreakpoint === 'XS'}
+                          label="Show All"
+                          onClick={showAllAction.onClick}
+                        />
+                      </ActionsStyle>
+                    }
+                    <Modal
+                      handleClose={this.closeDetailModal}
+                      open={showDetailModal}
+                    >
+                      {
+                        currentResource ?
+                          <ResourceDetail
+                            {...currentResource}
+                            navigateTo={this.handleNavigateTo(currentResource.link)}
+                            navigateToSection={navigateToSection}
+                            navigateToTopic={navigateToTopic}
                           />
-                        </ItemStyle>
-                      );
-                    })
-                  }
-                </ItemsStyle>
-                {
-                  resources.length > showedResources.length &&
-                  <ActionsStyle>
-                    <Button
-                      expanded={currentBreakpoint === 'XS'}
-                      label="Show more"
-                      onClick={() => this.setState({ showEntireList: true })}
-                    />
-                  </ActionsStyle>
+                          : <div />
+                      }
+                    </Modal>
+                  </div>
                 }
-                {
-                  (showAllAction && resources.length === showedResources.length) &&
-                  <ActionsStyle>
-                    <Button
-                      expanded={currentBreakpoint === 'XS'}
-                      label="Show All"
-                      onClick={showAllAction.onClick}
-                    />
-                  </ActionsStyle>
-                }
-                <Modal
-                  handleClose={this.closeDetailModal}
-                  open={showDetailModal}
-                >
-                  {
-                    currentResource ?
-                      <ResourceDetail
-                        {...currentResource}
-                        navigateTo={this.handleNavigateTo(currentResource.link)}
-                        navigateToSection={navigateToSection}
-                        navigateToTopic={navigateToTopic}
-                      />
-                      : <div />
-                  }
-                </Modal>
               </BaseStyle>
             );
           }
