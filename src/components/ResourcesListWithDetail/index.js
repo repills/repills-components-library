@@ -24,7 +24,7 @@ class ResourcesListWithDetail extends React.Component {
 
     static propTypes = {
       breaks: object,
-      dateType: string,
+      dateType: string,yar
       handleDetailView: func,
       navigateToSection: func,
       navigateToTopic: func,
