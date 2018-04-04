@@ -50,7 +50,6 @@ export const wrapper = css`
 
 export const modal = css`
  box-sizing: border-box;
- background-color: ${neutral.lowest};
  position: relative;
  width: 100%;
  z-index: 2;
@@ -62,7 +61,7 @@ export const content = css`
 `;
 
 export const header = css`
-  padding: ${extRem(12)};
+  padding-bottom: ${extRem(12)};
   height: ${extRem(40)};
   display: flex;
   justify-content: flex-end;
@@ -70,11 +69,11 @@ export const header = css`
 `;
 
 export const body = css`
+  background-color: ${neutral.lowest};
   box-sizing: border-box;
   max-height: calc(100vh - ${extRem(180)});
   overflow-y: auto;
   margin: 0 auto;
-  padding: ${extRem(12)};
   width: 100%;
 `;
 

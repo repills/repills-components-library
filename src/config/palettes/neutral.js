@@ -1,3 +1,4 @@
+// import { lighten, darken } from 'polished';
 const highest = '#2a2a2a';
 const lowest = '#fff';
 
@@ -12,7 +13,7 @@ export default {
     {
       id: 'lower',
       name: 'Lower',
-      value: '#f7f5f3' // lighten(.85, highest)
+      value: '#f9f8f6'
     },
     {
       id: 'low',

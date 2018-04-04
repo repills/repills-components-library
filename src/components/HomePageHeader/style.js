@@ -2,7 +2,7 @@ import { css, keyframes } from 'styled-components';
 import { extRem } from '../../utils';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
-import { MD } from '../../config/breakpoints';
+import { MD, LG } from '../../config/breakpoints';
 
 const { basic, types, neutral } = theme.palettes;
 
@@ -34,14 +34,19 @@ const pillSettings = {
 };
 
 export const base = css`
-  padding: ${extRem(60)} 0;
-  text-align: center;
+  padding: ${extRem(50)} 0;
+  text-align: left;
+  
+  ${props => props.breakpointsStatus[MD] && `
+    text-align: center;
+    padding: ${extRem(70)} 0;
+  `}
 `;
 
 export const title = css`
   ${typography.header2}
   color: ${neutral.high};
-  margin: ${extRem(32)} 0 0;
+  margin: 0;
   line-height: 1.1;
   font-weight: 600;
   
@@ -49,7 +54,11 @@ export const title = css`
     color: ${basic.primary};
   }
   
-  ${props => props.breakpointsStatus[MD] && typography.header1}
+  ${props => props.breakpointsStatus[LG] && typography.header1 }
+  
+  ${props => props.breakpointsStatus[MD] && `
+    margin-top: ${extRem(32)};
+  `}
 `;
 
 export const subTitle = css`
@@ -73,9 +82,13 @@ export const description = css`
 `;
 
 export const pillsAnimation = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: none;
+  
+  ${props => props.breakpointsStatus[MD] && `
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `}
 `;
 
 export const pill = css`

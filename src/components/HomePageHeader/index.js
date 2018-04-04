@@ -39,13 +39,14 @@ const HomePageHeader = ({
 
           return (
             <BaseStyle
+              breakpointsStatus={params}
               {...others}
             >
               { loading && <Spinner /> }
               {
                 !loading &&
                 <div>
-                  <PillsAnimationStyle>
+                  <PillsAnimationStyle breakpointsStatus={params}>
                     {
                       [1, 2, 3].map(i => (
                         <PillStyle

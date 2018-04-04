@@ -13,7 +13,7 @@ export const base = css`
 `;
 
 export const mainInfo = css`
-  padding: ${extRem(12,12,24)};
+  padding: ${extRem(20)};
   background-color: ${mainColor};
 `;
 
@@ -55,7 +55,8 @@ export const author = css`
 export const title = css`
   ${typography.header4}
   color: ${neutral.highest};
-  margin: ${extRem(16, 0)};
+  margin: ${extRem(20, 0, 12)};
+  line-height: 1.3;
   cursor: pointer;
 `;
 
@@ -91,7 +92,7 @@ export const date = css`
 export const detail = css`
   ${typography.small}
   color: ${neutral.high};
-  padding: ${extRem(12)};
+  padding: ${extRem(16,20)};
   border-top: 1px solid ${neutral.lower};
   
   &:first-child {
@@ -107,7 +108,7 @@ export const detail = css`
 `;
 
 export const actions = css`
-  padding: ${extRem(12)};
+  padding: ${extRem(16, 20)};
   margin-top: -1px;
   background-color: ${neutral.lower};
   display: flex;

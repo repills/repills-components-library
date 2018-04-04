@@ -23,12 +23,11 @@ export const wrapper = css`
 
 export const logoContainer = css`
   background-color: ${neutral.lower};
-  padding: ${extRem(16,0)};
+  padding: ${extRem(16,20)};
   
   span {
     display: block;
     line-height: 0;
-    margin: 0 auto;
     cursor: pointer;
     width: ${extRem(150)};
   }

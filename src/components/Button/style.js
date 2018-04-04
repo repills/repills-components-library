@@ -92,7 +92,7 @@ const tp = {
 export const base = css`
   box-sizing: border-box;
   align-items: center;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   background: none;
   box-sizing: border-box;
   cursor: ${props => props.disabled ? 'default' : 'pointer'};

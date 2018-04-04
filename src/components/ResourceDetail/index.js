@@ -131,13 +131,19 @@ function ResourceDetail({
         </DetailStyle>
       </SecondaryInfoStyle>
       <ActionsStyle>
-        <Button
-          autoWidth
-          label="Edit"
-          onClick={() => {}}
-          size="S"
-          skin="ghost"
-        />
+        {
+          /*
+           @TODO
+
+           <Button
+           autoWidth
+           label="Edit"
+           onClick={() => {}}
+           size="S"
+           skin="ghost"
+           />
+          */
+        }
         <Button
           label={`Go to ${typeLabel}`}
           onClick={navigateTo}
