@@ -3,6 +3,7 @@ import {
   string,
   any,
   number,
+  bool,
   oneOf
 } from 'prop-types';
 import styled from 'styled-components';
@@ -25,6 +26,7 @@ const PageBlock = ({
   children,
   contentsCount,
   align,
+  simple,
   description,
   ...others
 }) => {
@@ -51,7 +53,9 @@ const PageBlock = ({
           <p dangerouslySetInnerHTML={{ __html: description }} />
         </DescriptionStyle>
       }
-      <BodyStyle>
+      <BodyStyle
+        simple={simple}
+      >
         {children}
       </BodyStyle>
     </BaseStyle>
@@ -63,6 +67,7 @@ PageBlock.propTypes = {
   children: any,
   contentsCount: number,
   description: string,
+  simple: bool,
   title: string
 };
 

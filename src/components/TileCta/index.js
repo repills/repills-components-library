@@ -45,7 +45,7 @@ const TileCta = ({
         <ActionStyle>
           <Button
             autoWidth
-            size="S"
+            size="M"
             {...cta}
           />
         </ActionStyle>

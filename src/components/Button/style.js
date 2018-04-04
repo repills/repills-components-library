@@ -64,8 +64,7 @@ const skinHover = {
     backgroundColor: 'transparent'
   },
   outline: {
-    color: neutral.highest,
-    borderColor: neutral.highest,
+    borderColor: neutral.higher,
     boxShadow: '0 3px 6px rgba(0,0,0,.08)'
   }
 };

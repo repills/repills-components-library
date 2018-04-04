@@ -30,8 +30,9 @@ export const box = css`
 
 export const count = css`
   ${typography.header2}
+  font-weight: 600;
   line-height: 1;
-  color: ${neutral.high};
+  color: ${basic.primary};
 `;
 
 export const label = css`
