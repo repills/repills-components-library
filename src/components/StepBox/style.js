@@ -27,7 +27,7 @@ export const index = css`
   ${typography.body}
   ${size(indexSize)}
   background-color: ${basic.primary};
-  color: ${neutral.lowest};
+  color: ${neutral.higher};
   position: absolute;
   top: 0;
   left: 0;
@@ -38,7 +38,7 @@ export const index = css`
 
 export const title = css`
   ${typography.header4}
-  color: ${neutral.high};
+  color: ${neutral.higher};
   line-height: ${extRem(indexSizeStripUnit - 10)};
   margin: 0;
 `;

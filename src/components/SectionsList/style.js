@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { extRem } from '../../utils';
 import { gridItem } from '../../shared/styles';
-import { SM, LG } from '../../config/breakpoints';
+import { SM, LG, XL } from '../../config/breakpoints';
 
 const halfGutterStripUnit = 6;
 const gutter = extRem(halfGutterStripUnit * 2);
@@ -28,4 +28,7 @@ export const item = css`
   ${props => props.breakpointsStatus[SM] && !props.breakpointsStatus[LG] && gridItem(props.count, 2, gutter, doubleGutter)}
   
   ${props => props.breakpointsStatus[LG] && gridItem(props.count, 3, gutter, doubleGutter)}
+  
+    ${props => props.breakpointsStatus[XL] && gridItem(props.count, 4, gutter, doubleGutter)}
+
 `;

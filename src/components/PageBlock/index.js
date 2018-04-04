@@ -16,7 +16,7 @@ import {
 
 const BaseStyle = styled.div`${base}`;
 const TitleStyle = styled.h2`${title}`;
-const DescriptionStyle = styled.p`${description}`;
+const DescriptionStyle = styled.div`${description}`;
 const BodyStyle = styled.div`${body}`;
 const ContentsCountStyle = styled.div`${count}`;
 
@@ -48,7 +48,7 @@ const PageBlock = ({
         <DescriptionStyle
           align={align}
         >
-          <div dangerouslySetInnerHTML={{ __html: description }} />
+          <p dangerouslySetInnerHTML={{ __html: description }} />
         </DescriptionStyle>
       }
       <BodyStyle>

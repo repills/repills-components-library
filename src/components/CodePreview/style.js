@@ -8,7 +8,7 @@ const { neutral, basic } = theme.palettes;
 
 
 export const base = css`
-  background-color: #222;
+  background-color: ${neutral.higher};
 `;
 
 export const header = css`
@@ -16,21 +16,18 @@ export const header = css`
   padding: ${extRem(8,12)};
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid ${neutral.higher};
 `;
 
 export const title = css`
   ${typography.small}
   color: ${neutral.medium};
-   ${ellipsis()}
-  span {
-   
-  }
+  ${ellipsis()}
 `;
 
 export const buttonCopy = css`
   ${typography.mini}
-  color: ${neutral.lowest};
+  color: ${neutral.higher};
+  border-radius: 3px;
   padding: ${extRem(0,10)};
   background-color: ${basic.primary};
   height: ${extRem(28)};

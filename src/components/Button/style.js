@@ -1,4 +1,4 @@
-import { darken } from 'polished';
+import { lighten } from 'polished';
 import { css } from 'styled-components';
 import { extRem } from '../../utils';
 import theme from '../../config/theme';
@@ -6,7 +6,7 @@ import typography from '../../shared/styles/typography';
 
 const { basic, neutral } = theme.palettes;
 
-const mainHoverColor = darken(0.2, basic.primary);
+const mainHoverColor = lighten(0.2, basic.primary);
 
 const size = {
   S: {
@@ -32,23 +32,26 @@ const size = {
 const skin = {
   default: {
     backgroundColor: basic.primary,
-    color: neutral.lowest,
-    boxShadow: '0 8px 16px rgba(0,0,0,.1),0 3px 6px rgba(0,0,0,.08)',
+    color: neutral.higher,
+    // boxShadow: '0 8px 16px rgba(0,0,0,.1),0 3px 6px rgba(0,0,0,.08)',
     textTransform: 'uppercase',
-    letterSpacing: '0.2em'
+    fontWeight: 600,
+    letterSpacing: '0.1em'
   },
   ghost: {
-    color: neutral.medium,
+    color: neutral.higher,
     paddingLeft: 0,
     paddingRight: 0,
+    fontWeight: 600,
     border: 0,
     backgroundColor: 'transparent'
   },
   outline: {
-    borderColor: neutral.medium,
-    color: neutral.medium,
+    borderColor: neutral.low,
+    color: neutral.higher,
+    fontWeight: 600,
     textTransform: 'uppercase',
-    letterSpacing: '0.2em'
+    letterSpacing: '0.1em'
   }
 };
 
@@ -68,19 +71,17 @@ const skinHover = {
 
 const skinDisabled = {
   default: {
-    backgroundColor: neutral.low,
-    color: neutral.high,
-    opacity: '0.5',
+    backgroundColor: neutral.lower,
+    color: neutral.medium,
     boxShadow: 'none'
   },
   ghost: {
-    opacity: '0.5'
+    opacity: '0.6'
   },
   outline: {
-    opacity: '0.5'
+    opacity: '0.6'
   }
 };
-
 
 const tp = {
   S: typography.small,
@@ -104,11 +105,11 @@ export const base = css`
   word-break: break-word;
   
   ${props => size[props.size]};
- 
-  ${props => skin[props.skin]};
-  
+   
   ${props => tp[props.size]};
   
+  ${props => skin[props.skin]};
+    
   ${props => props.autoWidth && `
     min-width: auto;
   `};

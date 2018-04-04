@@ -8,7 +8,10 @@ const { basic, neutral } = theme.palettes;
 
 export const base = css`
   text-align: left;
+`;
 
+
+export const wrapper = css`
   &.${MD} {
     padding: ${extRem(20,0)};
     display: flex;
@@ -46,13 +49,13 @@ export const navigation = css`
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  background-color: ${basic.lowest};
+  background-color: ${neutral.lowest};
   color: ${neutral.high};
   
   &.${MD} {
-    padding: 0;
     background-color: transparent;
     width: calc(100% - ${extRem(240)});
+    border-left: 1px solid ${neutral.low};
   }
   
   &.${LG} {
@@ -62,14 +65,14 @@ export const navigation = css`
 
 export const navigationItem = css`
   ${typography.body}
-  padding: ${extRem(0,12)};
-  line-height: ${extRem(32)};
-  height: ${extRem(44)};
+  padding: ${extRem(0,20)};
+  line-height: ${extRem(40)};
+  height: ${extRem(40)};
   display: flex;
   align-items: center;
   flex: 0 0 auto;
   color: currentColor;
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
 `;
 

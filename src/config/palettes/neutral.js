@@ -1,5 +1,4 @@
-import { lighten } from 'polished';
-const highest = '#1c2020';
+const highest = '#2a2a2a';
 const lowest = '#fff';
 
 export default {
@@ -13,17 +12,17 @@ export default {
     {
       id: 'lower',
       name: 'Lower',
-      value: lighten(.85, highest)
+      value: '#f7f5f3' // lighten(.85, highest)
     },
     {
       id: 'low',
       name: 'Low',
-      value: lighten(.75, highest)
+      value: '#e5ded7' // lighten(.5, highest)
     },
     {
       id: 'medium',
       name: 'Medium',
-      value: lighten(.5, highest)
+      value: '#b2b2b2' // lighten(.5, highest)
     },
     /*
     {
@@ -35,12 +34,12 @@ export default {
     {
       id: 'high',
       name: 'High',
-      value: lighten(.2, highest)
+      value: '#8e8a87' // lighten(.2, highest)
     },
     {
       id: 'higher',
       name: 'Higher',
-      value: lighten(.1, highest)
+      value: '#666'
     },
     {
       id: 'highest',

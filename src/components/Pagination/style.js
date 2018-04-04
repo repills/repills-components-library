@@ -32,7 +32,7 @@ export const button = css`
 
   ${props => props.active && `
     background-color: ${basic.primary};
-    color: ${neutral.lowest};
+    color: ${neutral.higher};
     position: relative;
     z-index: 1;
   `}

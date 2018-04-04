@@ -1,4 +1,4 @@
-const primaryFontFamily = "'Open Sans', sans-serif";
+const primaryFontFamily = "'Poppins', sans-serif;";
 
 export default [
   {

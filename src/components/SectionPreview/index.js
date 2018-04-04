@@ -57,25 +57,25 @@ function SectionPreview({
           />
         </IconStyle>
         <NameStyle>{name}</NameStyle>
+      </CoverStyle>
+      <InfoStyle>
+        <DescriptionStyle>{description}</DescriptionStyle>
         {
           <DetailsStyle>
             {
-              resourcesCount &&
+              resourcesCount !== 'undefined' &&
               <DetailStyle>
                 <strong>{resourcesCount}</strong> pill{resourcesCount === 1 ? '' : 's'}
               </DetailStyle>
             }
             {
-              topicsCount &&
+              topicsCount !== 'undefined' &&
               <DetailStyle>
                 <strong>{topicsCount}</strong> topic{topicsCount === 1 ? '' : 's'}
               </DetailStyle>
             }
           </DetailsStyle>
         }
-      </CoverStyle>
-      <InfoStyle>
-        <DescriptionStyle>{description}</DescriptionStyle>
         <div>
           <Button
             disabled={disabled}

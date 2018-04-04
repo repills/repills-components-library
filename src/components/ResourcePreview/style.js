@@ -49,15 +49,15 @@ export const author = css`
   margin-left: ${extRem(8)};
   
   span {
-    font-weight: bold;
+    font-weight: 600;
   }
 `;
 
 export const title = css`
   ${typography.caption}
-  color: ${neutral.high};
+  color: ${neutral.higher};
   margin: ${extRem(0,0,12)};
-  height: ${extRem(48)};
+  height: ${extRem(54)};
   position: relative;
   overflow: hidden;
   text-decoration: underline;

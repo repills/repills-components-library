@@ -40,17 +40,21 @@ export const base = css`
 
 export const title = css`
   ${typography.header2}
-  color: ${neutral.highest};
+  color: ${neutral.high};
   margin: ${extRem(32)} 0 0;
   line-height: 1.1;
   font-weight: 600;
+  
+  strong {
+    color: ${basic.primary};
+  }
   
   ${props => props.breakpointsStatus[MD] && typography.header1}
 `;
 
 export const subTitle = css`
   ${typography.header4}
-  color: ${neutral.high};
+  color: ${neutral.medium};
   font-weight: 500;
   line-height: 1.2;
   margin: ${extRem(20)} 0 0;
@@ -62,7 +66,7 @@ export const subTitle = css`
 
 export const description = css`
   ${typography.body}
-  color: ${neutral.medium};
+  color: ${neutral.high};
   line-height: 1.5;
   max-width: ${extRem(650)};
   margin: ${extRem(48)} auto 0;

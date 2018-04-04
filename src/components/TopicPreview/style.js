@@ -39,6 +39,7 @@ export const total = css`
   color: ${neutral.medium};
   flex-shrink: 1;
   padding-left: ${extRem(16)};
+  font-weight: 400;
 `;
 
 export const composition = css`

@@ -31,7 +31,7 @@ export const box = css`
 export const count = css`
   ${typography.header2}
   line-height: 1;
-  color: ${basic.high};
+  color: ${neutral.high};
 `;
 
 export const label = css`

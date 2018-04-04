@@ -22,7 +22,7 @@ export const base = css`
 
 export const title = css`
   ${typography.header3}
-  color: ${neutral.high};
+  color: ${neutral.higher};
   line-height: 1.2;
   margin: 0;
   display: flex;
@@ -50,15 +50,19 @@ export const description = css`
   ${typography.body}
   display: flex;
   color: ${neutral.medium};
-  margin: ${extRem(8)} ${props => props.size === 'CENTER' ? 'auto' : '0' } 0;
+  margin: ${extRem(16)} ${props => props.size === 'CENTER' ? 'auto' : '0' } 0;
   ${props => align[props.align]};
   
-  div {
+  p {
+    margin: 0;
     max-width: ${extRem(700)}
   }
 `;
 
 export const body = css`
+  border-top: 1px solid ${neutral.low};
   ${typography.body}
-  margin: ${extRem(28)} 0 0;
+  color: ${neutral.high};
+  margin-top: ${extRem(32)};
+  padding-top: ${extRem(32)};
 `;

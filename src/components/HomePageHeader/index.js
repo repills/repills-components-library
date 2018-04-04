@@ -57,7 +57,10 @@ const HomePageHeader = ({
                       ))
                     }
                   </PillsAnimationStyle>
-                  <TitleStyle breakpointsStatus={params}>{title}</TitleStyle>
+                  <TitleStyle
+                    breakpointsStatus={params}
+                    dangerouslySetInnerHTML={{ __html: title }}
+                  />
                   {
                     subTitle &&
                     <SubTitleStyle>{subTitle}</SubTitleStyle>

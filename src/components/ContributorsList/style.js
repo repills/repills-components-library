@@ -10,7 +10,9 @@ export const base = css`
 
 export const title = css`
   ${typography.header4}
-  color: ${neutral.mediumHigh};
+  color: ${neutral.higher};
+  border-bottom: 1px solid ${neutral.low};
+  padding-bottom: ${extRem(16)};
   margin: 0;
 `;
 
@@ -24,13 +26,13 @@ export const item = css`
   align-items: center;
   position: relative;
   padding: ${extRem(8)} 0;
-  color: ${neutral.high};
+  color: ${neutral.higher};
   text-decoration: none;
   cursor: pointer;
   
   span {
     margin: 0 ${extRem(8)};
-    color: ${neutral.high};
+    color: ${neutral.higher};
   }
   
   &:hover {

@@ -23,7 +23,7 @@ const TitleStyle = styled.div`${title}`;
 const overrideHighlighterStyle = {
   border: 0,
   boxShadow: 'none',
-  backgroundColor: '#222',
+  backgroundColor: '#2a2a2a',
   borderRadius: 0,
   fontSize: '12px',
   margin: 0

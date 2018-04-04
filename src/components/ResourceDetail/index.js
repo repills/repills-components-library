@@ -135,13 +135,13 @@ function ResourceDetail({
           autoWidth
           label="Edit"
           onClick={() => {}}
-          size="M"
+          size="S"
           skin="ghost"
         />
         <Button
           label={`Go to ${typeLabel}`}
           onClick={navigateTo}
-          size="M"
+          size="S"
         />
       </ActionsStyle>
     </BaseStyle>

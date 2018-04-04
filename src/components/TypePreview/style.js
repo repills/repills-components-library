@@ -17,7 +17,8 @@ export const base = css`
   position: relative;
   border-top: 1px solid ${neutral.low};
   user-select: none;
-  
+  font-weight: normal;
+
   &::after {
     background-color: ${props => props.color};
     content: '';
@@ -36,7 +37,6 @@ export const icon = css`
 `;
 
 export const text = css`
-  font-weight: normal;
   ${ellipsis()}
   display: flex;
   justify-content: space-between;

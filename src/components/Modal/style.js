@@ -81,7 +81,7 @@ export const body = css`
 export const close = css`
   ${size(extRem(40))}
   box-sizing: border-box;
-  color: ${neutral.high};
+  color: ${neutral.higher};
   background-color: ${neutral.lower};
   display: flex;
   align-items: center;

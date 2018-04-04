@@ -20,10 +20,12 @@ import {
   base,
   logoContainer,
   navigation,
-  navigationItem
+  navigationItem,
+  wrapper
 } from './style';
 
 const BaseStyle = styled.div`${base}`;
+const WrapperStyle = styled.div`${wrapper}`;
 const LogoContainerStyle = styled.div`${logoContainer}`;
 const NavigationStyle = styled.nav`${navigation}`;
 
@@ -42,12 +44,11 @@ function TopNavigation({
           return (
             <BaseStyle
               {...others}
-              className={cx(params)}
             >
               { loading && <Spinner /> }
               {
                 !loading &&
-                <div>
+                <WrapperStyle className={cx(params)}>
                   <LogoContainerStyle
                     className={cx(params)}
                     onClick={onClickLogo}
@@ -55,7 +56,7 @@ function TopNavigation({
                     <span>
                       <Logo
                         color={basic.primary}
-                        secondaryColor={neutral.highest}
+                        secondaryColor={neutral.higher}
                       />
                     </span>
                   </LogoContainerStyle>
@@ -81,7 +82,7 @@ function TopNavigation({
                       }
                     </NavigationStyle>
                   }
-                </div>
+                </WrapperStyle>
               }
             </BaseStyle>
           );

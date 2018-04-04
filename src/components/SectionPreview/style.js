@@ -24,7 +24,7 @@ export const icon = css``;
 
 export const cover = css`
   background-color: ${neutral.lower};
-  padding: ${extRem(24,16)};
+  padding: ${extRem(28,16)};
   border: 1px solid ${neutral.low};
   border-bottom: 0;
   cursor: ${props => props.disabled ? 'default' : 'pointer'};
@@ -33,27 +33,27 @@ export const cover = css`
 export const info = css`
   border: 1px solid ${neutral.low};
   border-top: 0;
-  padding: ${extRem(20,16,28)};
+  padding: ${extRem(24,16,28)};
 `;
 
 export const name = css`
   ${typography.header3}
-  color: ${neutral.highest};
+  color: ${neutral.higher};
   margin: ${extRem(16,0,0)};
   line-height: 1;
 `;
 
 export const description = css`
   ${typography.small}
-  color: ${neutral.medium};
-  margin: 0 0 ${extRem(20)};
-  height: ${extRem(80)};
+  color: ${neutral.high};
+  margin: 0;
+  height: ${extRem(63)};
   overflow: hidden;
   position: relative;
   
   &::after {
     content: '';
-    height: ${extRem(40)};
+    height: ${extRem(21)};
     position: absolute;
     bottom: 0;
     left: 0;
@@ -63,18 +63,30 @@ export const description = css`
 `;
 
 export const details = css`
-  ${typography.body}
-  color: ${neutral.high};
-  margin-top: ${extRem(16)};
-  height: ${extRem(22)};
+  ${typography.small}
+  color: ${neutral.medium};
+  margin: ${extRem(20,0)};
+  height: ${extRem(30)};
+    display: flex;
 `;
 
 export const detail = css`
-  display: inline-block;
+  width: 50%;
+  text-transform: uppercase;
   padding: ${extRem(0,12)};
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: ${extRem(30)};
   line-height: 1;
+  border-top: 1px solid ${neutral.low};
   
-  &:first-child {
-    border-right: 1px solid ${neutral.high}
+  strong {
+    color: ${neutral.high};
+    margin-right: ${extRem(8)};
+  }
+  
+  &:last-child {
+    border-left: 1px solid ${neutral.low};
   }
 `;

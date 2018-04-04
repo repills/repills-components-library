@@ -15,7 +15,6 @@ export const base = css`
 export const mainInfo = css`
   padding: ${extRem(12,12,24)};
   background-color: ${mainColor};
-  border: 1px solid ${neutral.low};
 `;
 
 export const mainInfoTop = css`
@@ -54,14 +53,14 @@ export const author = css`
 `;
 
 export const title = css`
-  ${typography.header3}
+  ${typography.header4}
   color: ${neutral.highest};
   margin: ${extRem(16, 0)};
   cursor: pointer;
 `;
 
 export const secondaryInfo = css`
-  border: 1px solid ${neutral.low};
+  border: 2px solid ${neutral.lower};
   border-top: 0;
 `;
 
@@ -93,7 +92,7 @@ export const detail = css`
   ${typography.small}
   color: ${neutral.high};
   padding: ${extRem(12)};
-  border-top: 1px dotted ${neutral.low};
+  border-top: 1px solid ${neutral.lower};
   
   &:first-child {
     border-top: 0;
@@ -109,7 +108,6 @@ export const detail = css`
 
 export const actions = css`
   padding: ${extRem(12)};
-  border: 1px solid ${neutral.low};
   margin-top: -1px;
   background-color: ${neutral.lower};
   display: flex;

@@ -4,7 +4,7 @@ import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
 import { SM } from '../../config/breakpoints';
 
-const { neutral } = theme.palettes;
+const { basic, neutral } = theme.palettes;
 
 export const base = css`
   text-align: center;
@@ -26,10 +26,14 @@ export const title = css`
   word-break: break-word;
 
   span {
-    color: ${neutral.highest};
+    ${typography.header2} 
+    color: ${neutral.higher};
     line-height: 1.1;
     margin-left: ${extRem(-3)};
-    ${typography.header2} 
+  }
+  
+  strong {
+    color: ${basic.primary};
   }
 `;
 
@@ -43,7 +47,7 @@ export const main = css`
 `;
 
 export const sectionName = css`
-    
+
   ${props => props.onClick && `
     text-decoration: underline;
     cursor: pointer;
