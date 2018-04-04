@@ -46,4 +46,8 @@ export const item = css`
       border-right: 0;
     }
   `}
+  
+  &:last-child {
+    border-right: 0;
+  }
 `;

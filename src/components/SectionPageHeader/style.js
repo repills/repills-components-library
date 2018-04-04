@@ -15,13 +15,13 @@ export const base = css`
 `;
 
 export const title = css`
-  color: ${neutral.highest};
+  color: ${neutral.higher};
   margin: 0;
   line-height: 1.1;
   word-break: break-word;
   margin-left: ${extRem(-3)};
-  
   ${props => props.breakpointsStatus[SM] ? typography.header1 : typography.header2}
+  font-weight: 600;
 `;
 
 export const main = css`

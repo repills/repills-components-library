@@ -45,7 +45,7 @@ export const base = css`
 
 export const title = css`
   ${typography.header2}
-  color: ${neutral.high};
+  color: ${neutral.higher};
   margin: 0;
   line-height: 1.1;
   font-weight: 600;
