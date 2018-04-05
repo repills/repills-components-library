@@ -34,13 +34,13 @@ const pillSettings = {
 };
 
 export const base = css`
-  padding: ${extRem(50)} 0;
+  padding: ${extRem(52)} 0;
   text-align: left;
   position: relative;
   
   ${props => props.breakpointsStatus[MD] && `
     text-align: center;
-    padding: ${extRem(70)} 0;
+    padding: ${extRem(72)} 0;
   `}
 `;
 
@@ -95,4 +95,33 @@ export const pillsAnimation = css`
 export const pill = css`
   animation: ${bouncing} 0.6s infinite alternate;
   ${props => pillSettings[props.index]}
+`;
+
+export const typeList = css`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: ${extRem(60)};
+  
+  ${props => props.breakpointsStatus[MD] && `
+    justify-content: center;
+  `}
+`;
+
+export const typeBlock = css`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: ${neutral.medium};
+  
+  span {
+    ${typography.mini}
+    color: ${neutral.high};
+    margin-top: ${extRem(12)};
+    line-height: 1;
+  }
+  
+  & + & {
+    margin-left: ${extRem(20)};
+  }
 `;

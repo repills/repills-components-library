@@ -12,3 +12,4 @@ export StarIcon from './StarIcon';
 export UncheckedIcon from './UncheckedIcon';
 export UserIcon from './UserIcon';
 export EnglishIcon from './EnglishIcon';
+export MoreIcon from './MoreIcon';

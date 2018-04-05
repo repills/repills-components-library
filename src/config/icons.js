@@ -95,6 +95,10 @@ export default {
     {
       id: 'Email',
       name: 'Email'
+    },
+    {
+      id: 'More',
+      name: 'More'
     }
   ],
   types: [
