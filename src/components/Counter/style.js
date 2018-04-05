@@ -4,7 +4,7 @@ import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
 import { grid } from 'styled-components-grid';
 
-const { basic, neutral } = theme.palettes;
+const { neutral } = theme.palettes;
 
 export const base = css``;
 
@@ -32,7 +32,7 @@ export const count = css`
   ${typography.header2}
   font-weight: 600;
   line-height: 1;
-  color: ${basic.primary};
+  color: ${neutral.higher};
 `;
 
 export const label = css`

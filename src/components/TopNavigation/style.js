@@ -4,7 +4,7 @@ import { MD, LG } from '../../config/breakpoints';
 import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
-const { basic, neutral } = theme.palettes;
+const { neutral } = theme.palettes;
 
 export const base = css`
   text-align: left;
@@ -13,7 +13,7 @@ export const base = css`
 
 export const wrapper = css`
   &.${MD} {
-    padding: ${extRem(20,0)};
+    padding: ${extRem(16,0)};
     display: flex;
     flex-wrap: wrap;
     align-items: center;

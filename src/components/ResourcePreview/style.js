@@ -92,7 +92,8 @@ export const secondaryInfo = css`
 export const detail = css`
   color: ${neutral.high};
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  line-height: 1;
 `;
 
 export const type = css`
