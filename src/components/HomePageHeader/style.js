@@ -101,10 +101,19 @@ export const typeList = css`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-top: ${extRem(60)};
+  margin-top: ${extRem(32)};
+    
+  > div + div {
+    margin-left: ${extRem(20)};
+  }
   
   ${props => props.breakpointsStatus[MD] && `
     justify-content: center;
+    margin-top: ${extRem(52)};
+    
+    > div + div {
+      margin-left: ${extRem(32)};
+    }
   `}
 `;
 
@@ -119,9 +128,5 @@ export const typeBlock = css`
     color: ${neutral.high};
     margin-top: ${extRem(12)};
     line-height: 1;
-  }
-  
-  & + & {
-    margin-left: ${extRem(20)};
   }
 `;
