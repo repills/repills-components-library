@@ -8,6 +8,7 @@ const { neutral } = theme.palettes;
 
 export const base = css`
   text-align: center;
+  position: relative;
   
   ${props => props.breakpointsStatus[SM] && `
     text-align: left;

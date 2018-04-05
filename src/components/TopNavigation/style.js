@@ -8,6 +8,7 @@ const { neutral } = theme.palettes;
 
 export const base = css`
   text-align: left;
+  position: relative;
 `;
 
 

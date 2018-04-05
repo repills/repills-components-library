@@ -36,6 +36,7 @@ const pillSettings = {
 export const base = css`
   padding: ${extRem(50)} 0;
   text-align: left;
+  position: relative;
   
   ${props => props.breakpointsStatus[MD] && `
     text-align: center;

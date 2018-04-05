@@ -8,6 +8,10 @@ const gutter = extRem(halfGutterStripUnit * 2);
 const doubleGutter = extRem(halfGutterStripUnit * 4);
 const halfGutter = extRem(halfGutterStripUnit);
 
+export const base = css`
+  position: relative;
+`;
+
 export const items = css`
   display: flex;
   flex-wrap: wrap;

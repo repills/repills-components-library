@@ -11,6 +11,7 @@ const halfGutter = extRem(halfGutterStripUnit);
 export const base = css`
   box-sizing: border-box;
   width: 100%;
+  position: relative;
 `;
 
 export const items = css`

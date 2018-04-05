@@ -45,45 +45,42 @@ function TopNavigation({
             <BaseStyle
               {...others}
             >
-              { loading && <Spinner /> }
-              {
-                !loading &&
-                <WrapperStyle className={cx(params)}>
-                  <LogoContainerStyle
+              { loading && <Spinner position="absolute" /> }
+              <WrapperStyle className={cx(params)}>
+                <LogoContainerStyle
+                  className={cx(params)}
+                  onClick={onClickLogo}
+                >
+                  <span>
+                    <Logo
+                      color={basic.primary}
+                      secondaryColor={neutral.higher}
+                    />
+                  </span>
+                </LogoContainerStyle>
+                {
+                  items.length > 0 &&
+                  <NavigationStyle
                     className={cx(params)}
-                    onClick={onClickLogo}
                   >
-                    <span>
-                      <Logo
-                        color={basic.primary}
-                        secondaryColor={neutral.higher}
-                      />
-                    </span>
-                  </LogoContainerStyle>
-                  {
-                    items.length > 0 &&
-                    <NavigationStyle
-                      className={cx(params)}
-                    >
-                      {
-                        items.filter(i => !i.hidden).map((item, i) => {
+                    {
+                      items.filter(i => !i.hidden).map((item, i) => {
 
-                          const NavigationItemStyle = styled[(item.href ? 'a' : 'div')]`${navigationItem}`;
+                        const NavigationItemStyle = styled[(item.href ? 'a' : 'div')]`${navigationItem}`;
 
-                          return (
-                            <NavigationItemStyle
-                              key={`item-${i}`}
-                              {...item}
-                            >
-                              {item.label}
-                            </NavigationItemStyle>
-                          );
-                        })
-                      }
-                    </NavigationStyle>
-                  }
-                </WrapperStyle>
-              }
+                        return (
+                          <NavigationItemStyle
+                            key={`item-${i}`}
+                            {...item}
+                          >
+                            {item.label}
+                          </NavigationItemStyle>
+                        );
+                      })
+                    }
+                  </NavigationStyle>
+                }
+              </WrapperStyle>
             </BaseStyle>
           );
         }

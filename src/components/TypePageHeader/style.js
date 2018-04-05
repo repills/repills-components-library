@@ -11,6 +11,7 @@ export const base = css`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   
   ${props => props.breakpointsStatus[SM] && `
     text-align: left;

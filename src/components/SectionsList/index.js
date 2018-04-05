@@ -9,8 +9,9 @@ import styled from 'styled-components';
 import Spinner from '../Spinner';
 import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
-import { items, item } from './style';
+import { base, items, item } from './style';
 
+const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
 const ItemStyle = styled.div`${item}`;
 
@@ -27,34 +28,31 @@ function SectionsList({
           const loading = Object.keys(params).length === 0;
 
           return (
-            <div
+            <BaseStyle
               {...others}
             >
-              { loading && <Spinner /> }
-              {
-                !loading &&
-                <ItemsStyle
-                  breakpointsStatus={params}
-                >
-                  {
-                    sections.map(section => {
-                      return (
-                        <ItemStyle
-                          breakpointsStatus={params}
-                          count={count}
-                          key={section.id}
-                        >
-                          <SectionPreview
-                            navigateTo={() => navigateTo(section.path)}
-                            {...section}
-                          />
-                        </ItemStyle>
-                      );
-                    })
-                  }
-                </ItemsStyle>
-              }
-            </div>
+              { loading && <Spinner position="absolute" /> }
+              <ItemsStyle
+                breakpointsStatus={params}
+              >
+                {
+                  sections.map(section => {
+                    return (
+                      <ItemStyle
+                        breakpointsStatus={params}
+                        count={count}
+                        key={section.id}
+                      >
+                        <SectionPreview
+                          navigateTo={() => navigateTo(section.path)}
+                          {...section}
+                        />
+                      </ItemStyle>
+                    );
+                  })
+                }
+              </ItemsStyle>
+            </BaseStyle>
           );
         }}
     </ContainerQuery>

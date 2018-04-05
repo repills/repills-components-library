@@ -46,38 +46,35 @@ const SectionPageHeader = ({
               {...others}
               breakpointsStatus={params}
             >
-              { loading && <Spinner /> }
-              {
-                !loading &&
-                <div>
-                  <MainStyle
+              { loading && <Spinner position="absolute" /> }
+              <div>
+                <MainStyle
+                  breakpointsStatus={params}
+                >
+                  {
+                    Icon &&
+                    <IconStyle
+                      breakpointsStatus={params}
+                      color={color}
+                    >
+                      <Icon size={90} />
+                    </IconStyle>
+                  }
+                  {
+                    label &&
+                    <LabelStyle>{label}</LabelStyle>
+                  }
+                  <TitleStyle
                     breakpointsStatus={params}
                   >
-                    {
-                      Icon &&
-                      <IconStyle
-                        breakpointsStatus={params}
-                        color={color}
-                      >
-                        <Icon size={90} />
-                      </IconStyle>
-                    }
-                    {
-                      label &&
-                      <LabelStyle>{label}</LabelStyle>
-                    }
-                    <TitleStyle
-                      breakpointsStatus={params}
-                    >
-                      {title}
-                    </TitleStyle>
-                  </MainStyle>
-                  {
-                    description &&
-                    <DescriptionStyle icon={icon}>{description}</DescriptionStyle>
-                  }
-                </div>
-              }
+                    {title}
+                  </TitleStyle>
+                </MainStyle>
+                {
+                  description &&
+                  <DescriptionStyle icon={icon}>{description}</DescriptionStyle>
+                }
+              </div>
             </BaseStyle>
           );
         }

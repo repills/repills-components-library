@@ -1,8 +1,19 @@
 import React from 'react';
+import { oneOf } from 'prop-types';
+import styled from 'styled-components';
+import theme from '../../config/theme';
 
-const Spinner = () => {
+import {
+  base
+} from './style';
+
+const BaseStyle = styled.div`${base}`;
+
+const Spinner = ({
+  position
+}) => {
   return (
-    <div style={{ textAlign: 'center' }}>
+    <BaseStyle position={position} >
       <svg
         enableBackground="new 0 0 40 40"
         height="40px"
@@ -32,8 +43,20 @@ const Spinner = () => {
           />
         </path>
       </svg>
-    </div>
+    </BaseStyle>
   );
+};
+
+Spinner.propTypes = {
+  position: oneOf([
+    'relative',
+    'absolute',
+    'fixed'
+  ])
+};
+
+Spinner.defaultProps = {
+  position: 'relative'
 };
 
 export default Spinner;

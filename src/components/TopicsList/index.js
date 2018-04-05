@@ -88,50 +88,47 @@ class TopicsList extends React.Component {
               <BaseStyle
                 {...others}
               >
-                { loading && <Spinner /> }
-                {
-                  !loading &&
-                  <div>
-                    <ItemsStyle
-                      breakpointsStatus={params}
-                    >
-                      {
-                        showedTopics.map(topic => (
-                          <ItemStyle
-                            breakpointsStatus={params}
-                            count={count}
-                            key={topic.slug}
-                          >
-                            <TopicPreview
-                              navigateTo={() => navigateTo(topic.path)}
-                              {...topic}
-                            />
-                          </ItemStyle>
-                        ))
-                      }
-                    </ItemsStyle>
+                { loading && <Spinner position="absolute" /> }
+                <div>
+                  <ItemsStyle
+                    breakpointsStatus={params}
+                  >
                     {
-                      topics.length > showedTopics.length &&
-                      <ActionsStyle>
-                        <Button
-                          expanded={currentBreakpoint === 'XS'}
-                          label="Show more"
-                          onClick={() => this.setState({ showEntireList: true })}
-                        />
-                      </ActionsStyle>
+                      showedTopics.map(topic => (
+                        <ItemStyle
+                          breakpointsStatus={params}
+                          count={count}
+                          key={topic.slug}
+                        >
+                          <TopicPreview
+                            navigateTo={() => navigateTo(topic.path)}
+                            {...topic}
+                          />
+                        </ItemStyle>
+                      ))
                     }
-                    {
-                      (showAllAction && topics.length === showedTopics.length) &&
-                      <ActionsStyle>
-                        <Button
-                          expanded={currentBreakpoint === 'XS'}
-                          label="Show All"
-                          onClick={showAllAction.onClick}
-                        />
-                      </ActionsStyle>
-                    }
-                  </div>
-                }
+                  </ItemsStyle>
+                  {
+                    topics.length > showedTopics.length &&
+                    <ActionsStyle>
+                      <Button
+                        expanded={currentBreakpoint === 'XS'}
+                        label="Show more"
+                        onClick={() => this.setState({ showEntireList: true })}
+                      />
+                    </ActionsStyle>
+                  }
+                  {
+                    (showAllAction && topics.length === showedTopics.length) &&
+                    <ActionsStyle>
+                      <Button
+                        expanded={currentBreakpoint === 'XS'}
+                        label="Show All"
+                        onClick={showAllAction.onClick}
+                      />
+                    </ActionsStyle>
+                  }
+                </div>
               </BaseStyle>
             );
           }

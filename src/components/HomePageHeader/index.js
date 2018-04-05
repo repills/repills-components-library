@@ -42,36 +42,33 @@ const HomePageHeader = ({
               breakpointsStatus={params}
               {...others}
             >
-              { loading && <Spinner /> }
-              {
-                !loading &&
-                <div>
-                  <PillsAnimationStyle breakpointsStatus={params}>
-                    {
-                      [1, 2, 3].map(i => (
-                        <PillStyle
-                          index={i}
-                          key={`pill-${i}`}
-                        >
-                          <SquareFilledPillIcon size={i === 2 ? 90 : 50} />
-                        </PillStyle>
-                      ))
-                    }
-                  </PillsAnimationStyle>
-                  <TitleStyle
-                    breakpointsStatus={params}
-                    dangerouslySetInnerHTML={{ __html: title }}
-                  />
+              { loading && <Spinner position="absolute" /> }
+              <div>
+                <PillsAnimationStyle breakpointsStatus={params}>
                   {
-                    subTitle &&
-                    <SubTitleStyle>{subTitle}</SubTitleStyle>
+                    [1, 2, 3].map(i => (
+                      <PillStyle
+                        index={i}
+                        key={`pill-${i}`}
+                      >
+                        <SquareFilledPillIcon size={i === 2 ? 90 : 50} />
+                      </PillStyle>
+                    ))
                   }
-                  {
-                    description &&
-                    <DescriptionStyle>{description}</DescriptionStyle>
-                  }
-                </div>
-              }
+                </PillsAnimationStyle>
+                <TitleStyle
+                  breakpointsStatus={params}
+                  dangerouslySetInnerHTML={{ __html: title }}
+                />
+                {
+                  subTitle &&
+                  <SubTitleStyle>{subTitle}</SubTitleStyle>
+                }
+                {
+                  description &&
+                  <DescriptionStyle>{description}</DescriptionStyle>
+                }
+              </div>
             </BaseStyle>
           );
         }
