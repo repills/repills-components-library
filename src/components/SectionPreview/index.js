@@ -20,7 +20,7 @@ import {
 } from './style';
 
 const BaseStyle = styled.article`${base}`;
-const CoverStyle = styled.div`${cover}`;
+const CoverStyle = styled.a`${cover}`;
 const InfoStyle = styled.div`${info}`;
 const NameStyle = styled.h3`${name}`;
 const DescriptionStyle = styled.p`${description}`;
@@ -33,6 +33,7 @@ function SectionPreview({
   description,
   icon,
   name,
+  path,
   navigateTo,
   resourcesCount,
   topicsCount,
@@ -40,6 +41,11 @@ function SectionPreview({
   ...others
 }) {
   const Icon = icon && icons[icon];
+  const navigate = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigateTo();
+  };
 
   return (
     <BaseStyle
@@ -48,7 +54,8 @@ function SectionPreview({
     >
       <CoverStyle
         disabled={disabled}
-        onClick={!disabled && navigateTo}
+        href={path}
+        onClick={!disabled && navigate}
       >
         <IconStyle>
           <Icon
@@ -95,6 +102,7 @@ SectionPreview.propTypes = {
   icon: string.isRequired,
   name: string.isRequired,
   navigateTo: func.isRequired,
+  path: string.isRequired,
   resourcesCount: number,
   topicsCount: number
 };

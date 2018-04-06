@@ -27,6 +27,9 @@ export const cover = css`
   padding: ${extRem(28,16)};
   border: 1px solid ${neutral.low};
   border-bottom: 0;
+  display: block;
+  text-decoration: none;
+  color: currentColor;
   cursor: ${props => props.disabled ? 'default' : 'pointer'};
 `;
 
