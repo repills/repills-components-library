@@ -68,7 +68,7 @@ export const selectButton = css`
   align-items: center;
   justify-content: flex-start;
   margin: ${extRem(12)} auto 0;
-  width: ${extRem(140)};
+  width: ${extRem(145)};
   color: ${neutral.high};
   
   span {
