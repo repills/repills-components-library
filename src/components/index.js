@@ -12,6 +12,7 @@ export ContributorsList from './ContributorsList';
 export Counter from './Counter';
 export FeatureList from './FeatureList';
 export HomePageHeader from './HomePageHeader';
+export KeywordsCloud from './KeywordsCloud';
 export Logo from './Logo';
 export MaintainersList from './MaintainersList';
 export Message from './Message';
