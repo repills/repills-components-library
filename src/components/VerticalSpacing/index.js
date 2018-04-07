@@ -16,12 +16,12 @@ const VerticalSpacing = ({
 VerticalSpacing.propTypes = {
   children: node,
   size: oneOf([
-    SIZE_SCALE_REM.mini,
-    SIZE_SCALE_REM.small,
-    SIZE_SCALE_REM.medium,
-    SIZE_SCALE_REM.large,
-    SIZE_SCALE_REM.xlarge,
-    SIZE_SCALE_REM.mega
+    'mini',
+    'small',
+    'medium',
+    'large',
+    'xlarge',
+    'mega'
   ])
 };
 export default VerticalSpacing;

@@ -36,6 +36,7 @@ const ContributorsList = ({
           contributors.sort((a,b) => a.publishedCount < b.publishedCount).map(c => (
             <ItemStyle
               href={`https://github.com/${c.nickname}`}
+              key={c.nickname}
               target="_blank"
             >
               <UserIcon

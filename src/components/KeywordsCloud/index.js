@@ -29,7 +29,7 @@ const KeywordsCloud = ({
       {...others}
     >
       <ListStyle>
-        { showedKeywords.map(e => (<TagStyle>{e}</TagStyle>)) }
+        { showedKeywords.map((e,i) => (<TagStyle key={`tag-${i}`}>{e}</TagStyle>)) }
       </ListStyle>
     </BaseStyle>
   );

@@ -101,7 +101,7 @@ SectionPreview.propTypes = {
   disabled: bool,
   icon: string.isRequired,
   name: string.isRequired,
-  navigateTo: func.isRequired,
+  navigateTo: func,
   path: string.isRequired,
   resourcesCount: number,
   topicsCount: number
