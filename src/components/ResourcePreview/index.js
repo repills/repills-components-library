@@ -96,6 +96,7 @@ class ResourcePreview extends React.Component {
         <SecondaryInfoStyle>
           <SourceStyle
             href={link}
+            rel="nofollow"
             target="_blank"
           >
             <LinkIcon size={16} />

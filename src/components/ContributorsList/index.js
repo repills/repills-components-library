@@ -37,6 +37,7 @@ const ContributorsList = ({
             <ItemStyle
               href={`https://github.com/${c.nickname}`}
               key={c.nickname}
+              rel="nofollow"
               target="_blank"
             >
               <UserIcon

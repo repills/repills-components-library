@@ -94,6 +94,7 @@ function ResourceDetail({
             <strong>Suggested by</strong>
             <a
               href={`https://github.com/${suggestedBy}`}
+              rel="nofollow"
               target="blank"
             >{suggestedBy}</a>
           </DetailStyle>
