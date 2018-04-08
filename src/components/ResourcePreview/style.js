@@ -116,6 +116,12 @@ export const type = css`
 
 export const date = css`
   ${typography.mini}
+  cursor: pointer;
   line-height: 1;
   color: ${neutral.medium};
+  
+  a {
+    text-decoration: none;
+    color: currentColor;
+  }
 `;

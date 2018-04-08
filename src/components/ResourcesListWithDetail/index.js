@@ -26,7 +26,9 @@ class ResourcesListWithDetail extends React.Component {
     static propTypes = {
       breaks: object,
       dateType: string,
+      generateDetailUrl: func,
       handleDetailView: func,
+      navigateToDetail: func,
       navigateToSection: func,
       navigateToTopic: func,
       resources: arrayOf(shape(ResourcePreview.propTypes)).isRequired,
@@ -95,8 +97,13 @@ class ResourcesListWithDetail extends React.Component {
       navigateToSection,
       navigateToTopic,
       showAllAction,
+      handleDetailView,
+      navigateToDetail,
+      generateDetailUrl,
       ...others
     } = this.props;
+
+    console.log(generateDetailUrl)
 
     const {
       showDetailModal,
@@ -133,7 +140,9 @@ class ResourcesListWithDetail extends React.Component {
                             <ResourcePreview
                               {...resource}
                               dateType={dateType}
+                              generateDetailUrl={generateDetailUrl}
                               handleDetailView={this.onHandleDetailView}
+                              navigateToDetail={navigateToDetail}
                             />
                           </ItemStyle>
                         );
@@ -146,7 +155,7 @@ class ResourcesListWithDetail extends React.Component {
                       <Button
                         expanded={currentBreakpoint === 'XS'}
                         label="Show more"
-                        onClick={() => this.setState({showEntireList: true})}
+                        onClick={() => this.setState({ showEntireList: true })}
                       />
                     </ActionsStyle>
                   }

@@ -6,6 +6,14 @@ import { getResourceList } from '../../utils/fixtures';
 
 export default (sectionTitle, sectionDescription) => () => {
 
+  const onHandleDetailView = ({ reference }) => {
+    alert(`Detail view for resource with reference: ${reference}`);
+  };
+
+  const navigateToDetail = slug => {
+    alert(`Detail view for resource with slug: ${slug}`);
+  };
+
   return (
     <SectionPage
       description={sectionDescription}
@@ -15,6 +23,9 @@ export default (sectionTitle, sectionDescription) => () => {
         breaks={{ XS: 4, SM: 6 }}
         component={ResourcesListWithDetail}
         dateType={select('Date type', { createdAt: 'Share date', publishedAt: 'Publish date' }, 'createdAt')}
+        generateDetailUrl={slug => `/${slug}`}
+        handleDetailView={onHandleDetailView}
+        navigateToDetail={navigateToDetail}
         navigateToSection={sectionId => alert('Navigate to section: ' + sectionId)}
         navigateToTopic={topicId => alert('Navigate to topic: ' + topicId)}
         resources={getResourceList(12).map(e => e.frontmatter)}

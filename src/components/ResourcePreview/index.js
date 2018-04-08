@@ -37,10 +37,13 @@ class ResourcePreview extends React.Component {
     color: string.isRequired,
     createdAt: string,
     dateType: string,
+    generateDetailUrl: func,
     handleDetailView: func,
     link: string.isRequired,
+    navigateToDetail: func,
     publishedAt: string,
     reference: string,
+    slug: string,
     title: string.isRequired,
     typeLabel: string.isRequired
   };
@@ -57,6 +60,16 @@ class ResourcePreview extends React.Component {
     handleDetailView({ reference: reference });
   };
 
+  handleNavigateToDetailPage= e => {
+    e.preventDefault();
+    e.stopPropagation();
+    const {
+      slug,
+      navigateToDetail
+    } = this.props;
+    navigateToDetail(slug);
+  };
+
   render() {
 
     const {
@@ -67,6 +80,9 @@ class ResourcePreview extends React.Component {
       createdAt,
       publishedAt,
       dateType,
+      slug,
+      generateDetailUrl,
+      navigateToDetail,
       typeLabel,
       ...others
     } = this.props;
@@ -105,13 +121,23 @@ class ResourcePreview extends React.Component {
           {
             dateType === 'createdAt' &&
               <DateStyle>
-                {m(createdAt).fromNow()}
+                <a
+                  href={generateDetailUrl && generateDetailUrl(slug)}
+                  onClick={navigateToDetail && this.handleNavigateToDetailPage}
+                >
+                  {m(createdAt).fromNow()}
+                </a>
               </DateStyle>
           }
           {
             dateType === 'publishedAt' &&
             <DateStyle>
-              {m(publishedAt).fromNow()}
+              <a
+                href={generateDetailUrl && generateDetailUrl(slug)}
+                onClick={navigateToDetail && this.handleNavigateToDetailPage}
+              >
+                {m(publishedAt).fromNow()}
+              </a>
             </DateStyle>
           }
         </SecondaryInfoStyle>
