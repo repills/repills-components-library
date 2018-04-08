@@ -10,8 +10,12 @@ const onHandleDetailView = ({ reference }) => {
   alert(`Detail view for resource with reference: ${reference}`);
 };
 
-const navigateToDetail = slug => {
+const navigateToDetail = ({ slug, publishedAt }) => {
   alert(`Detail view for resource with slug: ${slug}`);
+};
+
+const generateDetailUrl = ({ slug, publishedAt }) => {
+  return slug;
 };
 
 export default (sectionTitle, sectionDescription) => () => {
@@ -24,7 +28,7 @@ export default (sectionTitle, sectionDescription) => () => {
       <InteractiveExample
         component={ResourcePreview}
         dateType={select('Date type', { createdAt: 'Share date', publishedAt: 'Publish date' }, 'createdAt')}
-        generateDetailUrl={slug => `/${slug}`}
+        generateDetailUrl={generateDetailUrl}
         handleDetailView={onHandleDetailView}
         navigateToDetail={navigateToDetail}
         {...randomResource}

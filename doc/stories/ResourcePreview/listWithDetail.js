@@ -6,8 +6,12 @@ import { getResourceList } from '../../utils/fixtures';
 
 export default (sectionTitle, sectionDescription) => () => {
 
-  const navigateToDetail = slug => {
+  const navigateToDetail = ({ slug, publishedAt }) => {
     alert(`Detail view for resource with slug: ${slug}`);
+  };
+
+  const generateDetailUrl = ({ slug, publishedAt }) => {
+    return slug;
   };
 
   return (
@@ -19,7 +23,7 @@ export default (sectionTitle, sectionDescription) => () => {
         breaks={{ XS: 4, SM: 6 }}
         component={ResourcesListWithDetail}
         dateType={select('Date type', { createdAt: 'Share date', publishedAt: 'Publish date' }, 'createdAt')}
-        generateDetailUrl={slug => `/${slug}`}
+        generateDetailUrl={generateDetailUrl}
         navigateToDetail={navigateToDetail}
         navigateToSection={sectionId => alert('Navigate to section: ' + sectionId)}
         navigateToTopic={topicId => alert('Navigate to topic: ' + topicId)}

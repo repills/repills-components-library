@@ -65,9 +65,10 @@ class ResourcePreview extends React.Component {
     e.stopPropagation();
     const {
       slug,
+      publishedAt,
       navigateToDetail
     } = this.props;
-    navigateToDetail(slug);
+    navigateToDetail({ slug, publishedAt });
   };
 
   render() {
@@ -122,7 +123,7 @@ class ResourcePreview extends React.Component {
             dateType === 'createdAt' &&
               <DateStyle>
                 <a
-                  href={generateDetailUrl && generateDetailUrl(slug)}
+                  href={generateDetailUrl && generateDetailUrl({ slug, publishedAt })}
                   onClick={navigateToDetail && this.handleNavigateToDetailPage}
                 >
                   {m(createdAt).fromNow()}
@@ -133,7 +134,7 @@ class ResourcePreview extends React.Component {
             dateType === 'publishedAt' &&
             <DateStyle>
               <a
-                href={generateDetailUrl && generateDetailUrl(slug)}
+                href={generateDetailUrl && generateDetailUrl({ slug, publishedAt })}
                 onClick={navigateToDetail && this.handleNavigateToDetailPage}
               >
                 {m(publishedAt).fromNow()}
