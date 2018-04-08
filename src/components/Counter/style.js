@@ -36,7 +36,8 @@ export const count = css`
 `;
 
 export const label = css`
-  ${typography.header4}
+  ${typography.small}
+  text-transform: uppercase;
   line-height: 1;
   font-weight: 400;
   color: ${neutral.medium};
