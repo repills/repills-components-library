@@ -22,9 +22,11 @@ export default (sectionTitle, sectionDescription) => () => {
     >
       <InteractiveExample
         component={ResourceDetail}
+        generateSectionUrl={sectionSlug => sectionSlug}
+        generateTopicUrl={topicSlug => topicSlug}
         navigateTo={() => alert('Navigate to: ' + randomResource.link)}
-        navigateToSection={sectionId => alert('Navigate to section: ' + sectionId)}
-        navigateToTopic={topicId => alert('Navigate to topic: ' + topicId)}
+        navigateToSection={sectionSlug => alert('Navigate to section: ' + sectionSlug)}
+        navigateToTopic={topicSlug => alert('Navigate to topic: ' + topicSlug)}
         {...randomResource}
       />
     </SectionPage>

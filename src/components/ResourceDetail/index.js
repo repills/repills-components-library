@@ -38,6 +38,8 @@ const ActionsStyle = styled.div`${actions}`;
 const DateStyle = styled.div`${date}`;
 const DetailStyle = styled.div`${detail}`;
 
+
+
 function ResourceDetail({
   color,
   title,
@@ -52,8 +54,15 @@ function ResourceDetail({
   suggestedBy,
   navigateToSection,
   navigateToTopic,
+  generateTopicUrl,
+  generateSectionUrl,
   ...others
 }) {
+
+  const sectionsMerged = sections.reduce((acc,sectionId) => {
+    const section = sectionsConfig.find(s => s.id === sectionId);
+    return { ...acc, ...section.topics };
+  },{});
 
   return (
     <BaseStyle
@@ -105,12 +114,17 @@ function ResourceDetail({
             sections.map(sectionId => {
               const section = sectionsConfig.find(s => s.id === sectionId);
               return (
-                <span
-                  key={sectionId}
-                  onClick={() => navigateToSection(sectionId)}
+                <a
+                  href={generateSectionUrl && generateSectionUrl(section.slug)}
+                  key={section.slug}
+                  onClick={e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    navigateToSection(section.slug);
+                  }}
                 >
                   {section.name}
-                </span>
+                </a>
               );
             })
           }
@@ -118,14 +132,20 @@ function ResourceDetail({
         <DetailStyle>
           <strong>Topic{topics.length !== 1 ? 's' : ''}</strong>
           {
-            topics.map(t => {
+            topics.map(topicId => {
+              const topic = sectionsMerged[topicId];
               return (
-                <span
-                  key={t}
-                  onClick={() => navigateToTopic(t)}
+                <a
+                  href={generateTopicUrl && generateTopicUrl(topic.slug)}
+                  key={topic.slug}
+                  onClick={e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    navigateToTopic(topic.slug);
+                  }}
                 >
-                  {t}
-                </span>
+                  {topic.title}
+                </a>
               );
             })
           }
@@ -159,6 +179,8 @@ ResourceDetail.propTypes = {
   author: string,
   color: string,
   createdAt: string,
+  generateSectionUrl: func,
+  generateTopicUrl: func,
   link: string.isRequired,
   navigateTo: func,
   navigateToSection: func,

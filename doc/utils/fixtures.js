@@ -40,7 +40,8 @@ export function getRandomResource({ title, date, author, link, color, typeLabel,
       typeLabel: typeLabel || randomType.config.label.singular,
       type: type || [randomType.key],
       suggestedBy: suggestedBy || faker.name.findName(),
-      reference: faker.random.uuid()
+      reference: faker.random.uuid(),
+      slug: faker.lorem.word().replace(' ', '-')
     }
   };
 }
