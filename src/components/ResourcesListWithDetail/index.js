@@ -97,13 +97,10 @@ class ResourcesListWithDetail extends React.Component {
       navigateToSection,
       navigateToTopic,
       showAllAction,
-      handleDetailView,
       navigateToDetail,
       generateDetailUrl,
       ...others
     } = this.props;
-
-    console.log(generateDetailUrl)
 
     const {
       showDetailModal,
