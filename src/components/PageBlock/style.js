@@ -63,10 +63,11 @@ export const description = css`
 export const body = css`
   ${typography.body}
   color: ${neutral.high};
-  margin-top: ${extRem(32)};
+  margin-top: ${extRem(40)};
   
   ${props => !props.simple && `
     border-top: 1px solid ${neutral.low};
     padding-top: ${extRem(32)};
+    margin-top: ${extRem(40)};
   `}
 `;

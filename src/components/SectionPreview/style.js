@@ -23,8 +23,7 @@ export const base = css`
 export const icon = css``;
 
 export const cover = css`
-  background-color: ${neutral.lower};
-  padding: ${extRem(28,16)};
+  padding: ${extRem(28,16, 0)};
   border: 1px solid ${neutral.low};
   border-bottom: 0;
   display: block;
