@@ -73,6 +73,10 @@ export default {
     {
       id: 'Node',
       name: 'Node'
+    },
+    {
+      id: 'Vue',
+      name: 'Vue'
     }
   ],
   social: [
