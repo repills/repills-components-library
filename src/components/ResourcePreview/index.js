@@ -120,7 +120,7 @@ class ResourcePreview extends React.Component {
             <span>{getBaseUrl(link)}</span>
           </SourceStyle>
           {
-            dateType === 'createdAt' &&
+            (dateType === 'createdAt' && createdAt) &&
               <DateStyle>
                 <a
                   href={generateDetailUrl && generateDetailUrl({ slug, publishedAt })}
@@ -131,7 +131,7 @@ class ResourcePreview extends React.Component {
               </DateStyle>
           }
           {
-            dateType === 'publishedAt' &&
+            (dateType === 'publishedAt' && publishedAt) &&
             <DateStyle>
               <a
                 href={generateDetailUrl && generateDetailUrl({ slug, publishedAt })}

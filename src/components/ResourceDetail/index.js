@@ -93,7 +93,10 @@ function ResourceDetail({
               by <span>{author}</span> &ndash;
             </AuthorStyle>
           }
-          <DateStyle>Published <strong>{m(publishedAt).fromNow()}</strong></DateStyle>
+          {
+            publishedAt &&
+            <DateStyle>Published <strong>{m(publishedAt).fromNow()}</strong></DateStyle>
+          }
         </MainInfoBottomStyle>
       </MainInfoStyle>
       <SecondaryInfoStyle>
