@@ -24,6 +24,7 @@ export ResourcePreview from './ResourcePreview';
 export ResourcesList from './ResourcesList';
 export ResourcesListWithDetail from './ResourcesListWithDetail';
 export ResponsivePagination from './ResponsivePagination';
+export SimplePageHeader from './SimplePageHeader';
 export SectionPageHeader from './SectionPageHeader';
 export SectionPreview from './SectionPreview';
 export SectionPreviewSelection from './SectionPreviewSelection';
