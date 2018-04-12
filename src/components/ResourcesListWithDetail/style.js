@@ -10,6 +10,7 @@ const halfGutter = extRem(halfGutterStripUnit);
 
 export const base = css`
   position: relative;
+  text-align: left;
 `;
 
 export const items = css`
@@ -36,4 +37,5 @@ export const item = css`
 
 export const actions = css`
   margin-top: ${extRem(32)};
+  text-align: center;
 `;
