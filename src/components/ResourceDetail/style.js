@@ -48,7 +48,7 @@ export const author = css`
   ${ellipsis()}
   
   span {
-    margin: ${extRem(0,5)};
+    margin-left: ${extRem(5)};
   }
 `;
 
@@ -87,6 +87,10 @@ export const type = css`
 export const date = css`
   margin-left: ${extRem(8)};
   flex: 1 0 auto;
+  
+  span {
+    margin-left: ${extRem(8)};
+  }
 `;
 
 export const detail = css`

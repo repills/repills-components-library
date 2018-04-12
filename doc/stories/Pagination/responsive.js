@@ -1,5 +1,5 @@
 import React from 'react';
-import { number } from '@storybook/addon-knobs/react';
+import { number, boolean } from '@storybook/addon-knobs/react';
 import { ResponsivePagination } from '../../../src/components';
 import { SectionPage, InteractiveExample } from '../../components';
 
@@ -14,6 +14,14 @@ export default (sectionTitle, sectionDescription) => () => {
     step: 1,
   });
 
+  const others = {};
+
+  const hrefLink = boolean('Href link', false);
+
+  if (hrefLink) {
+    others['buildPagePath'] = index => `path/to/page/${index}`;
+  }
+
   return (
     <SectionPage
       sectionDescription={sectionDescription}
@@ -26,6 +34,7 @@ export default (sectionTitle, sectionDescription) => () => {
         handleNavigateToPage={index => alert(`Navigate to page: ${index}`)}
         itemsPerPage={itemsPerPage}
         itemsTotalCount={itemsTotalCount}
+        {...others}
       />
     </SectionPage>
   );

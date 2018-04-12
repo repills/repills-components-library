@@ -13,7 +13,9 @@ import {
 } from './style';
 
 const BaseStyle = styled.div`${base}`;
-const ButtonStyle = styled.button`${button}`;
+const ButtonStyle = styled.a`${button}`;
+
+// @TODO: convert to Class
 
 function Pagination({
   currentPage,
@@ -21,17 +23,26 @@ function Pagination({
   itemsPerPage,
   itemsTotalCount,
   rangePageDisplayed,
+  buildPagePath,
   ...others
 }) {
+  const ButtonStyle = styled[buildPagePath ? 'a' : 'button']`${button}`;
+
   const pagination = paginate(itemsTotalCount, itemsPerPage, currentPage);
 
   const pages = [];
   const pageCount = pagination.pageCount;
 
-  const getPage = index =>({
+  const getPage = index => ({
     index,
     active: index === currentPage
   });
+
+  const navigateTo = index => e => {
+    e.preventDefault();
+    e.stopPropagation();
+    handleNavigateToPage(index);
+  };
 
   let showLeftBreak = false;
   let showRightBreak = false;
@@ -77,7 +88,8 @@ function Pagination({
         (pageCount > rangePageDisplayed) &&
         <ButtonStyle
           disabled={!pagination.previousPage}
-          onClick={() => handleNavigateToPage(1)}
+          href={buildPagePath && buildPagePath(1)}
+          onClick={navigateTo(1)}
         >
           <ArrowIcon
             orientation="left"
@@ -93,8 +105,9 @@ function Pagination({
         pages.map(page =>
           <ButtonStyle
             active={page.active}
+            href={buildPagePath && buildPagePath(page.index)}
             key={`page-${page.index}`}
-            onClick={() => handleNavigateToPage(page.index)}
+            onClick={navigateTo(page.index)}
           >
             {page.index}
           </ButtonStyle>
@@ -108,7 +121,8 @@ function Pagination({
         (pageCount > rangePageDisplayed) &&
         <ButtonStyle
           disabled={!pagination.nextPage}
-          onClick={() => handleNavigateToPage(pageCount)}
+          href={buildPagePath && buildPagePath(pageCount)}
+          onClick={() => navigateTo(pageCount)}
         >
           <ArrowIcon
             orientation="right"
@@ -121,6 +135,7 @@ function Pagination({
 }
 
 Pagination.propTypes = {
+  buildPagePath: func,
   currentPage: number.isRequired,
   handleNavigateToPage: func.isRequired,
   itemsPerPage: number.isRequired,

@@ -13,6 +13,7 @@ function ResponsivePagination({
   currentPage,
   handleNavigateToPage,
   itemsPerPage,
+  buildPagePath,
   ...others
 }) {
 
@@ -32,12 +33,13 @@ function ResponsivePagination({
       {
         params => (
           <Pagination
-            {...others}
+            buildPagePath={buildPagePath}
             currentPage={currentPage}
             handleNavigateToPage={handleNavigateToPage}
             itemsPerPage={itemsPerPage}
             itemsTotalCount={itemsTotalCount}
             rangePageDisplayed={getRangePageDisplayed(cx(params))}
+            {...others}
           />
         )
       }
@@ -46,6 +48,7 @@ function ResponsivePagination({
 }
 
 ResponsivePagination.propTypes = {
+  buildPagePath: func,
   currentPage: number.isRequired,
   handleNavigateToPage: func.isRequired,
   itemsPerPage: number.isRequired,

@@ -90,12 +90,14 @@ function ResourceDetail({
           {
             author &&
             <AuthorStyle>
-              by <span>{author}</span> &ndash;
+              by <span>{author}</span>
             </AuthorStyle>
           }
           {
             publishedAt &&
-            <DateStyle>Published <strong>{m(publishedAt).fromNow()}</strong></DateStyle>
+            <DateStyle>
+              &ndash;<span>Published <strong>{m(publishedAt).fromNow()}</strong></span>
+            </DateStyle>
           }
         </MainInfoBottomStyle>
       </MainInfoStyle>

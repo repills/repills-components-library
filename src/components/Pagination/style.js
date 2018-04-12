@@ -29,6 +29,8 @@ export const button = css`
   color: ${neutral.high};
   padding: 0;
   cursor: pointer;
+  text-decoration: none;
+  color: ${neutral.high};
 
   ${props => props.active && `
     background-color: ${basic.primary};
