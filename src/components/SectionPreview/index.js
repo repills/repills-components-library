@@ -20,7 +20,6 @@ import {
 } from './style';
 
 const BaseStyle = styled.article`${base}`;
-const CoverStyle = styled.a`${cover}`;
 const InfoStyle = styled.div`${info}`;
 const NameStyle = styled.h3`${name}`;
 const DescriptionStyle = styled.p`${description}`;
@@ -47,6 +46,8 @@ function SectionPreview({
     navigateTo();
   };
 
+  const CoverStyle = styled[!disabled && navigate ? 'a' : 'div']`${cover}`;
+
   return (
     <BaseStyle
       {...others}
@@ -54,7 +55,7 @@ function SectionPreview({
     >
       <CoverStyle
         disabled={disabled}
-        href={path}
+        href={!disabled && path}
         onClick={!disabled && navigate}
       >
         <IconStyle>

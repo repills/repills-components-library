@@ -13,6 +13,7 @@ export const title = css`
   word-break: break-word;
   color: ${neutral.higher};
   line-height: 1.1;
+  margin: 0;
   
   strong {
     color: ${basic.primary};
