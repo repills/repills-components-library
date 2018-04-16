@@ -61,10 +61,9 @@ class InteractiveExample extends React.Component {
           >
             {
               hasQueryHandler ?
-                <QueryHandler
-                  component={Component}
-                  componentProps={configComponent}
-                />
+                <QueryHandler>
+                  {this.getComponent()}
+                </QueryHandler>
                 : this.getComponent()
             }
           </PreviewBlock>

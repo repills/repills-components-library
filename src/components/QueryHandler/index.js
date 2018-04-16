@@ -8,30 +8,18 @@ import { ContainerQuery } from 'react-container-query';
 import { query } from '../../config/breakpoints';
 
 function QueryHandler({
-  component,
-  componentProps
+  children
 }) {
 
   return (
     <ContainerQuery query={query}>
-      {
-        params => {
-          const Component = component;
-          return (
-            <Component
-              {...componentProps}
-              breakpointsStatus={params}
-            />
-          );
-        }
-      }
+      { params => React.cloneElement(children, { breakpointsStatus: params }) }
     </ContainerQuery>
   );
 }
 
 QueryHandler.propTypes = {
-  component: oneOfType([func, object]).isRequired,
-  componentProps: object
+  children: oneOfType([func, object]).isRequired
 };
 
 export default QueryHandler;
