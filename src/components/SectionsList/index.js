@@ -3,12 +3,10 @@ import SectionPreview from '../SectionPreview';
 import {
   func,
   arrayOf,
-  shape
+  shape,
+  object
 } from 'prop-types';
 import styled from 'styled-components';
-import Spinner from '../Spinner';
-import { ContainerQuery } from 'react-container-query';
-import { query } from '../../config/breakpoints';
 import { base, items, item } from './style';
 
 const BaseStyle = styled.div`${base}`;
@@ -16,52 +14,48 @@ const ItemsStyle = styled.div`${items}`;
 const ItemStyle = styled.div`${item}`;
 
 function SectionsList({
+  breakpointsStatus,
   sections,
   navigateTo,
   ...others
 }) {
   const count = sections.length;
   return (
-    <ContainerQuery query={query}>
-      {
-        params => {
-          const loading = Object.keys(params).length === 0;
-
-          return (
-            <BaseStyle
-              {...others}
-            >
-              { loading && <Spinner position="absolute" /> }
-              <ItemsStyle
-                breakpointsStatus={params}
+    <BaseStyle
+      {...others}
+    >
+      <ItemsStyle
+        breakpointsStatus={breakpointsStatus}
+      >
+        {
+          sections.map(section => {
+            return (
+              <ItemStyle
+                breakpointsStatus={breakpointsStatus}
+                count={count}
+                key={section.id}
               >
-                {
-                  sections.map(section => {
-                    return (
-                      <ItemStyle
-                        breakpointsStatus={params}
-                        count={count}
-                        key={section.id}
-                      >
-                        <SectionPreview
-                          navigateTo={() => navigateTo(section.path)}
-                          {...section}
-                        />
-                      </ItemStyle>
-                    );
-                  })
-                }
-              </ItemsStyle>
-            </BaseStyle>
-          );
-        }}
-    </ContainerQuery>
+                <SectionPreview
+                  navigateTo={() => navigateTo(section.path)}
+                  {...section}
+                />
+              </ItemStyle>
+            );
+          })
+        }
+      </ItemsStyle>
+    </BaseStyle>
   );
 }
 
 SectionsList.propTypes = {
+  breakpointsStatus: object,
   navigateTo: func,
   sections: arrayOf(shape(SectionPreview.propTypes)).isRequired
+};
+
+SectionsList.defaultProps = {
+  breakpointsStatus: {}
 };
 
 export default SectionsList;
