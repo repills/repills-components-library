@@ -1,25 +1,24 @@
 import React from 'react';
 import {
-  string,
   arrayOf,
-  shape
+  shape,
+  object
 } from 'prop-types';
 import styled from 'styled-components';
-import { ContainerQuery } from 'react-container-query';
 import FeatureItem from '../FeatureItem';
-import Spinner from '../Spinner';
-import { query } from '../../config/breakpoints';
 import {
   base,
   items,
   item
 } from './style';
+import QueryHandler from '../QueryHandler';
 
 const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
 const ItemStyle = styled.div`${item}`;
 
 const FeatureList = ({
+  breakpointsStatus,
   features,
   skin,
   ...others
@@ -28,49 +27,38 @@ const FeatureList = ({
   const count = features.length;
 
   return (
-    <ContainerQuery query={query}>
-      {
-        params => {
-          const loading = Object.keys(params).length === 0;
-
-          return (
-            <BaseStyle
-              {...others}
+    <BaseStyle
+      {...others}
+    >
+      <ItemsStyle breakpointsStatus={breakpointsStatus}>
+        {
+          features.map((feature,i) => (
+            <ItemStyle
+              breakpointsStatus={breakpointsStatus}
+              count={count}
+              key={`feature-${i}`}
+              skin={skin}
             >
-              { loading && <Spinner /> }
-              {
-                !loading &&
-                <ItemsStyle breakpointsStatus={params}>
-                  {
-                    features.map((feature,i) => (
-                      <ItemStyle
-                        breakpointsStatus={params}
-                        count={count}
-                        key={`feature-${i}`}
-                        skin={skin}
-                      >
-                        <FeatureItem
-                          {...feature}
-                          skin={skin}
-                        />
-                      </ItemStyle>
-                    ))
-                  }
-                </ItemsStyle>
-              }
-            </BaseStyle>
-          );
-        }}
-    </ContainerQuery>
+              <FeatureItem
+                {...feature}
+                skin={skin}
+              />
+            </ItemStyle>
+          ))
+        }
+      </ItemsStyle>
+    </BaseStyle>
   );
 };
 
 FeatureList.propTypes = {
+  breakpointsStatus: object,
   features: arrayOf(shape(FeatureItem.propTypes)).isRequired,
   skin: FeatureItem.propTypes.skin
 };
 
 FeatureList.defaultProps = {
+  breakpointsStatus:{}
 };
 
-export default FeatureList;
+export default QueryHandler(FeatureList);

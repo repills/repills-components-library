@@ -64,7 +64,7 @@ export const title = css`
 
 export const subTitle = css`
   ${typography.header4}
-  color: ${neutral.low};
+  color: ${neutral.medium};
   font-weight: 500;
   line-height: 1.2;
   margin: ${extRem(20)} 0 0;

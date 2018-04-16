@@ -4,14 +4,13 @@ import {
   func,
   arrayOf,
   shape,
-  obj
+  object
 } from 'prop-types';
 import styled from 'styled-components';
-import { ContainerQuery } from 'react-container-query';
 import Button from '../Button';
-import { query, queryList } from '../../config/breakpoints';
+import { queryList } from '../../config/breakpoints';
 import { base, items, item, actions } from './style';
-import Spinner from '../Spinner';
+import QueryHandler from '../QueryHandler';
 
 const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
@@ -21,12 +20,17 @@ const ActionsStyle = styled.div`${actions}`;
 class TopicsList extends React.Component {
 
   static propTypes = {
-    breaks: obj,
+    breakpointsStatus: object,
+    breaks: object,
     navigateTo: func,
     showAllAction: shape({
       onClick: func.isRequired
     }),
     topics: arrayOf(shape(TopicPreview.propTypes)).isRequired,
+  };
+
+  static defaultProps = {
+    breakpointsStatus: {}
   };
 
   constructor(props) {
@@ -69,6 +73,7 @@ class TopicsList extends React.Component {
 
   render() {
     const {
+      breakpointsStatus,
       topics,
       navigateTo,
       showAllAction,
@@ -76,72 +81,57 @@ class TopicsList extends React.Component {
     } = this.props;
 
     const count = topics.length;
-    return (
-      <ContainerQuery query={query}>
-        {
-          params => {
-            const currentBreakpoint = this.getCurrentBreakPoint(params);
-            const showedTopics = this.getShowedTopics({ currentBreakpoint });
-            const loading = Object.keys(params).length === 0;
+    const currentBreakpoint = this.getCurrentBreakPoint(breakpointsStatus);
+    const showedTopics = this.getShowedTopics({ currentBreakpoint });
 
-            return (
-              <BaseStyle
-                {...others}
-              >
-                { loading && <Spinner position="absolute" /> }
-                <div>
-                  <ItemsStyle
-                    breakpointsStatus={params}
-                  >
-                    {
-                      showedTopics.map(topic => (
-                        <ItemStyle
-                          breakpointsStatus={params}
-                          count={count}
-                          key={topic.slug}
-                        >
-                          <TopicPreview
-                            navigateTo={() => navigateTo(topic.path)}
-                            {...topic}
-                          />
-                        </ItemStyle>
-                      ))
-                    }
-                  </ItemsStyle>
-                  {
-                    topics.length > showedTopics.length &&
-                    <ActionsStyle>
-                      <Button
-                        expanded={currentBreakpoint === 'XS'}
-                        label="Show more"
-                        onClick={() => this.setState({ showEntireList: true })}
-                      />
-                    </ActionsStyle>
-                  }
-                  {
-                    (showAllAction && topics.length === showedTopics.length) &&
-                    <ActionsStyle>
-                      <Button
-                        expanded={currentBreakpoint === 'XS'}
-                        label="Show All"
-                        onClick={showAllAction.onClick}
-                      />
-                    </ActionsStyle>
-                  }
-                </div>
-              </BaseStyle>
-            );
+    return (
+      <BaseStyle
+        {...others}
+      >
+        <div>
+          <ItemsStyle
+            breakpointsStatus={breakpointsStatus}
+          >
+            {
+              showedTopics.map((topic,i) => (
+                <ItemStyle
+                  breakpointsStatus={breakpointsStatus}
+                  count={count}
+                  key={`${topic.slug}-${i}`}
+                >
+                  <TopicPreview
+                    navigateTo={() => navigateTo(topic.path)}
+                    {...topic}
+                  />
+                </ItemStyle>
+              ))
+            }
+          </ItemsStyle>
+          {
+            topics.length > showedTopics.length &&
+            <ActionsStyle>
+              <Button
+                expanded={currentBreakpoint === 'XS'}
+                label="Show more"
+                onClick={() => this.setState({ showEntireList: true })}
+              />
+            </ActionsStyle>
           }
-        }
-      </ContainerQuery>
+          {
+            (showAllAction && topics.length === showedTopics.length) &&
+            <ActionsStyle>
+              <Button
+                expanded={currentBreakpoint === 'XS'}
+                label="Show All"
+                onClick={showAllAction.onClick}
+              />
+            </ActionsStyle>
+          }
+        </div>
+      </BaseStyle>
     );
 
   }
 }
 
-TopicsList.propTypes = {
-  navigateTo: func,
-  topics: arrayOf(shape(TopicPreview.propTypes)).isRequired
-};
-
-export default TopicsList;
+export default QueryHandler(TopicsList);
