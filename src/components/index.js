@@ -50,4 +50,5 @@ export TypesList from './TypesList';
 export typography from '../shared/styles/typography';
 export VerticalSpacing from './VerticalSpacing';
 export QueryHandler from './QueryHandler';
+export breakpoints from '../config/breakpoints';
 import 'babel-polyfill';
