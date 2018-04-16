@@ -57,7 +57,7 @@ const SectionPageHeader = ({
                       breakpointsStatus={params}
                       color={color}
                     >
-                      <Icon size={90} />
+                      <Icon size={70} />
                     </IconStyle>
                   }
                   {
@@ -72,7 +72,12 @@ const SectionPageHeader = ({
                 </MainStyle>
                 {
                   description &&
-                  <DescriptionStyle icon={icon}>{description}</DescriptionStyle>
+                  <DescriptionStyle
+                    breakpointsStatus={params}
+                    icon={icon}
+                  >
+                    {description}
+                  </DescriptionStyle>
                 }
               </div>
             </BaseStyle>

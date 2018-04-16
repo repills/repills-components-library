@@ -13,6 +13,7 @@ export const base = css`
 export const example = css`
   display: inline-block;
   max-width: 100%;
+  
 `;
 
 export const exampleHeader = css`
@@ -34,4 +35,9 @@ export const exampleBody = css`
   border: 1px solid ${neutral.low};
   overflow-y: auto;
   background-color: ${neutral.lowest};
+  
+  ${props => props.skin === 'dark' && `
+    border-color: ${neutral.highest};
+    background-color: ${neutral.highest};
+  `}
 `;

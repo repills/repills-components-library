@@ -18,6 +18,7 @@ export default (sectionTitle, sectionDescription) => () => {
       <InteractiveExample
         component={HomePageHeader}
         description={description}
+        previewSkin="dark"
         subTitle={subTitle}
         title={title}
       />

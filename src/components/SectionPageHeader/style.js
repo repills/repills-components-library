@@ -21,7 +21,7 @@ export const title = css`
   line-height: 1.1;
   word-break: break-word;
   margin-left: ${extRem(-3)};
-  ${props => props.breakpointsStatus[SM] ? typography.header1 : typography.header2}
+  ${props => props.breakpointsStatus[SM] ? typography.header2 : typography.header3}
   font-weight: 600;
 `;
 
@@ -30,7 +30,7 @@ export const main = css`
     
   ${props => props.breakpointsStatus[SM] && `
     display: inline-block;
-    padding-right: ${extRem(110)};
+    padding-right: ${extRem(90)};
   `}
 `;
 
@@ -53,9 +53,9 @@ export const icon = css`
 `;
 
 export const description = css`
-  ${typography.body}
+  ${props => props.breakpointsStatus[SM] ? typography.body : typography.small}
   color: ${neutral.medium};
-  margin: ${extRem(8)} 0 0;
+  margin: ${extRem(12)} 0 0;
   line-height: 1.5;
   max-width: ${extRem(500)};
 `;

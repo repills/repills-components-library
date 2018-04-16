@@ -34,7 +34,7 @@ class InteractiveExample extends React.Component {
   };
 
   getComponent = () => {
-    const { component: Component, showBreakpoints, previewMinHeight, ...config } = this.props;
+    const { component: Component, showBreakpoints, previewMinHeight, previewSkin, ...config } = this.props;
     return <Component {...config} />;
   };
 
@@ -42,7 +42,8 @@ class InteractiveExample extends React.Component {
     const {
       showBreakpoints,
       component,
-      previewMinHeight
+      previewMinHeight,
+      previewSkin
     } = this.props;
 
     return (
@@ -51,6 +52,7 @@ class InteractiveExample extends React.Component {
           <PreviewBlock
             minHeight={previewMinHeight}
             showBreakpoints={showBreakpoints}
+            previewSkin={previewSkin}
           >
             {this.getComponent()}
           </PreviewBlock>

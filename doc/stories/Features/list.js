@@ -1,6 +1,7 @@
 import React from 'react';
 import { SectionPage, InteractiveExample } from '../../components';
 import { FeatureList } from '../../../src/components';
+import { select } from '@storybook/addon-knobs/react';
 
 const features = [
   {
@@ -47,6 +48,14 @@ const features = [
 
 export default (sectionTitle, sectionDescription) => () => {
 
+  const options = {};
+  const selectedSkin = select('Skin', { 'none': 'Light', 'dark': 'Dark' }, 'none');
+
+  if (selectedSkin !== 'none') {
+    options['skin'] = selectedSkin;
+    options['previewSkin'] = 'dark';
+  }
+
   return (
     <SectionPage
       description={sectionDescription}
@@ -55,6 +64,7 @@ export default (sectionTitle, sectionDescription) => () => {
       <InteractiveExample
         component={FeatureList}
         features={features}
+        {...options}
       />
     </SectionPage>
   );

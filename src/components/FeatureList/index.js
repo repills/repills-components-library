@@ -21,6 +21,7 @@ const ItemStyle = styled.div`${item}`;
 
 const FeatureList = ({
   features,
+  skin,
   ...others
 }) => {
 
@@ -46,9 +47,11 @@ const FeatureList = ({
                         breakpointsStatus={params}
                         count={count}
                         key={`feature-${i}`}
+                        skin={skin}
                       >
                         <FeatureItem
                           {...feature}
+                          skin={skin}
                         />
                       </ItemStyle>
                     ))
@@ -63,11 +66,8 @@ const FeatureList = ({
 };
 
 FeatureList.propTypes = {
-  features: arrayOf(shape({
-    title: string.isRequired,
-    description: string,
-    icon: string.isRequired
-  })).isRequired
+  features: arrayOf(shape(FeatureItem.propTypes)).isRequired,
+  skin: FeatureItem.propTypes.skin
 };
 
 FeatureList.defaultProps = {

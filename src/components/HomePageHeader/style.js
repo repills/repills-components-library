@@ -46,7 +46,7 @@ export const base = css`
 
 export const title = css`
   ${typography.header2}
-  color: ${neutral.higher};
+  color: ${neutral.lowest};
   margin: 0;
   line-height: 1.1;
   font-weight: 600;
@@ -64,7 +64,7 @@ export const title = css`
 
 export const subTitle = css`
   ${typography.header4}
-  color: ${neutral.medium};
+  color: ${neutral.low};
   font-weight: 500;
   line-height: 1.2;
   margin: ${extRem(20)} 0 0;
@@ -76,7 +76,7 @@ export const subTitle = css`
 
 export const description = css`
   ${typography.body}
-  color: ${neutral.high};
+  color: ${neutral.medium};
   line-height: 1.5;
   max-width: ${extRem(650)};
   margin: ${extRem(48)} auto 0;
@@ -121,11 +121,11 @@ export const typeBlock = css`
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: ${neutral.medium};
+  color: ${neutral.high};
   
   span {
     ${typography.mini}
-    color: ${neutral.high};
+    color: ${neutral.medium};
     margin-top: ${extRem(12)};
     line-height: 1;
   }

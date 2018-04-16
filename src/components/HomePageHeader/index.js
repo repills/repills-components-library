@@ -115,7 +115,7 @@ const HomePageHeader = ({
 HomePageHeader.propTypes = {
   description: string,
   subTitle: string,
-  title: string
+  title: string,
 };
 
 export default HomePageHeader;

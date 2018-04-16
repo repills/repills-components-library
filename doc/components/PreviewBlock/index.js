@@ -20,6 +20,10 @@ const ExampleBodyStyle = styled.div`${exampleBody}`;
 
 class PreviewBlock extends React.Component {
 
+  static defaultProps = {
+    previewSkin: 'light'
+  };
+
   constructor(props) {
     super(props);
     const {
@@ -53,7 +57,7 @@ class PreviewBlock extends React.Component {
   };
 
   render() {
-    const { children } = this.props;
+    const { children, previewSkin } = this.props;
     const {
       currentBreakpoint
     } = this.state;
@@ -83,7 +87,7 @@ class PreviewBlock extends React.Component {
         </div>
         <ExampleStyle>
           <ExampleHeaderStyle>Example</ExampleHeaderStyle>
-          <ExampleBodyStyle>
+          <ExampleBodyStyle skin={previewSkin}>
             <div style={{ width: `${query[currentBreakpoint].minWidth}px` }}>
               {children}
             </div>

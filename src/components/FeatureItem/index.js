@@ -1,7 +1,8 @@
 import React from 'react';
 import * as Icons from '../Icon/icons';
 import {
-  string
+  string,
+  oneOf
 } from 'prop-types';
 import styled from 'styled-components';
 import {
@@ -20,6 +21,7 @@ const FeatureItem = ({
   description,
   icon,
   title,
+  skin,
   ...others
 }) => {
   const Icon = Icons[`${icon}Icon`];
@@ -28,13 +30,16 @@ const FeatureItem = ({
     <BaseStyle
       {...others}
     >
-      <IconStyle>
+      <IconStyle skin={skin}>
         <Icon size={44} />
       </IconStyle>
-      <TitleStyle>{title}</TitleStyle>
+      <TitleStyle skin={skin}>{title}</TitleStyle>
       {
         description &&
-        <DescriptionStyle dangerouslySetInnerHTML={{ __html: description }} />
+        <DescriptionStyle
+          dangerouslySetInnerHTML={{ __html: description }}
+          skin={skin}
+        />
       }
     </BaseStyle>
   );
@@ -43,10 +48,12 @@ const FeatureItem = ({
 FeatureItem.propTypes = {
   description: string,
   icon: string,
-  title: string
+  skin: oneOf(['light', 'dark']),
+  title: string,
 };
 
 FeatureItem.defaultProps = {
+  skin: 'light'
 };
 
 export default FeatureItem;
