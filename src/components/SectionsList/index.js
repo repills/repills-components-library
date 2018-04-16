@@ -8,6 +8,7 @@ import {
 } from 'prop-types';
 import styled from 'styled-components';
 import { base, items, item } from './style';
+import QueryHandler from '../QueryHandler';
 
 const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
@@ -58,4 +59,4 @@ SectionsList.defaultProps = {
   breakpointsStatus: {}
 };
 
-export default SectionsList;
+export default QueryHandler(SectionsList);

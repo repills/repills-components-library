@@ -65,7 +65,6 @@ export default (sectionTitle, sectionDescription) => () => {
     >
       <InteractiveExample
         component={TopNavigation}
-        hasQueryHandler
         items={items}
         onClickLogo={() => alert('Logo clicked')}
       />

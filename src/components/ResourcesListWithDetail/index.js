@@ -12,9 +12,9 @@ import {
   object
 } from 'prop-types';
 import styled from 'styled-components';
-import { ContainerQuery } from 'react-container-query';
-import { query, queryList } from '../../config/breakpoints';
+import { queryList } from '../../config/breakpoints';
 import { base, items, item, actions } from './style';
+import QueryHandler from '../QueryHandler';
 
 const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
@@ -24,6 +24,7 @@ const ActionsStyle = styled.div`${actions}`;
 class ResourcesListWithDetail extends React.Component {
 
     static propTypes = {
+      breakpointsStatus: object,
       breaks: object,
       dateType: string,
       generateDetailUrl: func,
@@ -35,6 +36,10 @@ class ResourcesListWithDetail extends React.Component {
       showAllAction: shape({
         onClick: func.isRequired
       }),
+    };
+
+    static defaultProps = {
+      breakpointsStatus: {}
     };
 
     constructor(props) {
@@ -58,6 +63,7 @@ class ResourcesListWithDetail extends React.Component {
 
   closeDetailModal = () => this.setState({ showDetailModal: false, currentResource: null });
 
+  // @TODO: make it as utility
   getCurrentBreakPoint = statusBreakpoints => {
     let current = null;
 
@@ -92,6 +98,7 @@ class ResourcesListWithDetail extends React.Component {
   render() {
 
     const {
+      breakpointsStatus,
       resources,
       dateType,
       navigateToSection,
@@ -109,86 +116,79 @@ class ResourcesListWithDetail extends React.Component {
 
     const count = resources.length;
 
-    return (
-      <ContainerQuery query={query}>
-        {
-          params => {
-            const currentBreakpoint = this.getCurrentBreakPoint(params);
-            const showedResources = this.getShowedResources({ currentBreakpoint });
-            const loading = Object.keys(params).length === 0;
 
-            return (
-              <BaseStyle
-                {...others}
-              >
-                { loading && <Spinner position="absolute" /> }
-                <div>
-                  <ItemsStyle
-                    breakpointsStatus={params}
+    const currentBreakpoint = this.getCurrentBreakPoint(breakpointsStatus);
+    const showedResources = this.getShowedResources({ currentBreakpoint });
+    const loading = Object.keys(breakpointsStatus).length === 0;
+
+    return (
+      <BaseStyle
+        {...others}
+      >
+        { loading && <Spinner position="absolute" /> }
+        <div>
+          <ItemsStyle
+            breakpointsStatus={breakpointsStatus}
+          >
+            {
+              showedResources.map(resource => {
+                return (
+                  <ItemStyle
+                    breakpointsStatus={breakpointsStatus}
+                    count={count}
+                    key={resource.link}
                   >
-                    {
-                      showedResources.map(resource => {
-                        return (
-                          <ItemStyle
-                            breakpointsStatus={params}
-                            count={count}
-                            key={resource.link}
-                          >
-                            <ResourcePreview
-                              {...resource}
-                              dateType={dateType}
-                              generateDetailUrl={generateDetailUrl}
-                              handleDetailView={this.onHandleDetailView}
-                              navigateToDetail={navigateToDetail}
-                            />
-                          </ItemStyle>
-                        );
-                      })
-                    }
-                  </ItemsStyle>
-                  {
-                    resources.length > showedResources.length &&
-                    <ActionsStyle>
-                      <Button
-                        expanded={currentBreakpoint === 'XS'}
-                        label="Show more"
-                        onClick={() => this.setState({ showEntireList: true })}
-                      />
-                    </ActionsStyle>
-                  }
-                  {
-                    (showAllAction && resources.length === showedResources.length) &&
-                    <ActionsStyle>
-                      <Button
-                        expanded={currentBreakpoint === 'XS'}
-                        label="Show All"
-                        onClick={showAllAction.onClick}
-                      />
-                    </ActionsStyle>
-                  }
-                  <Modal
-                    handleClose={this.closeDetailModal}
-                    open={showDetailModal}
-                  >
-                    {
-                      currentResource ?
-                        <ResourceDetail
-                          {...currentResource}
-                          navigateTo={this.handleNavigateTo(currentResource.link)}
-                          navigateToSection={navigateToSection}
-                          navigateToTopic={navigateToTopic}
-                        />
-                        : <div />
-                    }
-                  </Modal>
-                </div>
-              </BaseStyle>
-            );
+                    <ResourcePreview
+                      {...resource}
+                      dateType={dateType}
+                      generateDetailUrl={generateDetailUrl}
+                      handleDetailView={this.onHandleDetailView}
+                      navigateToDetail={navigateToDetail}
+                    />
+                  </ItemStyle>
+                );
+              })
+            }
+          </ItemsStyle>
+          {
+            resources.length > showedResources.length &&
+            <ActionsStyle>
+              <Button
+                expanded={currentBreakpoint === 'XS'}
+                label="Show more"
+                onClick={() => this.setState({ showEntireList: true })}
+              />
+            </ActionsStyle>
           }
-        }
-      </ContainerQuery>
+          {
+            (showAllAction && resources.length === showedResources.length) &&
+            <ActionsStyle>
+              <Button
+                expanded={currentBreakpoint === 'XS'}
+                label="Show All"
+                onClick={showAllAction.onClick}
+              />
+            </ActionsStyle>
+          }
+          <Modal
+            handleClose={this.closeDetailModal}
+            open={showDetailModal}
+          >
+            {
+              currentResource ?
+                <ResourceDetail
+                  {...currentResource}
+                  navigateTo={this.handleNavigateTo(currentResource.link)}
+                  navigateToSection={navigateToSection}
+                  navigateToTopic={navigateToTopic}
+                />
+                : <div />
+            }
+          </Modal>
+        </div>
+      </BaseStyle>
     );
   }
 }
 
-export default ResourcesListWithDetail;
+export default QueryHandler(ResourcesListWithDetail);

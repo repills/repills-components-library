@@ -15,7 +15,6 @@ export default (sectionTitle, sectionDescription) => () => {
     >
       <InteractiveExample
         component={SectionsList}
-        hasQueryHandler
         navigateTo={navigateTo}
         sections={getRandomSectionList(number('Sezioni', 6, {
           min: 1,

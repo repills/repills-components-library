@@ -11,7 +11,7 @@ import {
 } from 'prop-types';
 import cx from 'classnames';
 import Logo from '../Logo';
-import Spinner from '../Spinner';
+import QueryHandler from '../QueryHandler';
 
 const { basic, neutral } = theme.palettes;
 
@@ -31,18 +31,14 @@ const NavigationStyle = styled.nav`${navigation}`;
 function TopNavigation({
   items,
   breakpointsStatus,
-  // loading,
   onClickLogo,
   ...others
 }) {
-
-  const loadingStatus = breakpointsStatus ? Object.keys(breakpointsStatus).length === 0 : false;
 
   return (
     <BaseStyle
       {...others}
     >
-      { loadingStatus && <Spinner position="absolute" /> }
       <WrapperStyle className={cx(breakpointsStatus)}>
         <LogoContainerStyle
           className={cx(breakpointsStatus)}
@@ -94,7 +90,8 @@ TopNavigation.propTypes = {
 };
 
 TopNavigation.defaultProps = {
-  items: []
+  items: [],
+  breakpointsStatus: {}
 };
 
-export default TopNavigation;
+export default QueryHandler(TopNavigation);

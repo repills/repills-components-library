@@ -16,7 +16,6 @@ import {
   code
 } from './style';
 import { getComponentDisplayName } from '../../utils';
-import { QueryHandler } from '../../../src/components'
 
 const BaseStyle = styled.div`${base}`;
 const PreviewStyle = styled.div`${preview}`;
@@ -45,10 +44,7 @@ class InteractiveExample extends React.Component {
       showBreakpoints,
       component,
       previewMinHeight,
-      previewSkin,
-      component: Component,
-      hasQueryHandler,
-      ...configComponent
+      previewSkin
     } = this.props;
 
     return (
@@ -59,13 +55,7 @@ class InteractiveExample extends React.Component {
             previewSkin={previewSkin}
             showBreakpoints={showBreakpoints}
           >
-            {
-              hasQueryHandler ?
-                <QueryHandler>
-                  {this.getComponent()}
-                </QueryHandler>
-                : this.getComponent()
-            }
+            { this.getComponent() }
           </PreviewBlock>
         </PreviewStyle>
         <CodeStyle
