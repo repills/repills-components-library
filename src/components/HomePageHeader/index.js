@@ -51,7 +51,7 @@ const HomePageHeader = ({
         params => {
           const loading = Object.keys(params).length === 0;
           const typesList = params[MD] ? showedTypes : showedTypes.slice(0,3);
-          const iconSize =  params[MD] ? 48 : 40;
+          const iconSize =  params[MD] ? 44 : 36;
 
           return (
             <BaseStyle

@@ -12,14 +12,14 @@ export default [
     id: 'header1',
     name: 'Header 1',
     family: primaryFontFamily,
-    size: 60,
+    size: 56,
     weight: 600
   },
   {
     id: 'header2',
     name: 'Header 2',
     family: primaryFontFamily,
-    size: 40,
+    size: 36,
     weight: 400
   },
   {

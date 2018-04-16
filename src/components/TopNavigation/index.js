@@ -6,11 +6,10 @@ import {
   bool,
   func,
   arrayOf,
-  shape
+  shape,
+  object
 } from 'prop-types';
 import cx from 'classnames';
-import { ContainerQuery } from 'react-container-query';
-import { query } from '../../config/breakpoints';
 import Logo from '../Logo';
 import Spinner from '../Spinner';
 
@@ -31,72 +30,67 @@ const NavigationStyle = styled.nav`${navigation}`;
 
 function TopNavigation({
   items,
+  breakpointsStatus,
+  // loading,
   onClickLogo,
   ...others
 }) {
 
+  const loadingStatus = breakpointsStatus ? Object.keys(breakpointsStatus).length === 0 : false;
+
   return (
-    <ContainerQuery query={query}>
-      {
-        params => {
-          const loading = Object.keys(params).length === 0;
+    <BaseStyle
+      {...others}
+    >
+      { loadingStatus && <Spinner position="absolute" /> }
+      <WrapperStyle className={cx(breakpointsStatus)}>
+        <LogoContainerStyle
+          className={cx(breakpointsStatus)}
+          onClick={onClickLogo}
+        >
+          <span>
+            <Logo
+              color={basic.primary}
+              secondaryColor={neutral.higher}
+            />
+          </span>
+        </LogoContainerStyle>
+        {
+          items.length > 0 &&
+          <NavigationStyle
+            className={cx(breakpointsStatus)}
+          >
+            {
+              items.filter(i => !i.hidden).map((item, i) => {
 
-          return (
-            <BaseStyle
-              {...others}
-            >
-              { loading && <Spinner position="absolute" /> }
-              <WrapperStyle className={cx(params)}>
-                <LogoContainerStyle
-                  className={cx(params)}
-                  onClick={onClickLogo}
-                >
-                  <span>
-                    <Logo
-                      color={basic.primary}
-                      secondaryColor={neutral.higher}
-                    />
-                  </span>
-                </LogoContainerStyle>
-                {
-                  items.length > 0 &&
-                  <NavigationStyle
-                    className={cx(params)}
+                const NavigationItemStyle = styled[(item.href ? 'a' : 'div')]`${navigationItem}`;
+
+                return (
+                  <NavigationItemStyle
+                    key={`item-${i}`}
+                    {...item}
                   >
-                    {
-                      items.filter(i => !i.hidden).map((item, i) => {
-
-                        const NavigationItemStyle = styled[(item.href ? 'a' : 'div')]`${navigationItem}`;
-
-                        return (
-                          <NavigationItemStyle
-                            key={`item-${i}`}
-                            {...item}
-                          >
-                            {item.label}
-                          </NavigationItemStyle>
-                        );
-                      })
-                    }
-                  </NavigationStyle>
-                }
-              </WrapperStyle>
-            </BaseStyle>
-          );
+                    {item.label}
+                  </NavigationItemStyle>
+                );
+              })
+            }
+          </NavigationStyle>
         }
-      }
-    </ContainerQuery>
+      </WrapperStyle>
+    </BaseStyle>
   );
 }
 
 TopNavigation.propTypes = {
+  breakpointsStatus: object,
   items: arrayOf(shape({
     href: string,
     label: string.isRequired,
     onClick: func,
     hidden: bool
   })),
-  onClickLogo: func
+  onClickLogo: func,
 };
 
 TopNavigation.defaultProps = {

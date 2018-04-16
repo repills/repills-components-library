@@ -49,4 +49,5 @@ export TypePreview from './TypePreview';
 export TypesList from './TypesList';
 export typography from '../shared/styles/typography';
 export VerticalSpacing from './VerticalSpacing';
+export QueryHandler from './QueryHandler';
 import 'babel-polyfill';

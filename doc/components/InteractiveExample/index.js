@@ -16,6 +16,7 @@ import {
   code
 } from './style';
 import { getComponentDisplayName } from '../../utils';
+import { QueryHandler } from '../../../src/components'
 
 const BaseStyle = styled.div`${base}`;
 const PreviewStyle = styled.div`${preview}`;
@@ -25,8 +26,9 @@ class InteractiveExample extends React.Component {
 
   static propTypes = {
     component: oneOfType([func, object]).isRequired,
+    hasQueryHandler: bool,
     previewMinHeight: string,
-    showBreakpoints: bool
+    showBreakpoints: bool,
   };
 
   static defaultProps = {
@@ -43,7 +45,10 @@ class InteractiveExample extends React.Component {
       showBreakpoints,
       component,
       previewMinHeight,
-      previewSkin
+      previewSkin,
+      component: Component,
+      hasQueryHandler,
+      ...configComponent
     } = this.props;
 
     return (
@@ -51,10 +56,17 @@ class InteractiveExample extends React.Component {
         <PreviewStyle>
           <PreviewBlock
             minHeight={previewMinHeight}
-            showBreakpoints={showBreakpoints}
             previewSkin={previewSkin}
+            showBreakpoints={showBreakpoints}
           >
-            {this.getComponent()}
+            {
+              hasQueryHandler ?
+                <QueryHandler
+                  component={Component}
+                  componentProps={configComponent}
+                />
+                : this.getComponent()
+            }
           </PreviewBlock>
         </PreviewStyle>
         <CodeStyle
