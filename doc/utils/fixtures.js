@@ -1,5 +1,6 @@
 import faker from 'faker';
 import { types, sections } from 'repills-config';
+import getResourcesStats from '../../src/utils/getResourcesStats';
 
 // Exclude extended types
 const typeKeys = Object.keys(types).filter(key => !key.includes('_'));
@@ -78,11 +79,13 @@ export function getRandomContributorsList(min = 0, max = 20) {
 //-------
 
 export function getRandomTopic({ title, resourcesLength }) {
+  const resources = resourcesLength ? getResourceList(resourcesLength) : getRandomResourceList();
   return {
     title: title || faker.lorem.sentence(),
-    resources: resourcesLength ? getResourceList(resourcesLength) : getRandomResourceList(),
-    path: `/${faker.lorem.word()}`
-  };
+    resources,
+    path: `/${faker.lorem.word()}`,
+    stats: getResourcesStats(resources, false, 'DESC')
+};
 }
 
 export function getRandomTopicList(length) {

@@ -5,7 +5,9 @@ import {
   string,
   arrayOf,
   object,
-  func
+  func,
+  number,
+  shape
 } from 'prop-types';
 import {
   base,
@@ -13,7 +15,6 @@ import {
   title,
   composition
 } from './style';
-import { getResourcesStats } from '../../utils';
 
 const BaseStyle = styled.article`${base}`;
 const TotalStyle = styled.div`${total}`;
@@ -24,10 +25,10 @@ function TopicPreview({
   navigateTo,
   resources,
   title,
+  stats,
   ...others
 }) {
   const totalCount = resources.length;
-  const stats = getResourcesStats(resources, false, 'DESC');
   return (
     <BaseStyle
       {...others}
@@ -51,7 +52,14 @@ function TopicPreview({
 TopicPreview.propTypes = {
   navigateTo: func,
   resources: arrayOf(object).isRequired,
-  title: string.isRequired
+  stats: arrayOf(shape({
+    type: string.isRequired,
+    label: string.isRequired,
+    color: string.isRequired,
+    count: number.isRequired,
+    percentage: number.isRequired
+  })),
+  title: string.isRequired,
 };
 
 export default TopicPreview;
