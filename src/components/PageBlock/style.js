@@ -68,6 +68,6 @@ export const body = css`
   ${props => !props.simple && `
     border-top: 1px solid ${neutral.low};
     padding-top: ${extRem(32)};
-    margin-top: ${extRem(40)};
+    margin-top: ${extRem(20)};
   `}
 `;
