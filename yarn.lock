@@ -4093,6 +4093,10 @@ lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
 
+lodash.omit@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
+
 lodash.pick@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
@@ -5322,6 +5326,16 @@ react-dom@^16.2.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+react-dynamic-swiper@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/react-dynamic-swiper/-/react-dynamic-swiper-1.1.2.tgz#6397c99630f7326364dfaeca3d95656c5634e171"
+  dependencies:
+    classnames "^2.2.5"
+    deep-equal "^1.0.1"
+    lodash.omit "^4.5.0"
+    prop-types "^15.5.10"
+    swiper "^3.4.2"
+
 react-element-to-jsx-string@^13.1.0:
   version "13.1.0"
   resolved "https://registry.yarnpkg.com/react-element-to-jsx-string/-/react-element-to-jsx-string-13.1.0.tgz#a8dbd1a2aeec7ab58f380644f6b5e7e8c7c79c8f"
@@ -6191,6 +6205,10 @@ svgo@^0.7.0:
     mkdirp "~0.5.1"
     sax "~1.2.1"
     whet.extend "~0.9.9"
+
+swiper@^3.4.2:
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-3.4.2.tgz#39d6b410b1a39833e1f72d3b72999df5f5e38392"
 
 symbol-observable@^1.0.3:
   version "1.1.0"
