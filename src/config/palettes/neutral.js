@@ -1,5 +1,5 @@
 // import { lighten, darken } from 'polished';
-const highest = '#2a2a2a';
+const highest = '#2f2220'; //'#2a2a2a';
 const lowest = '#fff';
 
 export default {
