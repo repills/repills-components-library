@@ -23,7 +23,6 @@ const ActionsStyle = styled.div`${actions}`;
 const settings = {
   slidesPerView: 5.25,
   spaceBetween: 24,
-  mousewheel: true,
   breakpoints: {
     [query[SM].minWidth]: {
       slidesPerView: 1.25,
@@ -45,6 +44,13 @@ class SectionsCarousel extends React.Component {
     sections: arrayOf(shape(SectionPreview.propTypes)).isRequired
   };
 
+  /*
+  constructor(props) {
+    super(props);
+    this.slider = null;
+  }
+  */
+
   render() {
     const {
       sections,
@@ -59,7 +65,7 @@ class SectionsCarousel extends React.Component {
         <Swiper
           navigation={false}
           pagination={false}
-          ref={e => (this.slider = e.swiper())}
+          // ref={e => (this.slider = e.swiper())}
           swiperOptions={settings}
         >
           {sections.map(section => (

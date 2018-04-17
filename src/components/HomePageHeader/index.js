@@ -79,7 +79,7 @@ const HomePageHeader = ({
             typesList.map(type => {
               const Icon = icons[`${type.label.singular}Icon`];
               return (
-                <TypeBlockStyle key={type.slug}>
+                <TypeBlockStyle key={type.label.singular}>
                   <Icon size={iconSize} />
                   <span>{type.label.plural.toUpperCase()}</span>
                 </TypeBlockStyle>
