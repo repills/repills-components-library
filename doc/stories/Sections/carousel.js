@@ -3,6 +3,31 @@ import { number } from '@storybook/addon-knobs/react';
 import { SectionPage } from '../../components';
 import { SectionsCarousel } from '../../../src/components';
 import { getRandomSectionList } from '../../utils/fixtures';
+import { SM, MD, XL, query } from '../../../src/config/breakpoints';
+
+const settings = {
+  responsive: [
+    {
+      breakpoint: query[XL].minWidth,
+      settings: {
+        slidesToShow: 3.25
+      }
+    },
+    {
+      breakpoint: query[MD].minWidth,
+      settings: {
+        slidesToShow: 2.25,
+        initialSlide: 2
+      }
+    },
+    {
+      breakpoint: query[SM].minWidth,
+      settings: {
+        slidesToShow: 1.25
+      }
+    }
+  ]
+};
 
 export default (sectionTitle, sectionDescription) => () => {
 
@@ -20,6 +45,7 @@ export default (sectionTitle, sectionDescription) => () => {
           max: 12,
           step: 1,
         }))}
+        settings={settings}
       />
     </SectionPage>
   );

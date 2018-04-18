@@ -11,7 +11,6 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Button from '../Button';
-import { SM, MD, LG, XL, query } from '../../config/breakpoints';
 import {
   base,
   items,
@@ -23,48 +22,28 @@ const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
 const ItemStyle = styled.div`${item}`;
 
-// @TODO create a default settings and allow to pass options as props
-const settings = {
+const defaultSettings = {
   infinite: false,
   speed: 500,
   slidesToShow: 4.5,
-  //slidesToScroll: 4,
   slidesToScroll: 1,
   mobileFirst: true,
   initialSlide: 0,
-  respondTo: 'slider',
-  responsive: [
-    {
-      breakpoint: query[XL].minWidth,
-      settings: {
-        slidesToShow: 3.25,
-        //slidesToScroll: 3
-      }
-    },
-    {
-      breakpoint: query[MD].minWidth,
-      settings: {
-        slidesToShow: 2.25,
-        //slidesToScroll: 2,
-        initialSlide: 2
-      }
-    },
-    {
-      breakpoint: query[SM].minWidth,
-      settings: {
-        slidesToShow: 1.25,
-        //slidesToScroll: 1
-      }
-    }
-  ]
+  respondTo: 'slider'
 };
 
 class SectionsCarousel extends React.Component {
 
   static propTypes = {
     navigateTo: func,
-    sections: arrayOf(shape(SectionPreview.propTypes)).isRequired
+    sections: arrayOf(shape(SectionPreview.propTypes)).isRequired,
+    settings: object
   };
+
+  constructor(props) {
+    super(props);
+    this.settings = this.props.settings ? Object.assign({}, defaultSettings, this.props.settings) : defaultSettings;
+  }
 
   next = () => {
     this.slider.slickNext();
@@ -85,24 +64,24 @@ class SectionsCarousel extends React.Component {
       <BaseStyle
         {...others}
       >
-        <div  style={{ margin: '0 -8px' }}>
+        <ItemsStyle>
           <Slider
             ref={c => (this.slider = c)}
-            {...settings}
+            {...this.settings}
           >
             {sections.map(section => (
               <div>
-                <div style={{padding: '0 8px'}}>
+                <ItemStyle>
                   <SectionPreview
                     key={section.id}
                     navigateTo={() => navigateTo(section.path)}
                     {...section}
                   />
-                </div>
+                </ItemStyle>
               </div>
             ))}
           </Slider>
-        </div>
+        </ItemsStyle>
         <div style={{ textAlign: "center", marginTop: '32px' }}>
           <Button
             autoWidth
