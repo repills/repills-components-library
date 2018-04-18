@@ -61,7 +61,7 @@ function SectionPreview({
         <IconStyle>
           <Icon
             color={color}
-            size={100}
+            size={88}
           />
         </IconStyle>
         <NameStyle>{name}</NameStyle>
