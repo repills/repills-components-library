@@ -19,4 +19,3 @@ export const item = css`
   padding-left: ${extRem(8)};
   padding-right: ${extRem(8)};
 `;
-

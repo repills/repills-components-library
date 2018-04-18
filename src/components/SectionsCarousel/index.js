@@ -4,23 +4,26 @@ import {
   func,
   arrayOf,
   shape,
-  object
+  object,
+  bool
 } from 'prop-types';
 import styled from 'styled-components';
 import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Button from '../Button';
 import {
   base,
   items,
-  item
+  item,
+  actions
 } from './style';
 
 
 const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
 const ItemStyle = styled.div`${item}`;
+const ActionsStyle = styled.div`${actions}`;
 
 const defaultSettings = {
   infinite: false,
@@ -37,7 +40,8 @@ class SectionsCarousel extends React.Component {
   static propTypes = {
     navigateTo: func,
     sections: arrayOf(shape(SectionPreview.propTypes)).isRequired,
-    settings: object
+    settings: object,
+    showNavigation: bool
   };
 
   constructor(props) {
@@ -56,6 +60,7 @@ class SectionsCarousel extends React.Component {
   render() {
     const {
       sections,
+      showNavigation,
       navigateTo,
       ...others
     } = this.props;
@@ -70,10 +75,9 @@ class SectionsCarousel extends React.Component {
             {...this.settings}
           >
             {sections.map(section => (
-              <div>
+              <div key={section.id} >
                 <ItemStyle>
                   <SectionPreview
-                    key={section.id}
                     navigateTo={() => navigateTo(section.path)}
                     {...section}
                   />
@@ -82,20 +86,23 @@ class SectionsCarousel extends React.Component {
             ))}
           </Slider>
         </ItemsStyle>
-        <div style={{ textAlign: "center", marginTop: '32px' }}>
-          <Button
-            autoWidth
-            label="Prev"
-            onClick={this.previous}
-            skin="outline"
-          />
-          <Button
-            autoWidth
-            label="Next"
-            onClick={this.next}
-            skin="outline"
-          />
-        </div>
+        {
+          showNavigation &&
+          <ActionsStyle>
+            <Button
+              autoWidth
+              label="Prev"
+              onClick={this.previous}
+              skin="outline"
+            />
+            <Button
+              autoWidth
+              label="Next"
+              onClick={this.next}
+              skin="outline"
+            />
+          </ActionsStyle>
+        }
       </BaseStyle>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { number } from '@storybook/addon-knobs/react';
+import { number, boolean } from '@storybook/addon-knobs/react';
 import { SectionPage } from '../../components';
 import { SectionsCarousel } from '../../../src/components';
 import { getRandomSectionList } from '../../utils/fixtures';
@@ -31,6 +31,14 @@ const settings = {
 
 export default (sectionTitle, sectionDescription) => () => {
 
+  const others = {};
+
+  const showNavigation = boolean('Show navigation', false);
+
+  if (showNavigation) {
+    others['showNavigation'] = true;
+  }
+
   const navigateTo = path => alert(`Navigate to ${path}`);
 
   return (
@@ -46,6 +54,7 @@ export default (sectionTitle, sectionDescription) => () => {
           step: 1,
         }))}
         settings={settings}
+        {...others}
       />
     </SectionPage>
   );
