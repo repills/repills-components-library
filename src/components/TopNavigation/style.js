@@ -14,7 +14,7 @@ export const base = css`
 
 export const wrapper = css`
   &.${MD} {
-    padding: ${extRem(16,0)};
+    padding: ${extRem(11,0)};
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -23,8 +23,7 @@ export const wrapper = css`
 `;
 
 export const logoContainer = css`
-  background-color: ${neutral.lower};
-  padding: ${extRem(16,20)};
+  padding: ${extRem(11,20)};
   
   span {
     display: block;
@@ -35,10 +34,9 @@ export const logoContainer = css`
 
   &.${MD} {
     padding: 0;
-    background-color: transparent;
     
     span {
-      width: ${extRem(180)};
+      width: ${extRem(160)};
     }
   }
 `;
@@ -51,11 +49,13 @@ export const navigation = css`
   -ms-overflow-style: -ms-autohiding-scrollbar;
   background-color: ${neutral.lowest};
   color: ${neutral.high};
+  border-top: 1px solid ${neutral.low};
   
   &.${MD} {
     background-color: transparent;
     width: calc(100% - ${extRem(240)});
     border-left: 1px solid ${neutral.low};
+    border-top: 0;
   }
   
   &.${LG} {
