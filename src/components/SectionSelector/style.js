@@ -28,5 +28,5 @@ export const item = css`
   
   ${props => props.breakpointsStatus[SM] && !props.breakpointsStatus[LG] && gridItem(props.count, 2, gutter, doubleGutter)}
   
-  ${props => props.breakpointsStatus[LG] && gridItem(props.count, 3, gutter, doubleGutter)}
+  ${props => props.breakpointsStatus[LG] && gridItem(props.count, 4, gutter, doubleGutter)}
 `;
