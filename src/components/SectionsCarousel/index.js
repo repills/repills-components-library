@@ -3,38 +3,60 @@ import SectionPreview from '../SectionPreview';
 import {
   func,
   arrayOf,
-  shape
+  shape,
+  object
 } from 'prop-types';
 import styled from 'styled-components';
-import { Swiper, Slide } from 'react-dynamic-swiper'
-import 'react-dynamic-swiper/lib/styles.css'
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Button from '../Button';
-import { SM, MD, XL, query } from '../../config/breakpoints';
+import { SM, MD, LG, XL, query } from '../../config/breakpoints';
 import {
   base,
-  actions
+  items,
+  item
 } from './style';
 
 
 const BaseStyle = styled.div`${base}`;
-const ActionsStyle = styled.div`${actions}`;
+const ItemsStyle = styled.div`${items}`;
+const ItemStyle = styled.div`${item}`;
 
 // @TODO create a default settings and allow to pass options as props
 const settings = {
-  slidesPerView: 5.25,
-  spaceBetween: 24,
-  breakpoints: {
-    [query[SM].minWidth]: {
-      slidesPerView: 1.25,
-      spaceBetween: 12
+  infinite: false,
+  speed: 500,
+  slidesToShow: 4.5,
+  //slidesToScroll: 4,
+  slidesToScroll: 1,
+  mobileFirst: true,
+  initialSlide: 0,
+  respondTo: 'slider',
+  responsive: [
+    {
+      breakpoint: query[XL].minWidth,
+      settings: {
+        slidesToShow: 3.25,
+        //slidesToScroll: 3
+      }
     },
-    [query[MD].minWidth]: {
-      slidesPerView: 2.25
+    {
+      breakpoint: query[MD].minWidth,
+      settings: {
+        slidesToShow: 2.25,
+        //slidesToScroll: 2,
+        initialSlide: 2
+      }
     },
-    [query[XL].minWidth]: {
-      slidesPerView: 3.25
+    {
+      breakpoint: query[SM].minWidth,
+      settings: {
+        slidesToShow: 1.25,
+        //slidesToScroll: 1
+      }
     }
-  }
+  ]
 };
 
 class SectionsCarousel extends React.Component {
@@ -44,12 +66,13 @@ class SectionsCarousel extends React.Component {
     sections: arrayOf(shape(SectionPreview.propTypes)).isRequired
   };
 
-  /*
-  constructor(props) {
-    super(props);
-    this.slider = null;
-  }
-  */
+  next = () => {
+    this.slider.slickNext();
+  };
+
+  previous = () => {
+    this.slider.slickPrev();
+  };
 
   render() {
     const {
@@ -62,41 +85,38 @@ class SectionsCarousel extends React.Component {
       <BaseStyle
         {...others}
       >
-        <Swiper
-          navigation={false}
-          pagination={false}
-          // ref={e => (this.slider = e.swiper())}
-          swiperOptions={settings}
-        >
-          {sections.map(section => (
-            <Slide key={section.id}>
-              <SectionPreview
-                navigateTo={() => navigateTo(section.path)}
-                {...section}
-              />
-            </Slide>
-          ))}
-        </Swiper>
-        {
-          /*
-           <ActionsStyle>
-             <Button
-               autoWidth
-               disabled={this.slider && this.slider.isBeginning}
-               label="Prev"
-               onClick={() => this.slider.slidePrev()}
-               skin="outline"
-             />
-             <Button
-               autoWidth
-               disabled={this.slider && this.slider.isEnd}
-               label="Next"
-               onClick={() => this.slider.slideNext()}
-               skin="outline"
-             />
-           </ActionsStyle>
-           */
-        }
+        <div  style={{ margin: '0 -8px' }}>
+          <Slider
+            ref={c => (this.slider = c)}
+            {...settings}
+          >
+            {sections.map(section => (
+              <div>
+                <div style={{padding: '0 8px'}}>
+                  <SectionPreview
+                    key={section.id}
+                    navigateTo={() => navigateTo(section.path)}
+                    {...section}
+                  />
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+        <div style={{ textAlign: "center", marginTop: '32px' }}>
+          <Button
+            autoWidth
+            label="Prev"
+            onClick={this.previous}
+            skin="outline"
+          />
+          <Button
+            autoWidth
+            label="Next"
+            onClick={this.next}
+            skin="outline"
+          />
+        </div>
       </BaseStyle>
     );
   }

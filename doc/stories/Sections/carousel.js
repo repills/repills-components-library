@@ -1,6 +1,6 @@
 import React from 'react';
 import { number } from '@storybook/addon-knobs/react';
-import { SectionPage, InteractiveExample } from '../../components';
+import { SectionPage } from '../../components';
 import { SectionsCarousel } from '../../../src/components';
 import { getRandomSectionList } from '../../utils/fixtures';
 
