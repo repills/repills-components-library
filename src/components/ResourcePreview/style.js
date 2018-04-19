@@ -20,7 +20,7 @@ export const base = css`
 `;
 
 export const mainInfo = css`
-  padding: ${extRem(12)};
+  padding: ${extRem(12,16,16)};
   background-color: ${mainColor};
   border: 1px solid ${neutral.low};
   display: block;
@@ -82,7 +82,7 @@ export const secondaryInfo = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${extRem(8,12)};
+  padding: ${extRem(8,16)};
   border: 1px solid ${neutral.low};
   border-top-color: ${lighten(.06, neutral.low)};
   margin-top: -1px;
