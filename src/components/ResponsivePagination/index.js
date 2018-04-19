@@ -1,58 +1,58 @@
 import React from 'react';
 import {
   number,
-  func
+  func,
+  object
 } from 'prop-types';
 import Pagination from '../Pagination';
-import cx from 'classnames';
-import { ContainerQuery } from 'react-container-query';
-import { SM, query } from '../../config/breakpoints';
+import { SM } from '../../config/breakpoints';
+import QueryHandler from '../QueryHandler';
 
-function ResponsivePagination({
-  itemsTotalCount,
-  currentPage,
-  handleNavigateToPage,
-  itemsPerPage,
-  buildPagePath,
-  ...others
-}) {
+class ResponsivePagination extends React.Component {
 
-  const getRangePageDisplayed = params => {
+  static propTypes = {
+    breakpointsStatus: object,
+    buildPagePath: func,
+    currentPage: number.isRequired,
+    handleNavigateToPage: func.isRequired,
+    itemsPerPage: number.isRequired,
+    itemsTotalCount: number.isRequired
+  };
 
+  static defaultProps = {
+    breakpointsStatus: {}
+  };
+
+  getRangePageDisplayed = () => {
     let temp = 5;
-
-    if (params.includes(SM)) {
+    if (this.props.breakpointsStatus[SM]) {
       temp = 13;
     }
-
     return temp;
   };
 
-  return (
-    <ContainerQuery query={query}>
-      {
-        params => (
-          <Pagination
-            buildPagePath={buildPagePath}
-            currentPage={currentPage}
-            handleNavigateToPage={handleNavigateToPage}
-            itemsPerPage={itemsPerPage}
-            itemsTotalCount={itemsTotalCount}
-            rangePageDisplayed={getRangePageDisplayed(cx(params))}
-            {...others}
-          />
-        )
-      }
-    </ContainerQuery>
-  );
+  render() {
+    const {
+      itemsTotalCount,
+      currentPage,
+      handleNavigateToPage,
+      itemsPerPage,
+      buildPagePath,
+      ...others
+    } = this.props;
+
+    return (
+      <Pagination
+        buildPagePath={buildPagePath}
+        currentPage={currentPage}
+        handleNavigateToPage={handleNavigateToPage}
+        itemsPerPage={itemsPerPage}
+        itemsTotalCount={itemsTotalCount}
+        rangePageDisplayed={this.getRangePageDisplayed()}
+        {...others}
+      />
+    );
+  }
 }
 
-ResponsivePagination.propTypes = {
-  buildPagePath: func,
-  currentPage: number.isRequired,
-  handleNavigateToPage: func.isRequired,
-  itemsPerPage: number.isRequired,
-  itemsTotalCount: number.isRequired
-};
-
-export default ResponsivePagination;
+export default QueryHandler(ResponsivePagination);

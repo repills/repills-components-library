@@ -2,11 +2,11 @@ import React from 'react';
 import {
   string,
   number,
-  any
+  any,
+  bool,
+  object
 } from 'prop-types';
-import { ContainerQuery } from 'react-container-query';
-import { query } from '../../config/breakpoints';
-import cx from 'classnames';
+import QueryHandler from '../QueryHandler';
 import styled from 'styled-components';
 import {
   base,
@@ -23,6 +23,7 @@ const TitleStyle = styled.h3`${title}`;
 const BodyStyle = styled.div`${body}`;
 
 const StepBox = ({
+  breakpointsStatus,
   children,
   index,
   last,
@@ -31,36 +32,36 @@ const StepBox = ({
 }) => {
 
   return (
-  <ContainerQuery query={query}>
-      {
-        params => (
-          <BaseStyle
-            {...others}
-          >
-            <div>
-              <HeaderStyle>
-                <IndexStyle>{index}</IndexStyle>
-                <TitleStyle>{title}</TitleStyle>
-              </HeaderStyle>
-              <BodyStyle
-                className={cx(params)}
-                last={last}
-              >
-                {children}
-              </BodyStyle>
-            </div>
-          </BaseStyle>
-        )
-      }
-    </ContainerQuery>
+    <BaseStyle
+      {...others}
+    >
+      <div>
+        <HeaderStyle>
+          <IndexStyle>{index}</IndexStyle>
+          <TitleStyle>{title}</TitleStyle>
+        </HeaderStyle>
+        <BodyStyle
+          breakpointsStatus={breakpointsStatus}
+          last={last}
+        >
+          {children}
+        </BodyStyle>
+      </div>
+    </BaseStyle>
   );
 };
 
 StepBox.propTypes = {
+  breakpointsStatus: object,
   children: any.isRequired,
   index: number.isRequired,
+  last: bool,
   title: string.isRequired
 };
 
-export default StepBox;
+StepBox.defaultProps = {
+  breakpointsStatus: {}
+};
+
+export default QueryHandler(StepBox);
 

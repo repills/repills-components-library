@@ -43,6 +43,7 @@ export const name = css`
   color: ${neutral.higher};
   margin: ${extRem(20,0,0)};
   line-height: 1;
+  text-transform: uppercase;
 `;
 
 export const description = css`

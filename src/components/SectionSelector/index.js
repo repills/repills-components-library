@@ -3,12 +3,12 @@ import {
   number,
   func,
   shape,
-  arrayOf
+  arrayOf,
+  object
 } from 'prop-types';
 import styled from 'styled-components';
 import SectionPreviewSelection from '../SectionPreviewSelection';
-import { ContainerQuery } from 'react-container-query';
-import { query } from '../../config/breakpoints';
+import QueryHandler from '../QueryHandler';
 import {
   base,
   items,
@@ -22,9 +22,14 @@ const ItemStyle = styled.div`${item}`;
 class SectionSelector extends React.Component {
 
   static propTypes = {
+    breakpointsStatus: object,
     handleOnChange: func,
     sections: arrayOf(shape(SectionPreviewSelection.propTypes)).isRequired,
     selected: number
+  };
+
+  static defaultProps = {
+    breakpointsStatus: {}
   };
 
   constructor(props) {
@@ -49,6 +54,7 @@ class SectionSelector extends React.Component {
 
   render() {
     const {
+      breakpointsStatus,
       sections,
       ...others
     } = this.props;
@@ -60,35 +66,29 @@ class SectionSelector extends React.Component {
     const count = sections.length;
 
     return (
-      <ContainerQuery query={query}>
-        {
-          params => (
-            <BaseStyle
-              {...others}
-            >
-              <ItemsStyle breakpointsStatus={params}>
-                {
-                  sections.map((section, index) => (
-                    <ItemStyle
-                      breakpointsStatus={params}
-                      count={count}
-                      key={section.id}
-                    >
-                      <SectionPreviewSelection
-                        checked={index === selected}
-                        handleOnChange={this.handleOnChange(index)}
-                        {...section}
-                      />
-                    </ItemStyle>
-                  ))
-                }
-              </ItemsStyle>
-            </BaseStyle>
-          )
-        }
-      </ContainerQuery>
+      <BaseStyle
+        {...others}
+      >
+        <ItemsStyle breakpointsStatus={breakpointsStatus}>
+          {
+            sections.map((section, index) => (
+              <ItemStyle
+                breakpointsStatus={breakpointsStatus}
+                count={count}
+                key={section.id}
+              >
+                <SectionPreviewSelection
+                  checked={index === selected}
+                  handleOnChange={this.handleOnChange(index)}
+                  {...section}
+                />
+              </ItemStyle>
+            ))
+          }
+        </ItemsStyle>
+      </BaseStyle>
     );
   }
 }
 
-export default SectionSelector;
+export default QueryHandler(SectionSelector);

@@ -1,9 +1,8 @@
 import { css } from 'styled-components';
 import { size } from 'polished';
 import { extRem } from '../../utils';
-import { SM, MD, LG } from '../../config/breakpoints';
+import { SM } from '../../config/breakpoints';
 import theme from '../../config/theme';
-import { grid } from 'styled-components-grid';
 
 import typography from '../../shared/styles/typography';
 
@@ -48,15 +47,15 @@ export const body = css`
   padding: ${extRem(16,0,28)};
   color: ${neutral.medium};
   
-  &.${SM} {
+  ${props => props.breakpointsStatus[SM] && `
     padding: ${extRem(14,0,28,32)};
-    border-left: ${props => props.last ? 0 : `1px dotted ${neutral.medium}`};
+    border-left: ${props.last ? 0 : `1px dotted ${neutral.medium}`};
     margin: ${extRem(2,0,2,19)};
     
-    ${props => props.last && `
+    ${props.last && `
       margin-left: ${extRem(20)};
     `}
-  }
+  `}
 `;
 
 

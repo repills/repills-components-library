@@ -2,9 +2,9 @@ import { css } from 'styled-components';
 import { extRem } from '../../utils';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
-import { SM } from '../../config/breakpoints';
+import { SM, MD } from '../../config/breakpoints';
 
-const { basic, neutral } = theme.palettes;
+const { neutral } = theme.palettes;
 
 export const base = css`
   text-align: center;
@@ -27,14 +27,11 @@ export const title = css`
   word-break: break-word;
 
   span {
-    ${typography.header2} 
+    ${props => props.breakpointsStatus[MD] ? typography.header2 : typography.header3 }
     color: ${neutral.higher};
+    font-weight: 400;
     line-height: 1.1;
     margin-left: ${extRem(-3)};
-  }
-  
-  strong {
-    color: ${basic.primary};
   }
 `;
 

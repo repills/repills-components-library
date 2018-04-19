@@ -3,11 +3,12 @@ import {
   string,
   func,
   number,
-  shape
+  shape,
+  object
 } from 'prop-types';
 import * as sectionsIcons from '../Icon/icons/types';
-import { ContainerQuery } from 'react-container-query';
-import { query } from '../../config/breakpoints';
+import QueryHandler from '../QueryHandler';
+
 import styled from 'styled-components';
 import {
   base,
@@ -21,7 +22,7 @@ const BaseStyle = styled.div`${base}`;
 const IconStyle = styled.div`${icon}`;
 const TitleStyle = styled.h1`${title}`;
 const MainStyle = styled.div`${main}`;
-const SectionNameStyle = styled.span`${sectionName}`;
+const SectionNameStyle = styled.strong`${sectionName}`;
 
 const SectionName = ({ topicAction, topicName }) => (
   <span>
@@ -30,11 +31,12 @@ const SectionName = ({ topicAction, topicName }) => (
 );
 
 const TypePageHeader = ({
+  breakpointsStatus,
   color,
   count,
   icon,
-  topicName,
   topicAction,
+  topicName,
   typeName,
   ...others
 }) => {
@@ -42,45 +44,40 @@ const TypePageHeader = ({
   const Icon = sectionsIcons[`${icon}Icon`];
 
   return (
-    <ContainerQuery query={query}>
-      {
-        params => (
-          <BaseStyle
-            {...others}
-            breakpointsStatus={params}
+    <BaseStyle
+      {...others}
+      breakpointsStatus={breakpointsStatus}
+    >
+      <MainStyle
+        breakpointsStatus={breakpointsStatus}
+      >
+        {
+          Icon &&
+          <IconStyle
+            breakpointsStatus={breakpointsStatus}
+            color={color}
           >
-            <MainStyle
-              breakpointsStatus={params}
-            >
-              {
-                Icon &&
-                <IconStyle
-                  breakpointsStatus={params}
-                  color={color}
-                >
-                  <Icon size={60} />
-                </IconStyle>
-              }
-              <TitleStyle
-                breakpointsStatus={params}
-              >
-                <span><strong>{count}</strong> {count === 1 ? typeName.singular : typeName.plural} {
-                  topicName &&
-                  <SectionName
-                    topicAction={topicAction}
-                    topicName={topicName}
-                  />
-                }</span>
-              </TitleStyle>
-            </MainStyle>
-          </BaseStyle>
-        )
-      }
-    </ContainerQuery>
+            <Icon size={60} />
+          </IconStyle>
+        }
+        <TitleStyle
+          breakpointsStatus={breakpointsStatus}
+        >
+          <span><strong>{count}</strong> {count === 1 ? typeName.singular : typeName.plural} {
+            topicName &&
+            <SectionName
+              topicAction={topicAction}
+              topicName={topicName}
+            />
+          }</span>
+        </TitleStyle>
+      </MainStyle>
+    </BaseStyle>
   );
 };
 
 TypePageHeader.propTypes = {
+  breakpointsStatus: object,
   color: string.isRequired,
   count: number.isRequired,
   icon: string.isRequired,
@@ -92,4 +89,8 @@ TypePageHeader.propTypes = {
   }).isRequired
 };
 
-export default TypePageHeader;
+TypePageHeader.defaultProps = {
+  breakpointsStatus: {}
+};
+
+export default QueryHandler(TypePageHeader);

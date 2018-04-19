@@ -7,8 +7,7 @@ import {
 } from 'prop-types';
 import styled from 'styled-components';
 import TopicPreviewSelection from '../TopicPreviewSelection/index';
-import { ContainerQuery } from 'react-container-query';
-import { query } from '../../config/breakpoints';
+import QueryHandler from '../QueryHandler';
 
 import {
   base,
@@ -25,12 +24,14 @@ const SelectedMessageStyle = styled.p`${selectedMessage}`;
 class TopicSelector extends React.Component {
 
   static propTypes = {
+    breakpointsStatus: object,
     handleOnChange: func,
     selected: arrayOf(string),
     topics: object.isRequired
   };
 
   static defaultProps = {
+    breakpointsStatus: {},
     selected: []
   };
 
@@ -70,6 +71,7 @@ class TopicSelector extends React.Component {
 
   render() {
     const {
+      breakpointsStatus,
       topics,
       ...others
     } = this.props;
@@ -83,41 +85,35 @@ class TopicSelector extends React.Component {
     const selectedCount = Object.keys(selected).length;
 
     return (
-      <ContainerQuery query={query}>
+      <BaseStyle
+        {...others}
+      >
+        <ItemsStyle breakpointsStatus={breakpointsStatus}>
+          {
+            Object.entries(topics).map(([key, topic], index) => (
+              <ItemStyle
+                breakpointsStatus={breakpointsStatus}
+                count={count}
+                key={topic.slug}
+              >
+                <TopicPreviewSelection
+                  checked={this.isChecked(key)}
+                  handleOnChange={this.handleOnChange(key)}
+                  {...topic}
+                />
+              </ItemStyle>
+            ))
+          }
+        </ItemsStyle>
         {
-          params => (
-            <BaseStyle
-              {...others}
-            >
-              <ItemsStyle breakpointsStatus={params}>
-                {
-                  Object.entries(topics).map(([key, topic], index) => (
-                    <ItemStyle
-                      breakpointsStatus={params}
-                      count={count}
-                      key={topic.slug}
-                    >
-                      <TopicPreviewSelection
-                        checked={this.isChecked(key)}
-                        handleOnChange={this.handleOnChange(key)}
-                        {...topic}
-                      />
-                    </ItemStyle>
-                  ))
-                }
-              </ItemsStyle>
-              {
-                selectedCount > 0 &&
-                <SelectedMessageStyle>
-                  Selected {selectedCount} topic{selectedCount === 1 ? '' : 's'}
-                </SelectedMessageStyle>
-              }
-            </BaseStyle>
-          )
+          selectedCount > 0 &&
+          <SelectedMessageStyle>
+            Selected {selectedCount} topic{selectedCount === 1 ? '' : 's'}
+          </SelectedMessageStyle>
         }
-      </ContainerQuery>
+      </BaseStyle>
     );
   }
 }
 
-export default TopicSelector;
+export default QueryHandler(TopicSelector);

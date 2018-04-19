@@ -1,11 +1,10 @@
 import React from 'react';
 import {
-  string
+  string,
+  object
 } from 'prop-types';
 import * as sectionsIcons from '../Icon/icons/sections';
-import { ContainerQuery } from 'react-container-query';
-import { query } from '../../config/breakpoints';
-import Spinner from '../Spinner';
+import QueryHandler from '../QueryHandler';
 
 import styled from 'styled-components';
 import {
@@ -25,6 +24,7 @@ const MainStyle = styled.div`${main}`;
 const DescriptionStyle = styled.p`${description}`;
 
 const SectionPageHeader = ({
+  breakpointsStatus,
   color,
   description,
   icon,
@@ -36,59 +36,49 @@ const SectionPageHeader = ({
   const Icon = sectionsIcons[icon];
 
   return (
-    <ContainerQuery query={query}>
-      {
-        params => {
-          const loading = Object.keys(params).length === 0;
-
-          return (
-            <BaseStyle
-              {...others}
-              breakpointsStatus={params}
+    <BaseStyle
+      {...others}
+      breakpointsStatus={breakpointsStatus}
+    >
+      <div>
+        <MainStyle
+          breakpointsStatus={breakpointsStatus}
+        >
+          {
+            Icon &&
+            <IconStyle
+              breakpointsStatus={breakpointsStatus}
+              color={color}
             >
-              { loading && <Spinner position="absolute" /> }
-              <div>
-                <MainStyle
-                  breakpointsStatus={params}
-                >
-                  {
-                    Icon &&
-                    <IconStyle
-                      breakpointsStatus={params}
-                      color={color}
-                    >
-                      <Icon size={70} />
-                    </IconStyle>
-                  }
-                  {
-                    label &&
-                    <LabelStyle>{label}</LabelStyle>
-                  }
-                  <TitleStyle
-                    breakpointsStatus={params}
-                  >
-                    {title}
-                  </TitleStyle>
-                </MainStyle>
-                {
-                  description &&
-                  <DescriptionStyle
-                    breakpointsStatus={params}
-                    icon={icon}
-                  >
-                    {description}
-                  </DescriptionStyle>
-                }
-              </div>
-            </BaseStyle>
-          );
+              <Icon size={70} />
+            </IconStyle>
+          }
+          {
+            label &&
+            <LabelStyle>{label}</LabelStyle>
+          }
+          <TitleStyle
+            breakpointsStatus={breakpointsStatus}
+          >
+            {title}
+          </TitleStyle>
+        </MainStyle>
+        {
+          description &&
+          <DescriptionStyle
+            breakpointsStatus={breakpointsStatus}
+            icon={icon}
+          >
+            {description}
+          </DescriptionStyle>
         }
-      }
-    </ContainerQuery>
+      </div>
+    </BaseStyle>
   );
 };
 
 SectionPageHeader.propTypes = {
+  breakpointsStatus: object,
   color: string.isRequired,
   description: string,
   icon: string.isRequired,
@@ -96,4 +86,8 @@ SectionPageHeader.propTypes = {
   title: string.isRequired
 };
 
-export default SectionPageHeader;
+SectionPageHeader.defaultProps = {
+  breakpointsStatus: {}
+};
+
+export default QueryHandler(SectionPageHeader);

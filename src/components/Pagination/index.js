@@ -13,8 +13,6 @@ import {
 } from './style';
 
 const BaseStyle = styled.div`${base}`;
-const ButtonStyle = styled.a`${button}`;
-
 // @TODO: convert to Class
 
 function Pagination({
