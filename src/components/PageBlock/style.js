@@ -14,7 +14,7 @@ const align = {
   }
 };
 
-const { basic, neutral } = theme.palettes;
+const { neutral } = theme.palettes;
 const sideCount = extRem(36);
 export const base = css`
   text-align: left;
@@ -42,7 +42,7 @@ export const count = css`
   justify-content: center;
   height; ${sideCount};
   line-height: ${sideCount};
-  color: ${basic.primary};
+  color: ${neutral.higher};
   padding-left: ${extRem(12)};
   border-left: 1px solid ${neutral.low};
 `;
