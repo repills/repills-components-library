@@ -1,34 +1,35 @@
 import React from 'react';
 import {
-  string
+  string,
+  object
 } from 'prop-types';
 import styled from 'styled-components';
 import { MD } from '../../config/breakpoints';
-import { SquareFilledPillIcon } from '../Icon/icons/basic';
 import * as icons from '../Icon/icons/types';
 import { MoreIcon } from '../Icon/icons/basic';
 import { types } from 'repills-config';
 import QueryHandler from '../QueryHandler';
+import Logo from '../Logo';
+import theme from '../../config/theme';
+const { basic, neutral } = theme.palettes;
 
 import {
   base,
-  pillsAnimation,
-  pill,
   title,
   subTitle,
   description,
   typeBlock,
-  typeList
+  typeList,
+  logo
 } from './style';
 
 const BaseStyle = styled.div`${base}`;
-const PillsAnimationStyle = styled.div`${pillsAnimation}`;
-const PillStyle = styled.div`${pill}`;
 const TitleStyle = styled.h1`${title}`;
 const SubTitleStyle = styled.div`${subTitle}`;
 const DescriptionStyle = styled.p`${description}`;
 const TypeListStyle = styled.div`${typeList}`;
 const TypeBlockStyle = styled.div`${typeBlock}`;
+const LogoStyle = styled.div`${logo}`;
 
 const showedTypes = [
   types.article,
@@ -53,18 +54,12 @@ const HomePageHeader = ({
       {...others}
     >
       <div>
-        <PillsAnimationStyle breakpointsStatus={breakpointsStatus}>
-          {
-            [1, 2, 3].map(i => (
-              <PillStyle
-                index={i}
-                key={`pill-${i}`}
-              >
-                <SquareFilledPillIcon size={i === 2 ? 90 : 50} />
-              </PillStyle>
-            ))
-          }
-        </PillsAnimationStyle>
+        <LogoStyle breakpointsStatus={breakpointsStatus} >
+          <Logo
+            color={basic.primaryHighest}
+            secondaryColor={neutral.medium}
+          />
+        </LogoStyle>
         <TitleStyle
           breakpointsStatus={breakpointsStatus}
           dangerouslySetInnerHTML={{ __html: title }}
@@ -73,7 +68,10 @@ const HomePageHeader = ({
           subTitle &&
           <SubTitleStyle>{subTitle}</SubTitleStyle>
         }
-
+        {
+          description &&
+          <DescriptionStyle>{description}</DescriptionStyle>
+        }
         <TypeListStyle breakpointsStatus={breakpointsStatus}>
           {
             typesList.map(type => {
@@ -91,16 +89,13 @@ const HomePageHeader = ({
             <span>and more</span>
           </TypeBlockStyle>
         </TypeListStyle>
-
-        {
-          description &&
-          <DescriptionStyle>{description}</DescriptionStyle>
-        }
       </div>
-    </BaseStyle>);
+    </BaseStyle>
+  );
 };
 
 HomePageHeader.propTypes = {
+  breakpointsStatus: object,
   description: string,
   subTitle: string,
   title: string,

@@ -101,7 +101,7 @@ export const typeList = css`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-top: ${extRem(32)};
+  margin-top: ${extRem(52)};
     
   > div + div {
     margin-left: ${extRem(20)};
@@ -121,7 +121,7 @@ export const typeBlock = css`
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: ${neutral.high};
+  color: ${basic.primaryHighest};
   
   span {
     ${typography.mini}
@@ -129,4 +129,14 @@ export const typeBlock = css`
     margin-top: ${extRem(12)};
     line-height: 1;
   }
+`;
+
+export const logo = css`
+  display: none;
+  
+  ${props => props.breakpointsStatus[MD] && `
+    display: block;
+    max-width: ${extRem(180)};
+    margin: 0 auto;
+  `}
 `;
