@@ -165,6 +165,7 @@ class ResourcesListWithDetail extends React.Component {
             <ActionsStyle>
               <Button
                 expanded={currentBreakpoint === 'XS'}
+                href={showAllAction.href}
                 label="Show All"
                 onClick={showAllAction.onClick}
               />

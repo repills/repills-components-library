@@ -8,13 +8,15 @@ import {
 import styled from 'styled-components';
 import { base } from './style';
 
-const BaseStyle = styled.button`${base}`;
+// @TODO covert in to class
 
 const Button = ({
   autoWidth,
   disabled,
+  ellipsis,
   expanded,
   label,
+  href,
   onClick,
   onMouseEnter,
   onMouseLeave,
@@ -22,17 +24,25 @@ const Button = ({
   size,
   ...others
 }) => {
+  const BaseStyle = styled(href ? 'a' : 'button')`${base}`;
+  const click = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    onClick();
+  };
   return (
     <BaseStyle
-      {...others}
       autoWidth={autoWidth}
       disabled={disabled}
+      ellipsis={ellipsis}
       expanded={expanded}
-      onClick={onClick}
+      href={href ? href : undefined}
+      onClick={click}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       size={size}
       skin={skin}
+      {...others}
     >
       {label && <span>{label}</span>}
     </BaseStyle>
@@ -42,7 +52,9 @@ const Button = ({
 Button.propTypes = {
   autoWidth: bool,
   disabled: bool,
+  ellipsis: bool,
   expanded: bool,
+  href: string,
   label: string,
   onClick: func,
   onMouseEnter: func,

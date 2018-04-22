@@ -1,4 +1,4 @@
-import { lighten } from 'polished';
+import { lighten, ellipsis } from 'polished';
 import { css } from 'styled-components';
 import { extRem } from '../../utils';
 import theme from '../../config/theme';
@@ -18,13 +18,13 @@ const size = {
   M: {
     minHeight: extRem(40),
     lineHeight: extRem(24),
-    minWidth: extRem(150),
+    minWidth: extRem(200),
     padding: extRem(8, 24)
   },
   L: {
     minHeight: extRem(60),
     lineHeight: extRem(28),
-    minWidth: extRem(220),
+    minWidth: extRem(250),
     padding: extRem(16, 32)
   }
 };
@@ -103,7 +103,8 @@ export const base = css`
   width: ${props => props.expanded ? '100%' : 'auto'};
   transition: all .3s ease-in-out;
   word-break: break-word;
-  
+  text-decoration: none;
+
   ${props => size[props.size]};
    
   ${props => tp[props.size]};
@@ -119,6 +120,9 @@ export const base = css`
   &:hover {
     ${ props => !props.disabled && skinHover[props.skin] }
   }
+ 
+  // https://github.com/styled-components/polished/issues/180
+  ${props => props.ellipsis && css`${ellipsis()};`}
   
   & + & {
     margin-left: ${extRem(12)};

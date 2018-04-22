@@ -29,7 +29,8 @@ export default (sectionTitle, sectionDescription) => () => {
         navigateToTopic={topicId => alert('Navigate to topic: ' + topicId)}
         resources={getResourceList(12).map(e => e.frontmatter)}
         showAllAction={{
-          onClick: () => alert('Clicked on Show all button')
+          onClick: () => alert('Clicked on Show all button'),
+          href: '/show/all/path'
         }}
       />
     </SectionPage>

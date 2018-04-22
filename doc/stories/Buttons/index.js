@@ -12,16 +12,15 @@ section
   .add('Basic', () => {
 
     const options = {};
-    const selectedSkin = select('Skin', { 'none': 'Default', 'ghost': 'Ghost', 'outline': 'Outline' }, 'none');
-
-    const autoWidth = boolean('autoWidth', false);
+    const selectedSkin = select('Skin', { 'none': 'Default', 'primary': 'Primary', 'ghost': 'Ghost', 'outline': 'Outline' }, 'none');
+    const href = text('Href', '');
 
     if (selectedSkin !== 'none') {
       options['skin'] = selectedSkin;
     }
 
-    if (autoWidth) {
-      options['autoWidth'] = autoWidth;
+    if (href !== '') {
+      options['href'] = href;
     }
 
     return (
@@ -30,8 +29,10 @@ section
         title={sectionTitle}
       >
         <InteractiveExample
+          autoWidth={boolean('Auto width', false)}
           component={Button}
           disabled={boolean('Disabled', false)}
+          ellipsis={boolean('Ellipsis', false)}
           expanded={boolean('Expanded', false)}
           id={text('Id', 'button_id')}
           label={text('Label', 'Button Label')}

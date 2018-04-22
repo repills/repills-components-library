@@ -55,7 +55,6 @@ function SectionPreview({
     >
       <CoverStyle
         disabled={disabled}
-        href={!disabled ? path : undefined}
         onClick={!disabled ? navigate : undefined}
       >
         <IconStyle>
@@ -87,6 +86,9 @@ function SectionPreview({
         <div>
           <Button
             disabled={disabled}
+            ellipsis
+            expanded
+            href={!disabled ? path : undefined}
             label={disabled ? 'Coming soon' : 'Learn'}
             onClick={navigateTo}
           />

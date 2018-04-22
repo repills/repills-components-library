@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import theme from '../../config/theme';
-import { rgba, ellipsis } from 'polished';
+import { ellipsis } from 'polished';
 import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
@@ -45,7 +45,7 @@ export const source = css`
 `;
 
 export const author = css`
-  ${ellipsis()}
+  ${ellipsis()};
   
   span {
     margin-left: ${extRem(5)};
