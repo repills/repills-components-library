@@ -35,7 +35,9 @@ const showedTypes = [
   types.article,
   types.tutorial,
   types.course,
-  types.tool
+  types.tool,
+  types.library,
+  types.book
 ];
 
 const HomePageHeader = ({

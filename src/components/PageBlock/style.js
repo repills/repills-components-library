@@ -15,13 +15,13 @@ const align = {
 };
 
 const { neutral } = theme.palettes;
-const sideCount = extRem(36);
+const sideCount = extRem(30);
 export const base = css`
   text-align: left;
 `;
 
 export const title = css`
-  ${typography.header3}
+  ${typography.header4}
   color: ${neutral.higher};
   line-height: 1.2;
   margin: 0;
@@ -36,7 +36,6 @@ export const title = css`
 `;
 
 export const count = css`
-  font-size: 80%;
   display: inline-block;
   align-items: center;
   justify-content: center;
@@ -63,10 +62,10 @@ export const description = css`
 export const body = css`
   ${typography.body}
   color: ${neutral.high};
-  margin-top: ${extRem(32)};
+  margin-top: ${extRem(28)};
   
   ${props => !props.simple && `
     border-top: 1px solid ${neutral.low};
-    padding-top: ${extRem(32)};
+    padding-top: ${extRem(28)};
   `}
 `;
