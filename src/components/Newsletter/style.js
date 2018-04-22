@@ -1,12 +1,13 @@
 import { css } from 'styled-components';
 import { extRem } from '../../utils';
+import { stripUnit } from 'polished';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
 import { MD } from '../../config/breakpoints';
 
 const { palettes } = theme;
 const { basic, neutral } = palettes;
-const gutter = extRem(12);
+const gutter = extRem(30);
 
 export const base = css`
   text-align: left;
@@ -17,7 +18,7 @@ export const base = css`
 export const content = css`
   display: flex;
   flex-wrap: wrap;
-  
+
   ${props => props.breakpointsStatus[MD] && `
     margin-left: -${gutter};
     margin-right: -${gutter};
@@ -36,7 +37,7 @@ export const intro = css`
   ${typography.small}
   color: ${neutral.lowest};
   margin: ${extRem(28)} 0 0 0;
-  max-width: ${extRem(380)};
+  max-width: ${extRem(400)};
   
   a {
     text-decoration: underline;
@@ -77,6 +78,7 @@ export const commonWrapper = css`
     
     &:last-child {
       margin-top: 0;
+      border-left: 1px solid rgba(0,0,0,.4);
     }
   `}
 `;
