@@ -5,7 +5,7 @@ import typography from '../../shared/styles/typography';
 import { MD } from '../../config/breakpoints';
 
 const { palettes } = theme;
-const { neutral } = palettes;
+const { basic, neutral } = palettes;
 const gutter = extRem(12);
 
 export const base = css`
@@ -37,6 +37,11 @@ export const intro = css`
   color: ${neutral.lowest};
   margin: ${extRem(28)} 0 0 0;
   max-width: ${extRem(380)};
+  
+  a {
+    text-decoration: underline;
+    color: ${basic.primary};
+  }
 `;
 
 export const label = css`
