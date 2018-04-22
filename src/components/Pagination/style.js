@@ -12,7 +12,7 @@ export const base = css`
   align-items: center;
   justify-content: center;
   padding: ${extRem(12)};
-  background-color: ${neutral.lower};
+  border-top: 1px solid ${neutral.medium};
   // box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
 `;
 
