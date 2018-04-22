@@ -83,14 +83,16 @@ function SectionPreview({
             }
           </DetailsStyle>
         }
-        <Button
-          disabled={disabled}
-          ellipsis
-          expanded
-          href={!disabled ? path : undefined}
-          label={disabled ? 'Coming soon' : 'Learn'}
-          onClick={navigateTo}
-        />
+        <div style={{ lineHeight: 0 }}>
+          <Button
+            disabled={disabled}
+            ellipsis
+            expanded
+            href={!disabled ? path : undefined}
+            label={disabled ? 'Coming soon' : 'Learn'}
+            onClick={navigateTo}
+          />
+        </div>
       </InfoStyle>
     </BaseStyle>
   );

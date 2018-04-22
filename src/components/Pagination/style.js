@@ -11,7 +11,7 @@ export const base = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: ${extRem(12)};
+  padding-top: ${extRem(12)};
   border-top: 1px solid ${neutral.medium};
   // box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
 `;
