@@ -50,11 +50,11 @@ export const label = css`
   color: ${neutral.lowest};
   display: block;
   line-height: 1.3;
+  margin-bottom: ${extRem(32)};
 `;
 
 export const form = css`
   max-width: ${extRem(350)};
-  margin-top: ${extRem(32)};
 `;
 
 export const note = css`
