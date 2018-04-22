@@ -50,6 +50,7 @@ export TypesList from './TypesList';
 export typography from '../shared/styles/typography';
 export VerticalSpacing from './VerticalSpacing';
 export QueryHandler from './QueryHandler';
+export Newsletter from './Newsletter';
 export breakpoints from '../config/breakpoints';
 // export SectionsCarousel from './SectionsCarousel';
 import 'babel-polyfill';

@@ -34,9 +34,14 @@ class TextField extends React.Component {
     readOnly: bool,
     required: bool,
     size: oneOf(['M', 'L']),
-    type: oneOf(['text', 'number', 'url', 'date', 'datetime']),
+    type: oneOf(['text', 'number', 'url', 'date', 'datetime', 'email']),
     value: oneOfType([string, number])
   };
+
+  static defaultProps = {
+    size: 'M'
+  };
+
 
   constructor(props) {
     super(props);
@@ -71,6 +76,7 @@ class TextField extends React.Component {
       expanded,
       handleOnBlur,
       handleOnFocus,
+      handleOnChange,
       hasError,
       name,
       placeholder,
@@ -116,7 +122,7 @@ class TextField extends React.Component {
           hasIcon={hasIcon}
           name={name}
           onBlur={handleOnBlur}
-          onChange={this.handleOnChange}
+          onChange={handleOnChange ? this.handleOnChange : undefined}
           onFocus={handleOnFocus}
           placeholder={placeholder}
           readOnly={readOnly}
