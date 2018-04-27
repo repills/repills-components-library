@@ -54,7 +54,7 @@ export const author = css`
 
 export const title = css`
   ${typography.header4}
-  color: ${neutral.highest};
+  color: ${neutral.higher};
   margin: ${extRem(20, 0, 12)};
   line-height: 1.3;
   cursor: pointer;

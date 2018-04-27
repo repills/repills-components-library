@@ -1,12 +1,18 @@
 import React from 'react';
-import { number } from '@storybook/addon-knobs/react';
+import { number, select } from '@storybook/addon-knobs/react';
 import { SectionPage, InteractiveExample } from '../../components';
 import { TopicsList } from '../../../src/components';
 import { getRandomTopicList } from '../../utils/fixtures';
 
 export default (sectionTitle, sectionDescription) => () => {
 
+  const others = {};
   const navigateTo = path => alert(`Navigate to ${path}`);
+  const type = select('Type', { 'default': 'Simple', 'extended': 'Extended' }, 'default');
+
+  if (type !== 'default') {
+    others['type'] = type;
+  }
 
   return (
     <SectionPage
@@ -25,6 +31,7 @@ export default (sectionTitle, sectionDescription) => () => {
           max: 12,
           step: 1,
         }))}
+        {...others}
       />
     </SectionPage>
   );

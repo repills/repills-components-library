@@ -18,7 +18,7 @@ export const base = css`
   color: ${neutral.highest};
   height: 100%;
   min-height: ${extRem(70)};
-  padding: ${extRem(12,16,16,12)};
+  padding: ${extRem(12,16,14,12)};
   display: flex;
   align-items: center;
   justify-content: space-between;

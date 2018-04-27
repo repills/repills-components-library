@@ -42,8 +42,6 @@ class TopicsList extends React.Component {
     this.state = {
       showEntireList: false
     };
-
-    this.previewComponent = this.getPreviewComponent(this.props.type);
   }
 
   getPreviewComponent = type => {
@@ -85,6 +83,7 @@ class TopicsList extends React.Component {
 
   render() {
     const {
+      type,
       breakpointsStatus,
       topics,
       navigateTo,
@@ -95,6 +94,7 @@ class TopicsList extends React.Component {
     const count = topics.length;
     const currentBreakpoint = this.getCurrentBreakPoint(breakpointsStatus);
     const showedTopics = this.getShowedTopics({ currentBreakpoint });
+    const PreviewComponent = this.getPreviewComponent(type);
 
     return (
       <BaseStyle
@@ -111,7 +111,7 @@ class TopicsList extends React.Component {
                   count={count}
                   key={`${topic.slug}-${i}`}
                 >
-                  <this.previewComponent
+                  <PreviewComponent
                     navigateTo={() => navigateTo(topic.path)}
                     {...topic}
                   />
