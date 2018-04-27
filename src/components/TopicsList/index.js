@@ -1,10 +1,12 @@
 import React from 'react';
 import TopicPreview from '../TopicPreview';
+import TopicExtendedPreview from '../TopicExtendedPreview';
 import {
   func,
   arrayOf,
   shape,
-  object
+  object,
+  oneOf
 } from 'prop-types';
 import styled from 'styled-components';
 import Button from '../Button';
@@ -26,11 +28,13 @@ class TopicsList extends React.Component {
     showAllAction: shape({
       onClick: func.isRequired
     }),
-    topics: arrayOf(shape(TopicPreview.propTypes)).isRequired,
+    topics: arrayOf(object).isRequired,
+    type: oneOf(['default', 'extended']),
   };
 
   static defaultProps = {
-    breakpointsStatus: {}
+    breakpointsStatus: {},
+    type: 'default'
   };
 
   constructor(props) {
@@ -38,7 +42,15 @@ class TopicsList extends React.Component {
     this.state = {
       showEntireList: false
     };
+
+    this.previewComponent = this.getPreviewComponent(this.props.type);
   }
+
+  getPreviewComponent = type => {
+    return type === 'extended'
+      ? TopicExtendedPreview
+      : TopicPreview;
+  };
 
   getCurrentBreakPoint = statusBreakpoints => {
     let current = null;
@@ -99,7 +111,7 @@ class TopicsList extends React.Component {
                   count={count}
                   key={`${topic.slug}-${i}`}
                 >
-                  <TopicPreview
+                  <this.previewComponent
                     navigateTo={() => navigateTo(topic.path)}
                     {...topic}
                   />
