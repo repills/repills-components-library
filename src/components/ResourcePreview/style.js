@@ -20,9 +20,10 @@ export const base = css`
 `;
 
 export const mainInfo = css`
-  padding: ${extRem(12,16,16)};
+  padding: ${extRem(14,16,10)};
   background-color: ${mainColor};
   border: 1px solid ${neutral.low};
+  border-bottom: 0;
   display: block;
   text-decoration: none;
   color: currentColor;
@@ -54,38 +55,30 @@ export const author = css`
 `;
 
 export const title = css`
-  ${typography.caption}
+  ${typography.body}
   color: ${neutral.higher};
-  margin: ${extRem(0,0,12)};
-  height: ${extRem(54)};
+  margin: ${extRem(0,0,10)};
+  height: 2.8rem;
   position: relative;
   overflow: hidden;
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.4;
   
   a {
     color: currentColor;
   }
-  /*
-  &::after {
-    content: '';
-    height: ${extRem(24)};
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to bottom, ${rgba(mainColor, 0)}, ${mainColor});
-    position: absolute;
-  }
-  */
 `;
 
 export const secondaryInfo = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${extRem(8,16)};
+  padding: ${extRem(0,16,10)};
   border: 1px solid ${neutral.low};
-  border-top-color: ${lighten(.06, neutral.low)};
-  margin-top: -1px;
+  // border-top-color: ${lighten(.06, neutral.low)};
+  border-top: 0;
+  // margin-top: -1px;
   line-height: 1;
 `;
 
@@ -108,9 +101,9 @@ export const type = css`
     background-color: ${props => props.color};
     margin-left: 1px;
     white-space: nowrap;
-    height: ${extRem(16)};
-    line-height: ${extRem(16)};
-    padding: ${extRem(0,8)};
+    height: 1rem;
+    line-height: 1rem;
+    padding: ${extRem(0,6)};
   }
 `;
 

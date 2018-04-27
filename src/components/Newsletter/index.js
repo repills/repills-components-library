@@ -86,6 +86,7 @@ class Newsletter extends React.Component {
                 <Button
                   expanded
                   label="Subscribe now"
+                  skin="primary"
                   type="submit"
                 />
               </ActionStyle>

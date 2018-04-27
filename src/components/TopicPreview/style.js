@@ -50,12 +50,15 @@ export const composition = css`
 `;
 
 export const title = css`
+  ${typography.body}
   color: ${neutral.high};
   font-weight: 600;
   overflow: hidden;
-  line-height: 1.2;
+  line-height: 1.4;
+  height: 2.8rem;
   word-break: break-word;
   margin: 0;
+  user-select: none;
 `;
 
 

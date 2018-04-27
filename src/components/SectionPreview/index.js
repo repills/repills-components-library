@@ -91,6 +91,7 @@ function SectionPreview({
             href={!disabled ? path : undefined}
             label={disabled ? 'Coming soon' : 'Learn'}
             onClick={navigateTo}
+            skin="primary"
           />
         </div>
       </InfoStyle>

@@ -1,4 +1,4 @@
-import { lighten, ellipsis } from 'polished';
+import { lighten, darken, ellipsis } from 'polished';
 import { css } from 'styled-components';
 import { extRem } from '../../utils';
 import theme from '../../config/theme';
@@ -31,8 +31,16 @@ const size = {
 
 const skin = {
   default: {
+    backgroundColor: neutral.higher,
+    color: neutral.lowest,
+    // boxShadow: '0 8px 16px rgba(0,0,0,.1),0 3px 6px rgba(0,0,0,.08)',
+    textTransform: 'uppercase',
+    fontWeight: 600,
+    letterSpacing: '0.1em'
+  },
+  primary: {
     backgroundColor: basic.primary,
-    color: neutral.higher,
+    color: darken(0.2, basic.primary),
     // boxShadow: '0 8px 16px rgba(0,0,0,.1),0 3px 6px rgba(0,0,0,.08)',
     textTransform: 'uppercase',
     fontWeight: 600,
@@ -57,6 +65,9 @@ const skin = {
 
 const skinHover = {
   default: {
+    backgroundColor: neutral.highest
+  },
+  primary: {
     backgroundColor: mainHoverColor
   },
   ghost: {
@@ -71,6 +82,11 @@ const skinHover = {
 
 const skinDisabled = {
   default: {
+    backgroundColor: neutral.lower,
+    color: neutral.medium,
+    boxShadow: 'none'
+  },
+  primary: {
     backgroundColor: neutral.lower,
     color: neutral.medium,
     boxShadow: 'none'

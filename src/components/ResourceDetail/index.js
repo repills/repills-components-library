@@ -174,6 +174,7 @@ function ResourceDetail({
           label={`Go to ${typeLabel}`}
           onClick={navigateTo}
           size="S"
+          skin="primary"
         />
       </ActionsStyle>
     </BaseStyle>

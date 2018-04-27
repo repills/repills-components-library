@@ -45,6 +45,7 @@ export TopicSelector from './TopicSelector';
 export TopicsList from './TopicsList';
 export TopNavigation from './TopNavigation';
 export TypePageHeader from './TypePageHeader';
+export TopicExtendedPreview from './TopicExtendedPreview';
 export TypePreview from './TypePreview';
 export TypesList from './TypesList';
 export typography from '../shared/styles/typography';
