@@ -78,14 +78,24 @@ export function getRandomContributorsList(min = 0, max = 20) {
 // TOPICS
 //-------
 
-export function getRandomTopic({ title, resourcesLength }) {
+export function getRandomTopic({ title, description, resourcesLength }) {
   const resources = resourcesLength ? getResourceList(resourcesLength) : getRandomResourceList();
   return {
     title: title || faker.lorem.sentence(),
     resources,
     path: `/${faker.lorem.word()}`,
-    stats: getResourcesStats(resources, false, 'DESC')
-};
+    stats: getResourcesStats(resources, false, 'DESC'),
+    description: description || faker.lorem.sentence(),
+    sectionIcon: 'ServerlessIcon', // Make it random
+    // Make it random
+    similar: [
+      faker.lorem.sentence(),
+      faker.lorem.word(),
+      faker.lorem.word(),
+      faker.lorem.sentence(),
+      faker.lorem.sentence()
+    ]
+  };
 }
 
 export function getRandomTopicList(length) {
