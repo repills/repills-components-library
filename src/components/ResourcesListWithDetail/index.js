@@ -53,9 +53,13 @@ class ResourcesListWithDetail extends React.Component {
 
   onHandleDetailView = ({ reference }) => {
     const {
-      resources
+      resources,
+      handleDetailView
     } = this.props;
     const currentResource = resources.find(e => e.reference === reference);
+    if (handleDetailView) {
+      handleDetailView({ resource: currentResource });
+    }
     this.setState({ showDetailModal: true, currentResource });
   };
 
@@ -157,6 +161,7 @@ class ResourcesListWithDetail extends React.Component {
                 expanded={currentBreakpoint === 'XS'}
                 label="Show more"
                 onClick={() => this.setState({ showEntireList: true })}
+                skin="outline"
               />
             </ActionsStyle>
           }
@@ -168,6 +173,7 @@ class ResourcesListWithDetail extends React.Component {
                 href={showAllAction.href}
                 label="Show All"
                 onClick={showAllAction.onClick}
+                skin="outline"
               />
             </ActionsStyle>
           }
