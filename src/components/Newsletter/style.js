@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
 import { extRem } from '../../utils';
-import { stripUnit } from 'polished';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
 import { MD } from '../../config/breakpoints';
@@ -55,6 +54,7 @@ export const label = css`
 
 export const form = css`
   max-width: ${extRem(350)};
+  margin: 0 auto;
 `;
 
 export const note = css`

@@ -72,7 +72,7 @@ const HomePageHeader = ({
         }
         {
           description &&
-          <DescriptionStyle>{description}</DescriptionStyle>
+          <DescriptionStyle breakpointsStatus={breakpointsStatus}>{description}</DescriptionStyle>
         }
         <TypeListStyle breakpointsStatus={breakpointsStatus}>
           {

@@ -79,22 +79,11 @@ export const description = css`
   color: ${neutral.medium};
   line-height: 1.5;
   max-width: ${extRem(650)};
-  margin: ${extRem(48)} auto 0;
-`;
-
-export const pillsAnimation = css`
-  display: none;
+  margin: ${extRem(48)} 0 0;
   
   ${props => props.breakpointsStatus[MD] && `
-    display: flex;
-    align-items: center;
-    justify-content: center;
+      margin: ${extRem(48)} auto 0;
   `}
-`;
-
-export const pill = css`
-  animation: ${bouncing} 0.6s infinite alternate;
-  ${props => pillSettings[props.index]}
 `;
 
 export const typeList = css`
