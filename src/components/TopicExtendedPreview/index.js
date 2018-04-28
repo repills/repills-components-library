@@ -49,17 +49,21 @@ function TopicExtendedPreview({
       disabled={totalCount === 0}
     >
       <CoverStyle
+        icon={sectionIcon}
         onClick={totalCount !== 0 ? navigateTo : undefined}
       >
         <TitleStyle>{title}</TitleStyle>
-        <IconStyle>
-          <SectionIcon
-            size={36}
-          />
-        </IconStyle>
+        {
+          sectionIcon &&
+          <IconStyle>
+            <SectionIcon
+              size={36}
+            />
+          </IconStyle>
+        }
       </CoverStyle>
       <CompositionBar
-        barHeight={4}
+        barHeight={6}
         stats={stats}
       />
       <BodyStyle>
@@ -85,8 +89,11 @@ function TopicExtendedPreview({
 }
 
 TopicExtendedPreview.propTypes = {
+  description: string,
   navigateTo: func,
+  path: string,
   resources: arrayOf(object).isRequired,
+  sectionIcon: string,
   stats: arrayOf(shape({
     type: string.isRequired,
     label: string.isRequired,

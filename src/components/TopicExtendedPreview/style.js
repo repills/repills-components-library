@@ -17,9 +17,13 @@ export const base = css`
 `;
 
 export const cover = css`
-  padding: ${extRem(20,60,20,20)};
+  padding: ${extRem(20)};
   background-color: ${neutral.higher};
   position: relative;
+  
+  ${props => props.icon && `
+    padding-right: ${extRem(60)};
+  `}
 `;
 
 export const icon = css`
