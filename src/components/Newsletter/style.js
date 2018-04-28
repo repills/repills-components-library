@@ -29,7 +29,7 @@ export const action = css`
 `;
 
 export const logo = css`
-  max-width: ${extRem(180)};
+  max-width: ${extRem(160)};
 `;
 
 export const intro = css`
