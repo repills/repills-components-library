@@ -13,7 +13,6 @@ const mainColor = neutral.lowest;
 export const base = css`
   text-align: left;
   background-color: ${neutral.lowest};
-  
   &:hover {
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   }
@@ -23,6 +22,7 @@ export const mainInfo = css`
   padding: ${extRem(14,16,10)};
   background-color: ${mainColor};
   border: 1px solid ${neutral.low};
+  border-radius: 3px 3px 0 0;
   border-bottom: 0;
   display: block;
   text-decoration: none;
@@ -80,6 +80,7 @@ export const secondaryInfo = css`
   border-top: 0;
   // margin-top: -1px;
   line-height: 1;
+  border-radius: 0 0 3px 3px;
 `;
 
 export const detail = css`

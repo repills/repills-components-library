@@ -25,6 +25,7 @@ export const icon = css``;
 export const cover = css`
   padding: ${extRem(24,16, 0)};
   border: 1px solid ${neutral.low};
+  border-radius: 5px 5px 0 0;
   border-bottom: 0;
   display: block;
   text-decoration: none;
@@ -35,6 +36,7 @@ export const cover = css`
 export const info = css`
   border: 1px solid ${neutral.low};
   border-top: 0;
+  border-radius: 0 0 5px 5px;
   padding: ${extRem(12,16,24)};
 `;
 

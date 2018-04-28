@@ -126,6 +126,7 @@ class TopicsList extends React.Component {
                 expanded={currentBreakpoint === 'XS'}
                 label="Show more"
                 onClick={() => this.setState({ showEntireList: true })}
+                skin="outline"
               />
             </ActionsStyle>
           }
@@ -136,6 +137,7 @@ class TopicsList extends React.Component {
                 expanded={currentBreakpoint === 'XS'}
                 label="Show All"
                 onClick={showAllAction.onClick}
+                skin="outline"
               />
             </ActionsStyle>
           }
