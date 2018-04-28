@@ -48,7 +48,7 @@ const HomePageHeader = ({
   ...others
 }) => {
   const typesList = breakpointsStatus[MD] ? showedTypes : showedTypes.slice(0,3);
-  const iconSize =  breakpointsStatus[MD] ? 44 : 36;
+  const iconSize =  breakpointsStatus[MD] ? 36 : 32;
 
   return (
     <BaseStyle

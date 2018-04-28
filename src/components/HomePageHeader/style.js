@@ -90,7 +90,7 @@ export const typeList = css`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-top: ${extRem(52)};
+  margin-top: ${extRem(40)};
     
   > div + div {
     margin-left: ${extRem(20)};
@@ -98,7 +98,6 @@ export const typeList = css`
   
   ${props => props.breakpointsStatus[MD] && `
     justify-content: center;
-    margin-top: ${extRem(52)};
     
     > div + div {
       margin-left: ${extRem(32)};
