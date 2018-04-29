@@ -1,46 +1,19 @@
-import { css, keyframes } from 'styled-components';
+import { css } from 'styled-components';
 import { extRem } from '../../utils';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
 import { MD, LG } from '../../config/breakpoints';
 
-const { basic, types, neutral } = theme.palettes;
-
-const bouncing = keyframes`
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0.8;
-    transform: translateY(-1rem);
-  }
-`;
-
-const pillSettings = {
-  1: {
-    color: types.article,
-    animationDelay: '0'
-  },
-  2: {
-    color: basic.primary,
-    animationDelay: '0.2s',
-    margin: extRem(0, 16)
-  },
-  3: {
-    color: types.video,
-    animationDelay: '0.4s'
-  }
-};
+const { basic, neutral } = theme.palettes;
 
 export const base = css`
-  padding: ${extRem(52)} 0;
+  padding: ${extRem(44)} 0;
   text-align: left;
   position: relative;
   
   ${props => props.breakpointsStatus[MD] && `
     text-align: center;
-    padding: ${extRem(72)} 0;
+    padding: ${extRem(52, 0, 72)};
   `}
 `;
 
@@ -79,7 +52,7 @@ export const description = css`
   color: ${neutral.medium};
   line-height: 1.5;
   max-width: ${extRem(650)};
-  margin: ${extRem(48)} 0 0;
+  margin: ${extRem(40)} 0 0;
   
   ${props => props.breakpointsStatus[MD] && `
       margin: ${extRem(48)} auto 0;

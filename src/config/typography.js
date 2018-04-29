@@ -12,7 +12,7 @@ export default [
     id: 'header1',
     name: 'Header 1',
     family: primaryFontFamily,
-    size: 56,
+    size: 52,
     weight: 600
   },
   {
