@@ -24,6 +24,7 @@ export default (sectionTitle, sectionDescription) => () => {
         component={ResourcesListWithDetail}
         dateType={select('Date type', { createdAt: 'Share date', publishedAt: 'Publish date' }, 'createdAt')}
         generateDetailUrl={generateDetailUrl}
+        handleDetailView={({ resource }) => console.log('resource detail: ',resource)}
         navigateToDetail={navigateToDetail}
         navigateToSection={sectionId => alert('Navigate to section: ' + sectionId)}
         navigateToTopic={topicId => alert('Navigate to topic: ' + topicId)}
