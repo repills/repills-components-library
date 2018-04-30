@@ -9,7 +9,7 @@ const { basic, neutral, status } = palettes;
 
 const variant = {
   'M': {
-    height: extRem(36),
+    height: extRem(44),
     sidePadding: extRem(12),
     maxWidth: extRem(200)
   },

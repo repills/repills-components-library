@@ -9,7 +9,7 @@ const { neutral } = theme.palettes;
 
 const sizes = {
   M: {
-    height: extRem(36),
+    height: extRem(44),
     heightItem: extRem(32),
     sideSpace: extRem(12),
     width: extRem(200),

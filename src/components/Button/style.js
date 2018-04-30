@@ -16,7 +16,7 @@ const size = {
     padding: extRem(4, 20)
   },
   M: {
-    minHeight: extRem(40),
+    minHeight: extRem(44),
     lineHeight: extRem(24),
     minWidth: extRem(200),
     padding: extRem(8, 24)
@@ -108,13 +108,13 @@ const tp = {
 export const base = css`
   box-sizing: border-box;
   align-items: center;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   background: none;
   box-sizing: border-box;
   cursor: ${props => props.disabled ? 'default' : 'pointer'};
   display: inline-flex;
   justify-content: center;
-  border-radius: 3px;
+  border-radius: 5px;
   outline: none;
   width: ${props => props.expanded ? '100%' : 'auto'};
   transition: all .3s ease-in-out;
