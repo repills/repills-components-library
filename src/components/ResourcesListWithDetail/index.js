@@ -140,7 +140,7 @@ class ResourcesListWithDetail extends React.Component {
                   <ItemStyle
                     breakpointsStatus={breakpointsStatus}
                     count={count}
-                    key={resource.link}
+                    key={resource.slug}
                   >
                     <ResourcePreview
                       {...resource}

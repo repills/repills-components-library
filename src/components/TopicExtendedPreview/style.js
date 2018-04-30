@@ -20,6 +20,8 @@ export const cover = css`
   padding: ${extRem(20)};
   background-color: ${neutral.higher};
   position: relative;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
   
   ${props => props.icon && `
     padding-right: ${extRem(60)};
@@ -74,6 +76,7 @@ export const body = css`
   padding: 1rem;
   border: 1px solid ${neutral.low};
   border-top: 0;
+  border-radius: 0 0 5px 5px;
 `;
 
 export const footer = css`

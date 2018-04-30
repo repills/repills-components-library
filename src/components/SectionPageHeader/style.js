@@ -35,7 +35,7 @@ export const main = css`
 `;
 
 export const label = css`
-  ${typography.body}
+  ${typography.small}
   color: ${neutral.medium};
   text-transform: uppercase;
 `;

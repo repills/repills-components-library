@@ -35,7 +35,7 @@ function TopicPreview({
       disabled={totalCount === 0}
       onClick={totalCount !== 0 ? navigateTo : null}
     >
-      <TitleStyle>{title}</TitleStyle>
+      <TitleStyle title={title}>{title}</TitleStyle>
       <TotalStyle>
         {totalCount}
       </TotalStyle>

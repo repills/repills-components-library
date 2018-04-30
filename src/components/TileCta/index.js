@@ -45,7 +45,7 @@ const TileCta = ({
         <ActionStyle>
           <Button
             autoWidth
-            size="M"
+            size="S"
             {...cta}
           />
         </ActionStyle>
@@ -55,12 +55,10 @@ const TileCta = ({
 };
 
 TileCta.propTypes = {
+  cta: Button.propTypes,
   description: string,
   icon: string,
-  title: string
-};
-
-TileCta.defaultProps = {
+  title: string,
 };
 
 export default TileCta;

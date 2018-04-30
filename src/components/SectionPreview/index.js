@@ -27,88 +27,100 @@ const IconStyle = styled.div`${icon}`;
 const DetailsStyle = styled.div`${details}`;
 const DetailStyle = styled.span`${detail}`;
 
-function SectionPreview({
-  color,
-  description,
-  icon,
-  name,
-  path,
-  navigateTo,
-  resourcesCount,
-  topicsCount,
-  disabled,
-  ...others
-}) {
-  const Icon = icon && icons[icon];
-  const navigate = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    navigateTo();
+class SectionPreview extends React.Component {
+
+  static propTypes = {
+    color: string,
+    description: string,
+    disabled: bool,
+    icon: string.isRequired,
+    name: string.isRequired,
+    navigateTo: func,
+    path: string.isRequired,
+    resourcesCount: number,
+    topicsCount: number
   };
 
-  const CoverStyle = styled[!disabled && navigate ? 'a' : 'div']`${cover}`;
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.name !== nextProps.name) {
+      return true;
+    }
+    return false;
+  }
 
-  return (
-    <BaseStyle
-      {...others}
-      disabled={disabled}
-    >
-      <CoverStyle
+  navigate = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    this.props.navigateTo();
+  };
+
+  render() {
+    const {
+      color,
+      description,
+      icon,
+      name,
+      path,
+      navigateTo,
+      resourcesCount,
+      topicsCount,
+      disabled,
+      ...others
+    } = this.props;
+
+    const Icon = icon && icons[icon];
+    const CoverStyle = styled[!disabled && navigateTo ? 'a' : 'div']`${cover}`;
+
+    return (
+      <BaseStyle
+        {...others}
         disabled={disabled}
-        onClick={!disabled ? navigate : undefined}
       >
-        <IconStyle>
-          <Icon
-            color={color}
-            size={88}
-          />
-        </IconStyle>
-        <NameStyle>{name}</NameStyle>
-      </CoverStyle>
-      <InfoStyle>
-        <DescriptionStyle>{description}</DescriptionStyle>
-        {
-          <DetailsStyle>
-            {
-              resourcesCount !== 'undefined' &&
-              <DetailStyle>
-                <strong>{resourcesCount}</strong> pill{resourcesCount === 1 ? '' : 's'}
-              </DetailStyle>
-            }
-            {
-              topicsCount !== 'undefined' &&
-              <DetailStyle>
-                <strong>{topicsCount}</strong> topic{topicsCount === 1 ? '' : 's'}
-              </DetailStyle>
-            }
-          </DetailsStyle>
-        }
-        <div style={{ lineHeight: 0 }}>
-          <Button
-            disabled={disabled}
-            ellipsis
-            expanded
-            href={!disabled ? path : undefined}
-            label={disabled ? 'Coming soon' : 'Learn'}
-            onClick={navigateTo}
-            skin="primary"
-          />
-        </div>
-      </InfoStyle>
-    </BaseStyle>
-  );
+        <CoverStyle
+          disabled={disabled}
+          onClick={!disabled ? this.navigate : undefined}
+        >
+          <IconStyle>
+            <Icon
+              color={color}
+              size={88}
+            />
+          </IconStyle>
+          <NameStyle>{name}</NameStyle>
+        </CoverStyle>
+        <InfoStyle>
+          <DescriptionStyle>{description}</DescriptionStyle>
+          {
+            <DetailsStyle>
+              {
+                resourcesCount !== 'undefined' &&
+                <DetailStyle>
+                  <strong>{resourcesCount}</strong> pill{resourcesCount === 1 ? '' : 's'}
+                </DetailStyle>
+              }
+              {
+                topicsCount !== 'undefined' &&
+                <DetailStyle>
+                  <strong>{topicsCount}</strong> topic{topicsCount === 1 ? '' : 's'}
+                </DetailStyle>
+              }
+            </DetailsStyle>
+          }
+          <div style={{ lineHeight: 0 }}>
+            <Button
+              disabled={disabled}
+              ellipsis
+              expanded
+              href={!disabled ? path : undefined}
+              label={disabled ? 'Coming soon' : 'Learn'}
+              onClick={navigateTo}
+              skin="outline"
+            />
+          </div>
+        </InfoStyle>
+      </BaseStyle>
+    );
+  }
 }
-
-SectionPreview.propTypes = {
-  color: string,
-  description: string,
-  disabled: bool,
-  icon: string.isRequired,
-  name: string.isRequired,
-  navigateTo: func,
-  path: string.isRequired,
-  resourcesCount: number,
-  topicsCount: number
-};
 
 export default SectionPreview;

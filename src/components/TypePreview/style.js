@@ -7,10 +7,10 @@ import typography from '../../shared/styles/typography';
 const { neutral } = theme.palettes;
 
 export const base = css`
-  ${typography.caption}
+  ${typography.body}
   color: ${props => props.active ? props.color : neutral.high};
   text-decoration: none;
-  padding: ${extRem(12, 12, 12, 20)};
+  padding: ${extRem(8, 12, 8, 20)};
   display: flex;
   align-items: center;
   cursor: ${props => props.active ? 'default' : 'pointer'};
@@ -42,6 +42,7 @@ export const text = css`
   justify-content: space-between;
   align-items: center;
   margin-right: ${extRem(32)};
+  margin-bottom: -1px;
 `;
 
 export const count = css`

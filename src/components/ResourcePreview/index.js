@@ -20,7 +20,6 @@ import {
 } from './style';
 
 const BaseStyle = styled.article`${base}`;
-const MainInfoStyle = styled.div`${mainInfo}`;
 const SecondaryInfoStyle = styled.div`${secondaryInfo}`;
 const SourceStyle = styled.a`${source}`;
 const TitleStyle = styled.h4`${title}`;
@@ -52,7 +51,9 @@ class ResourcePreview extends React.Component {
     dateType: 'createdAt'
   };
 
-  handleDetailView = () => {
+  handleDetailView = e => {
+    e.preventDefault();
+    e.stopPropagation();
     const {
       handleDetailView,
       reference
@@ -60,6 +61,7 @@ class ResourcePreview extends React.Component {
     handleDetailView({ reference: reference });
   };
 
+  /*
   handleNavigateToDetailPage= e => {
     e.preventDefault();
     e.stopPropagation();
@@ -70,6 +72,14 @@ class ResourcePreview extends React.Component {
     } = this.props;
     navigateToDetail({ slug, publishedAt });
   };
+  */
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.reference !== nextProps.reference) {
+      return true;
+    }
+    return false;
+  }
 
   render() {
 
@@ -83,17 +93,21 @@ class ResourcePreview extends React.Component {
       dateType,
       slug,
       generateDetailUrl,
-      navigateToDetail,
+      // navigateToDetail,
       typeLabel,
       ...others
     } = this.props;
+
+    const MainInfoStyle = styled(generateDetailUrl ? 'a' : 'div')`${mainInfo}`;
 
     return (
       <BaseStyle
         {...others}
       >
         <MainInfoStyle
+          href={generateDetailUrl && generateDetailUrl({ slug, publishedAt })}
           onClick={this.handleDetailView}
+          title={title}
         >
           <TitleStyle>
             {title}
@@ -121,24 +135,14 @@ class ResourcePreview extends React.Component {
           </SourceStyle>
           {
             (dateType === 'createdAt' && createdAt) &&
-              <DateStyle>
-                <a
-                  href={generateDetailUrl && generateDetailUrl({ slug, publishedAt })}
-                  onClick={navigateToDetail && this.handleNavigateToDetailPage}
-                >
-                  {m(createdAt).fromNow()}
-                </a>
-              </DateStyle>
+            <DateStyle>
+              {m(createdAt).fromNow()}
+            </DateStyle>
           }
           {
             (dateType === 'publishedAt' && publishedAt) &&
             <DateStyle>
-              <a
-                href={generateDetailUrl && generateDetailUrl({ slug, publishedAt })}
-                onClick={navigateToDetail && this.handleNavigateToDetailPage}
-              >
-                {m(publishedAt).fromNow()}
-              </a>
+              {m(publishedAt).fromNow()}
             </DateStyle>
           }
         </SecondaryInfoStyle>

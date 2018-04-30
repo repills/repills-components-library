@@ -12,8 +12,7 @@ export const base = css`
   align-items: center;
   justify-content: center;
   padding-top: ${extRem(12)};
-  border-top: 1px solid ${neutral.medium};
-  // box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
+  border-top: 1px solid ${neutral.low};
 `;
 
 
@@ -34,7 +33,7 @@ export const button = css`
 
   ${props => props.active && `
     background-color: ${basic.primary};
-    color: ${neutral.higher};
+    color: ${neutral.highest};
     position: relative;
     z-index: 1;
   `}

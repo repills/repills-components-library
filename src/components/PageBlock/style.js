@@ -50,7 +50,8 @@ export const description = css`
   ${typography.body}
   display: flex;
   color: ${neutral.medium};
-  margin: ${extRem(16)} ${props => props.size === 'CENTER' ? 'auto' : '0' } 0;
+  margin: ${extRem(8)} ${props => props.size === 'CENTER' ? 'auto' : '0' } 0;
+  line-height: 1.4;
   ${props => align[props.align]};
   
   p {
@@ -62,10 +63,10 @@ export const description = css`
 export const body = css`
   ${typography.body}
   color: ${neutral.high};
-  margin-top: ${extRem(28)};
+  margin-top: ${extRem(24)};
   
   ${props => !props.simple && `
     border-top: 1px solid ${neutral.low};
-    padding-top: ${extRem(28)};
+    padding-top: ${extRem(24)};
   `}
 `;

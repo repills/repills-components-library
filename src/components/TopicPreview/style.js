@@ -1,8 +1,6 @@
 import { css } from 'styled-components';
-import { lighten } from 'polished';
-import { grid } from 'styled-components-grid';
+import { lighten, ellipsis } from 'polished';
 import theme from '../../config/theme';
-import { SM } from '../../config/breakpoints';
 import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
@@ -17,7 +15,6 @@ export const base = css`
   background-color: ${neutral.lower};
   color: ${neutral.highest};
   height: 100%;
-  min-height: ${extRem(70)};
   padding: ${extRem(12,16,14,12)};
   display: flex;
   align-items: center;
@@ -51,12 +48,11 @@ export const composition = css`
 
 export const title = css`
   ${typography.body}
+  ${ellipsis()}
   color: ${neutral.high};
   font-weight: 600;
   overflow: hidden;
   line-height: 1.4;
-  height: 2.8rem;
-  word-break: break-word;
   margin: 0;
   user-select: none;
 `;

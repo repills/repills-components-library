@@ -24,6 +24,7 @@ export const title = css`
   ${typography.caption}
   color: ${neutral.high};
   margin: ${extRem(16,)} 0 0;
+  line-height: 1.3;
 `;
 
 export const description = css`
