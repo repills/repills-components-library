@@ -16,7 +16,6 @@ import {
   form,
   commonWrapper,
   intro,
-  label,
   logo,
   note,
 } from './style';
@@ -27,7 +26,6 @@ const FormStyle = styled.form`${form}`;
 const FormWrapperStyle = styled.div`${commonWrapper}`;
 const InfoWrapperStyle = styled.div`${commonWrapper}`;
 const IntroStyle = styled.p`${intro}`;
-const LabelStyle = styled.label`${label}`;
 const LogoStyle = styled.div`${logo}`;
 const NoteStyle = styled.p`${note}`;
 
@@ -36,7 +34,6 @@ class Newsletter extends React.Component {
   static propTypes = {
     breakpointsStatus: object,
     intro: string,
-    label: string,
     note: string
   };
 
@@ -65,10 +62,6 @@ class Newsletter extends React.Component {
             }
           </InfoWrapperStyle>
           <FormWrapperStyle breakpointsStatus={breakpointsStatus}>
-            {
-              label &&
-              <LabelStyle htmlFor="mce-EMAIL">{label}</LabelStyle>
-            }
             <FormStyle
               action="//fullstackbulletin.us15.list-manage.com/subscribe/post?u=b015626aa6028495fe77c75ea&amp;amp;id=55ace33899"
               method="POST"
@@ -79,7 +72,6 @@ class Newsletter extends React.Component {
                 id="mce-EMAIL"
                 name="EMAIL"
                 placeholder="you.are.awesome@email.com"
-                size="L"
                 type="email"
               />
               <ActionStyle>
