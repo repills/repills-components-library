@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import { extRem } from '../../utils';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
-import { MD } from '../../config/breakpoints';
+import { SM } from '../../config/breakpoints';
 
 const { palettes } = theme;
 const { basic, neutral } = palettes;
@@ -18,38 +18,30 @@ export const content = css`
   display: flex;
   flex-wrap: wrap;
 
-  ${props => props.breakpointsStatus[MD] && `
+  ${props => props.breakpointsStatus[SM] && `
     margin-left: -${gutter};
     margin-right: -${gutter};
   `}
 `;
 
 export const action = css`
-  margin-top: ${extRem(20)};
+  margin-top: ${extRem(12)};
 `;
 
 export const logo = css`
-  max-width: ${extRem(160)};
+  max-width: ${extRem(140)};
 `;
 
 export const intro = css`
   ${typography.small}
   color: ${neutral.lowest};
-  margin: ${extRem(28)} 0 0 0;
+  margin: ${extRem(20)} 0 0 0;
   max-width: ${extRem(400)};
   
   a {
     text-decoration: underline;
     color: ${basic.primary};
   }
-`;
-
-export const label = css`
-  ${typography.header4}
-  color: ${neutral.lowest};
-  display: block;
-  line-height: 1.3;
-  margin-bottom: ${extRem(32)};
 `;
 
 export const form = css`
@@ -69,7 +61,7 @@ export const commonWrapper = css`
     margin-top: ${extRem(28)};
   }
 
-  ${props => props.breakpointsStatus[MD] && `
+  ${props => props.breakpointsStatus[SM] && `
     padding-left: ${gutter};
     padding-right: ${gutter};
     flex-basis: 50%;
