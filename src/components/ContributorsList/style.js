@@ -9,10 +9,8 @@ export const base = css`
 `;
 
 export const title = css`
-  ${typography.header4}
+  ${typography.caption}
   color: ${neutral.higher};
-  border-bottom: 1px solid ${neutral.low};
-  padding-bottom: ${extRem(16)};
   margin: 0;
 `;
 
@@ -21,23 +19,24 @@ export const items = css`
 `;
 
 export const item = css`
-  ${typography.body}
+  ${typography.small}
   display: flex;
   align-items: center;
   position: relative;
-  padding: ${extRem(8)} 0;
+  padding: ${extRem(8)};
+  border-radius: 5px;
+  background-color: ${neutral.lower};
   color: ${neutral.higher};
   text-decoration: none;
   cursor: pointer;
+  margin-top: 0.5rem;
+  
+  &:first-item {
+    margin-top: 0;
+  }
   
   span {
     margin: 0 ${extRem(8)};
     color: ${neutral.higher};
-  }
-  
-  &:hover {
-    span {
-      text-decoration: underline;
-    }
   }
 `;
