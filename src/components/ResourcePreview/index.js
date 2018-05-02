@@ -5,7 +5,8 @@ import { getBaseUrl } from '../../utils';
 import { SquareFilledPillIcon, LinkIcon } from '../Icon/icons/basic';
 import {
   string,
-  func
+  func,
+  bool
 } from 'prop-types';
 import {
   base,
@@ -38,6 +39,7 @@ class ResourcePreview extends React.Component {
     dateType: string,
     generateDetailUrl: func,
     handleDetailView: func,
+    hideFooter: bool,
     link: string.isRequired,
     navigateToDetail: func,
     publishedAt: string,
@@ -95,6 +97,7 @@ class ResourcePreview extends React.Component {
       generateDetailUrl,
       // navigateToDetail,
       typeLabel,
+      hideFooter,
       ...others
     } = this.props;
 
@@ -124,28 +127,31 @@ class ResourcePreview extends React.Component {
             {author && <AuthorStyle>by <span>{author}</span></AuthorStyle>}
           </DetailStyle>
         </MainInfoStyle>
-        <SecondaryInfoStyle>
-          <SourceStyle
-            href={link}
-            rel="nofollow"
-            target="_blank"
-          >
-            <LinkIcon size={16} />
-            <span>{getBaseUrl(link)}</span>
-          </SourceStyle>
-          {
-            (dateType === 'createdAt' && createdAt) &&
-            <DateStyle>
-              {m(createdAt).fromNow()}
-            </DateStyle>
-          }
-          {
-            (dateType === 'publishedAt' && publishedAt) &&
-            <DateStyle>
-              {m(publishedAt).fromNow()}
-            </DateStyle>
-          }
-        </SecondaryInfoStyle>
+        {
+          !hideFooter &&
+          <SecondaryInfoStyle>
+            <SourceStyle
+              href={link}
+              rel="nofollow"
+              target="_blank"
+            >
+              <LinkIcon size={16} />
+              <span>{getBaseUrl(link)}</span>
+            </SourceStyle>
+            {
+              (dateType === 'createdAt' && createdAt) &&
+              <DateStyle>
+                {m(createdAt).fromNow()}
+              </DateStyle>
+            }
+            {
+              (dateType === 'publishedAt' && publishedAt) &&
+              <DateStyle>
+                {m(publishedAt).fromNow()}
+              </DateStyle>
+            }
+          </SecondaryInfoStyle>
+        }
       </BaseStyle>
     );
   }

@@ -15,7 +15,7 @@ export const base = css`
   background-color: ${neutral.lower};
   color: ${neutral.highest};
   height: 100%;
-  padding: ${extRem(12,16,14,12)};
+  padding: ${extRem(12,16,12,12)};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,13 +37,6 @@ export const total = css`
   flex-shrink: 1;
   padding-left: ${extRem(16)};
   font-weight: 400;
-`;
-
-export const composition = css`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
 `;
 
 export const title = css`

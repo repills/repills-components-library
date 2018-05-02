@@ -9,7 +9,8 @@ import {
   shape,
   string,
   func,
-  object
+  object,
+  bool
 } from 'prop-types';
 import styled from 'styled-components';
 import { queryList } from '../../config/breakpoints';
@@ -36,6 +37,7 @@ class ResourcesListWithDetail extends React.Component {
       showAllAction: shape({
         onClick: func.isRequired
       }),
+      showSimpleItems: bool,
     };
 
     static defaultProps = {
@@ -110,6 +112,7 @@ class ResourcesListWithDetail extends React.Component {
       showAllAction,
       navigateToDetail,
       generateDetailUrl,
+      showSimpleItems,
       ...others
     } = this.props;
 
@@ -147,6 +150,7 @@ class ResourcesListWithDetail extends React.Component {
                       dateType={dateType}
                       generateDetailUrl={generateDetailUrl}
                       handleDetailView={this.onHandleDetailView}
+                      hideFooter={showSimpleItems}
                       navigateToDetail={navigateToDetail}
                     />
                   </ItemStyle>

@@ -16,13 +16,12 @@ export const base = css`
   &:hover {
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   }
+  border: 1px solid ${neutral.low};
+  border-radius: 3px;
 `;
 
 export const mainInfo = css`
-  padding: ${extRem(14,16,10)};
-  background-color: ${mainColor};
-  border: 1px solid ${neutral.low};
-  border-radius: 3px 3px 0 0;
+  padding: ${extRem(12,16,14)};
   border-bottom: 0;
   display: block;
   text-decoration: none;
@@ -75,12 +74,8 @@ export const secondaryInfo = css`
   justify-content: space-between;
   align-items: center;
   padding: ${extRem(0,16,10)};
-  border: 1px solid ${neutral.low};
-  // border-top-color: ${lighten(.06, neutral.low)};
-  border-top: 0;
-  // margin-top: -1px;
   line-height: 1;
-  border-radius: 0 0 3px 3px;
+  margin-top: -4px;
 `;
 
 export const detail = css`
