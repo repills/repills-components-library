@@ -10,7 +10,7 @@ const mainHoverColor = lighten(0.2, basic.primary);
 
 const size = {
   S: {
-    minHeight: extRem(28),
+    minHeight: extRem(32),
     lineHeight: extRem(20),
     minWidth: extRem(100),
     padding: extRem(4, 20)
@@ -55,7 +55,7 @@ const skin = {
     backgroundColor: 'transparent'
   },
   outline: {
-    borderColor: neutral.low,
+    borderColor: neutral.medium,
     color: neutral.higher,
     fontWeight: 600,
     textTransform: 'uppercase',
@@ -92,10 +92,10 @@ const skinDisabled = {
     boxShadow: 'none'
   },
   ghost: {
-    opacity: '0.6'
+    opacity: '0.5'
   },
   outline: {
-    opacity: '0.6'
+    opacity: '0.4'
   }
 };
 
