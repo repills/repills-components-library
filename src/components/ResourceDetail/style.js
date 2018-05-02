@@ -55,7 +55,7 @@ export const author = css`
 export const title = css`
   ${typography.header4}
   color: ${neutral.higher};
-  margin: ${extRem(20, 0, 12)};
+  margin: ${extRem(20, 0, 8)};
   line-height: 1.3;
   cursor: pointer;
 `;
@@ -72,7 +72,6 @@ export const type = css`
   align-items: center;
   margin-right: ${extRem(8)};
   
-  
   span {
     color: ${neutral.lowest};
     background-color: ${props => props.color};
@@ -82,6 +81,12 @@ export const type = css`
     line-height: ${extRem(16)};
     padding: ${extRem(0,8)};
   }
+`;
+
+export const description = css`
+  ${typography.small}
+  color: ${neutral.high};
+  margin: 1.5rem 0 0 0;
 `;
 
 export const date = css`

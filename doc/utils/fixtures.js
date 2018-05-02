@@ -31,6 +31,7 @@ export function getRandomResource({ title, date, author, link, color, typeLabel,
   return {
     frontmatter: {
       title: title || faker.lorem.sentence(),
+      abstract: faker.lorem.paragraph(),
       publishedAt: date || faker.date.past().toJSON(),
       createdAt: date || faker.date.past().toJSON(),
       sections: ['reactjs'], // @TODO: add fixture

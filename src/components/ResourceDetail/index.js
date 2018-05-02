@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import m from 'moment';
-import { getBaseUrl } from '../../utils';
+import { getBaseUrl, getYoutubeVideoID, isYoutubeVideo } from '../../utils';
 import { SquareFilledPillIcon, LinkIcon } from '../Icon/icons/basic';
 import { sections as sectionsConfig } from 'repills-config';
 import Button from '../Button';
@@ -15,6 +15,7 @@ import {
   mainInfo,
   source,
   title,
+  description,
   type,
   mainInfoTop,
   mainInfoBottom,
@@ -37,11 +38,11 @@ const TypeStyle = styled.div`${type}`;
 const ActionsStyle = styled.div`${actions}`;
 const DateStyle = styled.div`${date}`;
 const DetailStyle = styled.div`${detail}`;
-
-
+const DescriptionStyle = styled.p`${description}`;
 
 function ResourceDetail({
   color,
+  abstract,
   title,
   author,
   link,
@@ -69,6 +70,32 @@ function ResourceDetail({
       {...others}
       color={color}
     >
+      {
+        isYoutubeVideo(link) &&
+        <div
+          style={{
+            position: 'relative',
+            paddingBottom: '56.25%',
+            paddingTop: '25px',
+            height: 0
+          }}
+        >
+          <iframe
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%'
+            }}
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            frameBorder="0"
+            src={`https://www.youtube.com/embed/${getYoutubeVideoID(link)}`}
+            width="100%"
+          />
+        </div>
+      }
       <MainInfoStyle>
         <MainInfoTopStyle>
           <TypeStyle
@@ -100,6 +127,10 @@ function ResourceDetail({
             </DateStyle>
           }
         </MainInfoBottomStyle>
+        {
+          abstract &&
+          <DescriptionStyle>{abstract}</DescriptionStyle>
+        }
       </MainInfoStyle>
       <SecondaryInfoStyle>
         {
@@ -182,6 +213,7 @@ function ResourceDetail({
 }
 
 ResourceDetail.propTypes = {
+  abstract: string,
   author: string,
   color: string,
   createdAt: string,

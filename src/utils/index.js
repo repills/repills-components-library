@@ -5,3 +5,5 @@ export getResourcesStats from './getResourcesStats';
 export isOlderThan from './isOlderThan';
 export isWithinCurrentYear from './isWithinCurrentYear';
 export media from './media';
+export isYoutubeVideo from './isYoutubeVideo';
+export getYoutubeVideoID from './getYoutubeVideoID';
