@@ -55,13 +55,15 @@ export const author = css`
 
 export const title = css`
   ${typography.body}
-  color: ${neutral.higher};
-  margin: ${extRem(0,0,10)};
+  color: ${neutral.highest};
+  font-weight: 600;
+  overflow: hidden;
+  line-height: 1.4;
   height: 2.8rem;
+  margin: ${extRem(0,0,10)};
   position: relative;
   overflow: hidden;
   text-decoration: none;
-  line-height: 1.4;
   
   a {
     color: currentColor;

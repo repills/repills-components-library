@@ -10,6 +10,8 @@ const mainColor = neutral.lowest;
 export const base = css`
   text-align: left;
   position: relative;
+  border: 1px solid ${neutral.low};
+  border-radius: 3px;
   
   &:hover {
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
@@ -17,10 +19,8 @@ export const base = css`
 `;
 
 export const cover = css`
-  padding: ${extRem(20)};
-  background-color: ${neutral.higher};
+  padding: 1rem 1rem 0.5rem;
   position: relative;
-  border-radius: 5px 5px 0 0;
   cursor: pointer;
   
   ${props => props.icon && `
@@ -42,7 +42,7 @@ export const icon = css`
 
 export const title = css`
   ${typography.body}
-  color: ${neutral.lowest};
+  color: ${neutral.highest};
   font-weight: 600;
   overflow: hidden;
   line-height: 1.4;
@@ -73,10 +73,7 @@ export const description = css`
 `;
 
 export const body = css`
-  padding: 1rem;
-  border: 1px solid ${neutral.low};
-  border-top: 0;
-  border-radius: 0 0 5px 5px;
+  padding: 0 1rem 1rem;
 `;
 
 export const footer = css`

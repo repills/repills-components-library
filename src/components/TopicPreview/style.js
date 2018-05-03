@@ -12,13 +12,15 @@ export const base = css`
   text-align: left;
   position: relative;
   cursor: pointer;
-  background-color: ${neutral.lower};
+  background-color: ${neutral.lowest};
   color: ${neutral.higher};
   height: 100%;
   padding: ${extRem(12,16,12,12)};
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: 1px solid ${neutral.low};
+  border-radius: 3px;
   ${typography.caption}
   
   ${props => props.disabled && `
@@ -28,10 +30,12 @@ export const base = css`
   
   &:hover {
     background-color: ${lighten(.01, neutral.lower)};
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   }
 `;
 
 export const total = css`
+  ${typography.small}
   line-height: 1;
   color: ${neutral.medium};
   flex-shrink: 1;

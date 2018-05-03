@@ -85,7 +85,7 @@ export function getRandomTopic({ title, description, resourcesLength }) {
     title: title || faker.lorem.sentence(),
     resources,
     path: `/${faker.lorem.word()}`,
-    stats: getResourcesStats(resources, false, 'DESC'),
+    // stats: getResourcesStats(resources, false, 'DESC'),
     description: description || faker.lorem.sentence(),
     sectionIcon: 'ServerlessIcon', // Make it random
     // Make it random

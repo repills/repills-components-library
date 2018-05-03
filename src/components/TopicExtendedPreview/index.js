@@ -38,7 +38,6 @@ function TopicExtendedPreview({
   title,
   sectionIcon,
   description,
-  stats,
   ...others
 }) {
   const totalCount = resources.length;
@@ -62,10 +61,6 @@ function TopicExtendedPreview({
           </IconStyle>
         }
       </CoverStyle>
-      <CompositionBar
-        barHeight={6}
-        stats={stats}
-      />
       <BodyStyle>
         <DescriptionStyle>
           {description}
