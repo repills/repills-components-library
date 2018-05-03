@@ -20,14 +20,14 @@ export const base = css`
 `;
 
 export const title = css`
-  min-height: ${extRem(60)};
+  min-height: ${extRem(44)};
   margin: 0;
   display: flex;
   align-items: center;
   word-break: break-word;
 
   span {
-    ${props => props.breakpointsStatus[MD] ? typography.header2 : typography.header3 }
+    ${props => props.breakpointsStatus[MD] ? typography.header3 : typography.header4 }
     color: ${neutral.higher};
     font-weight: 400;
     line-height: 1.1;
@@ -40,7 +40,7 @@ export const main = css`
     
   ${props => props.breakpointsStatus[SM] && `
     display: inline-block;
-    padding-right: ${extRem(80)};
+    padding-right: ${extRem(64)};
   `}
 `;
 
@@ -54,7 +54,6 @@ export const sectionName = css`
 
 export const icon = css`
   color: ${props => props.color};
-  margin-bottom: ${extRem(12)};
   
   ${props => props.breakpointsStatus[SM] && `
     position: absolute;

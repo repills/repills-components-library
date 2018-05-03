@@ -91,7 +91,7 @@ export const total = css`
 
   strong {
     color: ${neutral.high};
-    margin-right: ${extRem(8)};
+    margin-right: ${extRem(4)};
   }
 `;
 

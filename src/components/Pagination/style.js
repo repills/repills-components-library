@@ -30,6 +30,7 @@ export const button = css`
   cursor: pointer;
   text-decoration: none;
   color: ${neutral.high};
+  border-radius: 5px;
 
   ${props => props.active && `
     background-color: ${basic.primary};
@@ -45,7 +46,7 @@ export const button = css`
   
   ${props => !props.disabled && !props.active && `
     &:hover {
-      background-color: ${neutral.low};
+      background-color: ${neutral.lower};
     }
   `}
   

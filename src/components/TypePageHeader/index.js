@@ -57,7 +57,7 @@ const TypePageHeader = ({
             breakpointsStatus={breakpointsStatus}
             color={color}
           >
-            <Icon size={60} />
+            <Icon size={44} />
           </IconStyle>
         }
         <TitleStyle
