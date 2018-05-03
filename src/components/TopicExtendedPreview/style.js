@@ -11,7 +11,7 @@ export const base = css`
   text-align: left;
   position: relative;
   border: 1px solid ${neutral.low};
-  border-radius: 3px;
+  border-radius: 5px;
   
   &:hover {
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
@@ -42,7 +42,7 @@ export const icon = css`
 
 export const title = css`
   ${typography.body}
-  color: ${neutral.highest};
+  color: ${neutral.higher};
   font-weight: 600;
   overflow: hidden;
   line-height: 1.4;

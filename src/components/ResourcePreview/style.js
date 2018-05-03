@@ -17,7 +17,7 @@ export const base = css`
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   }
   border: 1px solid ${neutral.low};
-  border-radius: 3px;
+  border-radius: 5px;
 `;
 
 export const mainInfo = css`
@@ -55,8 +55,7 @@ export const author = css`
 
 export const title = css`
   ${typography.body}
-  color: ${neutral.highest};
-  font-weight: 600;
+  color: ${neutral.higher};
   overflow: hidden;
   line-height: 1.4;
   height: 2.8rem;

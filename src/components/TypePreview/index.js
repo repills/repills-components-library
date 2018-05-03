@@ -11,16 +11,14 @@ import styled from 'styled-components';
 import {
   base,
   icon,
-  text,
-  count
+  text
 } from './style';
 
 const BaseStyle = styled.div`${base}`;
 const IconStyle = styled.div`${icon}`;
 const TextStyle = styled.div`${text}`;
-const CountStyle = styled.div`${count}`;
 
-function TypePreview({
+function TypeSquarePreview({
   active,
   color,
   path,
@@ -45,21 +43,16 @@ function TypePreview({
       <IconStyle
         active={active}
       >
-        <Icon size={28} />
+        <Icon size={36} />
       </IconStyle>
       <TextStyle>
-        {count === 1 ? label.singular : label.plural}
+        {count && <span>{count}</span>} {count === 1 ? label.singular : label.plural}
       </TextStyle>
-      <CountStyle
-        active={active}
-      >
-        {count}
-      </CountStyle>
     </BaseStyle>
   );
 }
 
-TypePreview.propTypes = {
+TypeSquarePreview.propTypes = {
   active: bool,
   color: string,
   count: number.isRequired,
@@ -73,4 +66,4 @@ TypePreview.propTypes = {
   path: string.isRequired
 };
 
-export default TypePreview;
+export default TypeSquarePreview;

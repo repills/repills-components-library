@@ -12,15 +12,15 @@ export const base = css`
   text-align: left;
   position: relative;
   cursor: pointer;
-  background-color: ${neutral.lowest};
+  background-color: ${neutral.lower};
   color: ${neutral.higher};
   height: 100%;
   padding: ${extRem(12,16,12,12)};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid ${neutral.low};
-  border-radius: 3px;
+  border-bottom: 1px solid ${neutral.low};
+  border-radius: 5px;
   ${typography.caption}
   
   ${props => props.disabled && `
