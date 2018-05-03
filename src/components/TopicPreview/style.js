@@ -42,7 +42,6 @@ export const total = css`
 export const title = css`
   ${typography.body}
   ${ellipsis()}
-  font-weight: 600;
   overflow: hidden;
   line-height: 1.4;
   margin: 0;

@@ -61,7 +61,6 @@ export const title = css`
   position: relative;
   overflow: hidden;
   text-decoration: none;
-  font-weight: 600;
   line-height: 1.4;
   
   a {

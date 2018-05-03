@@ -50,7 +50,7 @@ export const description = css`
   ${typography.body}
   display: flex;
   color: ${neutral.medium};
-  margin: ${extRem(8)} ${props => props.size === 'CENTER' ? 'auto' : '0' } 0;
+  margin: ${extRem(8)} ${props => props.size === 'CENTER' ? 'auto' : '0' } 2rem;
   line-height: 1.4;
   ${props => align[props.align]};
   
