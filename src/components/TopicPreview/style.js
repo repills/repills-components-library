@@ -13,7 +13,7 @@ export const base = css`
   position: relative;
   cursor: pointer;
   background-color: ${neutral.lower};
-  color: ${neutral.highest};
+  color: ${neutral.higher};
   height: 100%;
   padding: ${extRem(12,16,12,12)};
   display: flex;
@@ -42,7 +42,6 @@ export const total = css`
 export const title = css`
   ${typography.body}
   ${ellipsis()}
-  color: ${neutral.high};
   font-weight: 600;
   overflow: hidden;
   line-height: 1.4;
