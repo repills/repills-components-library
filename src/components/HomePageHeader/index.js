@@ -4,32 +4,30 @@ import {
   object
 } from 'prop-types';
 import styled from 'styled-components';
-import { MD } from '../../config/breakpoints';
+import { SM } from '../../config/breakpoints';
 import * as icons from '../Icon/icons/types';
+import Button from '../Button';
 import { MoreIcon } from '../Icon/icons/basic';
 import { types } from 'repills-config';
 import QueryHandler from '../QueryHandler';
-import Logo from '../Logo';
-import theme from '../../config/theme';
-const { basic, neutral } = theme.palettes;
 
 import {
   base,
   title,
-  subTitle,
   description,
   typeBlock,
   typeList,
-  logo
+  content,
+  box
 } from './style';
 
 const BaseStyle = styled.div`${base}`;
 const TitleStyle = styled.h1`${title}`;
-const SubTitleStyle = styled.div`${subTitle}`;
+const BoxStyle = styled.div`${box}`;
 const DescriptionStyle = styled.p`${description}`;
 const TypeListStyle = styled.div`${typeList}`;
 const TypeBlockStyle = styled.div`${typeBlock}`;
-const LogoStyle = styled.div`${logo}`;
+const ContentStyle = styled.div`${content}`;
 
 const showedTypes = [
   types.article,
@@ -37,61 +35,74 @@ const showedTypes = [
   types.course,
   types.tool,
   types.library,
-  types.book
+  types.book,
+  types.talk
 ];
 
 const HomePageHeader = ({
   breakpointsStatus,
   description,
-  subTitle,
+  primaryAction,
+  secondaryAction,
   title,
   ...others
 }) => {
-  const typesList = breakpointsStatus[MD] ? showedTypes : showedTypes.slice(0,3);
-  const iconSize =  breakpointsStatus[MD] ? 36 : 32;
+  const iconSize =  breakpointsStatus[SM] ? 44 : 32;
 
   return (
     <BaseStyle
       breakpointsStatus={breakpointsStatus}
       {...others}
     >
-      <div>
-        <LogoStyle breakpointsStatus={breakpointsStatus} >
-          <Logo
-            color={basic.primaryHighest}
-            secondaryColor={neutral.medium}
+      <ContentStyle>
+        <BoxStyle breakpointsStatus={breakpointsStatus}>
+          <TitleStyle
+            breakpointsStatus={breakpointsStatus}
+            dangerouslySetInnerHTML={{ __html: title }}
           />
-        </LogoStyle>
-        <TitleStyle
-          breakpointsStatus={breakpointsStatus}
-          dangerouslySetInnerHTML={{ __html: title }}
-        />
-        {
-          subTitle &&
-          <SubTitleStyle>{subTitle}</SubTitleStyle>
-        }
-        {
-          description &&
-          <DescriptionStyle breakpointsStatus={breakpointsStatus}>{description}</DescriptionStyle>
-        }
-        <TypeListStyle breakpointsStatus={breakpointsStatus}>
           {
-            typesList.map(type => {
-              const Icon = icons[`${type.label.singular}Icon`];
-              return (
-                <TypeBlockStyle key={type.label.singular}>
-                  <Icon size={iconSize} />
-                  <span>{type.label.plural.toUpperCase()}</span>
-                </TypeBlockStyle>
-              );
-            })
+            description &&
+            <DescriptionStyle>{description}</DescriptionStyle>
           }
-          <TypeBlockStyle>
-            <MoreIcon size={iconSize} />
-            <span>and more</span>
-          </TypeBlockStyle>
-        </TypeListStyle>
-      </div>
+          {
+            primaryAction &&
+            <Button
+              label="Take a look our topics"
+              skin="primary"
+              style={{ marginTop: '2rem' }}
+              {...primaryAction}
+            />
+          }
+        </BoxStyle>
+        <BoxStyle breakpointsStatus={breakpointsStatus}>
+          <TypeListStyle breakpointsStatus={breakpointsStatus}>
+            {
+              showedTypes.map(type => {
+                const Icon = icons[`${type.label.singular}Icon`];
+                return (
+                  <TypeBlockStyle key={type.label.singular}>
+                    <Icon size={iconSize} />
+                    <span>{type.label.plural.toUpperCase()}</span>
+                  </TypeBlockStyle>
+                );
+              })
+            }
+            <TypeBlockStyle>
+              <MoreIcon size={iconSize} />
+              <span>and more</span>
+            </TypeBlockStyle>
+          </TypeListStyle>
+          {
+            secondaryAction &&
+            <Button
+              size="S"
+              skin="outline"
+              style={{ marginTop: '2.5rem' }}
+              {...secondaryAction}
+            />
+          }
+        </BoxStyle>
+      </ContentStyle>
     </BaseStyle>
   );
 };
@@ -99,7 +110,8 @@ const HomePageHeader = ({
 HomePageHeader.propTypes = {
   breakpointsStatus: object,
   description: string,
-  subTitle: string,
+  primaryAction: Button.propTypes,
+  secondaryAction: Button.propTypes,
   title: string,
 };
 

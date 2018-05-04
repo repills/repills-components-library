@@ -4,17 +4,22 @@ export default {
     {
       id: 'ok',
       name: 'Ok',
-      value: '#64a338'
+      value: '#17C671'
     },
     {
       id: 'warning',
       name: 'warning',
-      value: '#ffcc00'
+      value: '#FFB400'
     },
     {
       id: 'danger',
       name: 'Danger',
-      value: '#e03b24'
+      value: '#C4183C'
+    },
+    {
+      id: 'info',
+      name: 'Info',
+      value: '#00B8D8'
     }
   ]
 };

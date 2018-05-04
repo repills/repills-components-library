@@ -1,79 +1,68 @@
 import { css } from 'styled-components';
-import { extRem } from '../../utils';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
 import { MD, LG } from '../../config/breakpoints';
-
 const { basic, neutral } = theme.palettes;
 
 export const base = css`
-  padding: ${extRem(44)} 0;
-  text-align: left;
   position: relative;
-  
-  ${props => props.breakpointsStatus[MD] && `
-    text-align: center;
-    padding: ${extRem(52, 0, 72)};
-  `}
+  text-align: left;
+`;
+
+export const content = css`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 `;
 
 export const title = css`
-  ${typography.header2}
-  color: ${neutral.lowest};
+  ${typography.header3}
+  color: ${neutral.high};
   margin: 0;
-  line-height: 1.1;
-  font-weight: 600;
+  font-weight: 400;
   
-  strong {
-    color: ${basic.primary};
-  }
-  
-  ${props => props.breakpointsStatus[LG] && typography.header1 }
-  
-  ${props => props.breakpointsStatus[MD] && `
-    margin-top: ${extRem(32)};
-  `}
-`;
-
-export const subTitle = css`
-  ${typography.header4}
-  color: ${neutral.medium};
-  font-weight: 500;
-  line-height: 1.2;
-  margin: ${extRem(20)} 0 0;
-  
-  strong {
-    font-weight: bold;
-  }
+  ${props => props.breakpointsStatus[LG] && `
+    ${typography.header2}
+    font-weight: 400;
+  ` }
 `;
 
 export const description = css`
   ${typography.body}
   color: ${neutral.medium};
   line-height: 1.5;
-  max-width: ${extRem(650)};
-  margin: ${extRem(40)} 0 0;
-  
-  ${props => props.breakpointsStatus[MD] && `
-      margin: ${extRem(48)} auto 0;
-  `}
+  max-width: 40rem;
+  margin: 1.5rem 0 0;
 `;
 
 export const typeList = css`
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-top: ${extRem(40)};
-    
-  > div + div {
-    margin-left: ${extRem(20)};
+  justify-content: center;
+  margin: 1rem -1rem 0;
+  
+  > div {
+    padding: 0 1rem;
+    flex-basis: 25%;
+    max-width: 25%;
+    box-sizing: border-box;
   }
   
   ${props => props.breakpointsStatus[MD] && `
+    > div {
+      flex-basis: 12.5%;
+      max-width: 12.5%;
+    }
+  `}
+  
+  ${props => props.breakpointsStatus[LG] && `
     justify-content: center;
+    margin-top: -1.25rem;
+    max-width: 25rem;
     
-    > div + div {
-      margin-left: ${extRem(32)};
+    > div {
+      flex-basis: 25%;
+      max-width: 25%;
     }
   `}
 `;
@@ -83,21 +72,32 @@ export const typeBlock = css`
   align-items: center;
   flex-direction: column;
   color: ${basic.primaryHighest};
-  
+  margin-top: 1.25rem;
+
   span {
     ${typography.mini}
     color: ${neutral.medium};
-    margin-top: ${extRem(12)};
+    margin-top: 0.75rem;
     line-height: 1;
   }
 `;
 
-export const logo = css`
-  display: none;
-  
-  ${props => props.breakpointsStatus[MD] && `
-    display: block;
-    max-width: ${extRem(180)};
-    margin: 0 auto;
+export const box = css`
+  flex-basis: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  ${props => props.breakpointsStatus[LG] && `
+    flex-basis: 50%;
+    max-width: 50%;
+    
+    &:last-child {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding-left: 1rem;
+    }
   `}
 `;
+
+
