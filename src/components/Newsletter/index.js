@@ -18,6 +18,8 @@ import {
   intro,
   logo,
   note,
+  fieldGroup,
+  introWrapper
 } from './style';
 const ActionStyle = styled.div`${action}`;
 const BaseStyle = styled.div`${base}`;
@@ -28,12 +30,14 @@ const InfoWrapperStyle = styled.div`${commonWrapper}`;
 const IntroStyle = styled.p`${intro}`;
 const LogoStyle = styled.div`${logo}`;
 const NoteStyle = styled.p`${note}`;
+const FieldGroupStyle = styled.div`${fieldGroup}`;
+const IntroWrapperStyle = styled.div`${introWrapper}`;
 
 class Newsletter extends React.Component {
 
   static propTypes = {
     breakpointsStatus: object,
-    intro: string,
+    intro: string.isRequired,
     note: string
   };
 
@@ -45,7 +49,6 @@ class Newsletter extends React.Component {
     const {
       breakpointsStatus,
       intro,
-      label,
       note
     } = this.props;
 
@@ -53,35 +56,34 @@ class Newsletter extends React.Component {
       <BaseStyle>
         <ContentStyle breakpointsStatus={breakpointsStatus}>
           <InfoWrapperStyle breakpointsStatus={breakpointsStatus}>
-            <LogoStyle>
-              <Logo />
-            </LogoStyle>
-            {
-              intro &&
+            <IntroWrapperStyle>
+              <LogoStyle>
+                <Logo />
+              </LogoStyle>
               <IntroStyle dangerouslySetInnerHTML={{ __html: intro }} />
-            }
+            </IntroWrapperStyle>
           </InfoWrapperStyle>
           <FormWrapperStyle breakpointsStatus={breakpointsStatus}>
             <FormStyle
-              action="//fullstackbulletin.us15.list-manage.com/subscribe/post?u=b015626aa6028495fe77c75ea&amp;amp;id=55ace33899"
+              action="//fullstackbulletin.us15.list-manage.com/subscribe/post?u=b015626aa6028495fe77c75ea&amp;id=55ace33899"
               method="POST"
               target="_blank"
             >
-              <TextField
-                expanded
-                id="mce-EMAIL"
-                name="EMAIL"
-                placeholder="you.are.awesome@email.com"
-                type="email"
-              />
-              <ActionStyle>
-                <Button
+              <FieldGroupStyle>
+                <TextField
                   expanded
-                  label="Subscribe now"
+                  id="mce-EMAIL"
+                  name="EMAIL"
+                  placeholder="you.are.awesome@email.com"
+                  type="email"
+                />
+                <Button
+                  autoWidth
+                  label="Join"
                   skin="primary"
                   type="submit"
                 />
-              </ActionStyle>
+              </FieldGroupStyle>
               {
                 note &&
                 <NoteStyle dangerouslySetInnerHTML={{ __html: note }} />

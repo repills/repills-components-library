@@ -25,7 +25,7 @@ export default (sectionTitle, sectionDescription) => () => {
     >
       <InteractiveExample
         component={Newsletter}
-        previewSkin="dark"
+        previewSkin="secondary"
         {...options}
       />
     </SectionPage>
