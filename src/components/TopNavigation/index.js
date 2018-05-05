@@ -47,7 +47,7 @@ function TopNavigation({
           <span>
             <Logo
               color={basic.primary}
-              secondaryColor={neutral.higher}
+              secondaryColor={neutral.lowest}
             />
           </span>
         </LogoContainerStyle>

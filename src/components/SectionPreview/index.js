@@ -114,7 +114,7 @@ class SectionPreview extends React.Component {
               href={!disabled ? path : undefined}
               label={disabled ? 'Coming soon' : 'Learn'}
               onClick={navigateTo}
-              skin="outline"
+              skin="outlineTertiary"
             />
           </div>
         </InfoStyle>

@@ -30,7 +30,7 @@ const FeatureItem = ({
     <BaseStyle
       {...others}
     >
-      <IconStyle skin={skin}>
+      <IconStyle>
         <Icon size={44} />
       </IconStyle>
       <TitleStyle skin={skin}>{title}</TitleStyle>

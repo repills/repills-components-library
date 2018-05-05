@@ -67,6 +67,7 @@ export default (sectionTitle, sectionDescription) => () => {
         component={TopNavigation}
         items={items}
         onClickLogo={() => alert('Logo clicked')}
+        previewSkin="secondary"
       />
     </SectionPage>
   );

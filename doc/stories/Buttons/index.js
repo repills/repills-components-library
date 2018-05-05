@@ -12,7 +12,7 @@ section
   .add('Basic', () => {
 
     const options = {};
-    const selectedSkin = select('Skin', { 'none': 'Default', 'primary': 'Primary', 'ghost': 'Ghost', 'outline': 'Outline', 'outlineLight': 'Outline light' }, 'none');
+    const selectedSkin = select('Skin', { 'none': 'Default', 'primary': 'Primary', 'ghost': 'Ghost', 'outline': 'Outline', 'outlineLight': 'Outline light', 'outlineTertiary': 'Outline tertiary' }, 'none');
     const href = text('Href', '');
 
     if (selectedSkin !== 'none') {

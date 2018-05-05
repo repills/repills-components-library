@@ -75,7 +75,7 @@ function TopicExtendedPreview({
             label="Open topic"
             onClick={totalCount !== 0 ? navigateTo : undefined}
             size="S"
-            skin="outline"
+            skin="outlineTertiary"
           />
         </FooterStyle>
       </BodyStyle>

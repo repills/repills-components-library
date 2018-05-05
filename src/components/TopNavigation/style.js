@@ -1,20 +1,18 @@
 import { css } from 'styled-components';
+import { rgba } from 'polished';
 import theme from '../../config/theme';
 import { MD, LG } from '../../config/breakpoints';
-import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
-
-const { neutral } = theme.palettes;
+const { basic, neutral } = theme.palettes;
 
 export const base = css`
   text-align: left;
   position: relative;
 `;
 
-
 export const wrapper = css`
   &.${MD} {
-    padding: ${extRem(11,0)};
+    padding: 0.68rem 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -23,20 +21,20 @@ export const wrapper = css`
 `;
 
 export const logoContainer = css`
-  padding: ${extRem(11,20)};
+  padding: 0.68rem 1.25rem;
   
   span {
     display: block;
     line-height: 0;
     cursor: pointer;
-    width: ${extRem(150)};
+    width: 9rem;
   }
 
   &.${MD} {
     padding: 0;
     
     span {
-      width: ${extRem(160)};
+      width: 10rem;
     }
   }
 `;
@@ -47,14 +45,14 @@ export const navigation = css`
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  background-color: ${neutral.lowest};
+  background-color: ${basic.secondary};
   color: ${neutral.high};
-  border-top: 1px solid ${neutral.low};
+  border-top: 1px solid ${rgba(neutral.highest,.3)};
   
   &.${MD} {
     background-color: transparent;
-    width: calc(100% - ${extRem(240)});
-    border-left: 1px solid ${neutral.low};
+    width: calc(100% - 15rem);
+    border-left: 1px solid ${rgba(neutral.highest,.3)};
     border-top: 0;
   }
   
@@ -65,13 +63,13 @@ export const navigation = css`
 
 export const navigationItem = css`
   ${typography.body}
-  padding: ${extRem(0,20)};
-  line-height: ${extRem(40)};
-  height: ${extRem(40)};
+  padding: 0 1.25rem;
+  line-height: 2.5rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   flex: 0 0 auto;
-  color: currentColor;
+  color: ${neutral.lowest};
   text-decoration: none;
   cursor: pointer;
 `;

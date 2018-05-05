@@ -15,11 +15,7 @@ export const icon = css`
   position: absolute;
   top: ${extRem(4)};
   left: 0;
-  color: ${neutral.medium};
-  
-  ${props => props.skin === 'dark' && `
-    color: ${basic.primary};
-  `}
+  color: ${neutral.secondary};
 `;
 
 export const title = css`

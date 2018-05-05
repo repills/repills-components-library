@@ -67,6 +67,11 @@ const skin = {
     ...outlineBase,
     color: neutral.lowest,
     borderColor: neutral.lowest
+  },
+  outlineTertiary: {
+    ...outlineBase,
+    color: basic.tertiary,
+    borderColor: basic.tertiary
   }
 };
 
@@ -87,7 +92,8 @@ const skinHover = {
     backgroundColor: 'transparent'
   },
   outline: outlineBaseHover,
-  outlineLight: outlineBaseHover
+  outlineLight: outlineBaseHover,
+  outlineTertiary: outlineBaseHover
 };
 
 const skinDisabled = {
@@ -108,6 +114,9 @@ const skinDisabled = {
     opacity: '0.4'
   },
   outlineLight: {
+    opacity: '0.4'
+  },
+  outlineTertiary: {
     opacity: '0.4'
   }
 };

@@ -1,13 +1,11 @@
 import { css } from 'styled-components';
 import { ellipsis } from 'polished';
 import theme from '../../config/theme';
-import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
-
 const { neutral } = theme.palettes;
 
 export const base = css`
-  color: ${props => props.active ? props.color : neutral.high};
+  color: ${props => props.active ? props.color : neutral.higher};
   text-decoration: none;
   padding: 1rem;
   cursor: ${props => props.active ? 'default' : 'pointer'};
@@ -16,8 +14,6 @@ export const base = css`
   user-select: none;
   text-align: center;
   border-radius: 5px;
-  // display: flex;
-  // justify-content: center;
   
   &:hover {
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
@@ -30,7 +26,7 @@ export const base = css`
     right: -1px;
     left: -1px;
     bottom: -1px;
-    height: ${extRem(4)};
+    height: 0.25rem;
     border-radius: 0 0 5px 5px;
   }
 `;
@@ -44,7 +40,7 @@ export const text = css`
   ${ellipsis()}
   ${typography.small}
   color: ${neutral.medium};
-  margin-top: ${extRem(12)};
+  margin-top: 0.75rem;
   line-height: 1;
   text-transform: uppercase;
 `;

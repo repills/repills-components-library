@@ -16,7 +16,7 @@ export const content = css`
 
 export const box = css`
   ${grid.unit({ size: 1/2 })}
-  border-right: 1px solid ${rgba(neutral.highest, .2)};
+  border-right: 1px solid ${rgba(neutral.highest, .3)};
 
   &:first-child {
     padding-right: 1.25rem;
