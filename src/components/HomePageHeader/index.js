@@ -96,7 +96,7 @@ const HomePageHeader = ({
             secondaryAction &&
             <Button
               size="S"
-              skin="outline"
+              skin="outlineLight"
               style={{ marginTop: '2.5rem' }}
               {...secondaryAction}
             />

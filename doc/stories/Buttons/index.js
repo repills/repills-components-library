@@ -12,7 +12,7 @@ section
   .add('Basic', () => {
 
     const options = {};
-    const selectedSkin = select('Skin', { 'none': 'Default', 'primary': 'Primary', 'ghost': 'Ghost', 'outline': 'Outline' }, 'none');
+    const selectedSkin = select('Skin', { 'none': 'Default', 'primary': 'Primary', 'ghost': 'Ghost', 'outline': 'Outline', 'outlineLight': 'Outline light' }, 'none');
     const href = text('Href', '');
 
     if (selectedSkin !== 'none') {
@@ -21,6 +21,10 @@ section
 
     if (href !== '') {
       options['href'] = href;
+    }
+
+    if (selectedSkin === 'outlineLight') {
+      options['previewSkin'] = 'secondary';
     }
 
     return (

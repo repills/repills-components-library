@@ -32,6 +32,7 @@ export default (sectionTitle, sectionDescription) => () => {
         component={Counter}
         count={number('Count', 12)}
         label={text('Label', 'total pills')}
+        previewSkin="secondary"
         {...options}
       />
     </SectionPage>

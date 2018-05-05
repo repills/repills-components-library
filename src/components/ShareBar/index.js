@@ -18,6 +18,7 @@ const ShareBar = ({
   link,
   text,
   title,
+  color,
   types,
   ...others
 }) => {
@@ -32,6 +33,7 @@ const ShareBar = ({
             key={type}
           >
             <SocialShare
+              color={color}
               link={link}
               text={text}
               title={title}

@@ -20,6 +20,7 @@ export default (sectionTitle, sectionDescription) => () => {
         description={randomSection.description}
         icon={randomSection.icon}
         label={text('Label', 'Section')}
+        previewSkin="secondary"
         title={randomSection.name}
       />
     </SectionPage>

@@ -1,10 +1,10 @@
 import { css } from 'styled-components';
-import { extRem } from '../../utils';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
 import { SM } from '../../config/breakpoints';
+import { rgba } from 'polished';
 
-const { neutral } = theme.palettes;
+const { basic, neutral } = theme.palettes;
 
 export const base = css`
   text-align: center;
@@ -16,11 +16,10 @@ export const base = css`
 `;
 
 export const title = css`
-  color: ${neutral.higher};
+  color: ${neutral.lowest};
   margin: 0;
   line-height: 1.1;
   word-break: break-word;
-  margin-left: ${extRem(-3)};
   ${props => props.breakpointsStatus[SM] ? typography.header2 : typography.header3}
   font-weight: 600;
 `;
@@ -30,19 +29,19 @@ export const main = css`
     
   ${props => props.breakpointsStatus[SM] && `
     display: inline-block;
-    padding-right: ${extRem(90)};
+    padding-right: 5.5rem;
   `}
 `;
 
 export const label = css`
   ${typography.small}
-  color: ${neutral.medium};
+  color: ${rgba(neutral.lowest,.9)};
   text-transform: uppercase;
 `;
 
 export const icon = css`
-  color: ${props => props.color};
-  margin-bottom: ${extRem(12)};
+  color: ${basic.tertiary};
+  margin-bottom: 0.75rem;
   
   ${props => props.breakpointsStatus[SM] && `
     position: absolute;
@@ -53,9 +52,9 @@ export const icon = css`
 `;
 
 export const description = css`
-  ${props => props.breakpointsStatus[SM] ? typography.body : typography.small}
-  color: ${neutral.medium};
-  margin: ${extRem(12)} 0 0;
+  ${typography.small}
+  color: ${rgba(neutral.lowest,.9)};
+  margin: 1rem 0 0;
   line-height: 1.5;
-  max-width: ${extRem(500)};
+  max-width: 30rem;
 `;

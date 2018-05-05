@@ -60,7 +60,7 @@ Button.propTypes = {
   onMouseEnter: func,
   onMouseLeave: func,
   size: oneOf(['S', 'M', 'L']),
-  skin: oneOf(['default', 'ghost', 'primary', 'outline'])
+  skin: oneOf(['default', 'ghost', 'primary', 'outline', 'outlineLight'])
 };
 
 Button.defaultProps = {

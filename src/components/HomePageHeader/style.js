@@ -1,5 +1,6 @@
 import { css } from 'styled-components';
 import theme from '../../config/theme';
+import { rgba } from 'polished';
 import typography from '../../shared/styles/typography';
 import { MD, LG } from '../../config/breakpoints';
 const { basic, neutral } = theme.palettes;
@@ -17,7 +18,7 @@ export const content = css`
 
 export const title = css`
   ${typography.header3}
-  color: ${neutral.high};
+  color: ${neutral.lowest};
   margin: 0;
   font-weight: 400;
   
@@ -29,7 +30,7 @@ export const title = css`
 
 export const description = css`
   ${typography.body}
-  color: ${neutral.medium};
+  color: ${rgba(neutral.lowest, .9)};
   line-height: 1.5;
   max-width: 40rem;
   margin: 1.5rem 0 0;
@@ -71,12 +72,12 @@ export const typeBlock = css`
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: ${basic.primaryHighest};
+  color: ${rgba(basic.primary, .9)};
   margin-top: 1.25rem;
 
   span {
     ${typography.mini}
-    color: ${neutral.medium};
+    color: ${rgba(neutral.lowest, .9)};
     margin-top: 0.75rem;
     line-height: 1;
   }

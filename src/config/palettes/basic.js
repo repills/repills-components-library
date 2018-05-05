@@ -1,5 +1,5 @@
 import { lighten, darken } from 'polished';
-const primary = '#ffda00'; // '#7540EE';
+const primary = '#ffda00';
 
 export default {
   name: 'Basic',
@@ -23,6 +23,11 @@ export default {
       id: 'secondary',
       name: 'Secondary',
       value: '#7a08fa' // '#00d664'
+    },
+    {
+      id: 'tertiary',
+      name: 'Tertiary',
+      value: '#00d664' // '#00d664'
     }
   ]
 };

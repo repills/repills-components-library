@@ -34,6 +34,7 @@ export default (sectionTitle, sectionDescription) => () => {
       <InteractiveExample
         component={HomePageHeader}
         description={description}
+        previewSkin="secondary"
         title={title}
         {...others}
       />

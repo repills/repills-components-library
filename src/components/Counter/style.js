@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { extRem } from '../../utils';
+import { rgba } from 'polished';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
 import { grid } from 'styled-components-grid';
@@ -16,14 +16,14 @@ export const content = css`
 
 export const box = css`
   ${grid.unit({ size: 1/2 })}
-  border-right: 1px solid ${neutral.low};
+  border-right: 1px solid ${rgba(neutral.highest, .2)};
 
   &:first-child {
-    padding-right: ${extRem(12)};
+    padding-right: 1.25rem;
   }
   
   &:last-child {
-    padding-left: ${extRem(12)};
+    padding-left: 1.25rem;
     border-right-width: 0;
   }
 `;
@@ -32,7 +32,7 @@ export const count = css`
   ${typography.header2}
   font-weight: 600;
   line-height: 1;
-  color: ${neutral.higher};
+  color: ${neutral.lowest};
 `;
 
 export const label = css`
@@ -40,7 +40,7 @@ export const label = css`
   text-transform: uppercase;
   line-height: 1;
   font-weight: 400;
-  color: ${neutral.medium};
-  margin-top: ${extRem(4)};
-  padding-bottom: ${extRem(4)};
+  color: ${rgba(neutral.lowest, .9)};
+  margin-top: 0.25rem;
+  padding-bottom: 0.25rem;
 `;

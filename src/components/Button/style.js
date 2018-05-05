@@ -29,6 +29,14 @@ const size = {
   }
 };
 
+const outlineBase = {
+  borderColor: neutral.higher,
+  color: neutral.higher,
+  fontWeight: 600,
+  textTransform: 'uppercase',
+  letterSpacing: '0.1em'
+};
+
 const skin = {
   default: {
     backgroundColor: neutral.higher,
@@ -54,13 +62,17 @@ const skin = {
     borderColor: 'transparent',
     backgroundColor: 'transparent'
   },
-  outline: {
-    borderColor: neutral.higher,
-    color: neutral.higher,
-    fontWeight: 600,
-    textTransform: 'uppercase',
-    letterSpacing: '0.1em'
+  outline: outlineBase,
+  outlineLight: {
+    ...outlineBase,
+    color: neutral.lowest,
+    borderColor: neutral.lowest
   }
+};
+
+const outlineBaseHover = {
+  borderColor: basic.primary,
+  boxShadow: '0 3px 6px rgba(0,0,0,.08)'
 };
 
 const skinHover = {
@@ -74,10 +86,8 @@ const skinHover = {
     color: basic.primary,
     backgroundColor: 'transparent'
   },
-  outline: {
-    borderColor: basic.primary,
-    boxShadow: '0 3px 6px rgba(0,0,0,.08)'
-  }
+  outline: outlineBaseHover,
+  outlineLight: outlineBaseHover
 };
 
 const skinDisabled = {
@@ -95,6 +105,9 @@ const skinDisabled = {
     opacity: '0.5'
   },
   outline: {
+    opacity: '0.4'
+  },
+  outlineLight: {
     opacity: '0.4'
   }
 };

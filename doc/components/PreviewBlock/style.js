@@ -6,6 +6,17 @@ import theme from '../../../src/config/theme';
 const { palettes } = theme;
 const { basic, neutral } = palettes;
 
+const skin = {
+  dark: {
+    borderColor: neutral.highest,
+    backgroundColor: neutral.highest
+  },
+  secondary: {
+    borderColor: basic.secondary,
+    backgroundColor: basic.secondary
+  }
+};
+
 export const base = css`
   text-align: center;
 `;
@@ -36,8 +47,7 @@ export const exampleBody = css`
   overflow-y: auto;
   background-color: ${neutral.lowest};
   
-  ${props => props.skin === 'dark' && `
-    border-color: ${neutral.highest};
-    background-color: ${neutral.highest};
+  ${props => props.skin && css`
+    ${skin[props.skin]}
   `}
 `;
