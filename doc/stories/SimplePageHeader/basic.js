@@ -13,6 +13,7 @@ export default (sectionTitle, sectionDescription) => () => {
     >
       <InteractiveExample
         component={SimplePageHeader}
+        previewSkin="secondary"
         title={text('Title', "It's a sample title")}
       />
     </SectionPage>

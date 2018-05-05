@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   string,
-  object
+  object,
+  shape
 } from 'prop-types';
 import styled from 'styled-components';
 import { SM } from '../../config/breakpoints';
@@ -110,8 +111,8 @@ const HomePageHeader = ({
 HomePageHeader.propTypes = {
   breakpointsStatus: object,
   description: string,
-  primaryAction: Button.propTypes,
-  secondaryAction: Button.propTypes,
+  primaryAction: shape(Button.propTypes),
+  secondaryAction: shape(Button.propTypes),
   title: string,
 };
 

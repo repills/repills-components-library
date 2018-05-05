@@ -11,7 +11,7 @@ export const base = css`
 export const title = css`
   ${typography.header2} 
   word-break: break-word;
-  color: ${neutral.higher};
+  color: ${neutral.lowest};
   line-height: 1.1;
   margin: 0;
   

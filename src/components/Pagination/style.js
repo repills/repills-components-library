@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { extRem } from '../../utils';
 import theme from '../../config/theme';
 import { size } from 'polished';
 import typography from '../../shared/styles/typography';
@@ -11,30 +10,26 @@ export const base = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: ${extRem(12)};
-  border-top: 1px solid ${neutral.low};
 `;
-
 
 export const button = css`
   ${typography.body}
-  ${size(extRem(36))}
+  ${size('2.25rem')}
   outline: 0;
   border: 0;
   background: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: ${neutral.high};
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: ${neutral.high};
+  color: ${neutral.higher};
   border-radius: 5px;
 
   ${props => props.active && `
-    background-color: ${basic.primary};
-    color: ${neutral.highest};
+    background-color: ${basic.tertiary};
+    color: ${neutral.lowest};
     position: relative;
     z-index: 1;
   `}

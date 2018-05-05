@@ -19,6 +19,7 @@ export default (sectionTitle, sectionDescription) => () => {
         component={TypePageHeader}
         count={getRandomNumber(0,3)}
         icon={randomType.label.singular}
+        previewSkin="secondary"
         topicAction={() => alert('Click on section')}
         topicName="React"
         typeName={randomType.label}

@@ -4,7 +4,7 @@ import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
 import { SM, MD } from '../../config/breakpoints';
 
-const { neutral } = theme.palettes;
+const { basic, neutral } = theme.palettes;
 
 export const base = css`
   text-align: center;
@@ -28,7 +28,7 @@ export const title = css`
 
   span {
     ${props => props.breakpointsStatus[MD] ? typography.header3 : typography.header4 }
-    color: ${neutral.higher};
+    color: ${neutral.lowest};
     font-weight: 400;
     line-height: 1.1;
     margin-left: ${extRem(-3)};
@@ -53,7 +53,7 @@ export const sectionName = css`
 `;
 
 export const icon = css`
-  color: ${props => props.color};
+  color: ${basic.tertiary};
   
   ${props => props.breakpointsStatus[SM] && `
     position: absolute;

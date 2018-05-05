@@ -8,7 +8,14 @@ export default (sectionTitle, sectionDescription) => () => {
   const childrenX = <div>Chil text</div>;
 
   const others = {};
+  const hidePrimaryAction = boolean('Hide primary action', false);
 
+  if (!hidePrimaryAction) {
+    others.primaryAction = {
+      label: 'Call to action',
+      onClick: () => alert('You have clicked on the primary action!')
+    };
+  }
   const simple = boolean('Simple', false);
 
   if (simple) {

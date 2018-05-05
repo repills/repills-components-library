@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
-import { extRem } from '../../utils';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
+import { MD } from '../../config/breakpoints';
 
 const align = {
   LEFT: {
@@ -15,9 +15,36 @@ const align = {
 };
 
 const { neutral } = theme.palettes;
-const sideCount = extRem(30);
+const sideCount = '1.75rem';
 export const base = css`
   text-align: left;
+`;
+
+export const content = css`
+  
+  ${props => props.breakpointsStatus[MD] && `
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1rem;
+    margin-right: -1rem;
+  `}
+`;
+
+const commonBox = css`
+  ${props => props.breakpointsStatus[MD] && `
+    padding-left: 1rem;
+    padding-right: 1rem;
+  `}
+`;
+
+export const info = css`
+  ${commonBox}
+  flex: 1 1 auto;
+`;
+
+export const action = css`
+  ${commonBox}
+  flex-shrink: 0;
 `;
 
 export const title = css`
@@ -30,7 +57,7 @@ export const title = css`
   
   ${props => props.count && `
     span {
-      margin-right: ${extRem(12)};
+      margin-right: 0.75rem;
     }
   `}
 `;
@@ -42,7 +69,7 @@ export const count = css`
   height; ${sideCount};
   line-height: ${sideCount};
   color: ${neutral.higher};
-  padding-left: ${extRem(12)};
+  padding-left: 0.75rem;
   border-left: 1px solid ${neutral.low};
 `;
 
@@ -50,23 +77,23 @@ export const description = css`
   ${typography.body}
   display: flex;
   color: ${neutral.medium};
-  margin: ${extRem(8)} ${props => props.size === 'CENTER' ? 'auto' : '0' } 3rem;
+  margin: 0.5rem ${props => props.size === 'CENTER' ? 'auto' : '0' } 1rem;
   line-height: 1.4;
   ${props => align[props.align]};
   
   p {
     margin: 0;
-    max-width: ${extRem(700)}
+    max-width: 44rem;
   }
 `;
 
 export const body = css`
   ${typography.body}
   color: ${neutral.high};
-  margin-top: ${extRem(24)};
+  margin-top: 1.5rem;
   
   ${props => !props.simple && `
     border-top: 1px solid ${neutral.low};
-    padding-top: ${extRem(24)};
+    padding-top: 1.5rem;
   `}
 `;
