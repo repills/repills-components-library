@@ -72,7 +72,7 @@ function TopicExtendedPreview({
           <Button
             ellipsis
             href={path ? path : undefined}
-            label="Open topic"
+            label="See topic"
             onClick={totalCount !== 0 ? navigateTo : undefined}
             size="S"
             skin="outlineTertiary"

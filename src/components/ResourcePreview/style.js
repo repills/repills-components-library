@@ -1,11 +1,10 @@
 import { css } from 'styled-components';
 import theme from '../../config/theme';
-import { rgba, lighten, ellipsis } from 'polished';
+import { rgba, ellipsis } from 'polished';
 import { extRem } from '../../utils';
 import typography from '../../shared/styles/typography';
 
 const { neutral } = theme.palettes;
-const mainColor = neutral.lowest;
 
 // box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
 // border-top: 4px solid ${props => props.color};
@@ -13,11 +12,12 @@ const mainColor = neutral.lowest;
 export const base = css`
   text-align: left;
   background-color: ${neutral.lowest};
+  border: 1px solid ${neutral.low};
+  border-radius: 5px;
+  height: 100%;
   &:hover {
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   }
-  border: 1px solid ${neutral.low};
-  border-radius: 5px;
 `;
 
 export const mainInfo = css`
@@ -112,5 +112,24 @@ export const date = css`
   a {
     text-decoration: none;
     color: currentColor;
+  }
+`;
+
+export const abstract = css`
+  ${typography.mini}
+  margin: 0.75rem 0 1rem;
+  color: ${neutral.medium};
+  height: 3.38rem;
+  overflow: hidden;
+  position: relative;
+  
+  &::after {
+  content: '';
+    position: absolute;
+    height: 1.125rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, ${rgba(neutral.lowest, 0)}, ${rgba(neutral.lowest, 1)});
   }
 `;

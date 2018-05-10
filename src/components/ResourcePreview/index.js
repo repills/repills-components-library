@@ -17,7 +17,8 @@ import {
   date,
   detail,
   secondaryInfo,
-  author
+  author,
+  abstract
 } from './style';
 
 const BaseStyle = styled.article`${base}`;
@@ -28,17 +29,19 @@ const AuthorStyle = styled.div`${author}`;
 const TypeStyle = styled.div`${type}`;
 const DateStyle = styled.div`${date}`;
 const DetailStyle = styled.div`${detail}`;
-
+const AbstractStyle = styled.p`${abstract}`;
 
 class ResourcePreview extends React.Component {
 
   static propTypes = {
+    abstract: string,
     author: string,
     color: string.isRequired,
     createdAt: string,
     dateType: string,
     generateDetailUrl: func,
     handleDetailView: func,
+    hideAbstract: bool,
     hideFooter: bool,
     link: string.isRequired,
     navigateToDetail: func,
@@ -86,18 +89,20 @@ class ResourcePreview extends React.Component {
   render() {
 
     const {
-      color,
-      title,
-      author,
-      link,
-      createdAt,
-      publishedAt,
-      dateType,
-      slug,
-      generateDetailUrl,
       // navigateToDetail,
-      typeLabel,
+      abstract,
+      author,
+      color,
+      createdAt,
+      dateType,
+      generateDetailUrl,
+      hideAbstract,
       hideFooter,
+      link,
+      publishedAt,
+      slug,
+      title,
+      typeLabel,
       ...others
     } = this.props;
 
@@ -115,6 +120,10 @@ class ResourcePreview extends React.Component {
           <TitleStyle>
             {title}
           </TitleStyle>
+          {
+            abstract && !hideAbstract &&
+            <AbstractStyle>{abstract}</AbstractStyle>
+          }
           <DetailStyle>
             <TypeStyle color={color}>
               <SquareFilledPillIcon
