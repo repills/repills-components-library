@@ -35,7 +35,6 @@ export const intro = css`
   ${typography.small}
   color: ${neutral.lowest};
   margin: 0;
-  max-width: 25rem;
   padding-left: 4rem;
   
   a {
@@ -44,10 +43,7 @@ export const intro = css`
   }
 `;
 
-export const form = css`
-  max-width: 25rem;
-  margin: 0 auto;
-`;
+export const form = css``;
 
 export const introWrapper = css`
   position: relative;

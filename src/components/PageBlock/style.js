@@ -51,7 +51,7 @@ export const title = css`
   ${typography.header4}
   color: ${neutral.higher};
   line-height: 1.2;
-  margin: 0;
+  margin: 0 0 0.5rem;
   display: flex;
   ${props => align[props.align]};
   
