@@ -86,8 +86,8 @@ function Pagination({
         (pageCount > rangePageDisplayed) &&
         <ButtonStyle
           disabled={!pagination.previousPage}
-          href={buildPagePath && buildPagePath(1)}
-          onClick={navigateTo(1)}
+          href={buildPagePath && buildPagePath(pagination.previousPage)}
+          onClick={navigateTo(pagination.previousPage)}
         >
           <ArrowIcon
             orientation="left"
@@ -119,8 +119,8 @@ function Pagination({
         (pageCount > rangePageDisplayed) &&
         <ButtonStyle
           disabled={!pagination.nextPage}
-          href={buildPagePath && buildPagePath(pageCount)}
-          onClick={() => navigateTo(pageCount)}
+          href={buildPagePath && buildPagePath(pagination.nextPage)}
+          onClick={navigateTo(pagination.nextPage)}
         >
           <ArrowIcon
             orientation="right"
