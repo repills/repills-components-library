@@ -27,14 +27,14 @@ export const logoContainer = css`
     display: block;
     line-height: 0;
     cursor: pointer;
-    width: 9rem;
+    width: 7rem;
   }
 
   &.${MD} {
     padding: 0;
     
     span {
-      width: 10rem;
+      width: 9rem;
     }
   }
 `;
