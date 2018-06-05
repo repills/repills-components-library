@@ -20,6 +20,7 @@ export const tag = css`
   background-color: ${neutral.lower};
   margin: ${extRem(0,4,4,0)};
   word-break: break-all;
+  user-select: none;
   
   &:last-child {
     margin-right: 0;

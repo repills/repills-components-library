@@ -1,14 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import CompositionBar from '../CompositionBar';
 import * as icons from '../Icon/icons/sections';
 import {
   string,
   arrayOf,
   object,
   func,
-  number,
-  shape
 } from 'prop-types';
 import Button from '../Button';
 import {
@@ -89,13 +86,6 @@ TopicExtendedPreview.propTypes = {
   path: string,
   resources: arrayOf(object).isRequired,
   sectionIcon: string,
-  stats: arrayOf(shape({
-    type: string.isRequired,
-    label: string.isRequired,
-    color: string.isRequired,
-    count: number.isRequired,
-    percentage: number.isRequired
-  })),
   title: string.isRequired,
 };
 

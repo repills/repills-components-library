@@ -2,30 +2,14 @@ import { css } from 'styled-components';
 import { rgba } from 'polished';
 import theme from '../../config/theme';
 import typography from '../../shared/styles/typography';
-import { grid } from 'styled-components-grid';
 
 const { neutral } = theme.palettes;
 
-export const base = css``;
-
-export const content = css`
-  ${grid()}
+export const base = css`
+  display: flex;
   align-items: center;
   justify-content: center;
-`;
-
-export const box = css`
-  ${grid.unit({ size: 1/2 })}
-  border-right: 1px solid ${rgba(neutral.highest, .3)};
-
-  &:first-child {
-    padding-right: 1.25rem;
-  }
-  
-  &:last-child {
-    padding-left: 1.25rem;
-    border-right-width: 0;
-  }
+  flex-direction: column;
 `;
 
 export const count = css`

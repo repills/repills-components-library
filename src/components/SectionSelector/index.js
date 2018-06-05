@@ -46,9 +46,12 @@ class SectionSelector extends React.Component {
   }
 
   handleOnChange = index => () => this.setState(state => {
+    const { handleOnChange } = this.props;
     const _index = index === this.state.selected ? null : index;
     const update = { selected: _index };
-    this.props.handleOnChange(update);
+    if (typeof handleOnChange === 'function') {
+      handleOnChange(update);
+    }
     return update;
   });
 

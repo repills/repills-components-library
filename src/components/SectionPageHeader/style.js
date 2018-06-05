@@ -20,7 +20,7 @@ export const title = css`
   margin: 0;
   line-height: 1.1;
   word-break: break-word;
-  ${props => props.breakpointsStatus[SM] ? typography.header2 : typography.header3}
+  ${typography.header3}
   font-weight: 600;
 `;
 
@@ -29,7 +29,7 @@ export const main = css`
     
   ${props => props.breakpointsStatus[SM] && `
     display: inline-block;
-    padding-right: 5.5rem;
+    padding-right: 4.5rem;
   `}
 `;
 
@@ -53,7 +53,7 @@ export const icon = css`
 
 export const description = css`
   ${typography.small}
-  color: ${rgba(neutral.lowest,.9)};
+  color: ${rgba(neutral.lowest,.8)};
   margin: 1rem 0 0;
   line-height: 1.5;
   max-width: 30rem;

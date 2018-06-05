@@ -50,7 +50,7 @@ const SectionPageHeader = ({
               breakpointsStatus={breakpointsStatus}
               color={color}
             >
-              <Icon size={66} />
+              <Icon size={56} />
             </IconStyle>
           }
           {
