@@ -6,7 +6,8 @@ import { SquareFilledPillIcon, LinkIcon } from '../Icon/icons/basic';
 import {
   string,
   func,
-  bool
+  bool,
+  arrayOf
 } from 'prop-types';
 import {
   base,
@@ -49,7 +50,7 @@ class ResourcePreview extends React.Component {
     reference: string,
     slug: string,
     title: string.isRequired,
-    typeLabel: string.isRequired
+    typeLabel: string.isRequired,
   };
 
   static defaultProps = {

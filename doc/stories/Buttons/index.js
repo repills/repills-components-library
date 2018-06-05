@@ -1,55 +1,212 @@
 import React from 'react';
-import { createSection } from '../../utils/index';
+import { createNewSection } from '../../utils/index';
+import {
+  Button,
+  theme,
+} from '../../../src/components';
 import { text, boolean, select } from '@storybook/addon-knobs/react';
-import { SectionPage, InteractiveExample } from '../../components';
-import { Button } from '../../../src/components';
 
-const sectionTitle = 'Buttons';
-const sectionDescription = 'Description will be here.';
-const section = createSection({ title: sectionTitle });
+const { basic } = theme.palettes;
+const title = 'Components > Buttons';
 
-section
-  .add('Basic', () => {
+//-----------------
+// STANDARD BUTTONS
+//-----------------
 
-    const options = {};
-    const selectedSkin = select('Skin', { 'none': 'Default', 'primary': 'Primary', 'ghost': 'Ghost', 'outline': 'Outline', 'outlineLight': 'Outline light', 'outlineTertiary': 'Outline tertiary' }, 'none');
-    const href = text('Href', '');
+createNewSection({
+  title: `${title} / Standard`,
+  description: 'They are commonly used to trigger an action.',
+  addons: {
+    info: true,
+  }
+})
+  .add(
+    'Playground',
+    () => {
+      const others = {};
+      const autoWidth = boolean('Auto width', false);
+      const disabled = boolean('Disabled', false);
+      const ellipsis = boolean('Ellipsis', false);
+      const expanded = boolean('Expanded', false);
+      const size = select('Size', { Small: 'S', 'Medium': 'M', 'Large': 'L' }, 'M');
+      const href = text('Href', '');
 
-    if (selectedSkin !== 'none') {
-      options['skin'] = selectedSkin;
-    }
+      const selectedSkin = select(
+        'Skin',
+        {
+          Default: 'none',
+          Primary: 'primary',
+          Ghost: 'ghost',
+          Outline: 'outline',
+          'Outline light': 'outlineLight',
+          'Outline tertiary': 'outlineTertiary'
+        },
+        'none'
+      );
 
-    if (href !== '') {
-      options['href'] = href;
-    }
-
-    if (selectedSkin === 'outlineLight') {
-      options['previewSkin'] = 'secondary';
-    }
-
-    return (
-      <SectionPage
-        description={sectionDescription}
-        title={sectionTitle}
-      >
-        <InteractiveExample
-          autoWidth={boolean('Auto width', false)}
-          component={Button}
-          disabled={boolean('Disabled', false)}
-          ellipsis={boolean('Ellipsis', false)}
-          expanded={boolean('Expanded', false)}
-          id={text('Id', 'button_id')}
-          label={text('Label', 'Button Label')}
-          onClick={() => alert('Clicked!')}
+      if (autoWidth) {
+        others.autoWidth = true;
+      }
+      if (disabled) {
+        others.disabled = true;
+      }
+      if (ellipsis) {
+        others.ellipsis = true;
+      }
+      if (expanded) {
+        others.expanded = true;
+      }
+      if (size !== 'M') {
+        others.size = size;
+      }
+      if (selectedSkin !== 'none') {
+        others.skin = selectedSkin;
+      }
+      if (href !== '') {
+        others.href = href;
+      }
+      return (
+        <Button
+          label="Button Label"
+          onClick={() => {}}
           onMouseEnter={() => {}}
           onMouseLeave={() => {}}
-          size={select('Size', { S: 'Small', M: 'Medium', L: 'Large' }, 'M')}
-          {...options}
+          size="M"
+          {...others}
         />
-      </SectionPage>
-    );
-  });
+      );
+    }
+  );
 
+const getCases = others => (
+  <div>
+    <h3>Basic</h3>
+    <Button
+      label="Basic Button"
+      {...others}
+    />
 
+    <h3>Auto width</h3>
+    <Button
+      autoWidth
+      label="Auto width"
+      {...others}
+    />
 
+    <h3>Disabled</h3>
+    <Button
+      disabled
+      label="Disabled Button"
+      {...others}
+    />
 
+    <h3>Expanded</h3>
+    <Button
+      expanded
+      label="Expanded Button"
+      {...others}
+    />
+
+    <h3>Sizes</h3>
+    <h4>Small</h4>
+    <Button
+      label="Small Button"
+      size="S"
+      {...others}
+    />
+    <h4>Medium (Default)</h4>
+    <Button
+      label="Default Button"
+      {...others}
+    />
+    <h4>Large</h4>
+    <Button
+      label="Large Button"
+      size="L"
+      {...others}
+    />
+  </div>
+);
+
+//------------
+// BASIC CASES
+//------------
+
+createNewSection({
+  title: `${title} / Standard`,
+  description: 'They are commonly used to trigger an action.'
+})
+  .add(
+    'Basic',
+    () => getCases({})
+  );
+
+//------------
+// PRIMARY
+//------------
+
+createNewSection({
+  title: `${title} / Standard`,
+  description: 'They are commonly used to trigger an action.'
+})
+  .add(
+    'Primary',
+    () => getCases({ skin: 'primary' })
+  );
+
+//--------------
+// OUTLINE CASES
+//--------------
+createNewSection({
+  title: `${title} / Standard`,
+  description: 'They are commonly used to trigger an action.'
+})
+  .add(
+    'Outline',
+    () => getCases({ skin: 'outline' })
+  );
+
+//--------------------
+// OUTLINE LIGHT CASES
+//--------------------
+createNewSection({
+  title: `${title} / Standard`,
+  description: 'They are commonly used to trigger an action.',
+  addons: {
+    backgrounds: [
+      {
+        name: 'Default',
+        value: basic.secondary,
+        default: true
+      }
+    ]
+  }
+})
+  .add(
+    'Outline Light',
+    () => getCases({ skin: 'outlineLight' })
+  );
+
+//--------------------
+// OUTLINE LIGHT CASES
+//--------------------
+createNewSection({
+  title: `${title} / Standard`,
+  description: 'They are commonly used to trigger an action.'
+})
+  .add(
+    'Outline Tertiary',
+    () => getCases({ skin: 'outlineTertiary' })
+  );
+
+//------------
+// GHOST CASES
+//------------
+createNewSection({
+  title: `${title} / Standard`,
+  description: 'They are commonly used to trigger an action.'
+})
+  .add(
+    'Ghost',
+    () => getCases({ skin: 'ghost' })
+  );

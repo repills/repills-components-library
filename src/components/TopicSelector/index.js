@@ -55,9 +55,12 @@ class TopicSelector extends React.Component {
   }, {});
 
   handleOnChange = id => () => this.setState(state => {
+    const { handleOnChange } = this.props;
     state.selected[id] = !state.selected[id];
     const result = Object.entries(state.selected).filter(e => e[1]).map(([key, value]) => key);
-    this.props.handleOnChange({ selected: result });
+    if (typeof handleOnChange === 'function') {
+      handleOnChange({ selected: result });
+    }
     return state;
   });
   

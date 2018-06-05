@@ -34,7 +34,7 @@ export const logoContainer = css`
     padding: 0;
     
     span {
-      width: 9rem;
+      width: 8rem;
     }
   }
 `;

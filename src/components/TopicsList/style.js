@@ -38,4 +38,5 @@ export const item = css`
 
 export const actions = css`
   margin-top: ${extRem(32)};
+  text-align: center;
 `;

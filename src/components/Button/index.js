@@ -50,12 +50,20 @@ const Button = ({
 };
 
 Button.propTypes = {
+  /** Boolean indicating whether the button should have the standard width (according to the size parameter) or not. */
   autoWidth: bool,
+  /** Boolean indicating whether the button should render as disabled. 'onClick' event won't be triggered while in this state. */
   disabled: bool,
   ellipsis: bool,
   expanded: bool,
   href: string,
+  /** Name of the icon to use. */
+  icon: string,
+  /** Name of the icon to place on right side of button. */
+  iconRight: string,
+  /** Button label. */
   label: string,
+  /** Triggered on button click/tap, if button is not disabled. */
   onClick: func,
   onMouseEnter: func,
   onMouseLeave: func,

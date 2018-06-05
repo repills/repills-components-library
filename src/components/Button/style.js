@@ -37,11 +37,13 @@ const outlineBase = {
   letterSpacing: '0.1em'
 };
 
+const boxShadow = '0 1px 5px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12)';
+
 const skin = {
   default: {
     backgroundColor: neutral.higher,
     color: neutral.lowest,
-    // boxShadow: '0 8px 16px rgba(0,0,0,.1),0 3px 6px rgba(0,0,0,.08)',
+    boxShadow,
     textTransform: 'uppercase',
     fontWeight: 600,
     letterSpacing: '0.1em'
@@ -49,7 +51,7 @@ const skin = {
   primary: {
     backgroundColor: basic.primary,
     color: darken(0.2, basic.primary),
-    // boxShadow: '0 8px 16px rgba(0,0,0,.1),0 3px 6px rgba(0,0,0,.08)',
+    boxShadow,
     textTransform: 'uppercase',
     fontWeight: 600,
     letterSpacing: '0.1em'

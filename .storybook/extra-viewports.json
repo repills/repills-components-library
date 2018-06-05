@@ -1,0 +1,34 @@
+{
+  "kindleFire2": {
+    "name": "Kindle Fire 2",
+    "styles": {
+      "width": "600px",
+      "height": "963px"
+    },
+    "type": "tablet"
+  },
+  "kindleFireHD": {
+    "name": "Kindle Fire HD",
+    "styles": {
+      "width": "533px",
+      "height": "801px"
+    },
+    "type": "tablet"
+  },
+  "AppleMacBookAir11-inch": {
+    "name": "Apple MacBook Air 11-inch",
+    "styles": {
+      "width": "1366px",
+      "height": "768px"
+    },
+    "type": "desktop"
+  } ,
+  "AppleiMac27-inch": {
+    "name": "Apple iMac 27-inch",
+    "styles": {
+      "width": "2560px",
+      "height": "1440px"
+    },
+    "type": "desktop"
+  }
+}
