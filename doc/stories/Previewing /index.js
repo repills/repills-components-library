@@ -14,12 +14,25 @@ import {
   getRandomSection,
   getRandomTopic
 } from '../../utils/fixtures';
+import theme from '../../../src/config/theme';
+const { neutral } = theme.palettes;
 import { types } from 'repills-config';
 
 const title = 'Components > Previewing';
 
 const addons = {
   info: true,
+  backgrounds: [
+    {
+      name: 'Light low',
+      value: neutral.lower,
+      default: true
+    },
+    {
+      name: 'Dark',
+      value: neutral.highest
+    }
+  ],
 };
 
 //-----------------

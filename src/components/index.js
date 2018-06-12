@@ -24,7 +24,6 @@ export Pagination from './Pagination';
 export QueryHandler from './QueryHandler';
 export ResourceDetail from './ResourceDetail';
 export ResourcePreview from './ResourcePreview';
-export ResourcesList from './ResourcesList';
 export ResourcesListWithDetail from './ResourcesListWithDetail';
 export ResponsivePagination from './ResponsivePagination';
 export SectionPageHeader from './SectionPageHeader';

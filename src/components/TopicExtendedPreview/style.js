@@ -10,8 +10,9 @@ const mainColor = neutral.lowest;
 export const base = css`
   text-align: left;
   position: relative;
-  border: 1px solid ${neutral.low};
+  border-bottom: 1px solid ${neutral.low};
   border-radius: 5px;
+  background-color: ${neutral.lowest};
   
   &:hover {
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);

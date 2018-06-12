@@ -30,7 +30,18 @@ const navigateTo = path => alert(`Navigate to ${path}`);
 
 const addons = {
   info: true,
-  centered: true
+  centered: true,
+  backgrounds: [
+    {
+      name: 'Light low',
+      value: neutral.lower,
+      default: true
+    },
+    {
+      name: 'Dark',
+      value: neutral.highest
+    }
+  ],
 };
 
 //---------------

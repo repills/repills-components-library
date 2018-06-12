@@ -10,11 +10,11 @@ export const base = css`
   padding: 1rem;
   cursor: ${props => props.active ? 'default' : 'pointer'};
   position: relative;
-  border: 1px solid ${neutral.low};
   user-select: none;
   text-align: center;
   border-radius: 5px;
-  
+  background-color: ${neutral.lowest};
+
   &:hover {
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
   }

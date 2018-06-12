@@ -12,7 +12,7 @@ export const base = css`
   text-align: left;
   position: relative;
   cursor: pointer;
-  background-color: ${neutral.lower};
+  background-color: ${neutral.lowest};
   color: ${neutral.higher};
   height: 100%;
   padding: ${extRem(12,16,12,12)};
