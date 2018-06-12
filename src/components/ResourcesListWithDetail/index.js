@@ -126,13 +126,13 @@ class ResourcesListWithDetail extends React.Component {
 
     const currentBreakpoint = this.getCurrentBreakPoint(breakpointsStatus);
     const showedResources = this.getShowedResources({ currentBreakpoint });
-    const loading = Object.keys(breakpointsStatus).length === 0;
+    // const loading = Object.keys(breakpointsStatus).length === 0;
 
     return (
       <BaseStyle
         {...others}
       >
-        { loading && <Spinner position="absolute" /> }
+        {/* loading && <Spinner position="absolute" /> */}
         <div>
           <ItemsStyle
             breakpointsStatus={breakpointsStatus}

@@ -1,6 +1,5 @@
 import React from 'react';
 import ResourcePreview from '../ResourcePreview';
-import cx from 'classnames';
 import {
   arrayOf,
   shape,
