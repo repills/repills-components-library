@@ -7,7 +7,7 @@ import {
 } from 'prop-types';
 import styled from 'styled-components';
 import TopicPreviewSelection from '../TopicPreviewSelection/index';
-import QueryHandler from '../QueryHandler';
+import ConsumeContainerQuery from '../../hoc/consume-container-query';
 
 import {
   base,
@@ -119,4 +119,4 @@ class TopicSelector extends React.Component {
   }
 }
 
-export default QueryHandler(TopicSelector);
+export default ConsumeContainerQuery(TopicSelector);

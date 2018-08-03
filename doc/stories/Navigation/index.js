@@ -1,6 +1,7 @@
 import React from 'react';
 import { createNewSection } from '../../utils/index';
 import {
+  ProvideContainerQuery,
   Breadcrumb,
   ResponsivePagination,
   TopNavigation
@@ -19,7 +20,6 @@ const title = 'Components > Navigation';
 
 const addons = {
   info: true,
-  centered: true,
 };
 
 //-----------
@@ -81,8 +81,10 @@ createNewSection({
         others['buildPagePath'] = index => `path/to/page/${index}`;
       }
 
+      const ExampleWithContainerQuery = ProvideContainerQuery(ResponsivePagination);
+
       return (
-        <ResponsivePagination
+        <ExampleWithContainerQuery
           currentPage={currentPage}
           handleNavigateToPage={index => alert(`Navigate to page: ${index}`)}
           itemsPerPage={itemsPerPage}
@@ -102,7 +104,6 @@ createNewSection({
   description: 'Description will be here',
   addons: {
     info: true,
-    centered: true,
     backgrounds: [
       {
         name: 'Secondary',
@@ -171,8 +172,10 @@ createNewSection({
         }
       ];
 
+      const ExampleWithContainerQuery = ProvideContainerQuery(TopNavigation);
+
       return (
-        <TopNavigation
+        <ExampleWithContainerQuery
           items={items}
           onClickLogo={() => alert('Logo clicked')}
         />

@@ -1,7 +1,6 @@
 import React from 'react';
 import { oneOf } from 'prop-types';
 import styled from 'styled-components';
-import theme from '../../config/theme';
 
 import {
   base

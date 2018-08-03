@@ -42,10 +42,7 @@ class SectionPreview extends React.Component {
   };
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (this.props.name !== nextProps.name) {
-      return true;
-    }
-    return false;
+    return this.props.name !== nextProps.name;
   }
 
   navigate = e => {

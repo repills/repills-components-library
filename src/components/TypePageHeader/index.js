@@ -7,7 +7,7 @@ import {
   object
 } from 'prop-types';
 import * as sectionsIcons from '../Icon/icons/types';
-import QueryHandler from '../QueryHandler';
+import ConsumeContainerQuery from '../../hoc/consume-container-query';
 
 import styled from 'styled-components';
 import {
@@ -93,4 +93,4 @@ TypePageHeader.defaultProps = {
   breakpointsStatus: {}
 };
 
-export default QueryHandler(TypePageHeader);
+export default ConsumeContainerQuery(TypePageHeader);

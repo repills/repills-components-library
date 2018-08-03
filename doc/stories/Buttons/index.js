@@ -30,6 +30,7 @@ createNewSection({
       const expanded = boolean('Expanded', false);
       const size = select('Size', { Small: 'S', 'Medium': 'M', 'Large': 'L' }, 'M');
       const href = text('Href', '');
+      const label = text('Label', 'Button Label');
 
       const selectedSkin = select(
         'Skin',
@@ -65,13 +66,12 @@ createNewSection({
       if (href !== '') {
         others.href = href;
       }
+
+      others.label = label;
+
       return (
         <Button
-          label="Button Label"
           onClick={() => {}}
-          onMouseEnter={() => {}}
-          onMouseLeave={() => {}}
-          size="M"
           {...others}
         />
       );

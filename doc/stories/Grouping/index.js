@@ -1,6 +1,7 @@
 import React from 'react';
 import { createNewSection } from '../../utils/index';
 import {
+  ProvideContainerQuery,
   ResourcesListWithDetail,
   SectionsList,
   TopicsList,
@@ -30,7 +31,6 @@ const navigateTo = path => alert(`Navigate to ${path}`);
 
 const addons = {
   info: true,
-  centered: true,
   backgrounds: [
     {
       name: 'Light low',
@@ -64,8 +64,11 @@ createNewSection({
   .add(
     'Resources',
     () => {
+
+      const ExampleWithContainerQuery = ProvideContainerQuery(ResourcesListWithDetail);
+
       return (
-        <ResourcesListWithDetail
+        <ExampleWithContainerQuery
           breaks={{ XS: 4, SM: 6 }}
           dateType={select('Date type', { 'Share date': 'createdAt', 'Publish date': 'publishedAt' }, 'createdAt')}
           generateDetailUrl={generateDetailUrl}
@@ -95,8 +98,10 @@ createNewSection({
   .add(
     'Sections',
     () => {
+      const ExampleWithContainerQuery = ProvideContainerQuery(SectionsList);
+
       return (
-        <SectionsList
+        <ExampleWithContainerQuery
           navigateTo={navigateTo}
           sections={getRandomSectionList(number('Sezioni', 6, {
             min: 1,
@@ -130,8 +135,11 @@ createNewSection({
       if (type !== 'default') {
         others['type'] = type;
       }
+
+      const ExampleWithContainerQuery = ProvideContainerQuery(TopicsList);
+
       return (
-        <TopicsList
+        <ExampleWithContainerQuery
           breaks={{ XS: 4, SM: 6 }}
           navigateTo={navigateTo}
           showAllAction={showAllAction}
@@ -172,8 +180,11 @@ createNewSection({
       if (type !== 'default') {
         others['type'] = type;
       }
+
+      const ExampleWithContainerQuery = ProvideContainerQuery(TypesList);
+
       return (
-        <TypesList
+        <ExampleWithContainerQuery
           activeKey={'video'}
           navigateTo={navigateTo}
           types={data}
@@ -290,7 +301,6 @@ createNewSection({
   description: 'Description will be here',
   addons: {
     info: true,
-    centered: true,
     backgrounds: [
       {
         name: 'Dark',
@@ -303,8 +313,11 @@ createNewSection({
   .add(
     'Dark',
     () => {
+
+      const ExampleWithContainerQuery = ProvideContainerQuery(FeatureList);
+
       return (
-        <FeatureList
+        <ExampleWithContainerQuery
           features={features}
         />
       );
@@ -316,7 +329,6 @@ createNewSection({
   description: 'Description will be here',
   addons: {
     info: true,
-    centered: true,
     backgrounds: [
       {
         name: 'Light',
@@ -329,8 +341,10 @@ createNewSection({
   .add(
     'Light',
     () => {
+      const ExampleWithContainerQuery = ProvideContainerQuery(FeatureList);
+
       return (
-        <FeatureList
+        <ExampleWithContainerQuery
           features={features}
         />
       );

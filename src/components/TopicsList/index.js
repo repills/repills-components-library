@@ -12,7 +12,7 @@ import styled from 'styled-components';
 import Button from '../Button';
 import { queryList } from '../../config/breakpoints';
 import { base, items, item, actions } from './style';
-import QueryHandler from '../QueryHandler';
+import ConsumeContainerQuery from '../../hoc/consume-container-query';
 
 const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
@@ -148,4 +148,4 @@ class TopicsList extends React.Component {
   }
 }
 
-export default QueryHandler(TopicsList);
+export default ConsumeContainerQuery(TopicsList);

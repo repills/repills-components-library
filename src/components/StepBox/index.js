@@ -6,7 +6,7 @@ import {
   bool,
   object
 } from 'prop-types';
-import QueryHandler from '../QueryHandler';
+import ConsumeContainerQuery from '../../hoc/consume-container-query';
 import styled from 'styled-components';
 import {
   base,
@@ -63,5 +63,5 @@ StepBox.defaultProps = {
   breakpointsStatus: {}
 };
 
-export default QueryHandler(StepBox);
+export default ConsumeContainerQuery(StepBox);
 

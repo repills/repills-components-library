@@ -4,7 +4,7 @@ import {
   object
 } from 'prop-types';
 import * as sectionsIcons from '../Icon/icons/sections';
-import QueryHandler from '../QueryHandler';
+import ConsumeContainerQuery from '../../hoc/consume-container-query';
 
 import styled from 'styled-components';
 import {
@@ -90,4 +90,4 @@ SectionPageHeader.defaultProps = {
   breakpointsStatus: {}
 };
 
-export default QueryHandler(SectionPageHeader);
+export default ConsumeContainerQuery(SectionPageHeader);

@@ -134,7 +134,6 @@ export const base = css`
   align-items: center;
   border: 2px solid transparent;
   background: none;
-  box-sizing: border-box;
   cursor: ${props => props.disabled ? 'default' : 'pointer'};
   display: inline-flex;
   justify-content: center;

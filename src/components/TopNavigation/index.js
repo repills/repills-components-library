@@ -11,7 +11,7 @@ import {
 } from 'prop-types';
 import cx from 'classnames';
 import Logo from '../Logo';
-import QueryHandler from '../QueryHandler';
+import ConsumeContainerQuery from '../../hoc/consume-container-query';
 
 const { basic, neutral } = theme.palettes;
 
@@ -94,4 +94,4 @@ TopNavigation.defaultProps = {
   breakpointsStatus: {}
 };
 
-export default QueryHandler(TopNavigation);
+export default ConsumeContainerQuery(TopNavigation);

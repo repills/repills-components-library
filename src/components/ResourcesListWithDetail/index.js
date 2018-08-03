@@ -3,7 +3,6 @@ import ResourcePreview from '../ResourcePreview';
 import ResourceDetail from '../ResourceDetail';
 import Modal from '../Modal';
 import Button from '../Button';
-import Spinner from '../Spinner';
 import {
   arrayOf,
   shape,
@@ -15,7 +14,7 @@ import {
 import styled from 'styled-components';
 import { queryList } from '../../config/breakpoints';
 import { base, items, item, actions } from './style';
-import QueryHandler from '../QueryHandler';
+import ConsumeContainerQuery from '../../hoc/consume-container-query';
 
 const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
@@ -202,4 +201,4 @@ class ResourcesListWithDetail extends React.Component {
   }
 }
 
-export default QueryHandler(ResourcesListWithDetail);
+export default ConsumeContainerQuery(ResourcesListWithDetail);

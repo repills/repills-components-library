@@ -6,7 +6,7 @@ import {
 } from 'prop-types';
 import Pagination from '../Pagination';
 import { SM } from '../../config/breakpoints';
-import QueryHandler from '../QueryHandler';
+import ConsumeContainerQuery from '../../hoc/consume-container-query';
 
 class ResponsivePagination extends React.Component {
 
@@ -55,4 +55,4 @@ class ResponsivePagination extends React.Component {
   }
 }
 
-export default QueryHandler(ResponsivePagination);
+export default ConsumeContainerQuery(ResponsivePagination);

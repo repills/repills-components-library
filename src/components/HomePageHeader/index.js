@@ -10,7 +10,7 @@ import * as icons from '../Icon/icons/types';
 import Button from '../Button';
 import { MoreIcon } from '../Icon/icons/basic';
 import { types } from 'repills-config';
-import QueryHandler from '../QueryHandler';
+import ConsumeContainerQuery from '../../hoc/consume-container-query';
 
 import {
   base,
@@ -120,4 +120,4 @@ HomePageHeader.defaultProps = {
   breakpointsStatus: {}
 };
 
-export default QueryHandler(HomePageHeader);
+export default ConsumeContainerQuery(HomePageHeader);

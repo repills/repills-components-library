@@ -10,7 +10,7 @@ import {
 } from 'prop-types';
 import Button from '../Button';
 import styled from 'styled-components';
-import QueryHandler from '../QueryHandler';
+import ConsumeContainerQuery from '../../hoc/consume-container-query';
 import {
   base,
   count,
@@ -104,4 +104,4 @@ PageBlock.defaultProps = {
   align: 'LEFT'
 };
 
-export default QueryHandler(PageBlock);
+export default ConsumeContainerQuery(PageBlock);

@@ -8,7 +8,7 @@ import {
 } from 'prop-types';
 import styled from 'styled-components';
 import SectionPreviewSelection from '../SectionPreviewSelection';
-import QueryHandler from '../QueryHandler';
+import ConsumeContainerQuery from '../../hoc/consume-container-query';
 import {
   base,
   items,
@@ -94,4 +94,4 @@ class SectionSelector extends React.Component {
   }
 }
 
-export default QueryHandler(SectionSelector);
+export default ConsumeContainerQuery(SectionSelector);

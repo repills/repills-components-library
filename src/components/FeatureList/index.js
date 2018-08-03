@@ -11,7 +11,7 @@ import {
   items,
   item
 } from './style';
-import QueryHandler from '../QueryHandler';
+import ConsumeContainerQuery from '../../hoc/consume-container-query';
 
 const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
@@ -61,4 +61,4 @@ FeatureList.defaultProps = {
   breakpointsStatus:{}
 };
 
-export default QueryHandler(FeatureList);
+export default ConsumeContainerQuery(FeatureList);

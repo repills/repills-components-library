@@ -11,7 +11,7 @@ export default function createNewSection({ title, description, addons }) {
 
   section
     .addDecorator(withKnobs)
-    .addDecorator(withViewport('AppleMacBookAir11-inch'));
+    .addDecorator(withViewport('Responsive'));
 
   Object.entries(requiredAddons).forEach(([key, value]) => {
     let _value;

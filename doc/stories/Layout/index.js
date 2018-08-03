@@ -5,6 +5,7 @@ import {
   text
 } from '@storybook/addon-knobs/react';
 import {
+  ProvideContainerQuery,
   SimplePageHeader,
   SectionPageHeader,
   TypePageHeader,
@@ -62,8 +63,10 @@ createNewSection({
   .add(
     'Section',
     () => {
+      const ExampleWithContainerQuery = ProvideContainerQuery(SectionPageHeader);
+
       return (
-        <SectionPageHeader
+        <ExampleWithContainerQuery
           color={randomSection.color}
           description={randomSection.description}
           icon={randomSection.icon}
@@ -77,8 +80,10 @@ createNewSection({
   .add(
     'Type',
     () => {
+      const ExampleWithContainerQuery = ProvideContainerQuery(TypePageHeader);
+
       return (
-        <TypePageHeader
+        <ExampleWithContainerQuery
           color={randomType.color}
           component={TypePageHeader}
           count={getRandomNumber(0,3)}
@@ -96,7 +101,7 @@ createNewSection({
     () => {
 
       const others = {};
-      const title = text('Title', `<strong>Stay up to date</strong> with the latest cutting-edge technologies and <strong>improve your skills pill by pill</strong>, day by day.`);
+      const title = text('Title', `Stay up to date with the latest cutting-edge technologies and improve your skills pill by pill, day by day.`);
       const description = text('Description', 'Repills is going to be the place to learn about web development and design through well-organized high-quality resources.');
       const hidePrimaryAction = boolean('Hide primary action', false);
       const hideSecondaryAction = boolean('Hide secondary action', false);
@@ -115,8 +120,10 @@ createNewSection({
         };
       }
 
+      const ExampleWithContainerQuery = ProvideContainerQuery(HomePageHeader);
+
       return (
-        <HomePageHeader
+        <ExampleWithContainerQuery
           description={description}
           previewSkin="secondary"
           title={title}
@@ -137,8 +144,10 @@ createNewSection({
   .add(
     'Basic',
     () => {
+      const ExampleWithContainerQuery = ProvideContainerQuery(PageBlock);
+
       return (
-        <PageBlock
+        <ExampleWithContainerQuery
           title="Your page block title will be here"
         />
       );
@@ -147,8 +156,10 @@ createNewSection({
   .add(
     'With description',
     () => {
+      const ExampleWithContainerQuery = ProvideContainerQuery(PageBlock);
+
       return (
-        <PageBlock
+        <ExampleWithContainerQuery
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur urna a libero tincidunt tristique id eu enim."
           title="Your page block title will be here"
         />
@@ -158,8 +169,10 @@ createNewSection({
   .add(
     'With counter',
     () => {
+      const ExampleWithContainerQuery = ProvideContainerQuery(PageBlock);
+
       return (
-        <PageBlock
+        <ExampleWithContainerQuery
           contentsCount={5}
           title="Your page block title will be here"
         />
@@ -169,8 +182,10 @@ createNewSection({
   .add(
     'With description and counter',
     () => {
+      const ExampleWithContainerQuery = ProvideContainerQuery(PageBlock);
+
       return (
-        <PageBlock
+        <ExampleWithContainerQuery
           contentsCount={5}
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur urna a libero tincidunt tristique id eu enim."
           title="Your page block title will be here"

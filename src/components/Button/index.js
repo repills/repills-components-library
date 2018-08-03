@@ -18,8 +18,6 @@ const Button = ({
   label,
   href,
   onClick,
-  onMouseEnter,
-  onMouseLeave,
   skin,
   size,
   ...others
@@ -38,8 +36,6 @@ const Button = ({
       expanded={expanded}
       href={href ? href : undefined}
       onClick={onClick ? click : undefined}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
       size={size}
       skin={skin}
       {...others}
@@ -65,8 +61,6 @@ Button.propTypes = {
   label: string,
   /** Triggered on button click/tap, if button is not disabled. */
   onClick: func,
-  onMouseEnter: func,
-  onMouseLeave: func,
   size: oneOf(['S', 'M', 'L']),
   skin: oneOf(['default', 'ghost', 'primary', 'outline', 'outlineLight', 'outlineTertiary'])
 };

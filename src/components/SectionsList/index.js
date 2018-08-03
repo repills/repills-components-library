@@ -8,7 +8,7 @@ import {
 } from 'prop-types';
 import styled from 'styled-components';
 import { base, items, item } from './style';
-import QueryHandler from '../QueryHandler';
+import ConsumeContainerQuery from '../../hoc/consume-container-query';
 
 const BaseStyle = styled.div`${base}`;
 const ItemsStyle = styled.div`${items}`;
@@ -59,4 +59,4 @@ SectionsList.defaultProps = {
   breakpointsStatus: {}
 };
 
-export default QueryHandler(SectionsList);
+export default ConsumeContainerQuery(SectionsList);
