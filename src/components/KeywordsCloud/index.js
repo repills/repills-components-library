@@ -35,6 +35,8 @@ const KeywordsCloud = ({
   );
 };
 
+KeywordsCloud.displayName = 'KeywordsCloud';
+
 KeywordsCloud.propTypes = {
   keywords: arrayOf(string),
   showed: number

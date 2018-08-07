@@ -22,14 +22,6 @@ const SelectionButtonStyle = styled.div`${selectButton}`;
 
 class SectionPreviewSelection extends React.Component {
 
-  static propTypes = {
-    checked: bool,
-    color: string.isRequired,
-    handleOnChange: func,
-    icon: string.isRequired,
-    name: string.isRequired
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -92,5 +84,15 @@ class SectionPreviewSelection extends React.Component {
     );
   }
 }
+
+SectionPreviewSelection.displayName = 'SectionPreviewSelection';
+
+SectionPreviewSelection.propTypes = {
+  checked: bool,
+  color: string.isRequired,
+  handleOnChange: func,
+  icon: string.isRequired,
+  name: string.isRequired
+};
 
 export default SectionPreviewSelection;

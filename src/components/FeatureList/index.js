@@ -51,6 +51,8 @@ const FeatureList = ({
   );
 };
 
+FeatureList.displayName = 'FeatureList';
+
 FeatureList.propTypes = {
   breakpointsStatus: object,
   features: arrayOf(shape(FeatureItem.propTypes)).isRequired,

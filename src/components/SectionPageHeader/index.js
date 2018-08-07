@@ -77,6 +77,8 @@ const SectionPageHeader = ({
   );
 };
 
+SectionPageHeader.displayName = 'SectionPageHeader';
+
 SectionPageHeader.propTypes = {
   breakpointsStatus: object,
   color: string.isRequired,

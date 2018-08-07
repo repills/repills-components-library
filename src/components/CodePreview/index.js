@@ -90,5 +90,4 @@ class PreviewBlock extends React.Component {
   }
 }
 
-
 export default PreviewBlock;

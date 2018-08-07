@@ -29,18 +29,6 @@ const DetailStyle = styled.span`${detail}`;
 
 class SectionPreview extends React.Component {
 
-  static propTypes = {
-    color: string,
-    description: string,
-    disabled: bool,
-    icon: string.isRequired,
-    name: string.isRequired,
-    navigateTo: func,
-    path: string.isRequired,
-    resourcesCount: number,
-    topicsCount: number
-  };
-
   shouldComponentUpdate(nextProps, nextState) {
     return this.props.name !== nextProps.name;
   }
@@ -119,5 +107,19 @@ class SectionPreview extends React.Component {
     );
   }
 }
+
+SectionPreview.displayName = 'SectionPreview';
+
+SectionPreview.propTypes = {
+  color: string,
+  description: string,
+  disabled: bool,
+  icon: string.isRequired,
+  name: string.isRequired,
+  navigateTo: func,
+  path: string.isRequired,
+  resourcesCount: number,
+  topicsCount: number
+};
 
 export default SectionPreview;

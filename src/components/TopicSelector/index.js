@@ -23,18 +23,6 @@ const SelectedMessageStyle = styled.p`${selectedMessage}`;
 
 class TopicSelector extends React.Component {
 
-  static propTypes = {
-    breakpointsStatus: object,
-    handleOnChange: func,
-    selected: arrayOf(string),
-    topics: object.isRequired
-  };
-
-  static defaultProps = {
-    breakpointsStatus: {},
-    selected: []
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -118,5 +106,19 @@ class TopicSelector extends React.Component {
     );
   }
 }
+
+TopicSelector.displayName = 'TopicSelector';
+
+TopicSelector.propTypes = {
+  breakpointsStatus: object,
+  handleOnChange: func,
+  selected: arrayOf(string),
+  topics: object.isRequired
+};
+
+TopicSelector.defaultProps = {
+  breakpointsStatus: {},
+  selected: []
+};
 
 export default ConsumeContainerQuery(TopicSelector);

@@ -45,6 +45,8 @@ const Button = ({
   );
 };
 
+Button.displayName = 'Button';
+
 Button.propTypes = {
   /** Boolean indicating whether the button should have the standard width (according to the size parameter) or not. */
   autoWidth: bool,

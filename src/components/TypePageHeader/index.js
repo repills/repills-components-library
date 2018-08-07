@@ -76,6 +76,8 @@ const TypePageHeader = ({
   );
 };
 
+TypePageHeader.displayName = 'TypePageHeader';
+
 TypePageHeader.propTypes = {
   breakpointsStatus: object,
   color: string.isRequired,

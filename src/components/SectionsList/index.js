@@ -49,6 +49,8 @@ function SectionsList({
   );
 }
 
+SectionsList.displayName = 'SectionsList';
+
 SectionsList.propTypes = {
   breakpointsStatus: object,
   navigateTo: func,

@@ -13,6 +13,9 @@ const VerticalSpacing = ({
     {children}
   </div>
 );
+
+VerticalSpacing.displayName = 'VerticalSpacing';
+
 VerticalSpacing.propTypes = {
   children: node,
   size: oneOf([
@@ -24,4 +27,5 @@ VerticalSpacing.propTypes = {
     'mega'
   ])
 };
+
 export default VerticalSpacing;

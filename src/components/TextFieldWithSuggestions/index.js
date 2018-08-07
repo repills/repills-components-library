@@ -18,13 +18,6 @@ const ItemStyle = styled.div`${item}`;
 
 class TextFieldWithSuggestions extends React.Component {
 
-  static propTypes = {
-    handleOnChange: func,
-    suggestions: arrayOf(string),
-    value: string,
-
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -86,5 +79,14 @@ class TextFieldWithSuggestions extends React.Component {
     );
   };
 }
+
+TextFieldWithSuggestions.displayName = 'TextFieldWithSuggestions';
+
+TextFieldWithSuggestions.propTypes = {
+  handleOnChange: func,
+  suggestions: arrayOf(string),
+  value: string,
+
+};
 
 export default TextFieldWithSuggestions;

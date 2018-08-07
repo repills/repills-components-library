@@ -80,6 +80,8 @@ function TopicExtendedPreview({
   );
 }
 
+TopicExtendedPreview.displayName = 'TopicExtendedPreview';
+
 TopicExtendedPreview.propTypes = {
   description: string,
   navigateTo: func,

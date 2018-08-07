@@ -73,6 +73,8 @@ const SocialShare = ({
   );
 };
 
+SocialShare.displayName = 'SocialShare';
+
 SocialShare.propTypes = {
   color: string,
   link: string.isRequired,

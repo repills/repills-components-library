@@ -43,6 +43,8 @@ const Logo = ({
   );
 };
 
+Logo.displayName = 'Logo';
+
 Logo.propTypes = {
   color: string,
   secondaryColor: string,

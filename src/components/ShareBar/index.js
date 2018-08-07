@@ -46,6 +46,8 @@ const ShareBar = ({
   );
 };
 
+ShareBar.displayName = 'ShareBar';
+
 ShareBar.propTypes = {
   color: string,
   link: string.isRequired,

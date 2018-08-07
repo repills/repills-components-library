@@ -52,6 +52,8 @@ function TypeSquarePreview({
   );
 }
 
+TypeSquarePreview.displayName = 'TypeSquarePreview';
+
 TypeSquarePreview.propTypes = {
   active: bool,
   color: string,

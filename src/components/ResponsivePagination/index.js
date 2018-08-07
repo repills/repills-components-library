@@ -10,19 +10,6 @@ import ConsumeContainerQuery from '../../hoc/consume-container-query';
 
 class ResponsivePagination extends React.Component {
 
-  static propTypes = {
-    breakpointsStatus: object,
-    buildPagePath: func,
-    currentPage: number.isRequired,
-    handleNavigateToPage: func.isRequired,
-    itemsPerPage: number.isRequired,
-    itemsTotalCount: number.isRequired
-  };
-
-  static defaultProps = {
-    breakpointsStatus: {}
-  };
-
   getRangePageDisplayed = () => {
     let temp = 5;
     if (this.props.breakpointsStatus[SM]) {
@@ -54,5 +41,20 @@ class ResponsivePagination extends React.Component {
     );
   }
 }
+
+ResponsivePagination.displayName = 'ResponsivePagination';
+
+ResponsivePagination.propTypes = {
+  breakpointsStatus: object,
+  buildPagePath: func,
+  currentPage: number.isRequired,
+  handleNavigateToPage: func.isRequired,
+  itemsPerPage: number.isRequired,
+  itemsTotalCount: number.isRequired
+};
+
+ResponsivePagination.defaultProps = {
+  breakpointsStatus: {}
+};
 
 export default ConsumeContainerQuery(ResponsivePagination);

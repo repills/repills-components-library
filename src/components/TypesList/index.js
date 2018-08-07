@@ -59,6 +59,7 @@ function TypesList({
   );
 }
 
+TypesList.displayName = 'TypesList';
 
 TypesList.propTypes = {
   activeKey: string,

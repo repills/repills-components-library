@@ -28,6 +28,8 @@ const SimplePageHeader = ({
   );
 };
 
+SimplePageHeader.displayName = 'SimplePageHeader';
+
 SimplePageHeader.propTypes = {
   title: string
 };

@@ -22,6 +22,8 @@ const ContributorsLeaderboard = ({
   );
 };
 
+ContributorsLeaderboard.displayName = 'ContributorsLeaderboard';
+
 ContributorsLeaderboard.propTypes = {
 
 };

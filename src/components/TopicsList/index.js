@@ -21,22 +21,6 @@ const ActionsStyle = styled.div`${actions}`;
 
 class TopicsList extends React.Component {
 
-  static propTypes = {
-    breakpointsStatus: object,
-    breaks: object,
-    navigateTo: func,
-    showAllAction: shape({
-      onClick: func.isRequired
-    }),
-    topics: arrayOf(object).isRequired,
-    type: oneOf(['default', 'extended']),
-  };
-
-  static defaultProps = {
-    breakpointsStatus: {},
-    type: 'default'
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -147,5 +131,23 @@ class TopicsList extends React.Component {
 
   }
 }
+
+TopicsList.displayName = 'TopicsList';
+
+TopicsList.propTypes = {
+  breakpointsStatus: object,
+  breaks: object,
+  navigateTo: func,
+  showAllAction: shape({
+    onClick: func.isRequired
+  }),
+  topics: arrayOf(object).isRequired,
+  type: oneOf(['default', 'extended']),
+};
+
+TopicsList.defaultProps = {
+  breakpointsStatus: {},
+  type: 'default'
+};
 
 export default ConsumeContainerQuery(TopicsList);

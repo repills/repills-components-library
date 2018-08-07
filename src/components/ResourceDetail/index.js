@@ -212,6 +212,8 @@ function ResourceDetail({
   );
 }
 
+ResourceDetail.displayName = 'ResourceDetail';
+
 ResourceDetail.propTypes = {
   abstract: string,
   author: string,

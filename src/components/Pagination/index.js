@@ -132,6 +132,8 @@ function Pagination({
   );
 }
 
+Pagination.displayName = 'Pagination';
+
 Pagination.propTypes = {
   buildPagePath: func,
   currentPage: number.isRequired,

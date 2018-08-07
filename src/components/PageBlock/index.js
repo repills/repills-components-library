@@ -89,6 +89,8 @@ const PageBlock = ({
   );
 };
 
+PageBlock.displayName = 'PageBlock';
+
 PageBlock.propTypes = {
   align: oneOf(['LEFT', 'CENTER']),
   breakpointsStatus: object,

@@ -45,6 +45,8 @@ const FeatureItem = ({
   );
 };
 
+FeatureItem.displayName = 'FeatureItem';
+
 FeatureItem.propTypes = {
   description: string,
   icon: string,

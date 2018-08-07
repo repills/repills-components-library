@@ -21,17 +21,6 @@ const ItemStyle = styled.div`${item}`;
 
 class SectionSelector extends React.Component {
 
-  static propTypes = {
-    breakpointsStatus: object,
-    handleOnChange: func,
-    sections: arrayOf(shape(SectionPreviewSelection.propTypes)).isRequired,
-    selected: number
-  };
-
-  static defaultProps = {
-    breakpointsStatus: {}
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -93,5 +82,18 @@ class SectionSelector extends React.Component {
     );
   }
 }
+
+SectionSelector.displayName = 'SectionSelector';
+
+SectionSelector.propTypes = {
+  breakpointsStatus: object,
+  handleOnChange: func,
+  sections: arrayOf(shape(SectionPreviewSelection.propTypes)).isRequired,
+  selected: number
+};
+
+SectionSelector.defaultProps = {
+  breakpointsStatus: {}
+};
 
 export default ConsumeContainerQuery(SectionSelector);

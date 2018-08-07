@@ -165,7 +165,8 @@ class ResourcePreview extends React.Component {
       </BaseStyle>
     );
   }
-
 }
+
+ResourcePreview.displayName = 'ResourcePreview';
 
 export default ResourcePreview;

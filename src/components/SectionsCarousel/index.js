@@ -37,13 +37,6 @@ const defaultSettings = {
 
 class SectionsCarousel extends React.Component {
 
-  static propTypes = {
-    navigateTo: func,
-    sections: arrayOf(shape(SectionPreview.propTypes)).isRequired,
-    settings: object,
-    showNavigation: bool
-  };
-
   constructor(props) {
     super(props);
     this.settings = this.props.settings ? Object.assign({}, defaultSettings, this.props.settings) : defaultSettings;
@@ -107,5 +100,14 @@ class SectionsCarousel extends React.Component {
     );
   }
 }
+
+SectionsCarousel.displayName = 'SectionsCarousel';
+
+SectionsCarousel.propTypes = {
+  navigateTo: func,
+  sections: arrayOf(shape(SectionPreview.propTypes)).isRequired,
+  settings: object,
+  showNavigation: bool
+};
 
 export default SectionsCarousel;

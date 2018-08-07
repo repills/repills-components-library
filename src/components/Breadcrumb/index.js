@@ -36,6 +36,8 @@ const Breadcrumb = ({
   );
 };
 
+Breadcrumb.displayName = 'Breadcrumb';
+
 Breadcrumb.propTypes = {
 };
 

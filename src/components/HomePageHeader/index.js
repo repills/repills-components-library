@@ -108,6 +108,8 @@ const HomePageHeader = ({
   );
 };
 
+HomePageHeader.displayName = 'HomePageHeader';
+
 HomePageHeader.propTypes = {
   breakpointsStatus: object,
   description: string,

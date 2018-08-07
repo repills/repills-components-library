@@ -51,6 +51,8 @@ const StepBox = ({
   );
 };
 
+StepBox.displayName = 'StepBox';
+
 StepBox.propTypes = {
   breakpointsStatus: object,
   children: any.isRequired,

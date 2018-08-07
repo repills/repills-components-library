@@ -21,28 +21,6 @@ const IconStyle = styled.div`${icon}`;
 
 class TextField extends React.Component {
 
-  static propTypes = {
-    dirty: bool,
-    disabled: bool,
-    expanded: bool,
-    handleOnBlur: func,
-    handleOnChange: func,
-    handleOnFocus: func,
-    hasError: bool,
-    name: string,
-    placeholder: string,
-    readOnly: bool,
-    required: bool,
-    size: oneOf(['M', 'L']),
-    type: oneOf(['text', 'number', 'url', 'date', 'datetime', 'email']),
-    value: oneOfType([string, number])
-  };
-
-  static defaultProps = {
-    size: 'M'
-  };
-
-
   constructor(props) {
     super(props);
     this.state = {
@@ -135,5 +113,28 @@ class TextField extends React.Component {
     );
   }
 }
+
+TextField.displayName = 'TextField';
+
+TextField.propTypes = {
+  dirty: bool,
+  disabled: bool,
+  expanded: bool,
+  handleOnBlur: func,
+  handleOnChange: func,
+  handleOnFocus: func,
+  hasError: bool,
+  name: string,
+  placeholder: string,
+  readOnly: bool,
+  required: bool,
+  size: oneOf(['M', 'L']),
+  type: oneOf(['text', 'number', 'url', 'date', 'datetime', 'email']),
+  value: oneOfType([string, number])
+};
+
+TextField.defaultProps = {
+  size: 'M'
+};
 
 export default TextField;

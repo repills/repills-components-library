@@ -30,6 +30,8 @@ const Counter = ({
   );
 };
 
+Counter.displayName = 'Counter';
+
 Counter.propTypes = {
   count: number,
   label: string,

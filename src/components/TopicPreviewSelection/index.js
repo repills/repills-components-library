@@ -19,12 +19,6 @@ const SelectionButtonStyle = styled.div`${selectButton}`;
 
 class TopicPreviewSelection extends React.Component {
 
-  static propTypes = {
-    checked: bool,
-    handleOnChange: func,
-    title: string.isRequired
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -75,5 +69,13 @@ class TopicPreviewSelection extends React.Component {
     );
   }
 }
+
+TopicPreviewSelection.displayName = 'TopicPreviewSelection';
+
+TopicPreviewSelection.propTypes = {
+  checked: bool,
+  handleOnChange: func,
+  title: string.isRequired
+};
 
 export default TopicPreviewSelection;

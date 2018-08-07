@@ -37,6 +37,8 @@ function TopicPreview({
   );
 }
 
+TopicPreview.displayName = 'TopicPreview';
+
 TopicPreview.propTypes = {
   navigateTo: func,
   resources: arrayOf(object).isRequired,

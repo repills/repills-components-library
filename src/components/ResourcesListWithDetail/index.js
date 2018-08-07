@@ -23,34 +23,14 @@ const ActionsStyle = styled.div`${actions}`;
 
 class ResourcesListWithDetail extends React.Component {
 
-    static propTypes = {
-      breakpointsStatus: object,
-      breaks: object,
-      dateType: string,
-      generateDetailUrl: func,
-      handleDetailView: func,
-      navigateToDetail: func,
-      navigateToSection: func,
-      navigateToTopic: func,
-      resources: arrayOf(shape(ResourcePreview.propTypes)).isRequired,
-      showAllAction: shape({
-        onClick: func.isRequired
-      }),
-      showSimpleItems: bool,
+  constructor(props) {
+    super(props);
+    this.state = {
+      showDetailModal: false,
+      currentResource: null,
+      showEntireList: false
     };
-
-    static defaultProps = {
-      breakpointsStatus: {}
-    };
-
-    constructor(props) {
-      super(props);
-      this.state = {
-        showDetailModal: false,
-        currentResource: null,
-        showEntireList: false
-      };
-    }
+  }
 
   onHandleDetailView = ({ reference }) => {
     const {
@@ -200,5 +180,27 @@ class ResourcesListWithDetail extends React.Component {
     );
   }
 }
+
+ResourcesListWithDetail.displayName = 'ResourcesListWithDetail';
+
+ResourcesListWithDetail.propTypes = {
+  breakpointsStatus: object,
+  breaks: object,
+  dateType: string,
+  generateDetailUrl: func,
+  handleDetailView: func,
+  navigateToDetail: func,
+  navigateToSection: func,
+  navigateToTopic: func,
+  resources: arrayOf(shape(ResourcePreview.propTypes)).isRequired,
+  showAllAction: shape({
+    onClick: func.isRequired
+  }),
+  showSimpleItems: bool,
+};
+
+ResourcesListWithDetail.defaultProps = {
+  breakpointsStatus: {}
+};
 
 export default ConsumeContainerQuery(ResourcesListWithDetail);

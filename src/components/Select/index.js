@@ -32,26 +32,6 @@ const CheckIconStyle = styled.div`${checkIcon}`;
 
 class Select extends React.Component {
 
-  static propTypes = {
-    disabled: bool,
-    expanded: bool,
-    handleOnChange: func.isRequired,
-    id: string,
-    options: arrayOf(shape({
-      label: string.isRequired,
-      value: any.isRequired,
-      disabled: bool
-    })).isRequired,
-    placeholder: string,
-    selectedIndex: number,
-    size: oneOf(['M', 'L'])
-  };
-
-  static defaultProps = {
-    size: 'M',
-    selectedIndex: null
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -166,5 +146,27 @@ class Select extends React.Component {
     );
   }
 }
+
+Select.displayName = 'Select';
+
+Select.propTypes = {
+  disabled: bool,
+  expanded: bool,
+  handleOnChange: func.isRequired,
+  id: string,
+  options: arrayOf(shape({
+    label: string.isRequired,
+    value: any.isRequired,
+    disabled: bool
+  })).isRequired,
+  placeholder: string,
+  selectedIndex: number,
+  size: oneOf(['M', 'L'])
+};
+
+Select.defaultProps = {
+  size: 'M',
+  selectedIndex: null
+};
 
 export default Select;

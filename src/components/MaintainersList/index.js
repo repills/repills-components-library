@@ -22,11 +22,10 @@ const MaintainersList = ({
   );
 };
 
-MaintainersList.propTypes = {
+MaintainersList.displayName = 'MaintainersList';
 
-};
+MaintainersList.propTypes = {};
 
-MaintainersList.defaultProps = {
-};
+MaintainersList.defaultProps = {};
 
 export default MaintainersList;

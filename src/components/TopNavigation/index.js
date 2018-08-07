@@ -78,6 +78,8 @@ function TopNavigation({
   );
 }
 
+TopNavigation.displayName = 'TopNavigation';
+
 TopNavigation.propTypes = {
   breakpointsStatus: object,
   items: arrayOf(shape({

@@ -5,7 +5,7 @@
   "repository": "https://github.com/repills/repills-react-components.git",
   "main": "lib/components/index.js",
   "scripts": {
-    "start": "start-storybook -p 9001 -c .storybook",
+    "start": "start-storybook -p 9002 -c .storybook",
     "build": "babel src -d lib",
     "build-doc": "build-storybook -c .storybook -o .doc-build",
     "deploy-doc": "yarn build-doc && gh-pages -d .doc-build"

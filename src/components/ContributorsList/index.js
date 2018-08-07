@@ -56,6 +56,8 @@ const ContributorsList = ({
   );
 };
 
+ContributorsList.displayName = 'ContributorsList';
+
 ContributorsList.propTypes = {
   contributors: arrayOf(shape({
     nickname: string.isRequired,

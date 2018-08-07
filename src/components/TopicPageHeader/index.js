@@ -20,11 +20,10 @@ const TopicPageHeader = ({
   );
 };
 
-TopicPageHeader.propTypes = {
+TopicPageHeader.displayName = 'TopicPageHeader';
 
-};
+TopicPageHeader.propTypes = {};
 
-TopicPageHeader.defaultProps = {
-};
+TopicPageHeader.defaultProps = {};
 
 export default TopicPageHeader;

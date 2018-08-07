@@ -45,6 +45,8 @@ const Message = ({
   );
 };
 
+Message.displayName = 'Message';
+
 Message.propTypes = {
   description: string,
   icon: string,

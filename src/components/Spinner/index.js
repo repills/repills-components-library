@@ -46,6 +46,8 @@ const Spinner = ({
   );
 };
 
+Spinner.displayName = 'Spinner';
+
 Spinner.propTypes = {
   position: oneOf([
     'relative',

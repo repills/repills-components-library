@@ -71,6 +71,8 @@ function Modal({
   );
 }
 
+Modal.displayName = 'Modal';
+
 Modal.propTypes = {
   children: element.isRequired,
   handleClose: func,

@@ -54,6 +54,8 @@ const TileCta = ({
   );
 };
 
+TileCta.displayName = 'TileCta';
+
 TileCta.propTypes = {
   cta: Button.propTypes,
   description: string,
