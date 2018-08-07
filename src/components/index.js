@@ -8,6 +8,7 @@ export Breadcrumb from './Breadcrumb';
 export breakpoints from '../config/breakpoints';
 export QueryContext from '../context/query-context';
 export ProvideContainerQuery from '../hoc/provide-container-query';
+export ConsumeContainerQuery from '../hoc/consume-container-query';
 export Button from './Button';
 export CodePreview from './CodePreview';
 export ContributorsLeaderboard from './ContributorsLeaderboard';

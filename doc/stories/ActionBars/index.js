@@ -6,7 +6,7 @@ import {
 } from '@storybook/addon-knobs/react';
 import {
   ShareBar
-} from '../../../src/components/index';
+} from '../../../src/components';
 import theme from '../../../src/config/theme';
 const { neutral } = theme.palettes;
 

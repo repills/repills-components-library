@@ -84,7 +84,7 @@ export function getRandomTopic({ title, description, resourcesLength }) {
   return {
     title: title || faker.lorem.sentence(),
     resources,
-    path: `/${faker.lorem.word()}`,
+    basePath: `/${faker.lorem.word()}`,
     // stats: getResourcesStats(resources, false, 'DESC'),
     description: description || faker.lorem.sentence(),
     sectionIcon: 'ServerlessIcon', // Make it random
@@ -117,7 +117,7 @@ export function getRandomSection() {
       resourcesCount: getRandomNumber(0, 50),
       topicsCount: getRandomNumber(0, 20),
       // topicsCount: baseSection.topics.length,
-      path: `/${faker.lorem.word()}`,
+      basePath: `/${faker.lorem.word()}`,
       disabled: Boolean(getRandomNumber(0, 1))
     }
   );

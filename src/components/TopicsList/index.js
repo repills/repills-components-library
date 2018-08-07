@@ -112,7 +112,7 @@ class TopicsList extends React.Component {
                   key={`${topic.slug}-${i}`}
                 >
                   <PreviewComponent
-                    navigateTo={() => navigateTo(topic.path)}
+                    navigateTo={() => navigateTo(topic.basePath)}
                     {...topic}
                   />
                 </ItemStyle>

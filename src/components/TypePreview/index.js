@@ -21,7 +21,7 @@ const TextStyle = styled.div`${text}`;
 function TypeSquarePreview({
   active,
   color,
-  path,
+  basePath,
   count,
   icon,
   id,
@@ -38,7 +38,7 @@ function TypeSquarePreview({
       active={active}
       color={color}
       id={id}
-      onClick={active ? null : () => navigateTo(path)}
+      onClick={active ? null : () => navigateTo(basePath)}
     >
       <IconStyle
         active={active}

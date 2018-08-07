@@ -37,7 +37,7 @@ function SectionsList({
                 key={section.id}
               >
                 <SectionPreview
-                  navigateTo={() => navigateTo(section.path)}
+                  navigateTo={() => navigateTo(section.basePath)}
                   {...section}
                 />
               </ItemStyle>
